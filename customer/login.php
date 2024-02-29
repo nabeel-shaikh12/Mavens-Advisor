@@ -89,6 +89,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 														unset($_SESSION['error_message']);
 													}
 												?>
+												<?php if (isset($error)) : ?>
+                                                <p style="color:red;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $error; ?></p>
+                                                <?php endif; ?>
 												<div class="dz-social">
 												</div>
 											</form>
@@ -98,7 +101,6 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 										  </div>
 										  <div class="tab-pane fade" id="nav-forget" role="tabpanel" aria-labelledby="nav-forget-tab">
 											<form class="dz-form">
-												<!-- <h3 class="form-title m-t0">Forget Password ?</h3> -->
 												<div class="dz-separator-outer m-b5">
 													<div class="dz-separator bg-primary style-liner"></div>
 												</div>

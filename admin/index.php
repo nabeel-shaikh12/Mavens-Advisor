@@ -10,6 +10,27 @@ if (isset($_POST['logout'])) {
     header("Location: login.php");
     exit; 
     }
+
+include '../db/dbCon.php'; 
+
+$sql = "SELECT count FROM visit_count";
+$result = $conn->query($sql);
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $visitCount = $row['count'];
+} else {
+    $visitCount = 0; 
+}
+$sql2 = "SELECT count FROM visit_count_subscription";
+$result2 = $conn->query($sql2);
+
+if ($result2 && $result2->num_rows > 0) {
+    $row2 = $result2->fetch_assoc(); 
+    $visitCountSubscription = $row2['count']; 
+} else {
+    $visitCountSubscription = 0; 
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,14 +77,10 @@ if (isset($_POST['logout'])) {
 										</svg>
 									</div>
 									<div class="total-projects ms-3">
-										<h3 class="text-success count"><?php if (isset($_SESSION['visit_count'])) {
-											echo "" . $_SESSION['visit_count'];
-											} 
-											else {
-											  echo "0";
-											}?>
-											</h3>
-										<span class="text-success count">Subscription form Visit Count</span>
+											<?php
+											echo '<h3 class="text-success count">' . $visitCount . '</h3>';
+											?>
+										<span class="text-success count">Calculator Visit</span>
 									</div>
 								</div>
 							</div>
@@ -81,13 +98,8 @@ if (isset($_POST['logout'])) {
 
 									</div>
 									<div class="total-projects ms-3">
-										<h3 class="text-primary count"><?php if (isset($_SESSION['visit_count_in_calculator'])) {
-												echo "" . $_SESSION['visit_count_in_calculator'];
-															} else {
-																echo "0";
-															}
-														?></h3>
-										<span class="text-primary count">Calculator Visit</span>
+										<?php echo '<h3 class="text-primary count">'.$visitCountSubscription.'</h3>'?>
+										<span class="text-primary count">Subscription form Visit</span>
 									</div>
 								</div>
 							</div>

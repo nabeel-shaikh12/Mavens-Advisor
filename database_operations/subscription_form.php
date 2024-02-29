@@ -1,18 +1,6 @@
 <?php
 session_start();
 include '../db/dbCon.php';
-
-$_SESSION['filled_subscription_form'] = true;
-
-// Redirect to the login page
-header('Location: ../customer/login.php');
-exit();
-?>
-
-<?php
-session_start();
-include '../db/dbCon.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $business_description = $_POST['business_description'];
     $business_size = $_POST['business_size'];
@@ -41,5 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = array("success" => false, "message" => "Error: No POST data received.");
     echo json_encode($response);
 }
+
 $conn->close();
+
+$_SESSION['filled_subscription_form'] = true;
+header('Location: ../customer/login.php');
+exit();
 ?>

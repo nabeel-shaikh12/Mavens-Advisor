@@ -28203,7 +28203,12 @@ code {
 
 #chart_widget_4 {
   height: 15.9375rem !important; }
-
+  
+  [data-theme-version="dark"] 
+  .chat-box-area .message-sent p {
+    background: #ffff !important;
+    color: black !important;
+}
 #chart_widget_1 {
   margin-top: -5px; }
 

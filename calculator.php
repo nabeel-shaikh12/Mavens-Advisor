@@ -1,15 +1,35 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['email_address'])) {
-  header('Location: ./customer/login.php');
-  exit();
+    header('Location: ./customer/login.php');
+    exit();
 } 
+
+include 'db/dbCon.php';
+
+// Increment visit count in the session
 if (!isset($_SESSION['visit_count_in_calculator'])) {
     $_SESSION['visit_count_in_calculator'] = 1;
 } else {
     $_SESSION['visit_count_in_calculator']++;
 }
+
+// Increment visit count in the database
+$sqlIncrement = "INSERT INTO visit_count (id, count) VALUES (1, 1) ON DUPLICATE KEY UPDATE count = count + 1";
+$conn->query($sqlIncrement);
+
+// Retrieve visit count from the database
+$sqlSelect = "SELECT count FROM visit_count WHERE id = 1"; // Assuming id 1 is used for the single row
+$result = $conn->query($sqlSelect);
+$visitCount = 0;
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $visitCount = $row['count'];
+}
+$_SESSION['visit_count_in_calculator'] = $visitCount;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

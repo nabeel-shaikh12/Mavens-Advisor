@@ -39,7 +39,6 @@ if (isset($_POST['logout'])) {
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 	<script src="chat.js"></script>
-
 </head>
 <body>
   <div id="main-wrapper">
@@ -72,11 +71,20 @@ if (isset($_POST['logout'])) {
 								exit();
 							}
 						    $user_email = $_SESSION['email_address'];
-							$sql = "SELECT id, admin_email, email_address, GROUP_CONCAT(message SEPARATOR '<br>') AS messages, MAX(timestamp) AS timestamp
-							FROM messages 
-							WHERE email_address = '$user_email' 
-							-- AND admin_email = 'admin@gmail.com' 
-							GROUP BY email_address" ;
+							$sql = "SELECT 
+							id, 
+							admin_email, 
+							email_address, 
+							message, 
+							timestamp
+							FROM 
+								messages 
+							WHERE 
+								email_address = '$user_email' 
+							ORDER BY 
+								timestamp DESC 
+							LIMIT 1;
+							" ;
 							$result = $conn->query($sql);
 							if ($conn->connect_error) {
 							 die("Connection failed: " . $conn->connect_error);
@@ -90,22 +98,21 @@ if (isset($_POST['logout'])) {
 										  while ($row = $result->fetch_assoc()) {
 											echo '<div class="chat-p style-1" data-email="' . $row['email_address'] .'" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
 											echo '<div class="d-flex" onclick="toggleMessageSend()">';
-											// echo '<a href="delete_chat.php?id=' . $row['id'] . '"><i class="delete-btn fas fa-trash-alt mt-2" style="color:red;margin-right:20px"></i></a>';
-											echo '<img src="../img/user-image.png" class="avatar avatar-lg rounded-circle" alt="">';
+											// echo '<img src="../img/user-image.png" class="avatar avatar-lg rounded-circle" alt="">';
 											echo '<div class="ms-2">';
 											echo '<h6 class="mb-0">admin@gmail.com</h6>';
-											echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['messages'] . '<br>' . '</span>';
+											echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
 											echo '</div>';
 											echo '</div>';
 											echo '<span>' . $row['timestamp'] . '</span>';
 											echo '</div>';
 										}
 									} 
-								 else {
-								    echo "No chats Available";
-								}
-										$conn->close();
-								?>
+										else {
+											echo "No chats Available";
+										}
+									  $conn->close();
+									?>
 								</div>
 							  </div>
 							  <div class="col-xl-7 col-lg-7 col-sm-7 chat-border" id="chat-detail" > 
@@ -113,36 +120,38 @@ if (isset($_POST['logout'])) {
 							</div>
 							<div class="message-send style-2" id="messageContainer" style="display: none;">
 							<div class="type-massage style-1">
-								<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>">
-									<input type="hidden" name="email" value="<?php echo $user_email; ?>">
-
-									<div class="row">
-										<div class="col-md-6 col-xl-6 col-sm-6 col-lg-6 w-100">
-											<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here..">
-										</div>
-										<div class="col-md-6 col-xl-6 col-sm-6 col-lg-6">
-											<button type="submit" class="btn btn-primary p-2" id="sendButton" style="margin-top:-40px;">Send
-												<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-													<path d="M10.555 5.44976L6.73936 9.30612L2.39962 6.59178C1.77783 6.20276 1.90718 5.25829 2.61048 5.05262L12.9142 2.03518C13.5582 1.84642 14.155 2.44855 13.9637 3.09466L10.9154 13.3912C10.7066 14.0955 9.76747 14.2213 9.38214 13.5968L6.73734 9.3068" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</button>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-					 </div>
+							<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>" enctype="multipart/form-data">
+							<input type="hidden" name="email" value="<?php echo $user_email; ?>">
+							<div class="row">
+								<div class="col-md-6 col-xl-6 col-sm-6 col-lg-6 w-100">
+									<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here..">
+								</div>
+								<div class="col-md-4 col-xl-4 col-sm-4 col-lg-4">
+									<input type="file" name="file" id="file" class="form-control">
+								</div>
+								<div class="col-md-2 col-xl-2 col-sm-2 col-lg-2">
+									<button type="submit" class="btn btn-primary p-2" id="sendButton" style="margin-top:-40px;">Send
+										<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+											<path d="M10.555 5.44976L6.73936 9.30612L2.39962 6.59178C1.77783 6.20276 1.90718 5.25829 2.61048 5.05262L12.9142 2.03518C13.5582 1.84642 14.155 2.44855 13.9637 3.09466L10.9154 13.3912C10.7066 14.0955 9.76747 14.2213 9.38214 13.5968L6.73734 9.3068" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+										</svg>
+									</button>
+								</div>
+							   </div>
+						      </form>
+					         </div>
+				            </div>
+				           </div>
 				<script>
 					function toggleMessageSend() {
 						var messageSendDiv = document.getElementById("messageContainer");
 						if (messageSendDiv.style.display === "none") {
-							messageSendDiv.style.display = "block";
+								messageSendDiv.style.display = "block";
 						} else {
 							messageSendDiv.style.display = "none";
 							messageSendDiv.style.display = "block";
 						}
 					}
-	</script>
+				</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./vendor/global/global.min.js"></script>
 	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
@@ -153,48 +162,56 @@ if (isset($_POST['logout'])) {
 	<script src="./js/demo.js"></script>
     <script src="./js/styleSwitcher.js"></script>
 	<script>
-		var intervalId; 
-		function fetchChatDetail(emailAddress) {
-			var xhr = new XMLHttpRequest();
-			xhr.onreadystatechange = function() {
-				if (xhr.readyState == 4) {
-					if (xhr.status == 200) {
-						document.getElementById("chat-detail-content").innerHTML = xhr.responseText;
-						setupSendMessageListener(emailAddress);
-					} else {
-						console.error("Error fetching chat details. Status code: " + xhr.status);
-					}
-				}
-			};
-			var encodedEmailAddress = encodeURIComponent(emailAddress);
-			xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
-			xhr.send();
-		}
-		function setupSendMessageListener(emailAddress) {
-			var sendMessageForm = document.getElementById("messageForm");
-			sendMessageForm.onsubmit = function(e) {
-				e.preventDefault();
-				var message = document.getElementById("message").value;
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState == 4) {
-						if (xhr.status == 200) {
-							fetchChatDetail(emailAddress); 
-							document.getElementById("message").value = '';
-						} else {
-							console.error("Error sending message. Status code: " + xhr.status);
-						}
-					}
-				};
-				xhr.open("POST", "send_message.php", true);
-				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-				var params = "email=" + encodeURIComponent(emailAddress) + "&message=" + encodeURIComponent(message);
-				xhr.send(params);
-			};
-			clearInterval(intervalId);
-			intervalId = setInterval(function() {
-				fetchChatDetail(emailAddress);
-			}, 10000);
-		}
-	</script>
+    var intervalId; 
+
+    function fetchChatDetail(emailAddress) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    document.getElementById("chat-detail-content").innerHTML = xhr.responseText;
+                    setupSendMessageListener(emailAddress);
+                } else {
+                    console.error("Error fetching chat details. Status code: " + xhr.status);
+                }
+            }
+        };
+        var encodedEmailAddress = encodeURIComponent(emailAddress);
+        xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
+        xhr.send();
+    }
+    function setupSendMessageListener(emailAddress) {
+        var sendMessageForm = document.getElementById("messageForm");
+        sendMessageForm.onsubmit = function(e) {
+            e.preventDefault();
+            var message = document.getElementById("message").value;
+            var fileInput = document.getElementById("file").files[0];
+
+            var formData = new FormData();
+            formData.append('email', emailAddress);
+            formData.append('message', message);
+            formData.append('file', fileInput);
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4) {
+                    if (xhr.status == 200) {
+                        fetchChatDetail(emailAddress); 
+                        document.getElementById("message").value = '';
+                        document.getElementById("file").value = '';
+                    } else {
+                        console.error("Error sending message. Status code: " + xhr.status);
+                    }
+                }
+            };
+            xhr.open("POST", "send_message.php", true);
+            xhr.send(formData);
+        };
+        clearInterval(intervalId);
+        intervalId = setInterval(function() {
+            fetchChatDetail(emailAddress);
+        }, 10000);
+    }
+</script>
+
 </html>

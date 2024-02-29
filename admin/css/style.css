@@ -25622,6 +25622,12 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   color: #fff;
   border-color: #6e6e6e; }
 
+  [data-theme-version="dark"] 
+  .chat-box-area .message-sent p {
+    background: #ffff !important;
+    color: black !important;
+}
+
 .alert.alert-light.solid {
   background: #c8c8c8;
   color: #6e6e6e;

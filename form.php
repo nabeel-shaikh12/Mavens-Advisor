@@ -1,15 +1,23 @@
 <?php
 session_start(); 
-if (!isset($_SESSION['visit_count'])) {
-    $_SESSION['visit_count'] = 1;
+include 'db/dbCon.php';
+if (!isset($_SESSION['visit_count_in_form'])) {
+    $_SESSION['visit_count_in_form'] = 1;
 } else {
-    $_SESSION['visit_count']++;
+    $_SESSION['visit_count_in_form']++;
 }
+$sqlIncrement = "INSERT INTO visit_count_subscription (id, count) VALUES (1, 1) ON DUPLICATE KEY UPDATE count = count + 1";
+$conn->query($sqlIncrement);
 
- 
-
+$sqlSelect = "SELECT count FROM visit_count_subscription WHERE id = 1"; 
+$result = $conn->query($sqlSelect);
+$visitCountSubscription = 0;
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $visitCountSubscription = $row['count'];
+}
+$_SESSION['visit_count_in_form'] = $visitCountSubscription;
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -399,7 +407,9 @@ if (!isset($_SESSION['visit_count'])) {
           <div class="formbold-form-btn-wrapper">
             <button type="button" class="formbold-back-btn">Back</button>
             <button type="button" class="formbold-next-btn">Next Step</button>
+            <!-- <button type="submit" class="formbold-btn" name="subscribe" id="subscribe" style="display: none;">Submit</button> -->
             <button type="submit" class="formbold-btn" name="subscribe" id="subscribe" style="display: none;">Submit</button>
+
             <button type="button" class="formbold-back-btn">
             Back
           </div>
