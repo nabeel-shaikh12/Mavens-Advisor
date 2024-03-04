@@ -1,6 +1,10 @@
 <?php
 session_start();
-$_SESSION['email_address']; 
+
+if (!isset($_SESSION['email_address'])) {
+  header('Location: ./customer/login.php');
+  exit();
+} 
 
 if (isset($_POST['logout'])) {
     $_SESSION = array();
@@ -11,7 +15,7 @@ if (isset($_POST['logout'])) {
   $prices = $_GET['prices'] ?? '';
   $priceArray = [];
   if (!empty($prices)) {
-      $priceArray = explode(', ', $prices);
+      $priceArray = explode(',', $prices);
   }
   $allPrices = '';
   if (!empty($priceArray)) {
@@ -57,16 +61,21 @@ if (isset($_POST['logout'])) {
                             </div>
                           <br>
                           <div class="row">
+
                           <textarea class="form-control border-0 bg-light px-4" placeholder="Total Price" id="totalPrice" name="totalPrice"
-                          style="height: auto;margin-left:0; min-height: 240px; resize: none;" readonly>
-                            <?php
-                            $pricesArray = explode(",\n", $allPrices);
-                            foreach ($pricesArray as $price) {
-                                echo htmlspecialchars($price) . "\n";
+                            style="height: auto; margin-left: 0; min-height: 240px; resize: none;" readonly><?php
+                            $prices = $_GET['prices'] ?? '';
+                            if (!empty($prices)) {
+                                $priceArray = explode(',', $prices);
+                                foreach ($priceArray as $price) {
+                                    $formattedPrice = trim($price);
+                                    if (!empty($formattedPrice)) {
+                                        echo htmlspecialchars($formattedPrice) . "\n";
+                                    }
+                                }
                             }
-                            ?>
-                            </textarea>
-                            </div>
+                            ?></textarea>
+                          </div>
                           </div>
                           <br>
                           <div class="row">
