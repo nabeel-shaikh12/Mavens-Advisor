@@ -1,4 +1,36 @@
-
+<?php
+session_start();
+// include('config.php');
+// if(isset($_GET["code"])) {
+//     $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+//     if(!isset($token['error'])) {
+//         $google_client->setAccessToken($token['access_token']);
+//         $_SESSION['access_token'] = $token['access_token'];
+//         $google_service = new Google_Service_Oauth2($google_client);
+//         $data = $google_service->userinfo->get();
+//         if(!empty($data['given_name'])) {
+//             $_SESSION['user_first_name'] = $data['given_name'];
+//         }
+//         if(!empty($data['family_name'])) {
+//             $_SESSION['user_last_name'] = $data['family_name'];
+//         }
+//         if(!empty($data['email'])) {
+//             $_SESSION['user_email_address'] = $data['email'];
+//         }
+//         if(!empty($data['gender'])) {
+//             $_SESSION['user_gender'] = $data['gender'];
+//         }
+//         if(!empty($data['picture'])) {
+//             $_SESSION['user_image'] = $data['picture'];
+//         }
+//     }
+// }
+// if(!isset($_SESSION['access_token'])) {
+//     $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
+// } else {
+//     $login_button = '';
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +57,7 @@
     </style>
 </head>
 <body>
+    
     <main class="page-wrapper">
       <?php include 'components/topbar.php'?>
       <?php include 'components/header.php'?>
@@ -48,6 +81,7 @@
                                 <input name="password" type="password" required placeholder="Password">
                                 <span class="focus-border"></span>
                             </div>
+                            <div align="center"><?php echo $login_button; ?></div> <!-- Echo login button here -->
 
                             <div class="row mb--30">
                                 <div class="col-lg-6">
@@ -62,7 +96,6 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-submit-group">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -75,16 +108,14 @@
                                 <?php if(isset($_SESSION['error_message'])): ?>
                                 <p style="color: red;"><?php echo $_SESSION['error_message']; ?></p>
                                 <?php unset($_SESSION['error_message']); ?> <!-- Clear the error message after displaying -->
-                            <?php endif; ?>
-                            </div>
-                        </form>
-
+                                <?php endif; ?>
+                                </div>
+                            </form>
                         </div>
                     </div>
                  </div>
               </div>
             </div>
-
         <?php include 'components/footer.php'?>
         <?php include 'components/footerBottom.php'?>
     </main>

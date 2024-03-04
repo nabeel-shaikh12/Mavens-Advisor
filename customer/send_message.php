@@ -15,10 +15,9 @@ include '../db/dbCon.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['message']) && isset($_SESSION['email_address']) && isset($_POST['email'])) {
-        $admin_email = $_SESSION['email_address']; // Update session variable here
+        $admin_email = $_SESSION['email_address'];
         $user_email = $_POST['email']; 
         $message = mysqli_real_escape_string($conn, $_POST['message']); 
-        
         $upload_dir = '../upload/';
         $file_path = '';
         if (!empty($_FILES['file']['name']) && $_FILES['file']['error'] === UPLOAD_ERR_OK) {
@@ -42,6 +41,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 </body>
 </html>

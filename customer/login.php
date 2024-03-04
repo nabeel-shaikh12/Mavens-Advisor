@@ -1,16 +1,48 @@
+<style>
+	.fa-google {
+	background: conic-gradient(from -45deg, #ea4335 110deg, #4285f4 90deg 180deg, #34a853 180deg 270deg, #fbbc05 270deg) 73% 55%/150% 150% no-repeat;
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	/* height:25px; */
+	-webkit-text-fill-color: transparent;
+	}
+	.signIn_button{
+		text-align:center; 
+		padding:13px 45px;
+		border: thin solid #000;
+		color:black
+	}
+	.signIn_button:hover{
+		background-color:#019DFF;
+		color:white;
+		border:none;
+	}
+	.fa-google:hover{
+		color:white;
+
+	}
+</style>
+
+
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_email = $_POST["email"];
-    $_SESSION['email_address'] = $user_email;
 
-    $_SESSION['user_activity'] = 'Online';
-	$_SESSION['email_address'] = $user_email; 
-	$_SESSION['user_activity'] = true;
+include('config.php');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['login'])) {
+        $_SESSION['login'] = true; 
+        header('Location: index.php');
+        exit();
+    }
 }
-if (isset($_SESSION['email_address'])) {
-    $_SESSION['user_activity'] = 'Online';
+if(!isset($_SESSION['access_token'])) {
+	$login_button = '<a class="signIn_button" href="'.$google_client->createAuthUrl().'"><i class="fab fa-google"></i> Login With Google</a>';
+} else {
+    $login_button = '';
 }
+$trying_to_subscribe = isset($_GET['trying_to_subscribe']) ? $_GET['trying_to_subscribe'] : 0;
 ?>
 <?php
 $error = isset($_GET['error']) ? $_GET['error'] : '';
@@ -34,8 +66,8 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 	<link rel="shortcut icon" type="image/png" href="../img/MA Logo circle.png">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
-	<script src= 
-        "https://www.google.com/recaptcha/api.js" async defer> 
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer> 
     </script> 
 </head>
 <body class="vh-100">
@@ -59,6 +91,13 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 										  <div class="tab-pane fade show active" id="nav-personal" role="tabpanel" aria-labelledby="nav-personal-tab">
 										  <form method="POST" action="./login_process.php" class="dz-form pb-3">
 												<h3 class="form-title m-t0">Personal Information</h3>
+												<?php
+											if (isset($_SESSION['login_message'])) {
+												$message = $_SESSION['login_message'];
+												unset($_SESSION['login_message']);
+												echo "<h3 class='form-title m-t0'>$message</h3>";
+												}
+												?>
 												<div class="dz-separator-outer m-b5">
 													<div class="dz-separator bg-primary style-liner"></div>
 												</div>
@@ -69,7 +108,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 												<div class="form-group mb-3">
 													<input type="password" name="password" class="form-control" required placeholder="Password">
 												</div>
-												<div class="form-group text-left mb-5 forget-main">
+												<div class="form-group text-left  forget-main">
 													<input type="submit" class="btn btn-primary" style="background-color:#019dff;border:none" name="login" value="Sign Me In">
 													<span class="form-check d-inline-block">
 														<input type="checkbox" class="form-check-input" id="check1" name="example1">
@@ -77,16 +116,21 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													</span>
 													<br>
 													<br>
-													<!-- <div class="g-recaptcha" 
-														data-sitekey="6Lezq3gpAAAAAMwyIQs-IPfGPTRA0ShhRnxHQMyK"> 
-													</div>  -->
-													<!-- <button class="nav-link m-auto btn tp-btn-light btn-primary forget-tab" id="nav-forget-tab" data-bs-toggle="tab" data-bs-target="#nav-forget" type="button" role="tab" aria-controls="nav-forget" aria-selected="false">Forget Password ?</button> -->
+													<br>
+													<center>
+													<?php echo $login_button; ?>
+													</center>
 												</div>
 												<?php 
-													if (isset($_SESSION['error_message'])) {
-														$error_message = strtoupper($_SESSION['error_message']); 
-														echo "<p style='color:red; font-family:Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'>$error_message</p>";
-														unset($_SESSION['error_message']);
+												  if (isset($_SESSION['error_message'])) {
+													$error_message = strtoupper($_SESSION['error_message']); 
+													echo "<p style='color:red; font-family:Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'>$error_message</p>";
+													unset($_SESSION['error_message']);
+													}
+												  if(isset($_SESSION['message'])){
+													$message = strtoupper($_SESSION['error_message']); 
+													echo "<p style='color:red; font-family:Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'>$message</p>";
+													unset($_SESSION['message']);
 													}
 												?>
 												<?php if (isset($error)) : ?>
@@ -104,7 +148,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 												<div class="dz-separator-outer m-b5">
 													<div class="dz-separator bg-primary style-liner"></div>
 												</div>
-												<p>Enter your e-mail address below to reset your password. </p>
+												<p>Enter your e-mail address below to reset your password.</p>
 												<div class="form-group mb-4">
 													<input name="dzName" required="" class="form-control" placeholder="Email Address" type="text">
 												</div>
@@ -145,36 +189,36 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
                                                 <p style="color:red;font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $error; ?></p>
                                                 <?php endif; ?>
 											</form>
+										   </div>
+										 </div>
+									    </div>
+									   </nav>
+									  </div>
+									  <div class="card-footer">
+										<div class=" bottom-footer clearfix m-t10 m-b20 row text-center">
+										  <div class="col-lg-12 text-center">
+											<span> © Copyright by 
+											<a href="javascript:void(0);">Mavens Advisor </a> All rights reserved.</span> 
 										  </div>
 										</div>
-									   </div>
-									 </nav>
-									 </div>
-										<div class="card-footer">
-											<div class=" bottom-footer clearfix m-t10 m-b20 row text-center">
-											<div class="col-lg-12 text-center">
-												<span> © Copyright by 
-												<a href="javascript:void(0);">Mavens Advisor </a> All rights reserved.</span> 
-											</div>
-										</div>
-									</div>	
-								</div>
-							</div>
-							<div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
-								<div class="mCSB_draggerContainer">
-								<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 0px; display: block; height: 652px; max-height: 643px; top: 0px;">
-								<div class="mCSB_dragger_bar" style="line-height: 0px;"></div><div class="mCSB_draggerRail"></div></div></div>
+									  </div>	
+								    </div>
+							      </div>
+							     <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
+									<div class="mCSB_draggerContainer">
+									<div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 0px; display: block; height: 652px; max-height: 643px; top: 0px;">
+									<div class="mCSB_dragger_bar" style="line-height: 0px;"></div><div class="mCSB_draggerRail"></div></div></div>
+						     	</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 <script src="./vendor/global/global.min.js"></script>
 <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 <script src="js/deznav-init.js"></script>
- <script src="./js/custom.js"></script>
+<script src="./js/custom.js"></script>
 <script src="./js/demo.js"></script>
 <script src="./js/styleSwitcher.js"></script>
 </body>

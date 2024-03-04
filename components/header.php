@@ -26,12 +26,11 @@
                         <div class="header-right">
                             <div class="header-btn">
                                 <!-- <a class="btn-default btn-small" href="http://localhost/mavens%20advisor/customer/login">Login</a> -->
-                        
                                      <?php
                                     if(isset($_SESSION['email_address'])) {
                                         echo '<a class="btn-default btn-small" href="http://localhost/mavens%20advisor/customer/">Dashboard</a>';
                                     } else {
-                                        echo '<a class="btn-default btn-small" href="http://localhost/mavens%20advisor/customer/login.php">Login</a>';
+                                        echo '<a class="btn-default btn-small" href="http://localhost/mavens%20advisor/customer/login">Login</a>';
                                     }
                                     ?>
                                 </div>

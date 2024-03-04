@@ -9,7 +9,7 @@ $budgetPrice = $_POST['budgetPrice'] ?? '';
 $setupPrice = $_POST['setupPrice'] ?? '';
 $totalPrice = $_POST['totalPrice'] ?? '';
 
-$message = "Transaction Price: $transactionPrice, Invoice Price: $invoicePrice, Payroll Price: $payrollPrice, Cashflow Price: $cashflowPrice, Budget Price: $budgetPrice, Setup Price: $setupPrice, Total Price: $totalPrice";
+$message = "$transactionPrice $invoicePrice $payrollPrice $cashflowPrice $budgetPrice  $setupPrice $totalPrice";
 $email = $_SESSION['email_address'] ?? '';
 
 include '../db/dbCon.php';
@@ -21,7 +21,7 @@ $stmt = $conn->prepare("INSERT INTO messages (email_address, message) VALUES (?,
 $stmt->bind_param("ss", $email, $message);
 if ($stmt->execute()) {
 
-    header("location: ../customer/chat");
+    header("location: ../customer/");
     exit();
 } else {
     $errorMessage = "Error: " . $stmt->error;

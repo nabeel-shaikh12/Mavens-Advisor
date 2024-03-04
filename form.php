@@ -36,11 +36,8 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
     <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
     <link rel="stylesheet" href="assets/css/plugins/slick.css">
-    <link
-     rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"
-   />
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>    
     <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -407,9 +404,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
           <div class="formbold-form-btn-wrapper">
             <button type="button" class="formbold-back-btn">Back</button>
             <button type="button" class="formbold-next-btn">Next Step</button>
-            <!-- <button type="submit" class="formbold-btn" name="subscribe" id="subscribe" style="display: none;">Submit</button> -->
             <button type="submit" class="formbold-btn" name="subscribe" id="subscribe" style="display: none;">Submit</button>
-
             <button type="button" class="formbold-back-btn">
             Back
           </div>

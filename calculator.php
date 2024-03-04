@@ -272,7 +272,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                       </div>
                       <!-- <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" type="submit">Submit</button> -->
                     </form>
-                    <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" id="updateFormulaBtn">Get 79% Discount Now</button>
+                    <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" id="updateFormulaBtn">Get Discount Now</button>
                     <input type="submit" class="btn btn-primary p-3" style="border-radius:15px" value="Go to Chat" onclick="redirectToChat()">
                   </div>
             </div>
@@ -435,25 +435,57 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       document.getElementById("setupPrice").innerText = setupPrice;
       document.getElementById("totalPrice").innerText = totalPrice;
   }
+    // function redirectToChat() {
+    //     var transactionPrice = document.getElementById("transactionPrice").innerText;
+    //     var invoicePrice = document.getElementById("invoicePrice").innerText;
+    //     var payrollPrice = document.getElementById("payrollPrice").innerText;
+    //     var cashflowPrice = document.getElementById("cashflowPrice").innerText;
+    //     var budgetPrice = document.getElementById("budgetPrice").innerText;
+    //     var setupPrice = document.getElementById("setupPrice").innerText;
+    //     var updatePrice = document.getElementById("updatePrice").innerText;
+    //     var totalPrice = document.getElementById("totalPrice").innerText;
+    //     var prices = `Transaction Price: ${transactionPrice}, 
+    //                   Invoice Price: ${invoicePrice}, 
+    //                   Payroll Price: ${payrollPrice}, 
+    //                   Cashflow Price: ${cashflowPrice}, 
+    //                   Budget Price: ${budgetPrice}, 
+    //                   Setup Price: ${setupPrice},
+    //                   Total Price: ${totalPrice},
+    //                   Discounted Price: ${updatePrice}`;
+    //     window.location.href = 'chat.php?prices=' + encodeURIComponent(prices);
+    // }
     function redirectToChat() {
-        var transactionPrice = document.getElementById("transactionPrice").innerText;
-        var invoicePrice = document.getElementById("invoicePrice").innerText;
-        var payrollPrice = document.getElementById("payrollPrice").innerText;
-        var cashflowPrice = document.getElementById("cashflowPrice").innerText;
-        var budgetPrice = document.getElementById("budgetPrice").innerText;
-        var setupPrice = document.getElementById("setupPrice").innerText;
-        var updatePrice = document.getElementById("updatePrice").innerText;
-        var totalPrice = document.getElementById("totalPrice").innerText;
-        var prices = `Transaction Price: ${transactionPrice}, 
-                      Invoice Price: ${invoicePrice}, 
-                      Payroll Price: ${payrollPrice}, 
-                      Cashflow Price: ${cashflowPrice}, 
-                      Budget Price: ${budgetPrice}, 
-                      Setup Price: ${setupPrice},
-                      Total Price: ${totalPrice},
-                      Discounted Price: ${updatePrice}`;
-        window.location.href = 'chat.php?prices=' + encodeURIComponent(prices);
-    }
+    var transactionPrice = document.getElementById("transactionPrice").innerText;
+    var invoicePrice = document.getElementById("invoicePrice").innerText;
+    var payrollPrice = document.getElementById("payrollPrice").innerText;
+    var cashflowPrice = document.getElementById("cashflowPrice").innerText;
+    var budgetPrice = document.getElementById("budgetPrice").innerText;
+    var setupPrice = document.getElementById("setupPrice").innerText;
+    var updatePrice = document.getElementById("updatePrice").innerText;
+    var totalPrice = document.getElementById("totalPrice").innerText;
+
+    // Add dollar sign to each price
+    transactionPrice = '$' + transactionPrice;
+    invoicePrice = '$' + invoicePrice;
+    payrollPrice = '$' + payrollPrice;
+    cashflowPrice = '$' + cashflowPrice;
+    budgetPrice = '$' + budgetPrice;
+    setupPrice = '$' + setupPrice;
+    updatePrice = '$' + updatePrice;
+    totalPrice = '$' + totalPrice;
+
+    var prices = `Transaction Price: ${transactionPrice}, 
+                  Invoice Price: ${invoicePrice}, 
+                  Payroll Price: ${payrollPrice}, 
+                  Cashflow Price: ${cashflowPrice}, 
+                  Budget Price: ${budgetPrice}, 
+                  Setup Price: ${setupPrice},
+                  Total Price: ${totalPrice},
+                  Discounted Price: ${updatePrice}`;
+
+    window.location.href = 'chat.php?prices=' + encodeURIComponent(prices);
+}
+
 </script>
     <script src="assets/js/vendor/modernizr.min.js"></script>
     <script src="assets/js/vendor/jquery.min.js"></script>

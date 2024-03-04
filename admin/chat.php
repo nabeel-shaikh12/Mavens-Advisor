@@ -39,11 +39,8 @@ if (isset($_POST['logout'])) {
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
 	<script src="chat.js"></script>
-
     <link href="./css/style.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="chat.js"></script>
-
 </head>
 <body>
   <div id="main-wrapper">
@@ -166,7 +163,7 @@ if (isset($_POST['logout'])) {
 			<script src="./js/deznav-init.js"></script>
 			<script src="./js/demo.js"></script>
 			<script src="./js/styleSwitcher.js"></script>
-			<script>
+			<!-- <script>
 			var intervalId; 
 			function fetchChatDetail(emailAddress) {
 				var xhr = new XMLHttpRequest();
@@ -216,6 +213,63 @@ if (isset($_POST['logout'])) {
 					fetchChatDetail(emailAddress);
 				}, 10000);
 			}
-		</script>
+		</script> -->
+		<script>
+	var intervalId; 
+	var previousMessages = '';
+
+	function fetchChatDetail(emailAddress) {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if (xhr.status == 200) {
+					var currentMessages = xhr.responseText;
+					if (currentMessages !== previousMessages) { 
+						document.getElementById("chat-detail-content").innerHTML = currentMessages;
+						setupSendMessageListener(emailAddress);
+						previousMessages = currentMessages; 
+					}
+				} else {
+					console.error("Error fetching chat details. Status code: " + xhr.status);
+				}
+			}
+		};
+		var encodedEmailAddress = encodeURIComponent(emailAddress);
+		xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
+		xhr.send();
+	}
+
+	function setupSendMessageListener(emailAddress) {
+		var sendMessageForm = document.getElementById("messageForm");
+		sendMessageForm.onsubmit = function(e) {
+			e.preventDefault();
+			var message = document.getElementById("message").value;
+			var fileInput = document.getElementById("file").files[0];
+			var formData = new FormData();
+			formData.append('email', emailAddress);
+			formData.append('message', message);
+			formData.append('file', fileInput);
+
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4) {
+					if (xhr.status == 200) {
+						fetchChatDetail(emailAddress); 
+						document.getElementById("message").value = '';
+						document.getElementById("file").value = '';
+					} else {
+						console.error("Error sending message. Status code: " + xhr.status);
+					}
+				}
+			};
+			xhr.open("POST", "send_message.php", true);
+			xhr.send(formData);
+		};
+		clearInterval(intervalId);
+		intervalId = setInterval(function() {
+			fetchChatDetail(emailAddress);
+		}, 10000);
+	}
+</script>
 </body>
 </html>

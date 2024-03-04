@@ -20,9 +20,8 @@
 <body>
   <?php include 'components/topbar.php'?>
   <header class="navigation bg-tertiary">
-
-    <?php include 'components/header.php'?>
-</header>
+      <?php include 'components/header.php'?>
+  </header>
 <div>
       <div class="rainbow-gradient-circle"></div>
       <div class="rainbow-gradient-circle theme-pink"></div>

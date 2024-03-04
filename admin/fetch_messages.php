@@ -37,19 +37,11 @@
 </head>
 <body>
 <?php
-include '../db/dbCon.php';
 session_start();
-if (!isset($_SESSION['email'])) {
-    header('Location: login.php');
-    exit();
-}
-$user_activity_status = isset($_SESSION['user_activity']) && $_SESSION['user_activity'] ? 'Online' : 'Offline';
-if (isset($_POST['logout'])) {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: login.php");
-    exit();
-}
+
+include '../db/dbCon.php';
+
+
 $admin_email = $_SESSION['email'];
 $user_email = $_GET['email'];
 $sqlMessages = "SELECT * FROM messages WHERE email_address = '$user_email' OR admin_email = '$user_email'";
@@ -76,7 +68,7 @@ $htmlContent = '<div class="chat-box-area style-2 dz-scroll">';
                 $filePath = substr($message, 2);
                 $fileExtension = strtolower(pathinfo($filePath, PATHINFO_EXTENSION));
                    if ($fileExtension == 'jpg' || $fileExtension == 'jpeg' || $fileExtension == 'png' || $fileExtension == 'gif' || $fileExtension == 'bmp') {
-                     $messageContent = '<img src="' . $filePath . '" alt="Image" height="80px">';
+                     $messageContent = '<img src="' . $filePath . '" alt="Image" height="380px">';
                     } elseif ($fileExtension == 'pdf') {
                         $messageContent = '<object data="' . $filePath . '" type="application/pdf"><p>PDF viewer required.</p></object>';
                         $openInNewTabLink = '<a href="' . $filePath . '" target="_blank">Open PDF in new tab</a>';
@@ -94,7 +86,6 @@ $htmlContent = '<div class="chat-box-area style-2 dz-scroll">';
                 }
                  $htmlContent .= '<div class="media ' . $alignmentClass . ' align-items-end">';
                  $htmlContent .= '<div class="message-sent w-auto' . ($row['admin_email'] == $admin_email ? ' admin-message' : '') . '">';
-                 $htmlContent .= '<span style="font-size:12px" class="sender">' . $sender . '</span>'; 
                  $htmlContent .= $messageContent;
                  $htmlContent .= '<span class="fs-12">' . date("h:i A", strtotime($row['timestamp'])) . '</span>';
                  $htmlContent .= '</div>';

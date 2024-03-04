@@ -49,16 +49,6 @@
 <?php
 session_start();
 include '../db/dbCon.php';
-if (!isset($_SESSION['email_address'])) {
-    header('Location: login.php');
-    exit();
-}
-if (isset($_POST['logout'])) {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: login.php");
-    exit;
-}
 $admin_email = $_SESSION['email_address'];
 $user_email = $_GET['email'];
 $sqlMessages = "SELECT * FROM messages WHERE email_address = '$user_email' OR admin_email = '$user_email'";

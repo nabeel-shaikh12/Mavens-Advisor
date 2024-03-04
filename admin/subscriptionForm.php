@@ -69,7 +69,7 @@ if (isset($_POST['logout'])) {
                      <tbody>
                         <?php
                          include '../db/dbCon.php'; 
-                         $fetch_subscription_sql = "SELECT * FROM subscription_form";
+                         $fetch_subscription_sql = "SELECT * FROM subscription_form ORDER BY updated_date";
                          $fetch_subscription_result = $conn->query($fetch_subscription_sql);
                          if ($fetch_subscription_result->num_rows > 0) {
                             while ($subscription_data = $fetch_subscription_result->fetch_assoc()) {
@@ -90,10 +90,10 @@ if (isset($_POST['logout'])) {
                                 echo '</tr>';
                             }
                         }
-                            else 
-                            {
-                                echo '<tr><td colspan="10">No subscription data found.</td></tr>';
-                            }
+                        else 
+                        {
+                            echo '<tr><td colspan="10">No subscription data found.</td></tr>';
+                        }
                         $conn->close(); 
                         ?>
                </tbody>
