@@ -21,7 +21,7 @@
 <body>
  <main class="page-wrapper">
 <?php include 'components/topbar.php'?>
-<?php include 'components/header.php'?>
+ <?php include 'components/header.php'?>
  <div>
    <div class="rainbow-gradient-circle"></div>
    <div class="rainbow-gradient-circle theme-pink"></div>
@@ -30,29 +30,28 @@
     <div class="row ">
       <div class="col-sm-6 col-lg-6 col-md-6 col-xl-6">
         <div class="service gallery-style">
-            <h5 class="card-title"><b>Bookkeeping Calculator</b></h5>
+          <h5 class="card-title"><b>Bookkeeping Calculator</b></h5>
             <form action="./database_operations/calculator_operations.php" method="POST" id="calculatorForm">
-              <br>
-              <label>
-                <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction"
+            <br>
+            <label>
+            <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction"
                   onclick="showInputBox('monthlyTransaction')">
                Number of Monthly Transactions
-              </label>
+            </label>
               <br>
-              <div id="monthlyTransactionInput" style="display: none;">
-                <input type="number" class="form-control" id="monthlyTransactionInputField"
-                  placeholder="Number of Transactions" class="p-4" oninput="calculatePrices()" min="0">
-                  <br>
-                <p id="monthlyTransactionDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                  This service calculates the price based on the number of monthly transactions.
-                </p>
-              </div>
-              <br>
-              <label>
+            <div id="monthlyTransactionInput" style="display: none;">
+              <input type="number" class="form-control" id="monthlyTransactionInputField"
+                placeholder="Number of Transactions" class="p-4" oninput="calculatePrices()" min="0">
+                <br>
+              <p id="monthlyTransactionDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                This service calculates the price based on the number of monthly transactions.
+              </p>
+            </div>
+            <br>
+            <label>
                 <input type="checkbox" name="category" value="monthlyInvoices"
-                  onclick="showInputBox('monthlyInvoices')">
-              Number of Monthly Invoices
-              </label>
+                  onclick="showInputBox('monthlyInvoices')">Number of Monthly Invoices
+            </label>
               <br>
               <div id="monthlyInvoicesInput" style="display: none;">
                 <input type="number" class="form-control" id="monthlyInvoicesInputField"
@@ -116,83 +115,83 @@
           </div>
           <div class="col-sm-6 col-lg-6 col-md-6 col-xl-6 service">
             <div class="service gallery-style w-75">
-                <h5 class="card-title"><b>Billing Breakup:</b></h5>
-                  <br>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Monthly Bank Reconcilation Fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Monthly Invoicing Fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Monthly Payroll Fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Monthly Cashflow Fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Monthly Budgeting Fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>One-time setup fee</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-md-8">
-                    <p><b>Total Billing</b></p>
-                    </div>
-                    <div class="col-md-4">
-                    <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
-                    </div>
-                    </div> 
-                    <hr>
-                    <div class="row" id="discountedRow" style="display: none;">
-                      <div class="col-md-8">
-                          <p><b>Discounted Price</b></p>
-                      </div>
-                      <div class="col-md-4">
-                          <p><b><span id="updatePrice">0</span> $</b></p>
-                      </div>
-                  </div>
-                    <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" type="submit">Submit</button>
-                </form>
-                <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" id="updateFormulaBtn">Get 79% Discount Now</button>
+              <h5 class="card-title"><b>Billing Breakup:</b></h5>
+              <br>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>Monthly Bank Reconcilation Fee</b></p>
+                </div>
+                <div class="col-md-4">
+                  <p><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
+                </div>
               </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-8">
+                <p><b>Monthly Invoicing Fee</b></p>
+              </div>
+              <div class="col-md-4">
+                <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
+              </div>
+             </div>
+              <hr>
+              <div class="row">
+               <div class="col-md-8">
+                <p><b>Monthly Payroll Fee</b></p>
+               </div>
+               <div class="col-md-4">
+                 <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
+               </div>
+              </div>
+              <hr>
+              <div class="row">
+               <div class="col-md-8">
+                <p><b>Monthly Cashflow Fee</b></p>
+              </div>
+              <div class="col-md-4">
+                <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
+              </div>
+              </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+               <p><b>Monthly Budgeting Fee</b></p>
+               </div>
+               <div class="col-md-4">
+                <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
+               </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>One-time setup fee</b></p>
+                </div>
+                <div class="col-md-4">
+                    <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
+                </div>
+              </div>
+                  <hr>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>Total Billing</b></p>
+                </div>
+                <div class="col-md-4">
+                  <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
+                 </div>
+               </div> 
+               <hr>
+               <div class="row" id="discountedRow" style="display: none;">
+                <div class="col-md-8">
+                  <p><b>Discounted Price</b></p>
+                </div>
+              <div class="col-md-4">
+                <p><b><span id="updatePrice">0</span> $</b></p>
+              </div>
+              </div>
+              <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" type="submit">Submit</button>
+            </form>
+            <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" id="updateFormulaBtn">Get 79% Discount Now</button>
+          </div>
          </div>
         </div>
        </div>
@@ -232,7 +231,6 @@ function showInputBox(category) {
     categoryTotal[selectedCategory] = calculateCategoryTotal(selectedCategory);
     calculatePrices();
 }
-
 function calculateCategoryTotal(category) {
     const checkbox = document.querySelector(`[value=${category}]`);
     const transactionCheckbox = document.getElementById('monthlyTransactionCheckbox');
@@ -256,7 +254,6 @@ function calculateCategoryTotal(category) {
         return 0;
     }
 }
-
 function updateFormulas() {
     const transactionPrice = (categoryTotal.monthlyTransaction * 1 / 60 * 10).toFixed(2);
     const invoicePrice = (categoryTotal.monthlyInvoices * 5 / 60 * 10).toFixed(2);

@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param('sss', $full_name, $email_address, $message_text);
 
     if ($stmt->execute()) {
-        $message = "Message sent successfully.";
-        header('location: contact.php');
-        exit();
+      $message = "Message sent successfully.";
+      header('location: contact.php');
+      exit();
     } else {
-        $error = "Error: " . $stmt->error;
+      $error = "Error: " . $stmt->error;
     }
     $stmt->close();
     $conn->close();

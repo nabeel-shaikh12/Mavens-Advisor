@@ -140,7 +140,6 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     display: block;
     margin-bottom: 10px;
   }
-
   .formbold-form-confirm {
     border-bottom: 1px solid #DDE3EC;
     padding-bottom: 35px;
@@ -214,7 +213,6 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
   .formbold-form-step-5.active{
     display: block;
   }
-
   .formbold-form-btn-wrapper {
     display: flex;
     align-items: center;
@@ -442,26 +440,23 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
         const formNextBtn = document.querySelector('.formbold-next-btn');
 
         function updateStep() {
-            stepMenus.forEach((stepMenu, index) => {
-                stepMenu.classList.toggle('active', index === currentStepIndex);
-            });
-            formSteps.forEach((formStep, index) => {
-                formStep.classList.toggle('active', index === currentStepIndex);
-            });
-
-            formBackBtn.style.display = currentStepIndex === 0 ? 'none' : 'inline-block';
-            if (currentStepIndex === formSteps.length - 1) {
-                formNextBtn.style.display = 'none';
-                formSubmitBtn.style.display = 'inline-block';
-            } else {
+          stepMenus.forEach((stepMenu, index) => {
+            stepMenu.classList.toggle('active', index === currentStepIndex);
+          });
+          formSteps.forEach((formStep, index) => {
+            formStep.classList.toggle('active', index === currentStepIndex);
+          });
+          formBackBtn.style.display = currentStepIndex === 0 ? 'none' : 'inline-block';
+           if (currentStepIndex === formSteps.length - 1) {
+             formNextBtn.style.display = 'none';
+             formSubmitBtn.style.display = 'inline-block';
+           } else {
                 formNextBtn.style.display = 'inline-block';
                 formSubmitBtn.style.display = 'none';
             }
         }
-
         let currentStepIndex = 0;
         updateStep();
-
         formNextBtn.addEventListener("click", function(event) {
             if (validateStep(currentStepIndex)) {
                 currentStepIndex++;
@@ -470,74 +465,71 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                 alert('Please fill in all required fields before proceeding.');
             }
         });
-
         formBackBtn.addEventListener("click", function(event) {
             currentStepIndex--;
             updateStep();
         });
-
         formSubmitBtn.addEventListener("click", function(event) {
             event.preventDefault();
             const formData = new FormData(document.querySelector('form'));
             fetch('./database_operations/subscription_form.php', {
                     method: 'POST',
                     body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Form submitted successfully');
-                        const businessCategoryValue = document.getElementById('businessCategory').value.trim().toLowerCase();
-                        if (businessCategoryValue === 'bookkeeping') {
-                            window.location.href = 'calculator.php';
-                        }
-                        else{
-                          alert("Please select only Bookkeeping option on step 3");
-                        }
-                    } else {
-                        alert("There is an error while submitting the form");
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
-
-        function validateStep(stepIndex) {
-            if (stepIndex === 0) {
-                const businessTypeValue = document.getElementById('businessType').value;
-                return businessTypeValue !== 'Select an option';
-            } 
-            else if (stepIndex === 1) {
-                const businessSizeValue = document.getElementById('businessSize').value;
-                return businessSizeValue !== 'Select an option';
-            } 
-            else if (stepIndex === 2) {
-                const businessCategoryValue = document.getElementById('businessCategory').value;
-                return businessCategoryValue !== 'Select an option';
+            })
+          .then(response => {
+            if (response.ok) {
+             console.log('Form submitted successfully');
+             const businessCategoryValue = document.getElementById('businessCategory').value.trim().toLowerCase();
+            if (businessCategoryValue === 'bookkeeping') {
+              window.location.href = 'calculator.php';
             }
-            return true;
-           }
+            else{
+              alert("Please select only Bookkeeping option on step 3");
+            }
+            } else {
+              alert("There is an error while submitting the form");
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+        });
+        function validateStep(stepIndex) {
+          if (stepIndex === 0) {
+            const businessTypeValue = document.getElementById('businessType').value;
+            return businessTypeValue !== 'Select an option';
+          } 
+          else if (stepIndex === 1) {
+           const businessSizeValue = document.getElementById('businessSize').value;
+           return businessSizeValue !== 'Select an option';
+          } 
+          else if (stepIndex === 2) {
+           const businessCategoryValue = document.getElementById('businessCategory').value;
+           return businessCategoryValue !== 'Select an option';
+         }
+        return true;
+       }
     });
 </script>
-      <script src="assets/js/vendor/modernizr.min.js"></script>
-      <script src="assets/js/vendor/jquery.min.js"></script>
-      <script src="assets/js/vendor/bootstrap.min.js"></script>
-      <script src="assets/js/vendor/popper.min.js"></script>
-      <script src="assets/js/vendor/waypoint.min.js"></script>
-      <script src="assets/js/vendor/wow.min.js"></script>
-      <script src="assets/js/vendor/counterup.min.js"></script>
-      <script src="assets/js/vendor/feather.min.js"></script>
-      <script src="assets/js/vendor/sal.min.js"></script>
-      <script src="assets/js/vendor/masonry.js"></script>
-      <script src="assets/js/vendor/imageloaded.js"></script>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
-      <script src="assets/js/vendor/magnify.min.js"></script>
-      <script src="assets/js/vendor/lightbox.js"></script>
-      <script src="assets/js/vendor/slick.min.js"></script>
-      <script src="assets/js/vendor/easypie.js"></script>
-      <script src="assets/js/vendor/text-type.js"></script>
-      <script src="assets/js/vendor/jquery.style.swicher.js"></script>
-      <script src="assets/js/vendor/js.cookie.js"></script>
-      <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-      <script src="assets/js/main.js"></script>
+    <script src="assets/js/vendor/modernizr.min.js"></script>
+    <script src="assets/js/vendor/jquery.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/vendor/counterup.min.js"></script>
+    <script src="assets/js/vendor/feather.min.js"></script>
+    <script src="assets/js/vendor/sal.min.js"></script>
+    <script src="assets/js/vendor/masonry.js"></script>
+    <script src="assets/js/vendor/imageloaded.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
+    <script src="assets/js/vendor/magnify.min.js"></script>
+    <script src="assets/js/vendor/lightbox.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/easypie.js"></script>
+    <script src="assets/js/vendor/text-type.js"></script>
+    <script src="assets/js/vendor/jquery.style.swicher.js"></script>
+    <script src="assets/js/vendor/js.cookie.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script src="assets/js/main.js"></script>
 </html>
