@@ -32,7 +32,6 @@
         .fs-12 {
             font-size: 12px;
         }
-
         .message-sent img,
         .message-sent object {
             max-width: 100%;
@@ -41,7 +40,7 @@
 
         .message-sent object {
             width: 100%;
-            height: 500px; /* Set a fixed height for embedded objects */
+            height: 500px;
         }
     </style>
 </head>
@@ -97,7 +96,6 @@ if ($resultMessages->num_rows > 0) {
 } else {
     $htmlContent .= '<p>No messages found.</p>';
 }
-
 echo $htmlContent;
 $conn->close();
 ?>

@@ -10,8 +10,7 @@ if (isset($_POST['logout'])) {
     header("Location: login.php");
     exit; 
     }
-
-	?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +67,7 @@ if (isset($_POST['logout'])) {
 								if ($conn->connect_error) {
 									die("Connection failed: " . $conn->connect_error);
 								}
-								$sql = "SELECT * FROM messages WHERE email_address != 'admin@gmail.com' GROUP BY email_address ORDER BY timestamp ASC";
+								$sql = "SELECT * FROM messages WHERE email_address != 'admin@gmail.com' GROUP BY email_address ORDER BY timestamp Desc";
 								$result = $conn->query($sql);
 								?>
 								<div class="row gx-0">
@@ -163,57 +162,6 @@ if (isset($_POST['logout'])) {
 			<script src="./js/deznav-init.js"></script>
 			<script src="./js/demo.js"></script>
 			<script src="./js/styleSwitcher.js"></script>
-			<!-- <script>
-			var intervalId; 
-			function fetchChatDetail(emailAddress) {
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState == 4) {
-						if (xhr.status == 200) {
-							document.getElementById("chat-detail-content").innerHTML = xhr.responseText;
-							setupSendMessageListener(emailAddress);
-						} else {
-							console.error("Error fetching chat details. Status code: " + xhr.status);
-						}
-					}
-				};
-				var encodedEmailAddress = encodeURIComponent(emailAddress);
-				xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
-				xhr.send();
-			}
-			function setupSendMessageListener(emailAddress) {
-				var sendMessageForm = document.getElementById("messageForm");
-				sendMessageForm.onsubmit = function(e) {
-					e.preventDefault();
-					var message = document.getElementById("message").value;
-					var fileInput = document.getElementById("file").files[0];
-
-					var formData = new FormData();
-					formData.append('email', emailAddress);
-					formData.append('message', message);
-					formData.append('file', fileInput);
-
-					var xhr = new XMLHttpRequest();
-					xhr.onreadystatechange = function() {
-						if (xhr.readyState == 4) {
-							if (xhr.status == 200) {
-								fetchChatDetail(emailAddress); 
-								document.getElementById("message").value = '';
-								document.getElementById("file").value = '';
-							} else {
-								console.error("Error sending message. Status code: " + xhr.status);
-							}
-						}
-					};
-					xhr.open("POST", "send_message.php", true);
-					xhr.send(formData);
-				};
-				clearInterval(intervalId);
-				intervalId = setInterval(function() {
-					fetchChatDetail(emailAddress);
-				}, 10000);
-			}
-		</script> -->
 		<script>
 	var intervalId; 
 	var previousMessages = '';

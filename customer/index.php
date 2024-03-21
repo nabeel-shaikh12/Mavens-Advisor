@@ -54,7 +54,7 @@ $user_email = $_SESSION['email_address'];
 	<meta property="og:description" content="Yeshadmin:Customer Relationship Management Admin Bootstrap 5 Template">
 	<meta property="og:image" content="https://yeshadmin.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-	<title>Customer Chat</title>
+	<title>Chat</title>
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="./vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
@@ -168,12 +168,12 @@ $user_email = $_SESSION['email_address'];
 											<path d="M10.555 5.44976L6.73936 9.30612L2.39962 6.59178C1.77783 6.20276 1.90718 5.25829 2.61048 5.05262L12.9142 2.03518C13.5582 1.84642 14.155 2.44855 13.9637 3.09466L10.9154 13.3912C10.7066 14.0955 9.76747 14.2213 9.38214 13.5968L6.73734 9.3068" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 									  </svg>
 									</button>
-							    </div>
-							   </div>
-						      </form>
-					          </div>
+							      </div>
+							     </div>
+						        </form>
+					           </div>
+				               </div>
 				              </div>
-				             </div>
 						<script>
 							function toggleMessageSend() {
 								var messageSendDiv = document.getElementById("messageContainer");
@@ -217,7 +217,6 @@ $user_email = $_SESSION['email_address'];
 		xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
 		xhr.send();
 	}
-
 	function setupSendMessageListener(emailAddress) {
 		var sendMessageForm = document.getElementById("messageForm");
 		sendMessageForm.onsubmit = function(e) {
@@ -250,5 +249,6 @@ $user_email = $_SESSION['email_address'];
 			fetchChatDetail(emailAddress);
 		}, 10000);
 	}
+
 </script>
 </html>

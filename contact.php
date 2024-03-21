@@ -23,24 +23,19 @@ session_start();
 .form-control {
   color: #233242 !important;
 }
-
 .form-control::-moz-placeholder {
   opacity: 0.5;
 }
-
 .form-control::placeholder {
   opacity: 0.5;
 }
-
 .form-control:disabled, .form-control[readonly] {
   background-color: #fff;
   cursor: no-drop;
 }
-
 .form-control:not(textarea) {
   height: 55px;
 }
-
 textarea.form-control {
   height: 140px;
 }
@@ -125,25 +120,24 @@ textarea.form-control {
         </div>
         <div class="main-content">
         <div class="slider-area slider-style-1 bg-transparent variation-2 height-750">
-            <div class="container">
-                <div class="row" style="display:flex;justify-content:center;align-items:center">
-                    <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40 ">
-                        <div class="inner text-left ">
-                                <h1 class="display-two">Having more than <span style="color:#0b7ffe">25 Years</span> of Experience!</h1>
-                            <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
-                              strategic guidance and operational support on a <br> flexible basis? If so, you’ve come to the right place.</p>
-                            <div class="button-group">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 order-1 order-lg-2">
-                        <div class="thumbnail">
-                             <img src="img/bg-6.png" class="w-100" style="border-radius:15px" alt="Banner Images">
-
-                            </div>
-                        </div>
-                    </div>
+         <div class="container">
+          <div class="row" style="display:flex;justify-content:center;align-items:center">
+           <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40 ">
+            <div class="inner text-left ">
+             <h1 class="display-two">Having more than <span style="color:#0b7ffe">25 Years</span> of Experience!</h1>
+              <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
+                strategic guidance and operational support on a <br> flexible basis? If so, you’ve come to the right place.</p>
+                <div class="button-group">
                 </div>
+            </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2">
+             <div class="thumbnail">
+              <img src="img/bg-6.png" class="w-100" style="border-radius:15px" alt="Banner Images">
+             </div>
+            </div>
+            </div>
+           </div>
             </div>
             <div class="rainbow-contact-area rainbow-section-gap">
                 <div class="container">
@@ -196,65 +190,34 @@ textarea.form-control {
                             </div>
                         </div>
                     </div>
-
                     <div class="row mt--40 row--15">
-                        <!-- <div class="col-lg-7">
-                            <form class="contact-form-1 rainbow-dynamic-form" id="contact-form" method="POST" action="mail.php">
-                                <div class="form-group">
-                                    <input type="text" name="contact-name" class="form-control" id="contact-name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="contact-phone" id="contact-phone" placeholder="Phone Number">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" id="contact-email" name="contact-email" placeholder="Your Email">
-                                </div>
-
-                                <div class="form-group">
-                                    <input type="text" id="subject" name="subject" placeholder="Your Subject">
-                                </div>
-
-                                <div class="form-group">
-                                    <textarea name="contact-message" id="contact-message" placeholder="Your Message"></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <button name="submit" type="submit" id="submit" class="btn-default btn-large rainbow-btn">
-                                        <span>Submit Now</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                         -->
                         <div class="col-lg-7">
 							<div class="contact-form">
 							<form method="POST" action="contactFormProcess.php">
-                                    <div class="form-group mb-4 pb-2">
-                                        <label for="exampleFormControlInput1" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control shadow-none display=two" id="full_name" name="full_name">
-                                    </div>
-                                    <div class="form-group mb-4 pb-2">
-                                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control shadow-none" id="email_address" name="email_address">
-                                    </div>
-                                    <div class="form-group mb-4 pb-2">
-                                        <label for="exampleFormControlTextarea1" class="form-label">Write Message</label>
-                                        <textarea class="form-control shadow-none" id="message" name="message" class="display-two" style="background:transparent" rows="3"></textarea>
-                                    </div>
-                                    <input class="btn btn-primary w-100 p-4" style="border-radius:8px;font-size:15px" type="submit">
-                                    
-
-                                      <?php
-                                    if (isset($_SESSION['message'])) {
-                                        echo '<div class="alert alert-success">' . $_SESSION['message'] . '</div>';
-                                        unset($_SESSION['message']); 
-                                    } elseif (isset($_SESSION['errorMessage'])) {
-                                        echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
-                                        unset($_SESSION['error']); 
-                                    }
-                                    ?>
-                                </form>
-							</div>
+                              <div class="form-group mb-4 pb-2">
+                               <label for="exampleFormControlInput1" class="form-label">Full Name</label>
+                               <input type="text" class="form-control shadow-none display=two" id="full_name" name="full_name">
+                              </div>
+                            <div class="form-group mb-4 pb-2">
+                              <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                               <input type="email" class="form-control shadow-none" id="email_address" name="email_address">
+                            </div>
+                            <div class="form-group mb-4 pb-2">
+                               <label for="exampleFormControlTextarea1" class="form-label">Write Message</label>
+                               <textarea class="form-control shadow-none" id="message" name="message" class="display-two" style="background:transparent" rows="3"></textarea>
+                            </div>
+                            <input class="btn btn-primary w-100 p-4" style="border-radius:8px;font-size:15px" type="submit">
+                              <?php
+                                if (isset($_SESSION['message'])) {
+                                    echo '<div class="alert alert-success">' . $_SESSION['message'] . '</div>';
+                                    unset($_SESSION['message']); 
+                                } elseif (isset($_SESSION['errorMessage'])) {
+                                    echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+                                    unset($_SESSION['error']); 
+                                }
+                               ?>
+                            </form>
+						  </div>
 						</div>
                         <div class="col-lg-5 mt_md--30 mt_sm--30">
                             <div class="google-map-style-1">
@@ -265,12 +228,10 @@ textarea.form-control {
         </div>
         <?php include 'components/footer.php'?>
         <?php include 'components/footerBottom.php'?>
-
     </main>
     <div class="rainbow-back-top">
         <i class="feather-arrow-up"></i>
     </div>
-
     <script src="assets/js/vendor/modernizr.min.js"></script>
     <script src="assets/js/vendor/jquery.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>

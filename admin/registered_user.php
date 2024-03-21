@@ -53,71 +53,46 @@ mysqli_close($conn);
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
-	<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
-	<?php include 'components/navHeader.php'?>
-	<?php include 'components/header.php'?>
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
+<?php include 'components/navHeader.php'?>
+<?php include 'components/header.php'?>
         <?php include 'components/sidebar.php'?>
         <div class="content-body">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-xl-12">
-						<div class="card">
-							<div class="card-body">
-								<div class="row task">
-									<div class="col-xl-2 col-sm-4 col-6">
+		 <div class="container-fluid">
+		  <div class="row">
+		   <div class="col-xl-12">
+			<div class="card">
+			 <div class="card-body">
+			  <div class="row task">
+				<div class="col-xl-4 col-sm-4 col-6">
 									<div class="task-summary">
 									<div class="d-flex align-items-baseline">
 										<h2 class="text-primary count"><?php echo $totalUsers; ?></h2>
 										<span>Total Customers</span>
-									</div>
+							     </div>
 								</div>
-									</div>
-									<div class="col-xl-2 col-sm-4 col-6">
-										<div class="task-summary">
-										<div class="d-flex align-items-baseline">
-										<h2 class="text-purple count"><?php echo $totalUsers; ?></h2>
-										<span>Active Customer</span>
-									</div>
-								</div>
-									</div>
-									<div class="col-xl-2 col-sm-4 col-6">
-										<div class="task-summary">
-											<div class="d-flex align-items-baseline">
-												<h2 class="text-warning count">0</h2>
-												<span>Inactive User</span>
-											</div>	
-										</div>
-									</div>
-									<div class="col-xl-2 col-sm-4 col-6">
-										<div class="task-summary">
-											<div class="d-flex align-items-baseline">
-												<h2 class="text-danger count">0</h2>
-												<span>Inactive Contacts</span>
-											</div>	
-										</div>
-									</div>
-									<div class="col-xl-2 col-sm-4 col-6">
-										<div class="task-summary">
-											<div class="d-flex align-items-baseline">
-												<h2 class="text-success count">21</h2>
-												<span>Complete</span>
-											</div>	
-											<p>Tasks assigne</p>
-										</div>
-									</div>
-									<div class="col-xl-2 col-sm-4 col-6">
-										<div class="task-summary">
-											<div class="d-flex align-items-baseline">	
-												<h2 class="text-danger count">16</h2>
-												<span>pending</span>
-											</div>	
-											<p>Tasks assigne</p>
-										</div>
-									</div>
-								</div>
+							  </div>
+							<div class="col-xl-4 col-sm-4 col-6">
+							 <div class="task-summary">
+							  <div class="d-flex align-items-baseline">
+								<h2 class="text-purple count"><?php echo $totalUsers; ?></h2>
+									<span>Active Customer</span>
+							  </div>
+							 </div>
+						    </div>
+							<div class="col-xl-4 col-sm-4 col-6">
+							 <div class="task-summary">
+							  <div class="d-flex align-items-baseline">
+								<h2 class="text-warning count">0</h2>
+								<span>Inactive User</span>
+							  </div>	
 							</div>
+						   </div>
+						  </div>
+					     </div>
 						</div>
-					</div>
+					   </div>
+				     </div>
 					<div class="col-xl-12">
 						<div class="card">
 							<div class="card-body p-0">

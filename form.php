@@ -490,8 +490,11 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                         if (businessCategoryValue === 'bookkeeping') {
                             window.location.href = 'calculator.php';
                         }
+                        else{
+                          alert("Please select only Bookkeeping option on step 3");
+                        }
                     } else {
-                        console.error('Error submitting form');
+                        alert("There is an error while submitting the form");
                     }
                 })
                 .catch(error => {

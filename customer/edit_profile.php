@@ -21,7 +21,7 @@ $email_address = isset($_SESSION['email_address']) ? $_SESSION['email_address'] 
 
 $user_id = null;
 if (!empty($email_address)) {
-    $sql = "SELECT id, profile_image FROM user WHERE email_address = ?";
+    $sql = "SELECT id, profile_image,user_name FROM user WHERE email_address = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email_address);
     $stmt->execute();
@@ -31,6 +31,7 @@ if (!empty($email_address)) {
         $row = $result->fetch_assoc();
         $user_id = $row['id'];
         $profile_image = $row['profile_image'];
+        // $user_name = $row['user_name'];
     } else {
         $error = "User not found.";
     }

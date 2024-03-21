@@ -1,7 +1,4 @@
 <?php
-
-//upload.php
-
 if(!empty($_FILES))
 {
 	if(is_uploaded_file($_FILES['uploadFile']['tmp_name']))
@@ -16,9 +13,7 @@ if(!empty($_FILES))
 			{
 				echo '<p><img src="'.$target_path.'" class="img-thumbnail" width="200" height="160" /></p><br />';
 			}
-			//echo $ext;
 		}
 	}
 }
-
 ?>

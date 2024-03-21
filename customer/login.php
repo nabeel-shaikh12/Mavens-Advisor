@@ -119,6 +119,11 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													<br>
 													<center>
 													<?php echo $login_button; ?>
+													<br><br>
+													<br>
+													<!-- <div class="g-recaptcha" 
+													data-sitekey="6Lc3LYspAAAAAPZ2xCnOq_SrlV8gb0jZqqQCX6aL"> 
+													</div>  -->
 													</center>
 												</div>
 												<?php 

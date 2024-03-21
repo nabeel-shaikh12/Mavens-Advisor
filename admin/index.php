@@ -13,23 +13,52 @@ if (isset($_POST['logout'])) {
 
 include '../db/dbCon.php'; 
 
-$sql = "SELECT count FROM visit_count";
-$result = $conn->query($sql);
+$sql = "SELECT `count` FROM visit_count";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $visitCount = $row['count'];
 } else {
-    $visitCount = 0; 
+    $visitCount = 0;
 }
-$sql2 = "SELECT count FROM visit_count_subscription";
-$result2 = $conn->query($sql2);
+
+$sql2 = "SELECT `count` FROM visit_count_subscription";
+$stmt2 = $conn->prepare($sql2);
+$stmt2->execute();
+$result2 = $stmt2->get_result();
 
 if ($result2 && $result2->num_rows > 0) {
-    $row2 = $result2->fetch_assoc(); 
-    $visitCountSubscription = $row2['count']; 
+    $row2 = $result2->fetch_assoc();
+    $visitCountSubscription = $row2['count'];
 } else {
-    $visitCountSubscription = 0; 
+    $visitCountSubscription = 0;
+}
+
+$sql3 = "SELECT COUNT(*) as total FROM subscription_form";
+$stmt3 = $conn->prepare($sql3);
+$stmt3->execute();
+$result3 = $stmt3->get_result();
+
+if ($result3 && $result3->num_rows > 0) {
+    $row3 = $result3->fetch_assoc();
+    $formSubmission = $row3['total'];
+} else {
+    $formSubmission = 0;
+}
+
+$sql4 = "SELECT COUNT(DISTINCT email_address) as total FROM messages";
+$stmt4 = $conn->prepare($sql4);
+$stmt4->execute();
+$result4 = $stmt4->get_result();
+
+if ($result4 && $result4->num_rows > 0) {
+    $row4 = $result4->fetch_assoc();
+    $totalChatsOpen = $row4['total'];
+} else {
+    $totalChatsOpen = 0;
 }
 ?>
 <!DOCTYPE html>
@@ -117,9 +146,10 @@ if ($result2 && $result2->num_rows > 0) {
 										</svg>
 									</div>
 									<div class="total-projects ms-3">
-										<h3 class="text-purple count">5282k</h3> 
-										
-										<span>Total Not Started</span>
+										<?php
+											echo '<h3 class="text-purple count">' . $formSubmission . '</h3>';
+										?>
+										<span>People Who Submit the form</span>
 									</div>
 								</div>
 							</div>
@@ -140,15 +170,18 @@ if ($result2 && $result2->num_rows > 0) {
 										</svg>
 									</div>
 									<div class="total-projects ms-3">
-										<h3 class="text-danger count">5,855k</h3> 
+										<!-- <h3 class="text-danger count">5,855k</h3>  -->
+										<?php
+											echo '<h3 class="text-danger count">' . $totalChatsOpen . '</h3>';
+										?>
 										
-										<span>Total Not Started</span>
+										<span>Total Chats Open</span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-xl-4 col-lg-5">
+					<!-- <div class="col-xl-4 col-lg-5">
 						<div class="card">
 							<div class="card-header border-0">
 								<h4 class="heading mb-0">Social Networking</h4>
@@ -230,7 +263,7 @@ if ($result2 && $result2->num_rows > 0) {
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> -->
 					<div class="col-xl-6">
 						<div class="card">
 							<div class="card-body p-0">
@@ -340,10 +373,11 @@ if ($result2 && $result2->num_rows > 0) {
             </div>
         </div>
     </div>
-        </div>
+  </div>
 	</div>
+	<div style="margin-top:200px">
 	<?php include 'components/footer.php'?>
-
+	</div>
     <script src="./vendor/global/global.min.js"></script>
 	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
 	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
