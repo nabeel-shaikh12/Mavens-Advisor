@@ -140,6 +140,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     display: block;
     margin-bottom: 10px;
   }
+
   .formbold-form-confirm {
     border-bottom: 1px solid #DDE3EC;
     padding-bottom: 35px;
@@ -178,7 +179,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     line-height: 24px;
     display: none;
 }
-  .formbold-confirm-btn {
+.formbold-confirm-btn {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -192,35 +193,36 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     padding: 10px 20px;
     transition: all .3s ease-in-out;
   }
-  .formbold-confirm-btn {
+.formbold-confirm-btn {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
   }
-  .formbold-confirm-btn.active {
+.formbold-confirm-btn.active {
     background: #6A64F1;
     color: #FFFFFF;
-  }
-  .formbold-form-step-1,
-  .formbold-form-step-2,
-  .formbold-form-step-3, 
-  .formbold-form-step-4,
-  .formbold-form-step-5{
+}
+.formbold-form-step-1,
+.formbold-form-step-2,
+.formbold-form-step-3, 
+.formbold-form-step-4,
+.formbold-form-step-5{
     display: none;
   }
-  .formbold-form-step-1.active,
-  .formbold-form-step-2.active,
-  .formbold-form-step-3.active,
-  .formbold-form-step-4.active,
-  .formbold-form-step-5.active{
+.formbold-form-step-1.active,
+.formbold-form-step-2.active,
+.formbold-form-step-3.active,
+.formbold-form-step-4.active,
+.formbold-form-step-5.active{
     display: block;
   }
-  .formbold-form-btn-wrapper {
+
+.formbold-form-btn-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 25px;
     margin-top: 25px;
   }
-  .formbold-back-btn {
+.formbold-back-btn {
     cursor: pointer;
     background: #FFFFFF;
     border: none;
@@ -230,10 +232,10 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     line-height: 24px;
     display: none;
   }
-  .formbold-back-btn.active {
+.formbold-back-btn.active {
     display: block;
   }
-  .formbold-btn {
+.formbold-btn {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -246,7 +248,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     color: white;
     cursor: pointer;
   }
-  .formbold-btn:hover {
+.formbold-btn:hover {
     box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
   }
   @media (max-width: 767px) {
@@ -531,5 +533,5 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     <script src="assets/js/vendor/jquery.style.swicher.js"></script>
     <script src="assets/js/vendor/js.cookie.js"></script>
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-    <script src="assets/js/main.js"></script>
+      <script src="assets/js/main.js"></script>
 </html>

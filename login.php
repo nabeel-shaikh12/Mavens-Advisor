@@ -57,62 +57,60 @@ session_start();
     </style>
 </head>
 <body>
-    
     <main class="page-wrapper">
       <?php include 'components/topbar.php'?>
       <?php include 'components/header.php'?>
       <?php include 'components/sidebar.php'?>
         <div class="rainbow-prfile-area rainbow-section-gap">
-            <div class="container ">
-                <div class="row gy-5 row--30">
-                    <div class="col-lg-12 ">
-                        <div class="edu-contact-form contact-form-style-1 w-100">
-                            <div class="section-title">
-                                <h2 class="title w-600 mb--40">Login</h2>
-                            </div>
-                            <form id="contact-form" class="w-100" method="POST" action="./database_operations/login_process.php">
-                            <div class="form-group position-relative">
-                                <label>Username or email *</label>
-                                <input name="email_address" type="text">
-                                <span class="focus-border"></span>
-                            </div>
-                            <div class="form-group position-relative">
-                                <label>Password *</label>
-                                <input name="password" type="password" required placeholder="Password">
-                                <span class="focus-border"></span>
-                            </div>
-                            <div align="center"><?php echo $login_button; ?></div> <!-- Echo login button here -->
-
-                            <div class="row mb--30">
-                                <div class="col-lg-6">
-                                    <div class="edu-checkbox">
-                                        <input type="checkbox" id="rememberme" name="rememberme">
-                                        <label for="rememberme">Remember me</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="edu-lost-password text-end">
-                                        <a class="btn-read-more" href="#"><span>Lost your password?</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-submit-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn-default btn-large w-100" name="login">Sign in <i class="feather-arrow-right"></i></button>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <a class="btn-default btn-large w-100" href="register.php">Sign up <i class="feather-arrow-right"></i></a>
-                                    </div>
-                                </div>
-                                <?php if(isset($_SESSION['error_message'])): ?>
-                                <p style="color: red;"><?php echo $_SESSION['error_message']; ?></p>
-                                <?php unset($_SESSION['error_message']); ?> <!-- Clear the error message after displaying -->
-                                <?php endif; ?>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+         <div class="container ">
+          <div class="row gy-5 row--30">
+           <div class="col-lg-12 ">
+            <div class="edu-contact-form contact-form-style-1 w-100">
+             <div class="section-title">
+               <h2 class="title w-600 mb--40">Login</h2>
+             </div>
+            <form id="contact-form" class="w-100" method="POST" action="./database_operations/login_process.php">
+              <div class="form-group position-relative">
+                <label>Username or email *</label>
+                <input name="email_address" type="text">
+                <span class="focus-border"></span>
+              </div>
+              <div class="form-group position-relative">
+                <label>Password *</label>
+                <input name="password" type="password" required placeholder="Password">
+                <span class="focus-border"></span>
+             </div>
+            <div align="center"><?php echo $login_button; ?></div> 
+              <div class="row mb--30">
+               <div class="col-lg-6">
+                 <div class="edu-checkbox">
+                    <input type="checkbox" id="rememberme" name="rememberme">
+                    <label for="rememberme">Remember me</label>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="edu-lost-password text-end">
+                    <a class="btn-read-more" href="#"><span>Lost your password?</span></a>
+                  </div>
+                </div>
+              </div>
+              <div class="form-submit-group">
+                <div class="row">
+                  <div class="col-md-6">
+                    <button type="submit" class="btn-default btn-large w-100" name="login">Sign in <i class="feather-arrow-right"></i></button>
+                  </div>
+                  <div class="col-md-6">
+                    <a class="btn-default btn-large w-100" href="register.php">Sign up <i class="feather-arrow-right"></i></a>
+                  </div>
+                  </div>
+                  <?php if(isset($_SESSION['error_message'])): ?>
+                    <p style="color: red;"><?php echo $_SESSION['error_message']; ?></p>
+                    <?php unset($_SESSION['error_message']); ?> <!-- Clear the error message after displaying -->
+                    <?php endif; ?>
+                </div>
+             </form>
+            </div>
+            </div>
                  </div>
               </div>
             </div>
