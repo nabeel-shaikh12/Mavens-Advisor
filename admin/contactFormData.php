@@ -37,7 +37,6 @@ if (isset($_POST['logout'])) {
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
-
 <body>
 <div id="main-wrapper">
 	<?php include 'components/navHeader.php'?>
@@ -61,6 +60,7 @@ if (isset($_POST['logout'])) {
 											<th>Full Name</th>
 											<th>Email</th>
 											<th>Message</th>
+											<th>Actions</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -81,6 +81,7 @@ if (isset($_POST['logout'])) {
 											echo '<td>' . $user["full_name"] . '</td>';
 											echo '<td>' . $user["email_address"] . '</td>';
 											echo '<td>' . $user["message"] . '</td>';
+											echo '<td> <a class="btn btn-danger" href="delete_contactForm.php?id=' . $user["id"] . '">Delete</a> </td>';
 											echo '</tr>';
 										}
 										} else {
@@ -94,7 +95,6 @@ if (isset($_POST['logout'])) {
 						</div>
 					</div>
 				</div>
-
         </div>
     </div>
     <?php include 'components/footer.php'?>

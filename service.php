@@ -23,12 +23,10 @@
         <?php include 'components/topbar.php'?>
        <?php include 'components/header.php'?>
        <?php include 'components/sidebar.php'?>
-        <!-- Start Theme Style  -->
         <div>
             <div class="rainbow-gradient-circle"></div>
             <div class="rainbow-gradient-circle theme-pink"></div>
         </div>
-        <!-- End Theme Style  -->
         <div class="main-content">
         <div class="slider-area slider-style-1 bg-transparent variation-2 height-750">
           <div class="container">
