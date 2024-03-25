@@ -4,7 +4,6 @@
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
-	/* height:25px; */
 	-webkit-text-fill-color: transparent;
 	}
 	.signIn_button{
@@ -23,8 +22,6 @@
 
 	}
 </style>
-
-
 <?php
 session_start();
 
@@ -121,9 +118,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													<?php echo $login_button; ?>
 													<br><br>
 													<br>
-													<!-- <div class="g-recaptcha" 
-													data-sitekey="6Lc3LYspAAAAAPZ2xCnOq_SrlV8gb0jZqqQCX6aL"> 
-													</div>  -->
+													<div class="g-recaptcha" 
+													data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
+													</div> 
 													</center>
 												</div>
 												<?php 
@@ -183,6 +180,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													<input name="confirm_password" required="" class="form-control" placeholder="Re-type Your Password" type="password">
 												</div>
 												<div class="mb-3">
+												 <div class="g-recaptcha" 
+													data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
+												 </div> 
 												</div>
 												<div class="form-group">
 													<button class="btn btn-primary outline gray" data-bs-toggle="tab" style="background-color:#019dff;border:none" 
@@ -222,6 +222,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 		</div>
 <script src="./vendor/global/global.min.js"></script>
 <script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <script src="js/deznav-init.js"></script>
 <script src="./js/custom.js"></script>
 <script src="./js/demo.js"></script>

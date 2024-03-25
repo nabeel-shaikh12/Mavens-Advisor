@@ -191,9 +191,9 @@ textarea.form-control {
                         </div>
                     </div>
                     <div class="row mt--40 row--15">
-                        <div class="col-lg-7">
-							<div class="contact-form">
-							<form method="POST" action="contactFormProcess.php">
+                      <div class="col-lg-7">
+						            	<div class="contact-form">
+						                <form method="POST" action="contactFormProcess.php">
                               <div class="form-group mb-4 pb-2">
                                <label for="exampleFormControlInput1" class="form-label">Full Name</label>
                                <input type="text" class="form-control shadow-none display=two" id="full_name" name="full_name">
@@ -207,16 +207,18 @@ textarea.form-control {
                                <textarea class="form-control shadow-none" id="message" name="message" class="display-two" style="background:transparent" rows="3"></textarea>
                             </div>
                             <input class="btn btn-primary w-100 p-4" style="border-radius:8px;font-size:15px" type="submit">
-                              <?php
-                                if (isset($_SESSION['message'])) {
-                                    echo '<div class="alert alert-success">' . $_SESSION['message'] . '</div>';
-                                    unset($_SESSION['message']); 
-                                } elseif (isset($_SESSION['errorMessage'])) {
-                                    echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
-                                    unset($_SESSION['error']); 
-                                }
-                               ?>
+                            <?php if (isset($_GET['error']) && !empty($_GET['error'])) : ?>
+                            <p style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $_GET['error']; ?></p>
+                            <?php endif; ?>
+                            <?php if (isset($_GET['message']) && !empty($_GET['message'])) : ?>
+                                <p style="color: #0b7ffe; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $_GET['message']; ?></p>
+                            <?php endif; ?>
+                               <br>
+                            <div class="g-recaptcha" 
+												    	data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
+												   	</div> 
                             </form>
+                      
 						  </div>
 						</div>
                         <div class="col-lg-5 mt_md--30 mt_sm--30">
@@ -248,6 +250,7 @@ textarea.form-control {
     <script src="assets/js/vendor/slick.min.js"></script>
     <script src="assets/js/vendor/easypie.js"></script>
     <script src="assets/js/vendor/text-type.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer> </script>
     <script src="assets/js/vendor/jquery.style.swicher.js"></script>
     <script src="assets/js/vendor/js.cookie.js"></script>
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
