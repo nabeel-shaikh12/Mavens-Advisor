@@ -20,6 +20,7 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 	<link rel="shortcut icon" type="image/png" href="../img/MA Logo circle.png">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
+	<script src="https://www.google.com/recaptcha/api.js" async defer> </script>
 </head>
 <body class="vh-100">
 	<div class="page-wraper">
@@ -58,11 +59,17 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 														<input type="checkbox" class="form-check-input" id="check1" name="example1">
 														<label class="form-check-label" for="check1">Remember me</label>
 													</span>
-													<!-- <button class="nav-link m-auto btn tp-btn-light btn-primary forget-tab" id="nav-forget-tab" data-bs-toggle="tab" data-bs-target="#nav-forget" type="button" role="tab" aria-controls="nav-forget" aria-selected="false">Forget Password ?</button> -->
+													<br>
+													<br>
+													<br>												
+													<div class="g-recaptcha" 
+													data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
+													</div> 
 												</div>
 											</form>
-												<div class="text-center bottom"> 
-												</div>
+											<div class="text-center bottom"> 
+											  <button class="btn btn-primary button-md btn-block" style="background-color:#019dff;border:none" id="nav-sign-tab" data-bs-toggle="tab" data-bs-target="#nav-sign" type="button" role="tab" aria-controls="nav-sign" aria-selected="false">Create an account</button> 
+											</div>
 										  </div>
 										  <div class="tab-pane fade" id="nav-forget" role="tabpanel" aria-labelledby="nav-forget-tab">
 											<form class="dz-form">
@@ -80,12 +87,12 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 											</form>
 										  </div>
 										  <div class="tab-pane fade" id="nav-sign" role="tabpanel" aria-labelledby="nav-sign-tab">
-											<form class="dz-form py-2" action="../database_operation/admin_process.php" method="POST">
-												<h3 class="form-title">Sign Up</h3>
-												<div class="dz-separator-outer m-b5">
-													<div class="dz-separator bg-primary style-liner"></div>
-												</div>
-												<p>Enter your personal details below: </p>
+										   <form class="dz-form py-2" action="./admin_process.php" method="POST">
+										     <h3 class="form-title">Sign Up</h3>
+											  <div class="dz-separator-outer m-b5">
+												<div class="dz-separator bg-primary style-liner"></div>
+											  </div>
+											  <p>Enter your personal details below: </p>
 												<div class="form-group mt-3">
 													<input name="email" required="" class="form-control" placeholder="Email Address" type="email">
 												</div>
@@ -110,10 +117,20 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													<button class="btn btn-primary float-end" style="background-color:#019dff;border:none" type="submit">Submit</button>
 												</div>
 											</form>
-										  
 										  </div>
 										</div>
-										
+										<?php 
+									       if (isset($_SESSION['error_message'])) {
+										    $error_message = strtoupper($_SESSION['error_message']); 
+											echo "<p style='color:red; font-family:Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'>$error_message</p>";
+											unset($_SESSION['error_message']);
+										  }
+										   if(isset($_SESSION['message'])){
+											$message = strtoupper($_SESSION['error_message']); 
+											echo "<p style='color:red; font-family:Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif'>$message</p>";
+											unset($_SESSION['message']);
+											}
+										?>
 										</div>
 									</nav>
 									</div>

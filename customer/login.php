@@ -19,7 +19,6 @@
 	}
 	.fa-google:hover{
 		color:white;
-
 	}
 </style>
 <?php
@@ -106,22 +105,20 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 													<input type="password" name="password" class="form-control" required placeholder="Password">
 												</div>
 												<div class="form-group text-left  forget-main">
-													<input type="submit" class="btn btn-primary" style="background-color:#019dff;border:none" name="login" value="Sign Me In">
-													<span class="form-check d-inline-block">
-														<input type="checkbox" class="form-check-input" id="check1" name="example1">
-														<label class="form-check-label" for="check1">Remember me</label>
-													</span>
-													<br>
-													<br>
-													<br>
-													<center>
-													<?php echo $login_button; ?>
-													<br><br>
-													<br>
-													<div class="g-recaptcha" 
-													data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
-													</div> 
-													</center>
+												<input type="submit" class="btn btn-primary" style="background-color:#019dff;border:none" name="login" value="Sign Me In">
+												<span class="form-check d-inline-block">
+												  <input type="checkbox" class="form-check-input" id="check1" name="example1">
+												  <label class="form-check-label" for="check1">Remember me</label>
+											    </span>
+												<br>
+												<br>
+												<br>
+												<?php echo $login_button; ?>
+												<br><br>
+												<br>
+												 <div class="g-recaptcha" 
+												   data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B"> 
+												 </div> 
 												</div>
 												<?php 
 												  if (isset($_SESSION['error_message'])) {

@@ -17,7 +17,7 @@ if (isset($_GET['code'])) {
         if (isset($_SESSION['filled_subscription_form'])) {
             unset($_SESSION['filled_subscription_form']);
             $_SESSION['login_message'] = "Login to Continue";
-            header('Location: ../calculator.php');
+            header('Location: ../chat.php');
             exit();
         } else {
             header('Location: ../customer/index.php');
@@ -105,7 +105,7 @@ $user_email = $_SESSION['email_address'];
 							message, 
 							timestamp
 							FROM 
-								messages 
+							  messages 
 							WHERE 
 								email_address = '$user_email' 
 							ORDER BY 
@@ -120,22 +120,22 @@ $user_email = $_SESSION['email_address'];
 							<div class="row gx-0">
 							  <div class="col-xl-5 col-lg-5 col-sm-5 chat-border mobile-chat ">
 								<div class="people-list dz-scroll">
-									<?php
-										if ($result->num_rows > 0) {
-										  while ($row = $result->fetch_assoc()) {
-											echo '<div onclick="toggleMessageSend()">';
-											echo '<div class="chat-p style-1" data-email="' . $row['email_address'] .'" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
-											echo '<div class="d-flex" onclick="toggleMessageSend()">';
-											echo '<div class="ms-2">';
-											echo '<h6 class="mb-0">admin@gmail.com</h6>';
-											echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
-											echo '</div>';
-											echo '</div>';
-											echo '<span>' . $row['timestamp'] . '</span>';
-											echo '</div>';
-											echo '</div>';
-											}
-										} 
+							      <?php
+									if ($result->num_rows > 0) {
+									  while ($row = $result->fetch_assoc()) {
+										echo '<div onclick="toggleMessageSend()">';
+										echo '<div class="chat-p style-1" data-email="' . $row['email_address'] .'" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
+										echo '<div class="d-flex" onclick="toggleMessageSend()">';
+										echo '<div class="ms-2">';
+										echo '<h6 class="mb-0">admin@gmail.com</h6>';
+										echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
+										echo '</div>';
+										echo '</div>';
+										echo '<span>' . $row['timestamp'] . '</span>';
+										echo '</div>';
+										echo '</div>';
+									}
+								} 
 										else {
 											echo "No chats Available";
 										}
@@ -155,10 +155,6 @@ $user_email = $_SESSION['email_address'];
 										<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here..">
 									</div>
 								<div class="col-md-3 col-xl-6 col-sm-3 col-lg-6">
-								<!-- <label for="file" class="file-input-label">
-									<i class="fas fa-file-upload"></i>
-									<input type="file" name="file" id="file" class="form-control file-input" style="display: none;">
-								</label> -->
 								<input type="file" name="file" id="file" class="form-control">
 
 								</div>

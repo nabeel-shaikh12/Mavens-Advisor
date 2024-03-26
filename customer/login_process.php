@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if (isset($_SESSION['filled_subscription_form'])) {
                             unset($_SESSION['filled_subscription_form']);
                             $_SESSION['login_message'] = "Login to Continue";
-                            header('Location: ../calculator.php');
+                            header('Location: ../chat.php');
                             exit();
                         } else {
                             header('Location: ../customer/index.php');

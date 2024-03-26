@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['email_address'])) {
-    header('Location: ./customer/login.php');
-    exit();
-} 
 
 include 'db/dbCon.php';
 
@@ -306,6 +302,8 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       } else {
           document.getElementById(`${selectedCategory}Input`).style.display = "none";
           document.getElementById(`${selectedCategory}Description`).style.display = "none";
+  document.getElementById(`${selectedCategory}InputField`).value = 0;
+        calculatePrices(); 
       }
       categoryTotal[selectedCategory] = calculateCategoryTotal(selectedCategory);
       calculatePrices();
@@ -432,7 +430,8 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       document.getElementById("setupPrice").innerText = setupPrice;
       document.getElementById("totalPrice").innerText = totalPrice;
   }
-function redirectToChat() {
+
+  function redirectToChat() {
     var transactionPrice = parseFloat(document.getElementById("transactionPrice").innerText);
     var invoicePrice = parseFloat(document.getElementById("invoicePrice").innerText);
     var payrollPrice = parseFloat(document.getElementById("payrollPrice").innerText);
@@ -469,28 +468,32 @@ function redirectToChat() {
         prices += `Discounted Price: $${updatePrice.toFixed(2)},\n`;
     }
     prices = prices.replace(/,\n$/, '');
-    window.location.href = 'chat.php?prices=' + encodeURIComponent(prices);
+
+    localStorage.setItem('calculatorPrices', prices);
+
+    window.location.href = 'chat.php';
 }
+
 </script>
-    <script src="assets/js/vendor/modernizr.min.js"></script>
-    <script src="assets/js/vendor/jquery.min.js"></script>
-    <script src="assets/js/vendor/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="assets/js/vendor/waypoint.min.js"></script>
-    <script src="assets/js/vendor/wow.min.js"></script>
-    <script src="assets/js/vendor/counterup.min.js"></script>
-    <script src="assets/js/vendor/feather.min.js"></script>
-    <script src="assets/js/vendor/sal.min.js"></script>
-    <script src="assets/js/vendor/masonry.js"></script>
-    <script src="assets/js/vendor/imageloaded.js"></script>
-    <script src="assets/js/vendor/magnify.min.js"></script>
-    <script src="assets/js/vendor/lightbox.js"></script>
-    <script src="assets/js/vendor/slick.min.js"></script>
-    <script src="assets/js/vendor/easypie.js"></script>
-    <script src="assets/js/vendor/text-type.js"></script>
-    <script src="assets/js/vendor/jquery.style.swicher.js"></script>
-    <script src="assets/js/vendor/js.cookie.js"></script>
-    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/vendor/modernizr.min.js"></script>
+    <script defer src="assets/js/vendor/jquery.min.js"></script>
+    <script defer src="assets/js/vendor/bootstrap.min.js"></script>
+    <script defer src="assets/js/vendor/popper.min.js"></script>
+    <script defer src="assets/js/vendor/waypoint.min.js"></script>
+    <script defer src="assets/js/vendor/wow.min.js"></script>
+    <script defer src="assets/js/vendor/counterup.min.js"></script>
+    <script defer src="assets/js/vendor/feather.min.js"></script>
+    <script defer src="assets/js/vendor/sal.min.js"></script>
+    <script defer src="assets/js/vendor/masonry.js"></script>
+    <script defer src="assets/js/vendor/imageloaded.js"></script>
+    <script defer src="assets/js/vendor/magnify.min.js"></script>
+    <script defer src="assets/js/vendor/lightbox.js"></script>
+    <script defer src="assets/js/vendor/slick.min.js"></script>
+    <script defer src="assets/js/vendor/easypie.js"></script>
+    <script defer src="assets/js/vendor/text-type.js"></script>
+    <script defer src="assets/js/vendor/jquery.style.swicher.js"></script>
+    <script defer src="assets/js/vendor/js.cookie.js"></script>
+    <script defer src="assets/js/vendor/jquery-one-page-nav.js"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
 </html>

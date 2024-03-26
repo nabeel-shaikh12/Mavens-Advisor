@@ -348,7 +348,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                 type="text"
                 name="business_name"
                 placeholder="Business Name"
-                id=" business_name"
+                id="business_name"
                 required
                 class="formbold-form-input"
                 />           
@@ -442,23 +442,25 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
         const formNextBtn = document.querySelector('.formbold-next-btn');
 
         function updateStep() {
-          stepMenus.forEach((stepMenu, index) => {
-            stepMenu.classList.toggle('active', index === currentStepIndex);
-          });
-          formSteps.forEach((formStep, index) => {
-            formStep.classList.toggle('active', index === currentStepIndex);
-          });
-          formBackBtn.style.display = currentStepIndex === 0 ? 'none' : 'inline-block';
-           if (currentStepIndex === formSteps.length - 1) {
-             formNextBtn.style.display = 'none';
-             formSubmitBtn.style.display = 'inline-block';
-           } else {
+            stepMenus.forEach((stepMenu, index) => {
+                stepMenu.classList.toggle('active', index === currentStepIndex);
+            });
+            formSteps.forEach((formStep, index) => {
+                formStep.classList.toggle('active', index === currentStepIndex);
+            });
+            formBackBtn.style.display = currentStepIndex === 0 ? 'none' : 'inline-block';
+            if (currentStepIndex === formSteps.length - 1) {
+                formNextBtn.style.display = 'none';
+                formSubmitBtn.style.display = 'inline-block';
+            } else {
                 formNextBtn.style.display = 'inline-block';
                 formSubmitBtn.style.display = 'none';
             }
         }
+
         let currentStepIndex = 0;
         updateStep();
+
         formNextBtn.addEventListener("click", function(event) {
             if (validateStep(currentStepIndex)) {
                 currentStepIndex++;
@@ -467,52 +469,68 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                 alert('Please fill in all required fields before proceeding.');
             }
         });
+
         formBackBtn.addEventListener("click", function(event) {
             currentStepIndex--;
             updateStep();
         });
+
         formSubmitBtn.addEventListener("click", function(event) {
             event.preventDefault();
-            const formData = new FormData(document.querySelector('form'));
-            fetch('./database_operations/subscription_form.php', {
-                    method: 'POST',
-                    body: formData
-            })
-          .then(response => {
-            if (response.ok) {
-             console.log('Form submitted successfully');
-             const businessCategoryValue = document.getElementById('businessCategory').value.trim().toLowerCase();
-            if (businessCategoryValue === 'bookkeeping') {
-              window.location.href = 'calculator.php';
+            if (validateStep(currentStepIndex)) {
+                const formData = new FormData(document.querySelector('form'));
+                fetch('./database_operations/subscription_form.php', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Form submitted successfully');
+                            const businessCategoryValue = document.getElementById('businessCategory').value.trim().toLowerCase();
+                            if (businessCategoryValue === 'bookkeeping') {
+                                window.location.href = 'calculator.php';
+                            } else {
+                                alert("Please select only Bookkeeping option on step 3");
+                            }
+                        } else {
+                            alert("There is an error while submitting the form");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
             }
-            else{
-              alert("Please select only Bookkeeping option on step 3");
-            }
-            } else {
-              alert("There is an error while submitting the form");
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
         });
+
         function validateStep(stepIndex) {
-          if (stepIndex === 0) {
-            const businessTypeValue = document.getElementById('businessType').value;
-            return businessTypeValue !== 'Select an option';
-          } 
-          else if (stepIndex === 1) {
-           const businessSizeValue = document.getElementById('businessSize').value;
-           return businessSizeValue !== 'Select an option';
-          } 
-          else if (stepIndex === 2) {
-           const businessCategoryValue = document.getElementById('businessCategory').value;
-           return businessCategoryValue !== 'Select an option';
-         }
-        return true;
-       }
+            if (stepIndex === 0) {
+                const businessTypeValue = document.getElementById('businessType').value;
+                return businessTypeValue !== 'Select an option';
+            } else if (stepIndex === 1) {
+                const businessSizeValue = document.getElementById('businessSize').value;
+                return businessSizeValue !== 'Select an option';
+            } else if (stepIndex === 2) {
+                const businessCategoryValue = document.getElementById('businessCategory').value;
+                return businessCategoryValue !== 'Select an option';
+            } else if (stepIndex === 3) {
+                const businessNameValue = document.getElementById('business_name').value.trim();
+                return businessNameValue !== '';
+            } else if (stepIndex === 4) {
+                const firstname = document.getElementById('firstname').value.trim();
+                const lastName = document.getElementById('lastname').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+
+                if (!firstname || !lastName || !email || !phone) {
+                    alert('Please fill in all fields before proceeding.');
+                    return false;
+                }
+                return true;
+            }
+        }
     });
 </script>
+
     <script src="assets/js/vendor/modernizr.min.js"></script>
     <script src="assets/js/vendor/jquery.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>

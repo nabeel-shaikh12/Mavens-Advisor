@@ -1,6 +1,4 @@
 <?php
-// session_start();
-
 require_once '../vendor/autoload.php';
 $google_client = new Google_Client();
 $google_client->setClientId('803596827102-p7g7e8v6tkguhrsftlg7pdft1mr6eu48.apps.googleusercontent.com');

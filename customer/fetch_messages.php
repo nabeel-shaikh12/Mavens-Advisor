@@ -5,43 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <style>
-        .media {
-            margin-top: 10px;
-            display: flex;
-        }
-
-        .message-sent {
-            padding: 10px;
-            border-radius: 8px;
-            max-width: 70%;
-        }
-
-        .justify-content-start {
-            justify-content: flex-start;
-            text-align: left;
-        }
-
-        .justify-content-end {
-            justify-content: flex-end;
-        }
-
-        .align-items-end {
-            align-items: flex-end;
-        }
-
-        .fs-12 {
-            font-size: 12px;
-        }
-        .message-sent img,
-        .message-sent object {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .message-sent object {
-            width: 100%;
-            height: 500px;
-        }
+     .media {
+       margin-top: 10px;
+       display: flex;
+    }
+    .message-sent {
+        padding: 10px;
+        border-radius: 8px;
+        max-width: 70%;
+    }
+    .justify-content-start {
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .justify-content-end {
+        justify-content: flex-end;
+    }
+    .align-items-end {
+        align-items: flex-end;
+    }
+    .fs-12 {
+        font-size: 12px;
+    }
+    .message-sent img,
+    .message-sent object {
+        max-width: 100%;
+        height: auto;
+    }
+    .message-sent object {
+        width: 100%;
+        height: 500px;
+    }
     </style>
 </head>
 <body>
