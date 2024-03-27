@@ -1,5 +1,5 @@
-<footer class="rainbow-footer footer-style-default variation-two" style="height:250px;align-items:center">
-            <div class="rainbow-callto-action clltoaction-style-default style-7">
+<footer class="rainbow-footer footer-style-default variation-two" style="height:300px;">
+            <div class="rainbow-callto-action clltoaction-style-default style-7" >
                 <div class="container">
                     <div class="row row--0 align-items-center content-wrapper">
                         <div class="col-lg-8 col-md-8">

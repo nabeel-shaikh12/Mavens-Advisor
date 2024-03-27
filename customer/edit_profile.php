@@ -31,7 +31,6 @@ if (!empty($email_address)) {
         $row = $result->fetch_assoc();
         $user_id = $row['id'];
         $profile_image = $row['profile_image'];
-        // $user_name = $row['user_name'];
     } else {
         $error = "User not found.";
     }
@@ -137,18 +136,6 @@ $conn->close();
                                             <span>Customer</span>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="info-list">
-                                    <ul>
-                                        <li><a href="app-profile.html">Models</a><span>36</span></li>
-                                        <li><a href="uc-lightgallery.html">Gallery</a><span>3</span></li>
-                                        <li><a href="app-profile.html">Lessons</a><span>1</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-footer">
-                                <div class="input-group mb-3">
-                                    <div class="form-control text-center bg-white">Portfolio</div>
                                 </div>
                             </div>
                         </div>

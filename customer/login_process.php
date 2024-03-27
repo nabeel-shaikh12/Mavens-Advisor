@@ -3,6 +3,8 @@ session_start();
 include 'config.php';
 include '../db/dbCon.php';
 
+
+
 function verifyRecaptcha($response) {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array(
@@ -43,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $user = $result->fetch_assoc();
                     if (password_verify($password, $user['password'])) {
                         $_SESSION['email_address'] = $email_address;
+                        $_SESSION['user_name'] = $user['user_name'];
                         if (isset($_SESSION['filled_subscription_form'])) {
                             unset($_SESSION['filled_subscription_form']);
                             $_SESSION['login_message'] = "Login to Continue";

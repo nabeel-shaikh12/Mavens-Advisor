@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../db/dbCon.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -14,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
         $admin = $result->fetch_assoc();
         if (password_verify($password, $admin['password'])) {
             $_SESSION['email'] = $email;
+            $_SESSION['username'] = $admin['username']; 
             header('Location: ../admin/index.php');
             exit();
         } else {

@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/animation.css">
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/slick.css">
-    <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/plugins/magnify.min.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/plugins/slick.css"> -->
+    <!-- <link rel="stylesheet" href="assets/css/plugins/slick-theme.css"> -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" /> -->
+    <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -364,8 +364,8 @@ function calculatePrices() {
     <script src="assets/js/vendor/counterup.min.js"></script>
     <script src="assets/js/vendor/feather.min.js"></script>
     <script src="assets/js/vendor/sal.min.js"></script>
-    <script src="assets/js/vendor/masonry.js"></script>
-    <script src="assets/js/vendor/imageloaded.js"></script>
+    <script src="assets/js/vendor/masonry.js"></script> 
+     <script src="assets/js/vendor/imageloaded.js"></script>
     <script src="assets/js/vendor/magnify.min.js"></script>
     <script src="assets/js/vendor/lightbox.js"></script>
     <script src="assets/js/vendor/slick.min.js"></script>

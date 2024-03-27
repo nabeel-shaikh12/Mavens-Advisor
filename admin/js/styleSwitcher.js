@@ -122,15 +122,11 @@ function addSwitcher()
                 
                 return;
             }
-            
-            
-        }
-
+          }
         body.attr('data-container', this.value);
 		setCookie('containerLayout', this.value);
     });
 
-    //change the sidebar style controller
     sidebarStyleSelect.on('change', function() {
         if(body.attr('data-layout') === "horizontal") {
             if(this.value === "overlay") {

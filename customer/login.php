@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 if(!isset($_SESSION['access_token'])) {
-	$login_button = '<a class="signIn_button" href="'.$google_client->createAuthUrl().'"><i class="fab fa-google"></i> Login With Google</a>';
+	$login_button = '<a class="signIn_button" style="border-radius:200px" href="'.$google_client->createAuthUrl().'"><i class="fab fa-google" style="font-size:18px" ></i> Login With Google</a>';
 } else {
     $login_button = '';
 }

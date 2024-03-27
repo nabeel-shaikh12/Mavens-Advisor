@@ -37,6 +37,13 @@ if (isset($_POST['logout'])) {
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
+<style>
+  /* .message-column {
+        max-width: 300px; /* Adjust the maximum width as needed */
+        overflow: hidden;
+        word-wrap: break-word; /* Allow the text to wrap within the column */
+    } */
+</style>
 <body>
 <div id="main-wrapper">
 	<?php include 'components/navHeader.php'?>
@@ -80,16 +87,16 @@ if (isset($_POST['logout'])) {
 											echo '<td>' . $user["id"] . '</td>';
 											echo '<td>' . $user["full_name"] . '</td>';
 											echo '<td>' . $user["email_address"] . '</td>';
-											echo '<td>' . $user["message"] . '</td>';
+											echo '<td style="font-size:2px">' . $user["message"] . '</div>' . '</td>'; // Apply word-wrap property to the message column
 											echo '<td> <a class="btn btn-danger" href="delete_contactForm.php?id=' . $user["id"] . '">Delete</a> </td>';
 											echo '</tr>';
 										}
-										} else {
-											echo '<tr><td colspan="7">No users found.</td></tr>';
-										}
-											$conn->close();
-										?>
-									</tbody>
+									} else {
+										echo '<tr><td colspan="7">No users found.</td></tr>';
+									}
+									$conn->close();
+								?>
+								</tbody>
 								</table>
 							</div>
 						</div>

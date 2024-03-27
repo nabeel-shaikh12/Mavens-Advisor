@@ -16,13 +16,11 @@ if (isset($_POST['logout'])) {
 include '../db/dbCon.php';
 $error = "";
 $message = "";
-
 $username = isset($_SESSION['username']) ? $_SESSION['username'] : '';
 $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
-
 $admin_id = null;
 if (!empty($email)) {
-    $sql = "SELECT id,profile_image FROM admin WHERE email = ?";
+    $sql = "SELECT id, username, profile_image FROM admin WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -31,8 +29,8 @@ if (!empty($email)) {
     if ($result->num_rows == 1) {
         $row = $result->fetch_assoc();
         $admin_id = $row['id'];
+        $username = $row['username'];
         $profile_image = $row['profile_image'];
-
     } else {
         $error = "User not found.";
     }
@@ -74,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_profile"])) {
 }
 $conn->close();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,23 +134,11 @@ $conn->close();
                                         <div class="author-info">
                                             <h6 class="title"><?php echo $email?></h6>
                                             <span>Admin</span>
-                                        </div>
+                                         </div>
                                     </div>
-                                </div>
-									</div>
-									<div class="info-list">
-										<ul>
-											<li><a href="app-profile.html">Models</a><span>36</span></li>
-											<li><a href="uc-lightgallery.html">Gallery</a><span>3</span></li>
-											<li><a href="app-profile.html">Lessons</a><span>1</span></li>
-										</ul>
-									</div>
-								</div>
-								<div class="card-footer">
-									<div class="input-group mb-3">
-										<div class="form-control text-center bg-white">Portfolio</div>
-									</div>
-								</div>
+                                  </div>
+							    </div>
+						       </div>
                               </div>
                             </div>
                         </div>
@@ -174,7 +161,6 @@ $conn->close();
                                         </div>
                                         <div class="col-sm-12 m-b30">
                                             <button class="btn btn-primary" type="submit" name="update_profile">Save Changes</button>
-                                            <a href="page-register.html" class="btn-link">Forgot your password?</a>
                                         </div>
                                     </div>
                                  </form>

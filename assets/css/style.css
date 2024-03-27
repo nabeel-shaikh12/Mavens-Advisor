@@ -588,6 +588,9 @@ a {
 .h2 {
     font-size: 32px;
   }
+.btnMob{
+  margin-top: 25px !important;
+}
 
   h3,
 .h3 {
@@ -602,6 +605,13 @@ a {
   h5,
 .h5 {
     font-size: 18px;
+  }
+  footer{
+    height: 500px !important;
+  }
+  .rowButton{
+    display:inline-block !important;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -628,6 +638,9 @@ a {
   h5,
 .h5 {
     font-size: 16px;
+  }
+  .rowButton{
+    display:inline-block !important;
   }
   .div_img {
     background-image: url(../../img/image19.jpg) !important;
@@ -1965,6 +1978,9 @@ textarea:-ms-input-placeholder {
   #scrollUp span.text {
     margin-top: 3px;
   }
+  .lock{
+    margin-top: 20px !important;
+  }
 }
 #scrollUp span.text::after {
   width: 0;
@@ -2018,6 +2034,7 @@ textarea:-ms-input-placeholder {
     max-width: 1400px;
     width: auto;
   }
+
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rbt-alignwide {
@@ -8130,15 +8147,15 @@ textarea:focus {
   border-color: var(--color-primary);
 }
 
- input[type=checkbox],
+input[type=checkbox],
 input[type=radio] {
-  opacity: 0;
-  position: absolute;
+  opacity: 1; 
+  position: static;
 }
 input[type=checkbox] ~ label,
 input[type=radio] ~ label {
   position: relative;
-  font-size: 15px;
+  font-size: 5px;
   line-height: 25px;
   color: var(--body-color);
   font-weight: 400;
@@ -8149,7 +8166,7 @@ input[type=radio] ~ label {
 input[type=checkbox] ~ label::before,
 input[type=radio] ~ label::before {
   content: " ";
-  position: absolute;
+  position: relative;
   top: 6px;
   left: 0;
   width: 5px;
@@ -8161,18 +8178,14 @@ input[type=radio] ~ label::before {
 }
 input[type=checkbox] ~ label::after,
 input[type=radio] ~ label::after {
-  content: " ";
-  position: absolute;
-  top: 9px;
-  left: 2px;
-  width: 10px;
-  height: 5px;
+  content: "";
+
   background-color: transparent;
   border-bottom: var(--border-width) solid #fff;
   border-left: var(--border-width) solid #fff;
   border-radius: 2px;
   transform: rotate(-45deg);
-  opacity: 0;
+  opacity: 10;
   transition: all 0.3s;
 }
 input[type=checkbox]:checked ~ label::before,
