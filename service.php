@@ -50,7 +50,6 @@
                 </div>
                </div>
               </div>
-            <!-- Start Service-7 Area  -->
             <div class="rainbow-service-area mb-5">
                 <div class="container">
                     <div class="row">
@@ -68,22 +67,21 @@
                         </div>
                     </div>
                     <div class="row row--15 service-wrapper">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                            <div class="service gallery-style text-left">
+                     <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
+                       <a href="calculator.php"><div class="service gallery-style text-left">
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Cloud Bookkeeping</a>
+                                            <a href="calculator.php">Cloud Bookkeeping</a>
                                         </h4>
                                         <p class="description"> Streamline business success with cloud-based bookkeeping, offering insights, efficiency, and accessibility.</p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/art-1.png" alt="card Images">
+                                        <a href="calculator.php"><img src="img/art-1.png" alt="card Images"></a>
                                     </div>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
-
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
                             <div class="service gallery-style text-left">
                                 <div class="inner">

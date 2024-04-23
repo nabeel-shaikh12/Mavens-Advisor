@@ -2,7 +2,35 @@
 session_start();
 include '../db/dbCon.php';
 
+function verifyRecaptcha($response) {
+    $url = 'https://www.google.com/recaptcha/api/siteverify';
+    $data = array(
+        'secret' => '6LfW1qgpAAAAAKQfRYBOJy-wNFxPHvxtq8KhEM6m',
+        'response' => $response
+    );
+
+    $options = array(
+        'http' => array (
+            'method' => 'POST',
+            'content' => http_build_query($data)
+        )
+    );
+
+    $context  = stream_context_create($options);
+    $verify = file_get_contents($url, false, $context);
+    $captcha_success = json_decode($verify);
+
+    return $captcha_success->success;
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+    $recaptcha_response = $_POST['g-recaptcha-response'];
+    if (!verifyRecaptcha($recaptcha_response)) {
+        $_SESSION['error_message'] = "Please verify reCAPTCHA";
+        header('Location: ../admin/login.php');
+        exit();
+    }
+
     $email = $_POST['email'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM admin WHERE email = ? LIMIT 1";

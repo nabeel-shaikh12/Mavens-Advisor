@@ -3,6 +3,7 @@ session_start();
 include '../db/dbCon.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+    
     $email_address = $_POST['email_address'];
     $password = $_POST['password'];
     $sql = "SELECT * FROM user WHERE email_address = ? LIMIT 1";

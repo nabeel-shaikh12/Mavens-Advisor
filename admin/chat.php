@@ -218,6 +218,27 @@ if (isset($_POST['logout'])) {
 			fetchChatDetail(emailAddress);
 		}, 10000);
 	}
+function checkForNewMessages() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = this.responseText;
+            if (response.trim() !== "") {
+                document.getElementById("popup-dot").style.display = "block";
+            }
+        }
+    };
+    xhttp.open("GET", "fetch_messages.php", true);
+    xhttp.send();
+}
+
+function handleDotClick() {
+    document.getElementById("popup-dot").style.display = "none";
+}
+
+checkForNewMessages();
+setInterval(checkForNewMessages, 5000);
+document.getElementById("popup-dot").addEventListener("click", handleDotClick);
 </script>
 </body>
 </html>

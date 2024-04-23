@@ -97,7 +97,7 @@ if (isset($_POST['logout'])) {
 									$conn->close();
 								?>
 								</tbody>
-								</table>
+							 </table>
 							</div>
 						</div>
 					</div>

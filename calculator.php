@@ -29,7 +29,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1">
-    <title>Calculator || Finance</title>
+    <title>Bookkeeping Calculator - Mavens Advisor</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/MA Logo circle.png">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/animation.css">
@@ -50,7 +50,44 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         font-weight:bold;
         margin:8px;
       }
-      </style>
+     .rainbow-gradient-circle {
+        position: fixed;
+        left: -250px;
+        top: 250px;
+        right: auto;
+        bottom: auto;
+        z-index: -1;
+        width: 500px;
+        height: 2000px;
+        border-radius: 1000px;
+        background-image: url('./img/Rectangle.png');
+        opacity: 0.25;
+        -webkit-filter: blur(100px);
+        filter: blur(100px);
+     }      
+    .rainbow-gradient-circle {
+        position: fixed;
+        left: -250px;
+        top: 250px;
+        right: auto;
+        bottom: auto;
+        z-index: -1;
+        width: 500px;
+        height: 2000px;
+        border-radius: 1000px;
+        background-image: url('./img/Rectangle.png');
+        opacity: 0.25;
+        -webkit-filter: blur(50px);
+        filter: blur(50px);
+    }
+    .rainbow-gradient-circle.theme-pink {
+        left: auto;
+        top: -250px;
+        right: -250px;
+        bottom: auto;
+        background-image: url('./img/Rectangle.png');
+    }
+  </style>
 </head>
 <body>
  <main class="page-wrapper">
@@ -76,18 +113,6 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       </li>
     </ul>
   </div>
-  <div class="header-right">
-    <div class="header-btn">
-     <!-- <a class="btn btn-primary btn-small" href="http://localhost/mavens%20advisor/customer/login.php">Login</a> -->
-     <?php
-      if(isset($_SESSION['email_address'])) {
-          echo '<a class="btn btn-primary btn-small" href="http://localhost/mavens%20advisor/customer/">Dashboard</a>';
-      } else {
-          echo '<a class="btn btn-primary btn-small" href="http://localhost/mavens%20advisor/customer/login.php">Login</a>';
-      }
-      ?>
-      </div>
-    </div>
 </nav>
    <div class="rainbow-gradient-circle"></div>
    <div class="rainbow-gradient-circle theme-pink"></div>
@@ -98,12 +123,10 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
  <br>
  <br>
  <br>
- <br>
- <br>
     <div class="container">
-      <div class="row">
-      <div class="col-sm-4 col-lg-4 col-md-4 col-xl-4">
-            <div class="service gallery-style">
+      <div class="row m-5">
+      <div class="col-sm-5 col-lg-5 col-md-5 col-xl-5" style="background-color: #f5f8fa;border-radius:50px">
+            <div class="service gallery-style" style="padding: 50px;">
                 <h5 class="card-title"><b>Bookkeeping Calculator</b></h5>
                 <form action="./database_operations/calculator_operations.php" method="POST" id="calculatorForm">
                   <br>
@@ -188,9 +211,10 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                   </div>
                 </div>
               </div>
-              <div class="col-md-2 p-4"></div>
-              <div class="col-sm-6 col-lg-6 col-md-6 col-xl-6 service">
-                <div class="service gallery-style w-100">
+	      <div class="col-sm-2 col-lg-2 col-md-2 col-xl-2">
+	    </div>
+              <div class="col-sm-5 col-lg-5 col-md-5 col-xl-5 service" style="justify-content:center;align-items:center;background-color: #f5f8fa;border-radius:50px;padding:30px;">
+                <div class="service gallery-style w-100" >
                     <h5 class="card-title"><b>Billing Breakup:</b></h5>
                       <br>
                       <div class="row">
@@ -201,6 +225,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>Monthly Invoicing Fee</b></p>
@@ -209,6 +234,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>Monthly Payroll Fee</b></p>
@@ -217,6 +243,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>Monthly Cashflow Fee</b></p>
@@ -225,6 +252,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>Monthly Budgeting Fee</b></p>
@@ -233,6 +261,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>One-time setup fee</b></p>
@@ -241,6 +270,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
                         </div>
                       </div>
+                      <hr>
                       <div class="row">
                         <div class="col-md-8">
                         <p><b>Total Billing</b></p>
@@ -249,6 +279,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                         <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
                         </div>
                         </div> 
+                        <hr>
                         <div class="row" id="discountedRow" style="display: none;">
                           <div class="col-md-8">
                               <p><b>Discounted Price</b></p>
@@ -257,26 +288,24 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                               <p><b><span id="updatePrice">0</span> $</b></p>
                           </div>
                       </div>
+                      <!-- <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" type="submit">Submit</button> -->
                     </form>
-                    <div class="row">
-                      <div class="col-md-5">
+                       <div class="row">
+                      <div class="col-md-6">
                         <button class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" id="updateFormulaBtn">Get Discount Now</button>
                       </div>
-                      <div class="col-md-2 p-2">
-                      </div>
-                      <div class="col-md-5">
+                                <div class="col-md-6">
                         <button type="submit" class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" onclick="redirectToChat()">Lock the Price Now</button>
                       </div>
                     </div>
-                  
-                  </div>
+                   </div>
                 </div>
             </div>
-           </div>
+            </div>
           </div>
-         </div>    
+          </div>    
         </div>
-       </div>
+        </div>
       </div>
     </main>
     <script>
@@ -284,11 +313,6 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       $("#updateFormulaBtn").on("click", function () {
           updateFormulas();
       });
-      $("input[type='checkbox']").on("change", function() {
-        showInputBox($(this).val());
-        calculatePrices(); 
-    });
-      calculatePrices();
   });
   let categoryTotal = {
       monthlyTransaction: 0,
@@ -300,49 +324,44 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       setup: 0
   };
   function showInputBox(category) {
-    const selectedCategory = category;
-    const checkbox = document.querySelector(`[value=${selectedCategory}]`);
+      const selectedCategory = category;
+      const checkbox = document.querySelector(`[value=${selectedCategory}]`);
 
-    if (checkbox && checkbox.checked) {
-        document.getElementById(`${selectedCategory}Input`).style.display = "block";
-        document.getElementById(`${selectedCategory}Description`).style.display = "block";
-    } else {
-        document.getElementById(`${selectedCategory}Input`).style.display = "none";
-        document.getElementById(`${selectedCategory}Description`).style.display = "none";
-        document.getElementById(`${selectedCategory}InputField`).value = 0;
-    }
+      if (checkbox && checkbox.checked) {
+          document.getElementById(`${selectedCategory}Input`).style.display = "block";
+          document.getElementById(`${selectedCategory}Description`).style.display = "block";
+      } else {
+          document.getElementById(`${selectedCategory}Input`).style.display = "none";
+          document.getElementById(`${selectedCategory}Description`).style.display = "none";
+      }
+      categoryTotal[selectedCategory] = calculateCategoryTotal(selectedCategory);
+      calculatePrices();
+  }
 
-    // Recalculate prices for cashflow, budget, and setup
-    categoryTotal[selectedCategory] = calculateCategoryTotal(selectedCategory);
-    if (selectedCategory === 'cashflow' || selectedCategory === 'budget' || selectedCategory === 'setup') {
-        calculatePrices();
-    }
-}
+  function calculateCategoryTotal(category) {
+      const checkbox = document.querySelector(`[value=${category}]`);
+      const transactionCheckbox = document.getElementById('monthlyTransactionCheckbox');
+      const invoicesCheckbox = document.getElementById('monthlyInvoicesCheckbox');
+      const payrollCheckbox = document.getElementById('payrollCheckbox');
 
- function calculateCategoryTotal(category) {
-    const checkbox = document.getElementById(category + 'Checkbox');
-    const transactionCheckbox = document.getElementById('monthlyTransactionCheckbox');
-    const invoicesCheckbox = document.getElementById('monthlyInvoicesCheckbox');
-    const payrollCheckbox = document.getElementById('payrollCheckbox');
-
-    if ((category === 'cashflow' || category === 'budget') && checkbox.checked) {
-        return (
-            (categoryTotal.monthlyTransaction + categoryTotal.monthlyInvoices + categoryTotal.payroll + categoryTotal.expense) *
-            5 / 60 * 15
-        );
-    } else if (category === 'setup' && checkbox.checked) {
-        return 300;
-    } else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
-        return (categoryTotal.monthlyTransaction * 5 / 60 * 15);
-    } else if (category === 'monthlyInvoices' && invoicesCheckbox.checked) {
-        return (categoryTotal.monthlyInvoices * 15 / 60 * 15);
-    } else if (category === 'payroll' && payrollCheckbox.checked) {
-        return (categoryTotal.payroll * 15 / 60 * 15);
-    } else {
-        return 0; // Set to zero if unchecked or not applicable
-    }
-}
-
+      if ((category === 'cashflow' || category === 'budget') && checkbox.checked) {
+          return (
+              (categoryTotal.monthlyTransaction + categoryTotal.monthlyInvoices + categoryTotal.payroll + categoryTotal.expense) *
+              5 / 60 * 15
+          );
+      } else if (category === 'setup' && checkbox.checked) {
+          return 300;
+      } else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
+          return (categoryTotal.monthlyTransaction * 5 / 60 * 15);
+      } else if (category === 'monthlyInvoices' && invoicesCheckbox.checked) {
+          return (categoryTotal.monthlyInvoices * 15 / 60 * 15);
+      } else if (category === 'payroll' && payrollCheckbox.checked) {
+          return (categoryTotal.payroll * 15 / 60 * 15);
+      } else {
+          return 0;
+      }
+  }
+  
   function updateFormulas() {
       const transactionPrice = (categoryTotal.monthlyTransaction * 1 / 60 * 10).toFixed(2);
       const invoicePrice = (categoryTotal.monthlyInvoices * 5 / 60 * 10).toFixed(2);
@@ -371,6 +390,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       document.getElementById("updatePrice").innerText = updatePrice;
       $("#discountedRow").show();
   }
+
   function saveCalculatorData() {
       const formData = new FormData();
       formData.append('transactionPrice', document.getElementById("transactionPrice").innerText);
@@ -403,43 +423,42 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
   });
   document.getElementById("getDiscountBtn").addEventListener("click", redirectToChat);
   function calculatePrices() {
-    categoryTotal.monthlyTransaction = parseFloat(document.getElementById("monthlyTransactionInputField").value) || 0;
-    categoryTotal.monthlyInvoices = parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
-    categoryTotal.payroll = parseFloat(document.getElementById("payrollInputField").value) || 0;
+      categoryTotal.monthlyTransaction = parseFloat(document.getElementById("monthlyTransactionInputField").value) || 0;
+      categoryTotal.monthlyInvoices = parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
+      categoryTotal.payroll = parseFloat(document.getElementById("payrollInputField").value) || 0;
 
-    const cashflowCheckbox = document.getElementById("cashflowCheckbox");
-    const budgetCheckbox = document.getElementById("budgetCheckbox");
-    const setupCheckbox = document.getElementById("setupCheckbox");
+      const cashflowCheckbox = document.getElementById("cashflowCheckbox");
+      const budgetCheckbox = document.getElementById("budgetCheckbox");
+      const setupCheckbox = document.getElementById("setupCheckbox");
 
-    categoryTotal.cashflow = cashflowCheckbox.checked ? calculateCategoryTotal("cashflow") : 0; 
-    categoryTotal.budget = budgetCheckbox.checked ? calculateCategoryTotal("budget") : 0; 
-    categoryTotal.setup = setupCheckbox.checked ? calculateCategoryTotal("setup") : 0; 
+      categoryTotal.cashflow = cashflowCheckbox.checked ? calculateCategoryTotal("cashflow") : 0;
+      categoryTotal.budget = budgetCheckbox.checked ? calculateCategoryTotal("budget") : 0;
+      categoryTotal.setup = setupCheckbox.checked ? calculateCategoryTotal("setup") : 0;
 
-    const transactionPrice = (categoryTotal.monthlyTransaction * 5 / 60 * 15).toFixed(2);
-    const invoicePrice = (categoryTotal.monthlyInvoices * 15 / 60 * 15).toFixed(2);
-    const payrollPrice = (categoryTotal.payroll * 15 / 60 * 15).toFixed(2);
-    const cashflowPrice = categoryTotal.cashflow.toFixed(2);
-    const budgetPrice = categoryTotal.budget.toFixed(2);
-    const setupPrice = categoryTotal.setup.toFixed(2);
+      const transactionPrice = (categoryTotal.monthlyTransaction * 5 / 60 * 15).toFixed(2);
+      const invoicePrice = (categoryTotal.monthlyInvoices * 15 / 60 * 15).toFixed(2);
+      const payrollPrice = (categoryTotal.payroll * 15 / 60 * 15).toFixed(2);
+      const cashflowPrice = categoryTotal.cashflow.toFixed(2);
+      const budgetPrice = categoryTotal.budget.toFixed(2);
+      const setupPrice = categoryTotal.setup.toFixed(2);
 
-    const totalPrice = (
-        parseFloat(transactionPrice) +
-        parseFloat(invoicePrice) +
-        parseFloat(payrollPrice) +
-        parseFloat(cashflowPrice) +
-        parseFloat(budgetPrice) +
-        parseFloat(setupPrice)
-    ).toFixed(2);
+      const totalPrice = (
+          parseFloat(transactionPrice) +
+          parseFloat(invoicePrice) +
+          parseFloat(payrollPrice) +
+          parseFloat(cashflowPrice) +
+          parseFloat(budgetPrice) +
+          parseFloat(setupPrice)
+      ).toFixed(2);
 
-    document.getElementById("transactionPrice").innerText = transactionPrice;
-    document.getElementById("invoicePrice").innerText = invoicePrice;
-    document.getElementById("payrollPrice").innerText = payrollPrice;
-    document.getElementById("cashflowPrice").innerText = cashflowPrice;
-    document.getElementById("budgetPrice").innerText = budgetPrice;
-    document.getElementById("setupPrice").innerText = setupPrice;
-    document.getElementById("totalPrice").innerText = totalPrice;
-}
-
+      document.getElementById("transactionPrice").innerText = transactionPrice;
+      document.getElementById("invoicePrice").innerText = invoicePrice;
+      document.getElementById("payrollPrice").innerText = payrollPrice;
+      document.getElementById("cashflowPrice").innerText = cashflowPrice;
+      document.getElementById("budgetPrice").innerText = budgetPrice;
+      document.getElementById("setupPrice").innerText = setupPrice;
+      document.getElementById("totalPrice").innerText = totalPrice;
+  }
   function redirectToChat() {
     var transactionPrice = parseFloat(document.getElementById("transactionPrice").innerText);
     var invoicePrice = parseFloat(document.getElementById("invoicePrice").innerText);

@@ -42,9 +42,6 @@
 			if (typeof document === 'undefined') {
 				return;
 			}
-
-			// Write
-
 			if (arguments.length > 1) {
 				attributes = extend({
 					path: '/'
@@ -83,15 +80,9 @@
 				].join(''));
 			}
 
-			// Read
-
 			if (!key) {
 				result = {};
 			}
-
-			// To prevent the for loop in the first place assign an empty array
-			// in case there are no cookies at all. Also prevents odd result when
-			// calling "get()"
 			var cookies = document.cookie ? document.cookie.split('; ') : [];
 			var rdecode = /(%[0-9A-Z]{2})+/g;
 			var i = 0;

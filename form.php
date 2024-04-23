@@ -43,6 +43,15 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
     <link rel="stylesheet" href="assets/css/style.css">
+<!-- Include necessary CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
+
+<!-- Include jQuery (required for the plugin) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Include the plugin's JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js"></script>
+
     <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
   * {
@@ -269,7 +278,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap">
       <div class="formbold-form-wrapper variation-2 rainbow-service-area">
 
-      <form action="./database_operations/subscription_form.php" method="POST">
+      <form action="./database_operations/subscription_form.php" method="POST" id="login">
           <div class="formbold-steps">
             <ul>
               <li class="formbold-step-menu1 active">
@@ -395,7 +404,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                 </div>
                 <div class="col-md-6 col-xl-6 col-lg-6">
                   <label for="businessService">Phone No</label><br>
-                  <input id="phone" name="phone_no" type="tel" class="formbold-form-input" style="width: 100%;" name="phone" />
+                  <input id="phone" name="phone_no" class="select2" type="tel" style="width: 100%;" name="phone" />
                 </div>
                </div>
               </div>
@@ -420,6 +429,22 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
         <i class="feather-arrow-up"></i>
     </div> 
     </body> 
+    <script>
+    $(document).ready(function () {
+        $('#phone').intlTelInput({
+            separateDialCode: true,
+            placeholderNumberType: "MOBILE",
+            initialCountry: "auto",
+            dropdownAutoWidth: true,
+            nationalMode: false,
+            formatOnDisplay: false,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js"
+        });
+        $('.select2').select2({
+            minimumResultsForSearch: Infinity 
+        });
+    });
+</script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         const stepMenus = [
@@ -530,7 +555,6 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
         }
     });
 </script>
-
     <script src="assets/js/vendor/modernizr.min.js"></script>
     <script src="assets/js/vendor/jquery.min.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>

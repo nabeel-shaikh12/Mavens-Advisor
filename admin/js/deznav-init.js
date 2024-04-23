@@ -28,12 +28,15 @@ function getUrlParams(dParam)
 		primary: "color_1",
 		headerBg: "white",
 		navheaderBg: "color_1",
-		sidebarBg: "color_1",
+		sidebarBg: "#ffff",
 		sidebarStyle: "full",
 		sidebarPosition: "fixed",
 		headerPosition: "fixed",
 		containerLayout: "full",
 	};
+	
+
+Color
 	new dzSettings(dzSettingsOptions); 
 	jQuery(window).on('resize',function(){
         dzSettingsOptions.containerLayout = $('#container_layout').val();

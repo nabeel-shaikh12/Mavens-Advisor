@@ -119,7 +119,6 @@ audio:not([controls]) {
   height: 0;
 }
 
-
 [hidden] {
   display: none;
 }
@@ -588,9 +587,6 @@ a {
 .h2 {
     font-size: 32px;
   }
-.btnMob{
-  margin-top: 25px !important;
-}
 
   h3,
 .h3 {
@@ -605,13 +601,6 @@ a {
   h5,
 .h5 {
     font-size: 18px;
-  }
-  footer{
-    height: 500px !important;
-  }
-  .rowButton{
-    display:inline-block !important;
-    width: 100%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -638,9 +627,6 @@ a {
   h5,
 .h5 {
     font-size: 16px;
-  }
-  .rowButton{
-    display:inline-block !important;
   }
   .div_img {
     background-image: url(../../img/image19.jpg) !important;
@@ -1978,9 +1964,6 @@ textarea:-ms-input-placeholder {
   #scrollUp span.text {
     margin-top: 3px;
   }
-  .lock{
-    margin-top: 20px !important;
-  }
 }
 #scrollUp span.text::after {
   width: 0;
@@ -2034,7 +2017,6 @@ textarea:-ms-input-placeholder {
     max-width: 1400px;
     width: auto;
   }
-
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .rbt-alignwide {
@@ -8147,15 +8129,15 @@ textarea:focus {
   border-color: var(--color-primary);
 }
 
-input[type=checkbox],
+ input[type=checkbox],
 input[type=radio] {
-  opacity: 1; 
-  position: static;
+  opacity: 0;
+  position: absolute;
 }
 input[type=checkbox] ~ label,
 input[type=radio] ~ label {
   position: relative;
-  font-size: 5px;
+  font-size: 15px;
   line-height: 25px;
   color: var(--body-color);
   font-weight: 400;
@@ -8166,7 +8148,7 @@ input[type=radio] ~ label {
 input[type=checkbox] ~ label::before,
 input[type=radio] ~ label::before {
   content: " ";
-  position: relative;
+  position: absolute;
   top: 6px;
   left: 0;
   width: 5px;
@@ -8178,14 +8160,18 @@ input[type=radio] ~ label::before {
 }
 input[type=checkbox] ~ label::after,
 input[type=radio] ~ label::after {
-  content: "";
-
+  content: " ";
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  width: 10px;
+  height: 5px;
   background-color: transparent;
   border-bottom: var(--border-width) solid #fff;
   border-left: var(--border-width) solid #fff;
   border-radius: 2px;
   transform: rotate(-45deg);
-  opacity: 10;
+  opacity: 0;
   transition: all 0.3s;
 }
 input[type=checkbox]:checked ~ label::before,
@@ -12089,7 +12075,7 @@ Timeline Area
 }
 .clltoaction-style-default.style-7 .content-wrapper {
   padding: 40px 0;
-  /* border-bottom: 1px solid var(--color-border); */
+  border-bottom: 1px solid var(--color-border);
 }
 .clltoaction-style-default.style-7 .content .subtitle {
   font-size: 16px;
@@ -12567,7 +12553,7 @@ Timeline Area
 @media only screen and (max-width: 767px) {
   .rainbow-splite-style .split-inner .title {
     font-size: 24px;
-    line-height: 50px;
+    line-height: 30px;
   }
 }
 .rainbow-splite-style .split-inner .split-list {
@@ -12578,6 +12564,10 @@ Timeline Area
 .rainbow-splite-style .split-inner .split-list li {
   color: var(--color-dark-alt);
 }
+
+/*----------------------------
+    Video Popup Styles  
+------------------------------*/
 .video-popup,
 .rainbow-gallery {
   position: relative;

@@ -41,7 +41,6 @@ if (!empty($setupPrice)) {
     $message .= "Setup Price: $setupPrice";
 }
 if (!empty($totalPrice)) {
-    // Add "Total Price" only if it's not already included in the message
     if (!strpos($message, "")) {
         $message .= "Total Price: $totalPrice";
     } else {

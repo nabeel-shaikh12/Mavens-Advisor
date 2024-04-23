@@ -1,4 +1,12 @@
-<div class="deznav">
+<style>
+ .nav-text{
+	color: black !important;
+  }
+ .menu-icon{
+	color: black !important;
+  }
+</style>
+<div class="deznav" style="background:white">
   <div class="deznav-scroll">
 	<ul class="metismenu" id="menu">
 	  <li class="menu-title">Operations</li>
@@ -21,6 +29,7 @@
 			</svg>
 		   </div>	
 			<span class="nav-text">chat</span>
+			<span id="popup-dot" style="display: none;">•</span>
 		</a></li>
 			<li><a href="./registered_user" class="" aria-expanded="false">
 				<div class="menu-icon">

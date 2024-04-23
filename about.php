@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
     <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
     <link rel="stylesheet" href="assets/css/style.css">
-</head>
 
+</head>
 <body>
     <main class="page-wrapper">
         <?php include 'components/topbar.php'?>
@@ -30,7 +30,6 @@
             <div class="container">
                 <div class="row" style="display:flex;justify-content:center;align-items:center">
                     <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40 ">
-
                         <div class="inner text-left ">
                                 <h1 class="display-two">We are Innovating a <span style="color:#0b7ffe">Digital Financial</span> World!</h1>
                             <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
@@ -83,7 +82,6 @@
                 </div>
             </div>
         </div>
-
         <div class="rbt-separator-mid">
             <div class="container">
                 <hr class="rbt-separator m-0">
@@ -126,7 +124,6 @@
                                                 </div>
                                             </a>
                                         </li>
-
                                         <li class="col-lg-4 nav-item" role="presentation">
                                             <a href="#" class="nav-link tab-button" id="profile-tab-3" data-bs-toggle="tab" data-bs-target="#profile-3" role="tab" aria-controls="profile-3" aria-selected="false">
                                                 <div class="tab">
@@ -135,7 +132,6 @@
                                                 </div>
                                             </a>
                                         </li>
-
                                         <li class="col-lg-4 nav-item" role="presentation">
                                             <a href="#" class="nav-link tab-button" id="contact-tab-3" data-bs-toggle="tab" data-bs-target="#contact-3" role="tab" aria-controls="contact-3" aria-selected="false">
                                                 <div class="tab">
@@ -167,9 +163,6 @@
                                 <div class="overlay-content">
                                     <div class="thumbnail"><img class="radius-small" src="img/Revenue-bro.png" alt="Corporate Image"></div>
                                     <div class="video-icon">
-                                        <!-- <a class="btn-default rounded-player popup-video" href="https://www.youtube.com/watch?v=tj9-MGHCs38">
-                                            <span><i class="feather-play"></i></span>
-                                        </a> -->
                                         <a class="" href="https://www.youtube.com/watch?v=tj9-MGHCs38">
                                             <span><i class="feather-play"></i></span>
                                         </a>
@@ -213,8 +206,6 @@
                 </div>
             </div>
         </div>
-        <!-- End About Area  -->
-        <!-- Start Counter Up Area  -->
         <div class="rainbow-counterup-area pb--100">
             <div class="container">
                 <div class="row">
@@ -257,89 +248,52 @@
                 </div>
             </div>
         </div>
-        <!-- End Counter Up Area  -->
-        <!-- Start Seperator Area  -->
-        <div class="rbt-separator-mid">
+        <div class="rbt-separator-mid" style="margin-bottom:100px">
             <div class="container">
                 <hr class="rbt-separator m-0">
             </div>
         </div>
-        <!-- End Seperator Area  -->
-        <!-- Start Team Area  -->
-        <div class="rainbow-team-area rainbow-section-gap">
-            <div class="container">
-                <div class="row mb--20">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
-                            <h4 class="subtitle "><span class="theme-gradient">Our Corporate Team.</span></h4>
-                            <h2 class="title w-600 mb--20">Meet Our Team.</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row row--15">
-                    <div class="col-lg-6 col-xl-6 col-md-6 col-12 mt--30" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
-                        <div class="rainbow-team team-style-three">
-                            <div class="inner">
-                                <div class="thumbnail"><img src="img/srkk.png" alt="Corporate React Template"></div>
-                                <div class="content">
-                                    <div class="team-info">
-                                        <h2 class="title">Syed Rehan Kazim Kazmi</h2>
-                                        <h6 class="subtitle theme-gradient">Cheif Operating Partner</h6>
-                                        <!-- <div class="team-form"><span class="location">CO Miego, AD, USA</span></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-6 col-md-6 col-12 mt--30" data-sal="slide-up" data-sal-duration="400" data-sal-delay="200">
-                        <div class="rainbow-team team-style-three">
-                            <div class="inner">
-                                <div class="thumbnail"><img src="img/1.png" alt="Corporate React Template"></div>
-                                <div class="content">
-                                    <div class="team-info">
-                                        <h2 class="title">Adeel Shaikh</h2>
-                                        <h6 class="subtitle theme-gradient">Lead Fintech Consultant</h6>
-                                        <!-- <div class="team-form"><span class="location">Bangladesh</span></div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-lg-6 col-xl-3 col-md-6 col-12 mt--30" data-sal="slide-up" data-sal-duration="400" data-sal-delay="300">
-                        <div class="rainbow-team team-style-three">
-                            <div class="inner">
-                                <div class="thumbnail"><img src="assets/images/team/team-dark-03.jpg" alt="Corporate React Template"></div>
-                                <div class="content">
-                                    <div class="team-info">
-                                        <h2 class="title">Jara Saraif</h2>
-                                        <h6 class="subtitle theme-gradient">Software Developer</h6>
-                                        <div class="team-form"><span class="location">Poland</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-xl-3 col-md-6 col-12 mt--30" data-sal="slide-up" data-sal-duration="400" data-sal-delay="400">
-                        <div class="rainbow-team team-style-three">
-                            <div class="inner">
-                                <div class="thumbnail"><img src="assets/images/team/team-dark-04.jpg" alt="Corporate React Template"></div>
-                                <div class="content">
-                                    <div class="team-info">
-                                        <h2 class="title">Afanan Sifa</h2>
-                                        <h6 class="subtitle theme-gradient">Accounts Manager</h6>
-                                        <div class="team-form"><span class="location">Poland</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                    </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+                <img src="./img/4.png" alt="Image description" />
+            </div>
+            <div class="col-md-6">
+                <h2>Adeel Shaikh</h2>
+                <h5>Founder</h5>
+                <p style="font-size: 15px;">Adeel Shaikh is a dynamic force in the entrepreneurial landscape, boasting a multifaceted skill set and a passion for innovation. As a serial entrepreneur, digital branding strategist, and FinTech enthusiast, Adeel thrives at the intersection of technology and business. With a keen interest in blockchain technology, he brings specialized expertise to the table, making waves in the ever-evolving world of finance.<br><br>
+                Adeel is the founder of Mavens Advisor, a distinguished financial services firm, and Brannovate, a cutting-edge digital branding agency. His visionary leadership extends to Nashfact, an online platform renowned for its authentic insights into the business realm. Serving as CEO, Adeel spearheads Nashfact's mission to deliver invaluable content ranging from emerging trends to startup narratives.<br><br>
+                In addition to his entrepreneurial endeavors, Adeel holds strategic positions, including Vice President at Nash Technologies, where he leverages his Gen Z perspective and technology-driven mindset to drive impactful business strategies.<br><br>
+                A seasoned Gen Z business consultant, Adeel excels in managing a diverse portfolio of local and international clients. His expertise spans a wide array of services, including bookkeeping, offshore audit services, virtual CFO services, FinTech consultancy, blockchain modeling, and e-commerce solutions.<br><br>
+                Adeel’s academic background is equally impressive, having graduated from both Oxford Brookes and Karachi University with a BSc in Accounting and Finance. As an associate of the Association of Chartered Certified Accountants, he brings a wealth of financial knowledge and strategic insights to his ventures.<br><br>
+                With over seven years of experience serving clients across the UK, Canada, and the USA, Adeel is a trusted advisor and QuickBooks Online Certified ProAdvisor and Xero Certified ProAdvisor. His relentless pursuit of excellence and dedication to driving innovation make him a standout figure in the ever-evolving landscape of business and technology.</p>
+                <a href="#"><i class="feather-linkedin"></i></a>
                 </div>
             </div>
+            <div class="rbt-separator-mid" style="margin-top: 50px;">
+            <div class="container">
+                <hr class="rbt-separator m-0">
+            </div>
         </div>
-        <!-- End Team Area  -->
-        <!-- Start Footer Area  -->
-            <?php include 'components/footer.php'?>
-           <?php include 'components/footerBottom.php'?>
+          <div class="row" style="margin-top: 50px; margin-bottom:100px">
+            <div class="col-md-6">
+                <h2>Nabeel Shaikh</h2>
+                <h5>Co-Founder</h5>
+                <p style="font-size: 15px;">Meet Nabeil Schaik, a seasoned chartered accountant with a whopping 18 years of experience under his belt. Throughout his dynamic career journey, he’s donned multiple hats, from being a Founder and Co-Founder in startup ventures to currently steering the ship as the Co-Founder and Chief Strategic Officer at Mavens Advisors (Mavensadvisor.com). At Mavens Advisors, Nabeil leads the charge, ensuring the company sails smoothly and efficiently, especially in the realm of business process outsourcing.<br><br>
+                But that's not all. Nabeil is also deeply involved with Ed-Watch, another venture where he plays a pivotal role in forming key partnerships and expanding the company’s reach globally. His fingerprints are all over the product development process, where his knack for innovation shines. Ed-Watch focuses on elevating the skills and knowledge of finance professionals through its learning and development platform.<br><br>
+                Nabeil's journey to expertise began with his Chartered Accountancy qualification from the esteemed Institute of Chartered Accountants of Pakistan (ICAP) in 2013, followed by an MSc in Accounting and Finance from the University of Northampton in 2021, a testament to his commitment to mastering his craft.<br><br>
+                Before diving into entrepreneurship, Nabeil honed his skills in renowned organizations like Riyadh Capital, SNB Capital, PwC, KPMG, and LG, where he handled various finance leadership roles with finesse, spanning different industries.<br><br>
+                Presently, Nabeil wears many hats. Besides his role as a Financial Advisor at a leading GCC-based Unicorn in Saudi Arabia, he also wears the hat of a Corporate Trainer and Public Speaker, generously sharing his wealth of knowledge with corporate audiences.<br><br>
+                In 2023, Nabeil embarked on yet another entrepreneurial endeavor, founding Nashfact (nashfact.com). Nashfact serves as an online hub delivering authentic insights from the business world, covering everything from emerging trends to startup narratives and educational content. But Nabeil's influence extends beyond entrepreneurship; he’s also a Social Media Influencer, leveraging his expertise to connect with a wide audience. Additionally, he holds strategic positions as a board member at Manozi Limited (UK) and Nash Technologies, where his insights drive organizational growth.</p>
+                <a href="#"><i class="feather-linkedin"></i></a>
+            </div>
+            <div class="col-md-6" style="display: flex; justify-content: center; align-items: center;">
+            <img src="./img/2.png" alt="Image description" />
+             </div>
+            </div>
+          </div>
+        <?php include 'components/footer.php'?>
+        <?php include 'components/footerBottom.php'?>
     </main>
     <div class="rainbow-back-top">
         <i class="feather-arrow-up"></i>
