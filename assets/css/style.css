@@ -158,7 +158,6 @@ mark {
   background: var(--color-primary);
   color: #ffffff;
 }
-
 code,
 kbd,
 pre,
@@ -15914,7 +15913,11 @@ body.active-light-mode .slider-area.bg-transparent .inner button.btn-default.btn
   color: var(--color-white);
 }
 
-/* Advance Tab Style Four  */
+.sidebar-right-trigger:hover {
+  color: #fff;
+  display: none !important;
+}
+
 .advance-tab-four {
   position: relative;
   padding: 48px;
@@ -15929,10 +15932,18 @@ body.active-light-mode .slider-area.bg-transparent .inner button.btn-default.btn
   .advance-tab-four {
     padding: 20px;
   }
+  .logo-light{
+    height: 120px;
+    width: 120px;
+  }
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 667px) {
   .advance-tab-four {
     padding: 20px;
+  }
+  .logo-light{
+    height: 120px;
+    width: 120px;
   }
 }
 .advance-tab-four .advance-tab-top .description {

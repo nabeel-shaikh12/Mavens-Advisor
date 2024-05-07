@@ -54,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["update_profile"])) {
                 $error = "Error uploading image.";
             }
         }
-
         $update_query = "UPDATE user SET user_name = ?, email_address = ?, profile_image = ? WHERE id = ?";
         $stmt = $conn->prepare($update_query);
         $stmt->bind_param("sssi", $new_user_name, $new_email_address, $profile_image, $user_id);

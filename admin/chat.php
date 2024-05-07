@@ -40,6 +40,89 @@ if (isset($_POST['logout'])) {
 	<script src="chat.js"></script>
     <link href="./css/style.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+   .file-input-container {
+     position: relative;
+     display: inline-block; 
+     vertical-align: middle;
+     width: 100%;
+}
+   .file-label {
+     display: inline-block;
+     padding: 10px;
+     background-color: #007bff; 
+     color: #fff; 
+     border-radius: 5px;
+     cursor: pointer;
+}
+   input[type="file"] {
+     display: none;
+     margin-top: 10px;
+}
+   .col-md-3,
+   .col-md-2 {
+     margin-top: 10px;
+	}
+   .write {
+    bottom: 29px;
+    left: 30px;
+    height: 50px;
+    padding-left: 8px;
+    border: 1px solid var(--light);
+    background-color: #eceff1;
+    display: flex; 
+    width: calc(100% - 58px);
+    border-radius: 5px;
+}
+
+.write .input-group {
+    display: flex; 
+    align-items: center;
+    width: 100%;
+}
+
+.write input[type="text"] {
+    flex-grow: 1; 
+    font-size: 16px;
+    height: 40px;
+    padding: 0 30px;
+    color: var(--dark);
+    border: 0;
+    outline: none;
+    background-color: #eceff1;
+}
+
+.write input[type="file"] {
+    display: none; 
+}
+
+.write .write-link {
+    float: left;
+    height: 42px;
+}
+
+.write .write-link.attach:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 42px;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/attachment.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.write .write-link.send:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 42px;
+    margin-left: 11px;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/send.png');
+    background-repeat: no-repeat;
+	margin-right: 20px;
+    background-position: center;
+}
+</style>
+
 </head>
 <body>
   <div id="main-wrapper">
@@ -47,7 +130,7 @@ if (isset($_POST['logout'])) {
 	  <?php include 'components/header.php'?>
 		  <?php include 'components/sidebar.php'?>
 			<div class="content-body">
-			  <div class="container-fluid">
+			  <div class="container flex-1 justify-content-center align-items-center">
 				<div class="row gx-0">
 				  <div class="col-xl-12">
 					<div class="card overflow-hidden">
@@ -71,15 +154,15 @@ if (isset($_POST['logout'])) {
 								$result = $conn->query($sql);
 								?>
 								<div class="row gx-0">
-									<div class="col-xl-6 col-lg-6 col-sm-5 chat-border mobile-chat ">
-										<div class="people-list dz-scroll" >
-											<?php
-											if ($result->num_rows > 0) {
-												while ($row = $result->fetch_assoc()) {
+									<div class="col-xl-4 col-lg-4 col-sm-4 col-md-4 chat-border mobile-chat ">
+									<div class="people-list dz-scroll">
+									<?php
+									if ($result->num_rows > 0) {
+										while ($row = $result->fetch_assoc()) {
 													echo '<hr>';
 													echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')">';
 													echo '<div class="d-flex" onclick="toggleMessageSend()">';
-													echo '<a href="#" class="delete-btn" data-email="' . $row['email_address'] . '"><i class="delete-btn fas fa-trash-alt mt-2" style="color:red;margin-right:20px"></i></a>';
+													echo '<a href="#" class="delete-btn" data-email="' . $row['email_address'] . '"><i class="delete-btn fas fa-trash-alt mt-2" style="color:red"></i></a>';
 													echo '<div class="ms-2">';
 													echo '<h6 class="mb-0">' . $row['email_address'] . '</h6>';
 													echo '<span class="unread-indicator"></span>';
@@ -95,7 +178,14 @@ if (isset($_POST['logout'])) {
 											}
 											$conn->close();
 											?>
-										</div>
+									</div>
+
+									<?php
+									function getRandomAvatar() {
+										$avatars = ['d1.jpg', 'd2.jpg', 'd3.jpg', 'd4.jpg']; 
+										return $avatars[array_rand($avatars)];
+									}
+									?>
 									</div>
 									<script>
 									$(document).ready(function() {
@@ -118,38 +208,39 @@ if (isset($_POST['logout'])) {
 										});
 									});
 									</script>
-							<div class="col-xl-6 col-lg-6 col-sm-7 chat-border" id="chat-detail" > 
+							<div class="col-xl-8 col-lg-8 col-sm-8 chat-border" id="chat-detail" > 
 								<div id="chat-detail-content">
 								</div>
-								<div class="message-send style-2" id="messageContainer" style="display:none">
-								  <div class="type-massage style-1">
-									<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>" enctype="multipart/form-data">
-							<input type="hidden" name="email" value="<?php echo $user_email; ?>">
-							<div class="row">
-								<div class="col-md-6 col-xl-6 col-sm-6 col-lg-6 w-100">
-									<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here..">
+							      <div class="write" style="margin: 10px; display: none;" id="messageContainer">
+								<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>" enctype="multipart/form-data">
+									<input type="hidden" name="email" value="<?php echo $user_email; ?>">
+									<div class="input-group">
+										<a href="javascript:;" class="write-link attach" onclick="document.getElementById('file').click(); return false;"></a>
+										<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here.." />
+										<input type="file" name="file" id="file" style="display: none;">
+										<button type="submit" class="write-link send border-0" id="sendButton"></button>
+									</div>
+								</form>
 								</div>
-								<div class="col-md-4 col-xl-4 col-sm-4 col-lg-4">
-									<input type="file" name="file" id="file" class="form-control">
-								</div>
-								<div class="col-md-2 col-xl-2 col-sm-2 col-lg-2">
-									<button type="submit" class="btn btn-primary p-2" id="sendButton" style="margin-top:-40px;">Send
-										<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-											<path d="M10.555 5.44976L6.73936 9.30612L2.39962 6.59178C1.77783 6.20276 1.90718 5.25829 2.61048 5.05262L12.9142 2.03518C13.5582 1.84642 14.155 2.44855 13.9637 3.09466L10.9154 13.3912C10.7066 14.0955 9.76747 14.2213 9.38214 13.5968L6.73734 9.3068" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-										</svg>
-									</button>
-								</div>
-							   </div>
-						      </form>
-							</div>
-					      </div>
-						</div>
+
 						<script>
 							function toggleMessageSend() {
 								var messageSendDiv = document.getElementById("messageContainer");
 								messageSendDiv.style.display = "block";
 							}
 					</script>
+					<script>
+    function showDeleteIcon(element) {
+        var deleteIcon = element.querySelector('.delete-btn');
+        deleteIcon.style.display = 'block';
+    }
+
+    function hideDeleteIcon(element) {
+        var deleteIcon = element.querySelector('.delete-btn');
+        deleteIcon.style.display = 'none';
+    }
+</script>
+
 					</div>
 				  </div>
 			<?php include 'components/footer.php'?>
@@ -218,27 +309,6 @@ if (isset($_POST['logout'])) {
 			fetchChatDetail(emailAddress);
 		}, 10000);
 	}
-function checkForNewMessages() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = this.responseText;
-            if (response.trim() !== "") {
-                document.getElementById("popup-dot").style.display = "block";
-            }
-        }
-    };
-    xhttp.open("GET", "fetch_messages.php", true);
-    xhttp.send();
-}
-
-function handleDotClick() {
-    document.getElementById("popup-dot").style.display = "none";
-}
-
-checkForNewMessages();
-setInterval(checkForNewMessages, 5000);
-document.getElementById("popup-dot").addEventListener("click", handleDotClick);
 </script>
 </body>
 </html>

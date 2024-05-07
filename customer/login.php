@@ -67,15 +67,15 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
     </script> 
 </head>
 <body class="vh-100">
-	<div class="page-wraper">
-		<div class="browse-job login-style3">
-			<div class="bg-img-fix overflow-hidden" style="background:#fff url(images/background/bg6.jpg); height: 100vh;">
-				<div class="row gx-0">
-					<div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 vh-100 bg-white ">
-						<div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 653px;" tabindex="0">
-							<div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
-								<div class="login-form style-2">
-									<div class="card-body">
+  <div class="page-wraper">
+	<div class="browse-job login-style3">
+		<div class="bg-img-fix overflow-hidden" style="background:#fff url(/images/background/bg6.png); height: 100vh;">
+			<div class="row gx-0">
+				<div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 vh-100 bg-white ">
+					<div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: 653px;" tabindex="0">
+						<div id="mCSB_1_container" class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+							<div class="login-form style-2">
+								<div class="card-body">
 									<a href="../" style="color: black;" class="m-2"><i class="fa fa-arrow-left"></i> Back</a>
 										<div class="logo-header">
 											<a href="index.php" class="logo"><img src="../img/MA Logo circle.png" height="150px" width="150px" alt="" class="width-230 light-logo"></a>
@@ -138,9 +138,9 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 												<div class="dz-social">
 												</div>
 											</form>
-												<div class="text-center bottom"> 
-													<button class="btn btn-primary button-md btn-block" style="background-color:#019dff;border:none" id="nav-sign-tab" data-bs-toggle="tab" data-bs-target="#nav-sign" type="button" role="tab" aria-controls="nav-sign" aria-selected="false">Create an account</button> 
-												</div>
+											<div class="text-center bottom"> 
+												<button class="btn btn-primary button-md btn-block" style="background-color:#019dff;border:none" id="nav-sign-tab" data-bs-toggle="tab" data-bs-target="#nav-sign" type="button" role="tab" aria-controls="nav-sign" aria-selected="false">Create an account</button> 
+											</div>
 										  </div>
 										  <div class="tab-pane fade" id="nav-forget" role="tabpanel" aria-labelledby="nav-forget-tab">
 											<form class="dz-form">

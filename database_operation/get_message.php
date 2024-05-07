@@ -1,7 +1,7 @@
 <?php
 include '../db/dbCon.php';
 
-$sql = "SELECT * FROM messages ORDER BY timestamp DESC LIMIT 10"; 
+$sql = "SELECT * FROM messages ORDER BY timestamp DESC LIMIT 10";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -12,4 +12,3 @@ if ($result->num_rows > 0) {
     echo "No messages found";
 }
 $conn->close();
-?>

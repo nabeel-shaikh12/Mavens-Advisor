@@ -1,9 +1,10 @@
 <?php
 include './db/dbCon.php';
 
-$message = $error = ''; 
+$message = $error = '';
 
-function verifyRecaptcha($response) {
+function verifyRecaptcha($response)
+{
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array(
         'secret' => '6Lft5qMpAAAAALwk93B8vvPCrbkhdS2kx3NwrSYg',
@@ -11,7 +12,7 @@ function verifyRecaptcha($response) {
     );
 
     $options = array(
-        'http' => array (
+        'http' => array(
             'method' => 'POST',
             'content' => http_build_query($data)
         )
@@ -24,25 +25,25 @@ function verifyRecaptcha($response) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
-    $response = $_POST['g-recaptcha-response'];
-    $captcha_success = verifyRecaptcha($response);
-      if ($captcha_success) {
-        $full_name = $_POST['full_name'];
-        $email_address = $_POST['email_address'];
-        $message_text = $_POST['message'];
+    if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        $response = $_POST['g-recaptcha-response'];
+        $captcha_success = verifyRecaptcha($response);
+        if ($captcha_success) {
+            $full_name = $_POST['full_name'];
+            $email_address = $_POST['email_address'];
+            $message_text = $_POST['message'];
 
-          $sql = "INSERT INTO contact_form (full_name, email_address, message) VALUES (?, ?, ?)";
-          $stmt = $conn->prepare($sql);
-          $stmt->bind_param('sss', $full_name, $email_address, $message_text);
+            $sql = "INSERT INTO contact_form (full_name, email_address, message) VALUES (?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param('sss', $full_name, $email_address, $message_text);
 
-          if ($stmt->execute()) {
-            $message = "Message sent successfully.";
-            header('location: contact.php?message=' . urlencode($message));
-            $message = "Form Submitted Successfully";
-            exit();
+            if ($stmt->execute()) {
+                $message = "Message sent successfully.";
+                header('location: contact.php?message=' . urlencode($message));
+                $message = "Form Submitted Successfully";
+                exit();
             } else {
-            $error = "Error: " . $stmt->error;
+                $error = "Error: " . $stmt->error;
             }
             $stmt->close();
         } else {
@@ -58,4 +59,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 header('location: contact.php?error=' . urlencode($error));
 exit();
-?>

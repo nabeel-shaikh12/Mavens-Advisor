@@ -1,7 +1,6 @@
 <?php
 include './db/dbCon.php';
 
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculator_submit'])) {
     $transactionPrice = isset($_POST['transactionPrice']) ? $_POST['transactionPrice'] : null;
     $invoicePrice = isset($_POST['invoicePrice']) ? $_POST['invoicePrice'] : null;
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculator_submit']))
 }
 
 $conn->close();
-$_SESSION['filled_calculator_form'] = true;
-header('Location: ./customer/login.php');
+$_SESSION['filled_subscription_form'] = true;
+header('Location: ./chat.php');
 exit();
 ?>

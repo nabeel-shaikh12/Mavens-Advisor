@@ -5,7 +5,7 @@ include '../db/dbCon.php';
 function verifyRecaptcha($response) {
     $url = 'https://www.google.com/recaptcha/api/siteverify';
     $data = array(
-        'secret' => '6LfW1qgpAAAAAKQfRYBOJy-wNFxPHvxtq8KhEM6m',
+        'secret' => '6Lft5qMpAAAAALwk93B8vvPCrbkhdS2kx3NwrSYg',
         'response' => $response
     );
 

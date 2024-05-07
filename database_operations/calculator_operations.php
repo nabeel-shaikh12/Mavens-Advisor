@@ -11,13 +11,13 @@ include '../db/dbCon.php';
 //     $setupPrice = isset($_POST['setupPrice']) ? $_POST['setupPrice'] . '$' : null;
 //     $totalPrice = isset($_POST['totalPrice']) ? $_POST['totalPrice'] . '$' : null;
 //     $discountPrice = isset($_POST['discountPrice']) ? $_POST['discountPrice'] . '$' : null;
-    
+
 //     $sql = "INSERT INTO calculator (transactionPrice, invoicePrice, payrollPrice, cashflowPrice, budgetPrice, setupPrice, totalPrice, discountPrice) 
 //             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    
+
 //     $stmt = $conn->prepare($sql);
 //     $stmt->bind_param("ssssssss", $transactionPrice, $invoicePrice, $payrollPrice, $cashflowPrice, $budgetPrice, $setupPrice, $totalPrice, $discountPrice);
-    
+
 //     if ($stmt->execute()) {
 //         $response = array("success" => true, "message" => "Calculator data saved successfully.");
 //         echo json_encode($response);
@@ -25,7 +25,7 @@ include '../db/dbCon.php';
 //         $response = array("success" => false, "message" => "Error: " . $stmt->error);
 //         echo json_encode($response);
 //     }
-    
+
 //     $stmt->close();
 // } else {
 //     $response = array("success" => false, "message" => "Invalid request method.");
@@ -46,10 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculator_submit']))
 
     $sql = "INSERT INTO calculator (transactionPrice, invoicePrice, payrollPrice, cashflowPrice, budgetPrice, setupPrice, totalPrice, discountPrice) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    
+
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssssssss", $transactionPrice, $invoicePrice, $payrollPrice, $cashflowPrice, $budgetPrice, $setupPrice, $totalPrice, $discountPrice);
-    
+
     if ($stmt->execute()) {
         $response = array("success" => true, "message" => "Calculator data saved successfully.");
         echo json_encode($response);
@@ -57,10 +57,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['calculator_submit']))
         $response = array("success" => false, "message" => "Error: " . $stmt->error);
         echo json_encode($response);
     }
-    
+
     $stmt->close();
 } else {
     $response = array("success" => false, "message" => "Invalid request method.");
     echo json_encode($response);
 }
-?>

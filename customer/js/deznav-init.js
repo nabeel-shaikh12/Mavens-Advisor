@@ -1,8 +1,6 @@
 
 "use strict"
-
 var dzSettingsOptions = {};
-
 function getUrlParams(dParam) 
 	{
 		var dPageURL = window.location.search.substring(1),
@@ -18,46 +16,26 @@ function getUrlParams(dParam)
 			}
 		}
 	}
-
 (function($) {
-	
 	"use strict"
-	
-	/* var direction =  getUrlParams('dir');
-	
-	if(direction == 'rtl')
-	{
-        direction = 'rtl'; 
-    }else{
-        direction = 'ltr'; 
-    } */
-	
 	dzSettingsOptions = {
 		typography: "poppins",
 		version: "light",
 		layout: "vertical",
 		primary: "color_1",
 		headerBg: "color_1",
-		navheaderBg: "color_2",
-		sidebarBg: "color_2",
+		navheaderBg: "color_1",
+		sidebarBg: "color_1",
 		sidebarStyle: "full",
 		sidebarPosition: "fixed",
 		headerPosition: "fixed",
 		containerLayout: "full",
 	};
-
-	
-	
-	
 	new dzSettings(dzSettingsOptions); 
 
 	jQuery(window).on('resize',function(){
-        /*Check container layout on resize */
-		///alert(dzSettingsOptions.primary);
         dzSettingsOptions.containerLayout = $('#container_layout').val();
-        /*Check container layout on resize END */
-        
-		new dzSettings(dzSettingsOptions); 
+        new dzSettings(dzSettingsOptions); 
 	});
 	
 })(jQuery);

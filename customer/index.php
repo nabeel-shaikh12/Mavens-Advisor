@@ -66,8 +66,91 @@ $user_email = $_SESSION['email_address'];
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 	<script src="chat.js"></script>
+<style>
+	.file-input-container {
+		position: relative;
+		display: inline-block; 
+		vertical-align: middle;
+		width: 100%;
+	}
+	.file-label {
+		display: inline-block;
+		padding: 10px;
+		background-color: #007bff; 
+		color: #fff; 
+		border-radius: 5px;
+		cursor: pointer;
+	}
+	input[type="file"] {
+		display: none;
+		margin-top: 10px;
+	}
+	.col-md-3,
+	.col-md-2 {
+		margin-top: 10px;
+	}
+   .write {
+    bottom: 29px;
+    left: 30px;
+    height: 50px;
+    padding-left: 8px;
+    border: 1px solid var(--light);
+    background-color: #eceff1;
+    display: flex; 
+    width: calc(100% - 58px);
+    border-radius: 5px;
+}
+
+.write .input-group {
+    display: flex; 
+    align-items: center;
+    width: 100%;
+}
+
+.write input[type="text"] {
+    flex-grow: 1; 
+    font-size: 16px;
+    height: 40px;
+    padding: 0 30px;
+    color: var(--dark);
+    border: 0;
+    outline: none;
+    background-color: #eceff1;
+}
+
+.write input[type="file"] {
+    display: none; 
+}
+
+.write .write-link {
+    float: left;
+    height: 42px;
+}
+
+.write .write-link.attach:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 42px;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/attachment.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.write .write-link.send:before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 42px;
+    margin-left: 11px;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/382994/send.png');
+    background-repeat: no-repeat;
+	margin-right: 20px;
+    background-position: center;
+}
+</style>
 </head>
 <body>
+<?php include 'components/preloader.php'?>
   <div id="main-wrapper">
 	<?php include 'components/navHeader.php'?>
 	  <?php include 'components/chatbox.php'?>
@@ -126,8 +209,12 @@ $user_email = $_SESSION['email_address'];
 										echo '<div onclick="toggleMessageSend()">';
 										echo '<div class="chat-p style-1" data-email="' . $row['email_address'] .'" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
 										echo '<div class="d-flex" onclick="toggleMessageSend()">';
+										echo '<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0">';
+										echo '<i class="fas fa-user"></i>'; // Font Awesome icon for the dummy image
+										echo '</div>';
+
 										echo '<div class="ms-2">';
-										echo '<h6 class="mb-0">admin@gmail.com</h6>';
+										echo '<h6 class="mb-0">info@mavensadvisor.com</h6>';
 										echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
 										echo '</div>';
 										echo '</div>';
@@ -136,50 +223,41 @@ $user_email = $_SESSION['email_address'];
 										echo '</div>';
 									}
 								} 
-										else {
-											echo "No chats Available";
-										}
-									  $conn->close();
+								else {
+									echo "No chats Available";
+								}
+								$conn->close();
 									?>
 								</div>
 							  </div>
-							  <div class="col-xl-7 col-lg-7 col-sm-7 chat-border" id="chat-detail" > 
-							<div id="chat-detail-content">
-							</div>
-							<div class="message-send style-2" id="messageContainer" style="display: none;">
-							<div class="type-massage style-1">
-							<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>" enctype="multipart/form-data">
-								<input type="hidden" name="email" value="<?php echo $user_email; ?>">
-								<div class="row">
-									<div class="col-md-7 col-xl-7 col-sm-7 col-lg-7 w-100">
-										<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here..">
+							  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 chat-border"  id="chat-detail" > 
+							   <div id="chat-detail-content">
+							   </div>
+							   <div class="write" style="margin: 10px; display: none;" id="messageContainer">
+								<form id="messageForm" method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?email=' . urlencode($user_email); ?>" enctype="multipart/form-data">
+									<input type="hidden" name="email" value="<?php echo $user_email; ?>">
+									<div class="input-group">
+										<a href="javascript:;" class="write-link attach" onclick="document.getElementById('file').click(); return false;"></a>
+										<input type="text" name="message" id="message" class="form-control" placeholder="Type your message here.." />
+										<input type="file" name="file" id="file" style="display: none;">
+										<button type="submit" class="write-link send border-0" id="sendButton"></button>
 									</div>
-								<div class="col-md-3 col-xl-6 col-sm-3 col-lg-6">
-								<input type="file" name="file" id="file" class="form-control">
-
+									<!-- <div id="imagePreviewContainer"></div>  -->
+								</form>
 								</div>
-								<div class="col-md-2 col-xl-1 col-sm-2 col-lg-1">
-									<button type="submit" class="btn btn-primary p-2" id="sendButton" style="margin-top:-40px;">Send
-										<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-											<path d="M10.555 5.44976L6.73936 9.30612L2.39962 6.59178C1.77783 6.20276 1.90718 5.25829 2.61048 5.05262L12.9142 2.03518C13.5582 1.84642 14.155 2.44855 13.9637 3.09466L10.9154 13.3912C10.7066 14.0955 9.76747 14.2213 9.38214 13.5968L6.73734 9.3068" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-									  </svg>
-									</button>
-							      </div>
-							     </div>
-						        </form>
-					           </div>
 				               </div>
 				              </div>
-						<script>
+							<script>
 							function toggleMessageSend() {
 								var messageSendDiv = document.getElementById("messageContainer");
 								if (messageSendDiv.style.display === "none") {
-										messageSendDiv.style.display = "block";
-								} else {
+									messageSendDiv.style.display = "block";
+								}
+								else {
 									messageSendDiv.style.display = "none";
 									messageSendDiv.style.display = "block";
 								}
-							}
+								}
 						</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./vendor/global/global.min.js"></script>
@@ -245,6 +323,24 @@ $user_email = $_SESSION['email_address'];
 			fetchChatDetail(emailAddress);
 		}, 10000);
 	}
+
+// 	document.getElementById('file').addEventListener('change', function() {
+//     var fileInput = this.files[0];
+//     var reader = new FileReader();
+//     reader.onload = function(e) {
+//         var imagePreviewContainer = document.getElementById('imagePreviewContainer');
+//         imagePreviewContainer.innerHTML = '<img src="' + e.target.result + '" style="max-width: 100px; max-height: 100px;" />';
+//         var removeIcon = document.createElement('span');
+//         removeIcon.classList.add('bi', 'bi-x-lg', 'text-danger', 'cursor-pointer');
+//         removeIcon.addEventListener('click', function() {
+//             imagePreviewContainer.innerHTML = '';
+//             document.getElementById('file').value = '';
+//         });
+//         imagePreviewContainer.appendChild(removeIcon);
+//     };
+//     reader.readAsDataURL(fileInput);
+// });
+
 
 </script>
 </html>

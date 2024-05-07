@@ -441,18 +441,16 @@ mysqli_close($conn);
 		</div>
         <?php include 'components/footer.php'?>
 	</div>
-    <script src="./vendor/global/global.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="./vendor/global/global.min.js"></script>
+	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
 	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="./vendor/tagify/dist/tagify.js"></script>
-	<script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="./vendor/datatables/js/dataTables.buttons.min.js"></script>
-	<script src="./vendor/datatables/js/buttons.html5.min.js"></script>
-	<script src="./vendor/datatables/js/jszip.min.js"></script>
-	<script src="./js/plugins-init/datatables.init.js"></script>
-    <script src="./js/custom.js"></script>
+	<script src="./vendor/apexchart/apexchart.js"></script>
+	<script src="./js/custom.js"></script>
 	<script src="./js/deznav-init.js"></script>
 	<script src="./js/demo.js"></script>
-    <script src="./js/styleSwitcher.js"></script>
+	<script src="./js/styleSwitcher.js"></script>
+
 	<script>
 		$(document).ready(function() {
 		  var counters = $(".count");

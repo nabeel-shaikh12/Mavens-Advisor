@@ -29,4 +29,3 @@ if ($fetch_users_result->num_rows > 0) {
 }
 
 $conn->close();
-?>

@@ -21,6 +21,10 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 	<link rel="shortcut icon" type="image/png" href="../img/MA Logo circle.png">
     <link href="./css/style.css" rel="stylesheet">
 </head>
+											<!-- <div class="text-center bottom"> 
+											  <button class="btn btn-primary button-md btn-block" style="background-color:#019dff;border:none" id="nav-sign-tab" data-bs-toggle="tab" data-bs-target="#nav-sign" type="button" role="tab" aria-controls="nav-sign" aria-selected="false">Create an account</button> 
+											</div> -->
+
 <body class="vh-100" style="background-image:url('images/bg.png'); background-position:center;"">
     <div class="authincation h-100">
         <div class="container h-100">

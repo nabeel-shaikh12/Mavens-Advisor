@@ -1,17 +1,17 @@
 <?php
-session_start();
-if (!isset($_SESSION['email'])) {
-    header('Location: login.php');
-    exit();
-} 
-if (isset($_POST['logout'])) {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: login.php");
-    exit; 
-    }
+// session_start();
+// if (!isset($_SESSION['email'])) {
+//     header('Location: login.php');
+//     exit();
+// } 
+// if (isset($_POST['logout'])) {
+//     $_SESSION = array();
+//     session_destroy();
+//     header("Location: login.php");
+//     exit; 
+//     }
 
-include '../db/dbCon.php'; 
+include '../db/dbCon.php';
 
 $sql = "SELECT `count` FROM visit_count";
 $stmt = $conn->prepare($sql);
@@ -19,10 +19,10 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result && $result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $visitCount = $row['count'];
+	$row = $result->fetch_assoc();
+	$visitCount = $row['count'];
 } else {
-    $visitCount = 0;
+	$visitCount = 0;
 }
 
 $sql2 = "SELECT `count` FROM visit_count_subscription";
@@ -31,10 +31,10 @@ $stmt2->execute();
 $result2 = $stmt2->get_result();
 
 if ($result2 && $result2->num_rows > 0) {
-    $row2 = $result2->fetch_assoc();
-    $visitCountSubscription = $row2['count'];
+	$row2 = $result2->fetch_assoc();
+	$visitCountSubscription = $row2['count'];
 } else {
-    $visitCountSubscription = 0;
+	$visitCountSubscription = 0;
 }
 
 $sql3 = "SELECT COUNT(*) as total FROM subscription_form";
@@ -43,10 +43,10 @@ $stmt3->execute();
 $result3 = $stmt3->get_result();
 
 if ($result3 && $result3->num_rows > 0) {
-    $row3 = $result3->fetch_assoc();
-    $formSubmission = $row3['total'];
+	$row3 = $result3->fetch_assoc();
+	$formSubmission = $row3['total'];
 } else {
-    $formSubmission = 0;
+	$formSubmission = 0;
 }
 
 $sql4 = "SELECT COUNT(DISTINCT email_address) as total FROM messages";
@@ -55,16 +55,17 @@ $stmt4->execute();
 $result4 = $stmt4->get_result();
 
 if ($result4 && $result4->num_rows > 0) {
-    $row4 = $result4->fetch_assoc();
-    $totalChatsOpen = $row4['total'];
+	$row4 = $result4->fetch_assoc();
+	$totalChatsOpen = $row4['total'];
 } else {
-    $totalChatsOpen = 0;
+	$totalChatsOpen = 0;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -85,14 +86,15 @@ if ($result4 && $result4->num_rows > 0) {
 	<link href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
 	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 	<link href="./vendor/tagify/dist/tagify.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+	<link href="./css/style.css" rel="stylesheet">
 </head>
+
 <body>
-    <div id="main-wrapper">
-	<?php include 'components/navHeader.php'?>
-	<?php include 'components/header.php'?>
-	<?php include 'components/sidebar.php'?>
-	<div class="content-body">
+	<div id="main-wrapper">
+		<?php include 'components/navHeader.php' ?>
+		<?php include 'components/header.php' ?>
+		<?php include 'components/sidebar.php' ?>
+		<div class="content-body">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xl-3 col-sm-6">
@@ -106,9 +108,9 @@ if ($result4 && $result4->num_rows > 0) {
 										</svg>
 									</div>
 									<div class="total-projects ms-3">
-											<?php
-											echo '<h3 class="text-success count">' . $visitCount . '</h3>';
-											?>
+										<?php
+										echo '<h3 class="text-success count">' . $visitCount . '</h3>';
+										?>
 										<span class="text-success count">Calculator Visit</span>
 									</div>
 								</div>
@@ -127,7 +129,7 @@ if ($result4 && $result4->num_rows > 0) {
 
 									</div>
 									<div class="total-projects ms-3">
-										<?php echo '<h3 class="text-primary count">'.$visitCountSubscription.'</h3>'?>
+										<?php echo '<h3 class="text-primary count">' . $visitCountSubscription . '</h3>' ?>
 										<span class="text-primary count">Subscription form Visit</span>
 									</div>
 								</div>
@@ -147,7 +149,7 @@ if ($result4 && $result4->num_rows > 0) {
 									</div>
 									<div class="total-projects ms-3">
 										<?php
-											echo '<h3 class="text-purple count">' . $formSubmission . '</h3>';
+										echo '<h3 class="text-purple count">' . $formSubmission . '</h3>';
 										?>
 										<span>People Who Submit the form</span>
 									</div>
@@ -172,9 +174,9 @@ if ($result4 && $result4->num_rows > 0) {
 									<div class="total-projects ms-3">
 										<!-- <h3 class="text-danger count">5,855k</h3>  -->
 										<?php
-											echo '<h3 class="text-danger count">' . $totalChatsOpen . '</h3>';
+										echo '<h3 class="text-danger count">' . $totalChatsOpen . '</h3>';
 										?>
-										
+
 										<span>Total Chats Open</span>
 									</div>
 								</div>
@@ -272,136 +274,137 @@ if ($result4 && $result4->num_rows > 0) {
 										<h4 class="heading mb-0">Registered Customer</h4>
 									</div>
 									<table id="empoloyeestbl2" class="table">
-									<thead>
-										<tr>
-											<th></th>
-											<th>Id</th>
-											<th>Name</th>
-											<th>Email</th>
-											<th>Password</th>
-											<th>Confirm Password</th>
-										</tr>
-									</thead>
-									<tbody>
-									<?php
-									include '../db/dbCon.php';
-									$fetch_users_sql = "SELECT * FROM user";
-									$fetch_users_result = $conn->query($fetch_users_sql);
-									if ($fetch_users_result->num_rows > 0) {
-										while ($user = $fetch_users_result->fetch_assoc()) {
-											echo '<tr>';
-											echo '<td>';
-											echo '<div class="form-check custom-checkbox">';
-											echo '<input type="checkbox" class="form-check-input" id="customCheckBox' . $user["id"] . '" required>';
-											echo '<label class="form-check-label" for="customCheckBox' . $user["id"] . '"></label>';
-											echo '</div>';
-											echo '</td>';
-											echo '<td>' . $user["id"] . '</td>';
-											echo '<td>' . $user["user_name"] . '</td>';
-											echo '<td>' . $user["email_address"] . '</td>';
-											echo '<td>' . $user["password"] . '</td>';
-											echo '<td>' . $user["confirm_password"] . '</td>';
-											echo '</tr>';
-										}
-										} else {
-											echo '<tr><td colspan="7">No users found.</td></tr>';
-										}
+										<thead>
+											<tr>
+												<th></th>
+												<th>Id</th>
+												<th>Name</th>
+												<th>Email</th>
+												<th>Password</th>
+												<th>Confirm Password</th>
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											include '../db/dbCon.php';
+											$fetch_users_sql = "SELECT * FROM user";
+											$fetch_users_result = $conn->query($fetch_users_sql);
+											if ($fetch_users_result->num_rows > 0) {
+												while ($user = $fetch_users_result->fetch_assoc()) {
+													echo '<tr>';
+													echo '<td>';
+													echo '<div class="form-check custom-checkbox">';
+													echo '<input type="checkbox" class="form-check-input" id="customCheckBox' . $user["id"] . '" required>';
+													echo '<label class="form-check-label" for="customCheckBox' . $user["id"] . '"></label>';
+													echo '</div>';
+													echo '</td>';
+													echo '<td>' . $user["id"] . '</td>';
+													echo '<td>' . $user["user_name"] . '</td>';
+													echo '<td>' . $user["email_address"] . '</td>';
+													echo '<td>' . $user["password"] . '</td>';
+													echo '<td>' . $user["confirm_password"] . '</td>';
+													echo '</tr>';
+												}
+											} else {
+												echo '<tr><td colspan="7">No users found.</td></tr>';
+											}
 											$conn->close();
-										?>
-									</tbody>
-								</table>
+											?>
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			   <div class="col-xl-6">
-				<div class="card">
-				  <div class="card-body p-0">
-					<div class="table-responsive active-projects task-table">
-						<div class="tbl-caption  ">
-							<div class="row">
-							  <div class="col-md-9">
-							  <h4 class="heading mb-0">Subscription Form Data</h4>
-							</div>
-							<div class="col-md-3 " style="margin-top:-4px;">
-							<a href="./subscriptionForm"><button class="btn btn-primary">More Info</button></a>
+					<div class="col-xl-6">
+						<div class="card">
+							<div class="card-body p-0">
+								<div class="table-responsive active-projects task-table">
+									<div class="tbl-caption  ">
+										<div class="row">
+											<div class="col-md-9">
+												<h4 class="heading mb-0">Subscription Form Data</h4>
+											</div>
+											<div class="col-md-3 " style="margin-top:-4px;">
+												<a href="./subscriptionForm"><button class="btn btn-primary">More Info</button></a>
+											</div>
+										</div>
+										<br>
+										<table id="empoloyeestbl2" class="table">
+											<thead>
+												<tr>
+													<th>ID</th>
+													<th>Business Description</th>
+													<th>Business Size</th>
+													<th>Business Category</th>
+													<th>Business Name</th>
+													<th>First Name</th>
+													<th>Last Name</th>
+													<th>Email</th>
+													<th>Phone Number</th>
+													<th>Updated Date</th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+												include '../db/dbCon.php';
+												$fetch_subscription_sql = "SELECT * FROM subscription_form LIMIT 4";
+												$fetch_subscription_result = $conn->query($fetch_subscription_sql);
+												if ($fetch_subscription_result->num_rows > 0) {
+													while ($subscription_data = $fetch_subscription_result->fetch_assoc()) {
+														echo '<tr>';
+														echo '<td>' . $subscription_data["id"] . '</td>';
+														echo '<td>' . $subscription_data["business_description"] . '</td>';
+														echo '<td>' . $subscription_data["business_size"] . '</td>';
+														echo '<td>' . $subscription_data["business_category"] . '</td>';
+														echo '<td>' . $subscription_data["business_name"] . '</td>';
+														echo '<td>' . $subscription_data["firstname"] . '</td>';
+														echo '<td>' . $subscription_data["lastname"] . '</td>';
+														echo '<td>' . $subscription_data["email"] . '</td>';
+														echo '<td>' . $subscription_data["phone_no"] . '</td>';
+														echo '<td>' . $subscription_data["updated_date"] . '</td>';
+														echo '</tr>';
+													}
+												} else {
+													echo '<tr><td colspan="10">No subscription data found.</td></tr>';
+												}
+												$conn->close();
+												?>
+											</tbody>
+										</table>
+									</div>
+								</div>
 							</div>
 						</div>
-						<br>
-						<table id="empoloyeestbl2" class="table">
-							<thead>
-								<tr>
-								<th>ID</th>
-								<th>Business Description</th>
-								<th>Business Size</th>
-								<th>Business Category</th>
-								<th>Business Name</th>
-								<th>First Name</th>
-								<th>Last Name</th>
-								<th>Email</th>
-								<th>Phone Number</th>
-								<th>Updated Date</th>
-							</tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include '../db/dbCon.php'; 
-                        $fetch_subscription_sql = "SELECT * FROM subscription_form LIMIT 4";
-                        $fetch_subscription_result = $conn->query($fetch_subscription_sql);
-                        if ($fetch_subscription_result->num_rows > 0) {
-                            while ($subscription_data = $fetch_subscription_result->fetch_assoc()) {
-                                echo '<tr>';
-                                echo '<td>' . $subscription_data["id"] . '</td>';
-                                echo '<td>' . $subscription_data["business_description"] . '</td>';
-                                echo '<td>' . $subscription_data["business_size"] . '</td>';
-                                echo '<td>' . $subscription_data["business_category"] . '</td>';
-                                echo '<td>' . $subscription_data["business_name"] . '</td>';
-                                echo '<td>' . $subscription_data["firstname"] . '</td>';
-                                echo '<td>' . $subscription_data["lastname"] . '</td>';
-                                echo '<td>' . $subscription_data["email"] . '</td>';
-                                echo '<td>' . $subscription_data["phone_no"] . '</td>';
-                                echo '<td>' . $subscription_data["updated_date"] . '</td>';
-                                echo '</tr>';
-                            }
-                        } else {
-                            echo '<tr><td colspan="10">No subscription data found.</td></tr>';
-                        }
-                        $conn->close(); 
-                        ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-  </div>
-	</div>
-	<div style="margin-top:200px">
-	<?php include 'components/footer.php'?>
-	</div>
-    <script src="./vendor/global/global.min.js"></script>
-	<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
-	<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="./vendor/apexchart/apexchart.js"></script>
-	<script src="./js/dashboard/dashboard-1.js"></script>
-	<script src="./vendor/draggable/draggable.js"></script>
-	<script src="./vendor/swiper/js/swiper-bundle.min.js"></script>
-	<script src="./vendor/tagify/dist/tagify.js"></script> 
-	<script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
-	<script src="./vendor/datatables/js/dataTables.buttons.min.js"></script>
-	<script src="./vendor/datatables/js/buttons.html5.min.js"></script>
-	<script src="./vendor/datatables/js/jszip.min.js"></script>
-	<script src="./js/plugins-init/datatables.init.js"></script>	
-	<script src="vendor/bootstrap-datetimepicker/js/moment.js"></script>
-	<script src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-	<script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
-    <script src="./vendor/jqvmap/js/jquery.vmap.world.js"></script>
-    <script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
-    <script src="./js/custom.js"></script>
-	<script src="./js/deznav-init.js"></script>
-	<script src="./js/demo.js"></script>
-    <script src="./js/styleSwitcher.js"></script>
-	
-	
-	
+					</div>
+					<div style="margin-top:800px">
+						<?php include 'components/footer.php' ?>
+					</div>
+					<script src="./vendor/global/global.min.js"></script>
+					<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+					<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+					<script src="./vendor/apexchart/apexchart.js"></script>
+					<script src="./js/dashboard/dashboard-1.js"></script>
+					<script src="./vendor/draggable/draggable.js"></script>
+					<script src="./vendor/swiper/js/swiper-bundle.min.js"></script>
+					<script src="./vendor/tagify/dist/tagify.js"></script>
+					<script src="./vendor/datatables/js/jquery.dataTables.min.js"></script>
+					<script src="./vendor/datatables/js/dataTables.buttons.min.js"></script>
+					<script src="./vendor/datatables/js/buttons.html5.min.js"></script>
+					<script src="./vendor/datatables/js/jszip.min.js"></script>
+					<script src="./js/plugins-init/datatables.init.js"></script>
+					<script src="vendor/bootstrap-datetimepicker/js/moment.js"></script>
+					<script src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+					<script src="./vendor/jqvmap/js/jquery.vmap.min.js"></script>
+					<script src="./vendor/jqvmap/js/jquery.vmap.world.js"></script>
+					<script src="./vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+					<script src="./js/custom.js"></script>
+					<script src="./js/deznav-init.js"></script>
+					<script src="./js/demo.js"></script>
+					<script src="./js/styleSwitcher.js"></script>
+
+
+
 </body>
+
 </html>

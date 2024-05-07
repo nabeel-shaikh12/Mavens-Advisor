@@ -304,10 +304,6 @@
                     },
                   ]
             });
-
-
-
-
         },
 
         salActive: function () {
@@ -345,7 +341,6 @@
                 }
             })
         },
-
         counterUpActivation: function () {
             $('.counter').counterUp({
                 delay: 10,

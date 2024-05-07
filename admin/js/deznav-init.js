@@ -28,7 +28,7 @@ function getUrlParams(dParam)
 		primary: "color_1",
 		headerBg: "white",
 		navheaderBg: "color_1",
-		sidebarBg: "#ffff",
+		sidebarBg: "color_1",
 		sidebarStyle: "full",
 		sidebarPosition: "fixed",
 		headerPosition: "fixed",
