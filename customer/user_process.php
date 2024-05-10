@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_insert_user->bind_param("sss", $email_address, $user_name, $hashed_password);
 
               if ($stmt_insert_user->execute()) {
-                $message = "Registration is complete. We will email you when your account is active.";
+                $message = "Registration is complete. You can now login to our portal.";
 
                 if (isset($_POST['filled_subscription_form']) && $_POST['filled_subscription_form'] == 'true') {
                     header("Location: ../chat.php?message=$message");

@@ -27,31 +27,43 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
   <meta name="theme-style-mode" content="1">
   <title>Form || Finance</title>
   <link rel="shortcut icon" type="image/x-icon" href="img/MA Logo circle.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>
-  <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css'>
   <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/plugins/animation.css">
   <link rel="stylesheet" href="assets/css/plugins/feature.css">
+
+
+
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Include Select2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
+  <!-- Include other CSS files -->
+
+  <!-- Include other script tags -->
+
+  <!-- Include IntlTelInput CSS and JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js"></script>
+
+  <!-- Include Select2 JS after jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
   <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
   <link rel="stylesheet" href="assets/css/plugins/slick.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Include necessary CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css">
 
-  <!-- Include jQuery (required for the plugin) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 
-  <!-- Include the plugin's JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js"></script>
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -83,6 +95,14 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
       padding-bottom: 18px;
       margin-bottom: 35px;
       border-bottom: 1px solid #DDE3EC;
+    }
+
+    .iti input,
+    .iti input[type=text],
+    .iti input[type=tel] {
+      width: 100% !important;
+      padding-right: 240px !important;
+      margin-right: 0;
     }
 
     .formbold-steps ul {
@@ -382,7 +402,7 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
           <div class="formbold-form-step-4">
             <label for="businessService">Business Name</label>
             <div class="form-group">
-              <input type="text" name="business_name" placeholder="Business Name" id="business_name" required class="formbold-form-input" />
+              <input class="formbold-form-input" type="text" name="business_name" placeholder="Business Name" id="business_name" />
             </div>
           </div>
           <div class="formbold-form-step-5">
@@ -391,21 +411,21 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
                 <div class="row">
                   <div class="col-md-6">
                     <label for="businessService">First Name</label>
-                    <input type="text" name="firstname" placeholder="First Name" id="firstname" required class="formbold-form-input" />
+                    <input class="formbold-form-input" type="text" name="firstname" placeholder="First Name" id="firstname" />
                   </div>
                   <div class="col-md-6">
                     <label for="businessService">Last Name</label>
-                    <input type="text" name="lastname" placeholder="Last Name" id="lastname" required class="formbold-form-input" />
+                    <input class="formbold-form-input" type="text" name="lastname" placeholder="Last Name" id="lastname" />
                   </div>
                 </div>
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label for="businessService">Email</label>
-                    <input type="email" name="email" required placeholder="Email" id="email" required class="formbold-form-input" />
+                    <input class="formbold-form-input" type="email" name="email" required placeholder="Email" id="email" />
                   </div>
                   <div class="col-md-6 col-xl-6 col-lg-6">
                     <label for="businessService">Phone No</label><br>
-                    <input id="phone" name="phone_no" class="select2" type="tel" style="width: 100%;" name="phone" />
+                    <input id="phone" class="formbold-form-input select2" type="tel" name="phone_no" />
                   </div>
                 </div>
               </div>
@@ -430,23 +450,78 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
     <i class="feather-arrow-up"></i>
   </div>
 </body>
+<script src="assets/js/vendor/modernizr.min.js"></script>
+<script src="assets/js/vendor/jquery.min.js"></script>
+<script src="assets/js/vendor/bootstrap.min.js"></script>
+<script src="assets/js/vendor/popper.min.js"></script>
+<script src="assets/js/vendor/waypoint.min.js"></script>
+<script src="assets/js/vendor/wow.min.js"></script>
+<script src="assets/js/vendor/counterup.min.js"></script>
+<script src="assets/js/vendor/feather.min.js"></script>
+<script src="assets/js/vendor/sal.min.js"></script>
+<script src="assets/js/vendor/masonry.js"></script>
+<script src="assets/js/vendor/imageloaded.js"></script>
+<script src="assets/js/vendor/magnify.min.js"></script>
+<script src="assets/js/vendor/lightbox.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js"></script>
+<script src="assets/js/vendor/slick.min.js"></script>
+<script src="assets/js/vendor/easypie.js"></script>
+<script src="assets/js/vendor/text-type.js"></script>
+<script src="assets/js/vendor/jquery.style.swicher.js"></script>
+<script src="assets/js/vendor/js.cookie.js"></script>
+<script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+<script src="assets/js/main.js"></script>
+
 <script>
   $(document).ready(function() {
-    $('#phone').intlTelInput({
+    // Initialize intlTelInput
+    var input = document.querySelector("#phone");
+    var iti = window.intlTelInput(input, {
       separateDialCode: true,
       placeholderNumberType: "MOBILE",
-      initialCountry: "auto",
+      initialCountry: "US",
       dropdownAutoWidth: true,
       nationalMode: false,
       formatOnDisplay: false,
-      utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/utils.js"
     });
-    $('.select2').select2({
-      minimumResultsForSearch: Infinity
+
+    iti.promise.then(function() {
+      iti.listen("countrychange", function() {
+        var countryData = iti.getSelectedCountryData();
+        var dialCode = countryData.dialCode;
+        input.value = "+" + dialCode;
+      });
+    });
+    $('#phone').select2({
+      dropdownCssClass: "country-select2",
+      data: iti.countriesData,
+      templateResult: function(data) {
+        if (!data.id) {
+          return data.text;
+        }
+        var $country = $('<span class="flag-icon flag-icon-' + data.id.toLowerCase() + '"></span> ' + data.text);
+        return $country;
+      },
+      templateSelection: function(data) {
+        if (!data.id) {
+          return data.text;
+        }
+        var $country = $('<span class="flag-icon flag-icon-' + data.id.toLowerCase() + '"></span> ' + data.text);
+        return $country;
+      }
+    });
+    input.addEventListener("input", function() {
+      var inputValue = input.value.trim();
+      var countryData = iti.getSelectedCountryData();
+      var countryCode = countryData.dialCode;
+
+      if (inputValue.startsWith("+") && inputValue.substring(1) === countryCode) {
+        input.value = "+" + countryCode;
+      }
     });
   });
-</script>
-<script>
   document.addEventListener("DOMContentLoaded", function() {
     const stepMenus = [
       document.querySelector('.formbold-step-menu1'),
@@ -527,60 +602,48 @@ $_SESSION['visit_count_in_form'] = $visitCountSubscription;
           });
       }
     });
+
     function validateStep(stepIndex) {
-        if (stepIndex === 0) {
-          const businessTypeValue = document.getElementById('businessType').value;
-          return businessTypeValue !== 'Select an option';
-        } else if (stepIndex === 1) {
-          const businessSizeValue = document.getElementById('businessSize').value;
-          return businessSizeValue !== 'Select an option';
-        } else if (stepIndex === 2) {
-          const businessCategoryValue = document.getElementById('businessCategory').value;
-          return businessCategoryValue !== 'Select an option';
-        } else if (stepIndex === 3) {
-          const businessNameValue = document.getElementById('business_name').value.trim();
-          return businessNameValue !== '';
-        } else if (stepIndex === 4) {
-          const firstname = document.getElementById('firstname').value.trim();
-          const lastName = document.getElementById('lastname').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const phone = document.getElementById('phone').value.trim();
+      if (stepIndex === 0) {
+        const businessTypeValue = document.getElementById('businessType').value;
+        return businessTypeValue !== 'Select an option';
+      } else if (stepIndex === 1) {
+        const businessSizeValue = document.getElementById('businessSize').value;
+        return businessSizeValue !== 'Select an option';
+      } else if (stepIndex === 2) {
+        const businessCategoryValue = document.getElementById('businessCategory').value;
+        return businessCategoryValue !== 'Select an option';
+      } else if (stepIndex === 3) {
+        const businessNameValue = document.getElementById('business_name').value.trim();
+        return businessNameValue !== '';
+      } else if (stepIndex === 4) {
+        const firstname = document.getElementById('firstname').value.trim();
+        const lastName = document.getElementById('lastname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
 
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address.');
-            return false;
-          }
-
-          if (!firstname || !lastName || !email || !phone) {
-            alert('Please fill in all fields before proceeding.');
-            return false;
-          }
-          return true;
+        if (!firstname || !lastName || !email || !phone) {
+          alert('Please fill in all fields before proceeding.');
+          return false;
         }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('Please enter a valid email address.');
+          return false;
+        }
+
+        const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+        if (!phoneRegex.test(phone)) {
+          alert('Please Enter a valid Phone No');
+          return false;
+        }
+
+        return true;
       }
+    }
+
   });
 </script>
-<script src="assets/js/vendor/modernizr.min.js"></script>
-<script src="assets/js/vendor/jquery.min.js"></script>
-<script src="assets/js/vendor/bootstrap.min.js"></script>
-<script src="assets/js/vendor/popper.min.js"></script>
-<script src="assets/js/vendor/waypoint.min.js"></script>
-<script src="assets/js/vendor/wow.min.js"></script>
-<script src="assets/js/vendor/counterup.min.js"></script>
-<script src="assets/js/vendor/feather.min.js"></script>
-<script src="assets/js/vendor/sal.min.js"></script>
-<script src="assets/js/vendor/masonry.js"></script>
-<script src="assets/js/vendor/imageloaded.js"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
-<script src="assets/js/vendor/magnify.min.js"></script>
-<script src="assets/js/vendor/lightbox.js"></script>
-<script src="assets/js/vendor/slick.min.js"></script>
-<script src="assets/js/vendor/easypie.js"></script>
-<script src="assets/js/vendor/text-type.js"></script>
-<script src="assets/js/vendor/jquery.style.swicher.js"></script>
-<script src="assets/js/vendor/js.cookie.js"></script>
-<script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-<script src="assets/js/main.js"></script>
 
 </html>

@@ -147,6 +147,21 @@ $user_email = $_SESSION['email_address'];
 	margin-right: 20px;
     background-position: center;
 }
+.btn-send-message {
+   position: absolute;
+   bottom: 10px;
+   right: 10px;
+   padding: 10px 20px;
+   background-color: transparent;
+   color: #0b7ffe !important;
+   border: 2px solid #0b7ffe;
+   padding: 15px;
+   border-radius: 10px;
+}
+.btn-send-message:hover {
+  background-color: #007bff;
+  color: #ffff !important;
+}
 </style>
 </head>
 <body>
@@ -223,13 +238,41 @@ $user_email = $_SESSION['email_address'];
 										echo '</div>';
 									}
 								} 
+									else if ($result->num_rows == 0) {
+									  echo '<button type="button" class="btn-send-message" data-bs-toggle="modal" data-bs-target="#newMessageModal">';
+									  echo '<i class="fas fa-pencil-alt"></i> Send New Message';
+									  echo '</button>';
+									}
 								else {
 									echo "No chats Available";
 								}
 								$conn->close();
-									?>
+								?>
 								</div>
 							  </div>
+							<div class="modal fade" id="newMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">New Message</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<form action="send_message.php" method="POST" id="newMessageForm">
+											<div class="modal-body">
+												<input type="hidden" name="email" value="<?php echo $user_email; ?>">
+												<div class="mb-3">
+													<label for="message" class="form-label">Message</label>
+													<textarea class="form-control" name="message" required></textarea>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-primary">Send Message</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
 							  <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 chat-border"  id="chat-detail" > 
 							   <div id="chat-detail-content">
 							   </div>
@@ -321,7 +364,7 @@ $user_email = $_SESSION['email_address'];
 		clearInterval(intervalId);
 		intervalId = setInterval(function() {
 			fetchChatDetail(emailAddress);
-		}, 10000);
+		}, 1000);
 	}
 
 // 	document.getElementById('file').addEventListener('change', function() {

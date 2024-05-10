@@ -240,11 +240,9 @@ session_start();
                                 <div class="thumbnail">
                                     <img class="radius-small" src="img/phone-01.png" alt="Corporate Image">
                                 </div>
-
                                 <div class="thumbnail">
                                     <img class="radius-small" src="img/phone-02.png" alt="Corporate Image">
                                 </div>
-
                                 <div class="thumbnail">
                                     <img class="radius-small" src="img/phone-03 (2).png" alt="Corporate Image">
                                 </div>

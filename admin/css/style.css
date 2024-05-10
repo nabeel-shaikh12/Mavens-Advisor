@@ -18999,8 +18999,8 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
   margin-bottom: 0.3125rem;
 }
 
-[data-sidebar-style="compact"] .deznav .metismenu>li a>i[data-theme-version="dark"] {
-  color: #fff;
+[data-sidebar-style="compact"] .deznav .metismenu>li a>i[data-theme-version="light"] {
+  color: #000;
 }
 
 @media only screen and (max-width: 84.375rem) {
