@@ -13,7 +13,6 @@ if (isset($_POST['logout'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,7 +58,11 @@ if (isset($_POST['logout'])) {
                                         <th>Business Description</th>
                                         <th>Business Size</th>
                                         <th>Business Category</th>
+                                        <th>Business Sub Category</th>
                                         <th>Business Name</th>
+                                        <th>Currency</th>
+                                        <th>Founded Year</th>
+                                        <th>Customer Type</th>
                                         <th>First Name</th>
                                         <th>Last Name</th>
                                         <th>Email</th>
@@ -71,7 +74,7 @@ if (isset($_POST['logout'])) {
                                 <tbody>
                                     <?php
                                     include '../db/dbCon.php';
-                                    $fetch_subscription_sql = "SELECT * FROM subscription_form ORDER BY updated_date";
+                                    $fetch_subscription_sql = "SELECT * FROM subscription_form ORDER BY created_at";
                                     $fetch_subscription_result = $conn->query($fetch_subscription_sql);
                                     if ($fetch_subscription_result->num_rows > 0) {
                                         while ($subscription_data = $fetch_subscription_result->fetch_assoc()) {
@@ -80,12 +83,16 @@ if (isset($_POST['logout'])) {
                                             echo '<td>' . $subscription_data["business_description"] . '</td>';
                                             echo '<td>' . $subscription_data["business_size"] . '</td>';
                                             echo '<td>' . $subscription_data["business_category"] . '</td>';
+                                            echo '<td>' . $subscription_data["business_subCategory"] . '</td>';
                                             echo '<td>' . $subscription_data["business_name"] . '</td>';
+                                            echo '<td>' . $subscription_data["currency"] . '</td>';
+                                            echo '<td>' . $subscription_data["foundedYear"] . '</td>';
+                                            echo '<td>' . $subscription_data["customer_type"] . '</td>';
                                             echo '<td>' . $subscription_data["firstname"] . '</td>';
                                             echo '<td>' . $subscription_data["lastname"] . '</td>';
                                             echo '<td>' . $subscription_data["email"] . '</td>';
                                             echo '<td>' . $subscription_data["phone_no"] . '</td>';
-                                            echo '<td>' . $subscription_data["updated_date"] . '</td>';
+                                            echo '<td>' . $subscription_data["created_at"] . '</td>';
                                             echo '<td>';
                                             echo '<a class="btn btn-danger" href="form_delete.php?id=' . $subscription_data["id"] . '">Delete</a>';
                                             echo '</td>';
@@ -118,5 +125,4 @@ if (isset($_POST['logout'])) {
 <script src="./js/deznav-init.js"></script>
 <script src="./js/demo.js"></script>
 <script src="./js/styleSwitcher.js"></script>
-
 </html>

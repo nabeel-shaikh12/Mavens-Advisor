@@ -60,6 +60,7 @@ if ($result4 && $result4->num_rows > 0) {
 } else {
 	$totalChatsOpen = 0;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -183,6 +184,7 @@ if ($result4 && $result4->num_rows > 0) {
 							</div>
 						</div>
 					</div>
+
 					<!-- <div class="col-xl-4 col-lg-5">
 						<div class="card">
 							<div class="card-header border-0">

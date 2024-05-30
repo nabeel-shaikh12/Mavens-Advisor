@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label id="typingLabel" for="selectOption"></label>
+<select id="selectOption">
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+
+    
+</body>
+<script>
+    // Function to simulate typing animation
+function typeText(text, label, callback) {
+    var index = 0;
+    var intervalId = setInterval(function() {
+        if (index < text.length) {
+            label.textContent += text.charAt(index);
+            index++;
+        } else {
+            clearInterval(intervalId);
+            if (typeof callback === 'function') {
+                callback();
+            }
+        }
+    }, 100); // Adjust typing speed as needed (milliseconds per character)
+}
+
+// Get the label element
+var typingLabel = document.getElementById('typingLabel');
+
+// Trigger typing animation for the label
+if (typingLabel) {
+    // Add delay before ChatGPT typing starts
+    setTimeout(function() {
+        typeText("ChatGPT typing: ", typingLabel, function() {
+            console.log("Auto-typing animation completed.");
+            // Any additional actions you want to perform after typing animation completes
+        });
+    }, 500); // Delay in milliseconds before typing starts
+}
+
+    </script>
+</html>
