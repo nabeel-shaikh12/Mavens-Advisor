@@ -125,6 +125,14 @@ body {
   gap: 15px;
 }
 
+.iti input,
+.iti input[type=text],
+.iti input[type=tel] {
+  width: 100% !important;
+  padding-right: 840px !important;
+  margin-right: 0;
+}
+
 .formbold-next-btn {
   display: flex;
   align-items: center;
@@ -134,7 +142,7 @@ body {
   padding: 10px 25px;
   border: none;
   font-weight: 500;
-  background-color: #019dff;
+  background-color: #0b7ffe;
   color: white;
   cursor: pointer;
 }
@@ -163,19 +171,11 @@ body {
   color: #FFFFFF;
 }
 
-.formbold-form-step-1,
-.formbold-form-step-2,
-.formbold-form-step-3,
-.formbold-form-step-4,
-.formbold-form-step-5 {
+.formbold-form-step-1 {
   display: none;
 }
 
-.formbold-form-step-1.active,
-.formbold-form-step-2.active,
-.formbold-form-step-3.active,
-.formbold-form-step-4.active,
-.formbold-form-step-5.active {
+.formbold-form-step-1.active {
   display: block;
 }
 
@@ -211,7 +211,7 @@ body {
   padding: 10px 25px;
   border: none;
   font-weight: 500;
-  background-color: #019dff;
+  background-color: #0b7ffe;
   color: white;
   cursor: pointer;
 }
@@ -219,24 +219,6 @@ body {
 .formbold-btn:hover {
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
-
-.auto-typing-display {
-  display: none;
-  background-color: #0b7ffe;
-}
-
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
 
 @media (max-width: 767px) {
   .formbold-steps ul {

@@ -32,251 +32,7 @@ if (!isset($_SESSION['visit_count'])) {
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-    }
-
-    .formbold-main-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 48px;
-    }
-
-    .formbold-form-wrapper {
-      margin: 0 auto;
-      max-width: 1118px;
-      width: 100%;
-    }
-
-    .formbold-steps {
-      padding-bottom: 18px;
-      margin-bottom: 35px;
-      border-bottom: 1px solid #DDE3EC;
-    }
-
-    .formbold-steps ul {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      display: flex;
-      gap: 40px;
-    }
-
-    .formbold-steps li {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      color: #536387;
-    }
-
-    .formbold-steps li span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #DDE3EC;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 35px;
-      color: #536387;
-    }
-
-    .formbold-steps li.active {
-      color: #43a8fb;
-    }
-
-    .formbold-steps li.active span {
-      background: #019dff;
-      color: #FFFFFF;
-    }
-
-    .formbold-input-flex {
-      display: flex;
-      gap: 20px;
-      margin-bottom: 22px;
-    }
-
-    .formbold-input-flex>div {
-      width: 50%;
-    }
-
-    .formbold-form-input {
-      width: 100%;
-      padding: 13px 22px;
-      border-radius: 5px;
-      border: 1px solid #DDE3EC;
-      background: #FFFFFF;
-      font-weight: 500;
-      font-size: 16px;
-      color: #536387;
-      outline: none;
-      resize: none;
-    }
-
-    .formbold-form-input:focus {
-      border-color: #019dff;
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .formbold-form-label {
-      color: #07074D;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      display: block;
-      margin-bottom: 10px;
-    }
-
-    .formbold-form-confirm {
-      border-bottom: 1px solid #DDE3EC;
-      padding-bottom: 35px;
-    }
-
-    .formbold-form-confirm p {
-      font-size: 16px;
-      line-height: 24px;
-      color: #536387;
-      margin-bottom: 22px;
-      width: 75%;
-    }
-
-    .formbold-form-confirm>div {
-      display: flex;
-      gap: 15px;
-    }
-
-    .iti input,
-    .iti input[type=text],
-    .iti input[type=tel] {
-      width: 100% !important;
-      padding-right: 240px !important;
-      margin-right: 0;
-      display: none;
-    }
-
-    .formbold-next-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 16px;
-      border-radius: 5px;
-      padding: 10px 25px;
-      border: none;
-      font-weight: 500;
-      background-color: #0b7ffe;
-      color: white;
-      cursor: pointer;
-    }
-
-    .formbold-confirm-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #019dff;
-      border: 0.5px solid #DDE3EC;
-      border-radius: 5px;
-      font-size: 16px;
-      line-height: 24px;
-      color: #536387;
-      cursor: pointer;
-      padding: 10px 20px;
-      transition: all .3s ease-in-out;
-    }
-
-    .formbold-confirm-btn {
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12);
-    }
-
-    .formbold-confirm-btn.active {
-      background: #6A64F1;
-      color: #FFFFFF;
-    }
-
-    .formbold-form-step-1,
-    .formbold-form-step-2,
-    .formbold-form-step-3,
-    .formbold-form-step-4 {
-      display: none;
-    }
-
-    .iti__flag-container {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      padding: 1px;
-      display: none;
-    }
-
-    .formbold-form-step-1.active,
-    .formbold-form-step-2.active,
-    .formbold-form-step-3.active,
-    .formbold-form-step-4.active {
-      display: block;
-    }
-
-    .formbold-form-btn-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 25px;
-      margin-top: 25px;
-    }
-
-    .formbold-back-btn {
-      cursor: pointer;
-      background: #FFFFFF;
-      border: none;
-      color: #07074D;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      display: none;
-    }
-
-    .formbold-back-btn.active {
-      display: block;
-    }
-
-    .formbold-btn {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 16px;
-      border-radius: 5px;
-      padding: 10px 25px;
-      border: none;
-      font-weight: 500;
-      background-color: #0b7ffe;
-      color: white;
-      cursor: pointer;
-    }
-
-    .formbold-btn:hover {
-      box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    @media (max-width: 767px) {
-      .formbold-steps ul {
-        display: inline;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/form.css">
 
 <body>
   <?php include 'components/topbar.php' ?>
@@ -289,29 +45,13 @@ if (!isset($_SESSION['visit_count'])) {
     </div>
     <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap">
       <div class="formbold-form-wrapper variation-2 rainbow-service-area">
-        <form action="./database_operations/subscription_form.php " method="POST">
+        <form action="./database_operations/subscription_form.php" method="POST">
           <div class="formbold-steps">
             <ul>
               <li class="formbold-step-menu1 active">
                 <!-- <span>1</span>
-                                Business Information -->
+                 Business Information -->
               </li>
-              <li class="formbold-step-menu2">
-                <!-- <span>2</span>
-                                Business Size -->
-              </li>
-              <li class="formbold-step-menu3">
-                <!-- <span>3</span>
-                                Solution for Business -->
-              </li>
-              <li class="formbold-step-menu4">
-                <!-- <span>4</span>
-                                Business Name -->
-              </li>
-              <!-- <li class="formbold-step-menu5">
-                                <span>5</span>
-                                Personal Detail
-                            </li> -->
             </ul>
           </div>
           <div class="formbold-form-step-1 active">
@@ -366,6 +106,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Gardening Supplies">Gardening Supplies</option>
                   <option value="Livestock & Poultry">Livestock & Poultry</option>
                   <option value="Other Agriculture Service">Other Agriculture Service</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryArtisanal and Handcraft" class="form-group" style="display: none;">
@@ -378,6 +119,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Handmade Soaps">Handmade Soaps</option>
                   <option value="Pottery">Pottery</option>
                   <option value="Other Artisanal and Handcraft">Other Artisanal and Handcraft</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryBeauty" class="form-group" style="display: none;">
@@ -394,6 +136,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="ManuFacture Cosmetics / Skin Care">ManuFacture Cosmetics / Skin Care</option>
                   <option value="Nail Technician (Specialize Service)">Nail Technician (Specialize Service)</option>
                   <option value="Reselling Cosmetics">Reselling Cosmetics</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryEducation" class="form-group" style="display: none;">
@@ -404,6 +147,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Edtech">Edtech</option>
                   <option value="School">School</option>
                   <option value="Tution Center / Academy">Tution Center / Academy</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryFactory Production Facility" class="form-group" style="display: none;">
@@ -414,6 +158,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Furniture Manufacturer">Furniture Manufacturer</option>
                   <option value="Jewelry Designer / Manufacturer">School</option>
                   <option value="Shoe / Manufacturer">Shoe / Manufacturer</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryFood & Beverages" class="form-group" style="display: none;">
@@ -450,6 +195,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Gift Delivery">Gift Delivery</option>
                   <option value="Gift Packing">Gift Packing</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryHealth" class="form-group" style="display: none;">
@@ -465,6 +211,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Nutritionist">Nutritionist</option>
                   <option value="Pharmaceutical">Pharmaceutical</option>
                   <option value="Yoga Instructor">Yoga Instructor</option>
+                  <option value="Other Services">Other (Please Specify)</option>
                 </select>
               </div>
               <div id="subCategoryInfluencer" class="form-group" style="display: none;">
@@ -484,7 +231,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Magician">Magician</option>
                   <option value="Musician">Musician</option>
                   <option value="Singer">Singer</option>
-                  <option value="Performars (Other)">Performars (Others)</option>
+                  <option value="Others">Other please specify</option>
                 </select>
               </div>
               <div id="subCategoryPets" class="form-group" style="display: none;">
@@ -495,6 +242,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Comedian">Comedian</option>
                   <option value="Pet Services">Pet Services</option>
                   <option value="Veterinary Services">Veterinary Services</option>
+                  <option value="Others">Other please specify</option>
                 </select>
               </div>
               <div id="subCategoryTech Services" class="form-group" style="display: none;">
@@ -504,7 +252,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Hardware Development">Hardware Development</option>
                   <option value="IoT Services">IoT Services</option>
                   <option value="Software House">Software House</option>
-                  <option value="Others">Others</option>
+                  <option value="Others">Other (Please Specify) </option>
                 </select>
               </div>
               <div id="subCategoryTravel & Tourism" class="form-group" style="display: none;">
@@ -515,6 +263,7 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Immigration Services">Immigration Services</option>
                   <option value="Tour Company / Operator / Guide">Tour Company / Operator / Guide</option>
                   <option value="Travel Agency">Travel Agency</option>
+                  <option value="Others">Other please specify</option>
                 </select>
               </div>
               <div id="subCategoryOther Services" class="form-group" style="display: none;">
@@ -529,8 +278,6 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="formbold-form-step-2">
             <div class="form-group" id="startupContainer">
               <label id="business-size" for="businessType"></label>
               <select id="businessSize" name="business_size" class="product_select formbold-form-input" style="display:none">
@@ -540,6 +287,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
                 <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
                 <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
+                <option value="Others">Other please specify</option>
               </select>
             </div>
             <div class="row">
@@ -549,27 +297,40 @@ if (!isset($_SESSION['visit_count'])) {
                 <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessSize"></p>
               </div>
             </div>
-            <div class="form-group" id="serviceContainer">
-              <label id="business-service" for="businessCategory"></label>
-              <select id="businessCategory" name="business_category" class="product_select formbold-form-input" style="display: none;">
+
+            <div class="form-group" id="startupContainer">
+              <label id="country" for="country"></label>
+              <select id="company_operate_country" name="company_operate_country" class="product_select formbold-form-input" style="display:none">
                 <option data-display="1. Choose A Question">Select an option</option>
-                <option value="Accounting & Bookkeeping Service">Accounting & Bookkeeping Service</option>
-                <option value="Financial Planning & Analysis">Financial Planning & Analysis</option>
-                <option value="Business System & Processes">Business System & Processes</option>
-                <option value="Audit & Assurance">Audit & Assurance</option>
-                <option value="Tax">Tax</option>
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
               </select>
-              <div class="row mt-3">
-                <div class="col-md-6">
-                </div>
-                <div class="col-md-6">
-                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessCategory"></p>
-                </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCountry"></p>
               </div>
             </div>
-          </div>
-          <div class="formbold-form-step-3">
-            <div class="form-group" id="currencyContainer">
+            <div class="form-group" id="startupContainer">
+              <label id="revenueSize" for="revenueSize"></label>
+              <select id="company_revenue" name="company_revenue" class="product_select formbold-form-input" style="display:none">
+                <option data-display="1. Choose A Question">Select an option</option>
+                <option value="Startup">Startup</option>
+                <option value="1000+">1000+</option>
+                <option value="10,000+">10,000+</option>
+                <option value="1M+">1M+</option>
+              </select>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedRevenue"></p>
+              </div>
+            </div>
+            <div class="form-group">
               <label id="business-typing" for="currency"></label>
               <select id="currency" name="currency" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Select Currency">Select Currency</option>
@@ -752,9 +513,10 @@ if (!isset($_SESSION['visit_count'])) {
               <label id="customerType" for="CustomerVerify"></label>
               <select id="customer_type" name="customer_type" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Choose A Question">Select an option</option>
-                <option value="Other Business">Other Business</option>
+                <option value="Businesses">Businesses</option>
                 <option value="Individuals">Individuals</option>
                 <option value="Both">Both</option>
+                <option value="Other">Other</option>
               </select>
               <div class="row mt-3">
                 <div class="col-md-6">
@@ -775,52 +537,160 @@ if (!isset($_SESSION['visit_count'])) {
                 <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessName"></p>
               </div>
             </div>
-          </div>
-          <div class="formbold-form-step-4">
-            <div class="form-group col-md-12">
-              <div class="form-group">
-                <div class="row">
-                  <div class="col-md-6">
-                    <label id="firstNameLabel" for="businessService"></label>
-                    <input type="text" name="firstname" placeholder="First Name" id="firstname" class="formbold-form-input" style="display: none;" />
-                  </div>
-                  <div class="col-md-6">
-                    <label id="lastNameLabel" for="lastname"></label>
-                    <input type="text" name="lastname" placeholder="Last Name" id="lastname" class="formbold-form-input" style="display: none;" />
-                  </div>
-                  <div class="row mt-5">
-                    <div class="col-md-6">
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedFirstName"></p>
-                    </div>
-                  </div>
+            <div class="form-group">
+              <label id="firstNameLabel" for="businessService"></label>
+              <input type="text" name="firstname" placeholder="Full name" id="firstname" class="formbold-form-input" style="display: none;" />
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedFirstName"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="emailLabel" for="email"></label>
+              <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" style="display: none;" />
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedEmail"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="phoneLabel" for="phone"></label><br>
+              <div id="phone-container" style="display: none;margin-top:-20px">
+                <input id="phone" name="phone_no" type="tel" class="formbold-form-input" style="width: 100%;" />
+              </div>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedPhone"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="softwareQues" for="softwareQues"></label>
+              <select id="whichSoftware" name="whichSoftware" class="product_select formbold-form-input" style="display: none;">
+                <option data-display="1. Choose A Question">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftware"></p>
+              </div>
+            </div>
+            <div class="form-group mt-5">
+              <label id="softwareType" for="softwareType"></label>
+              <select id="accounting_software_used" name="accounting_software_used" class="product_select formbold-form-input" style="display: none;">
+                <option data-display="1. Choose A Question">Select an option</option>
+                <option value="QuickBooks">QuickBooks</option>
+                <option value="Xero">Xero</option>
+                <option value="FreshBooks">FreshBooks</option>
+                <option value="Zoho Books">Zoho Books</option>
+                <option value="Sage">Sage</option>
+                <option value="NetSuite">NetSuite</option>
+                <option value="Wave Accounting">Wave Accounting</option>
+                <option value="Other">Other</option>
+              </select>
+              <div class="row mt-3">
+                <div class="col-md-6">
                 </div>
-                <div class="row mt-5">
-                  <div class="col-md-6">
-                    <label id="emailLabel" for="email"></label>
-                    <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" style="display: none;" />
-                    <div class="mt-5">
-                      <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedEmail"></p>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-xl-6 col-lg-6">
-                    <label id="phoneLabel" for="phone"></label><br>
-                    <input id="phone" name="phone_no" type="tel" class="formbold-form-input" style="width: 100%;" name="phone" />
-                    <div class="mt-5">
-                      <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedPhone"></p>
-                    </div>
+                <div class="col-md-6">
+                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftwares"></p>
+                </div>
+              </div>
+              <div class="row" style="display: none;" id="calculatorList">
+                <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" style="background-color: #f5f8fa;border-radius:50px">
+                  <div class="service gallery-style" style="padding: 50px;">
+                    <h5 class="card-title"><b>Accounting & Finance Calculator</b></h5>
+                    <form method="POST" action="./calculator_operations.php" id="login calculatorForm">
+                      <br>
+                      <label>
+                        <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
+                        Number of Monthly Transactions
+                      </label>
+                      <br>
+                      <div id="monthlyTransactionInput" style="display:none;">
+                        <input type="number" class="form-control" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="calculatePrices()" min="0">
+                        <br>
+                        <p id="monthlyTransactionDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service calculates the price based on the number of monthly transactions.
+                        </p>
+                      </div>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
+                        Number of Monthly Invoices
+                      </label>
+                      <br>
+                      <div id="monthlyInvoicesInput" style="display: none;">
+                        <input type="number" class="form-control" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="calculatePrices()" min="0">
+                        <br>
+                        <p id="monthlyInvoicesDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service calculates the price based on the number of monthly invoices.
+                        </p>
+                      </div>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
+                        Number of Monthly Payrolls
+                      </label>
+                      <br>
+                      <div id="payrollInput" style="display: none;">
+                        <input type="number" class="form-control" id="payrollInputField" placeholder="Number of Payrolls" oninput="calculatePrices()" min="0">
+                        <br>
+                        <p id="payrollDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service calculates the price based on the number of payrolls processed.
+                        </p>
+                      </div>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
+                        Monthly cashflow
+                      </label>
+                      <br>
+                      <div id="cashflowInput" style="display: none;">
+                        <p id="cashflowDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service calculates the price based on various factors, including transactions, invoices, payroll, and expenses.
+                        </p>
+                      </div>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
+                        Monthly Budgeting
+                      </label>
+                      <br>
+                      <div id="budgetInput" style="display: none;">
+                        <p id="budgetDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service calculates the price based on various financial factors, including transactions, invoices, payroll, and expenses.
+                        </p>
+                      </div>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="setup" id="setupCheckbox" onclick="showInputBox('setup')" min="0" autocomplete="off">
+                        Quickbooks/Xero Setup
+                      </label>
+                      <br>
+                      <div id="setupInput" style="display: none;">
+                        <p id="setupDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                          This service includes the initial setup cost for bookkeeping services.
+                        </p>
+                      </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="formbold-form-btn-wrapper">
-            <button type="button" class="formbold-back-btn">Back</button>
-            <button type="button" class="formbold-next-btn">Next Step</button>
-            <button type="submit" class="formbold-btn" name="Subscribe" style="display: none;">Submit</button>
-            <button type="button" onclick="goBack()" class="formbold-back-btn">Back
-          </div>
+              <div class="formbold-form-btn-wrapper">
+                <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
+                <button type="button" onclick="goBack()" class="formbold-back-btn">Back
+              </div>
         </form>
       </div>
     </div>
@@ -834,780 +704,6 @@ if (!isset($_SESSION['visit_count'])) {
     <i class="feather-arrow-up"></i>
   </div>
 </body>
-<script>
-  const currentYear = new Date().getFullYear();
-  const numYears = 100;
-  const dropdown = document.getElementById("yearDropdown");
-
-  for (let i = 0; i < numYears; i++) {
-    const year = currentYear - i;
-    const option = document.createElement("option");
-    option.value = year;
-    option.textContent = year;
-    dropdown.appendChild(option);
-  }
-
-  function typeWriter(element, text, i, callback) {
-    if (i < text.length) {
-      element.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(function() {
-        typeWriter(element, text, i, callback);
-      }, 100);
-    } else if (typeof callback === "function") {
-      setTimeout(callback, 700);
-    }
-  }
-
-  document.getElementById("businessSize").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedBusinessSize");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    BusinessSize(typingLabel, businessTypeValue);
-  });
-
-  function BusinessSize(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-    type();
-  }
-
-  document.getElementById("businessCategory").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedBusinessCategory");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    BusinessCategory(typingLabel, businessTypeValue);
-  });
-
-  function BusinessCategory(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-
-    type();
-  }
-
-  document.getElementById("currency").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedCurrency");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    Currency(typingLabel, businessTypeValue);
-  });
-
-  function Currency(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-
-    type();
-
-    document.getElementById("yearDropdown").addEventListener("change", function() {
-      var typingLabel = document.getElementById("selectedFoundedYear");
-      var businessTypeValue = this.value;
-
-      if (typingLabel.timeout) {
-        clearTimeout(typingLabel.timeout);
-      }
-      Years(typingLabel, businessTypeValue);
-    });
-
-    function Years(element, text) {
-      element.style.display = "block";
-      element.textContent = "";
-      let index = 0;
-      let speed = 50;
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          element.timeout = setTimeout(type, speed);
-        }
-      }
-
-      type();
-    }
-  }
-
-  document.getElementById("customer_type").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedCustomerDetails");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    Years(typingLabel, businessTypeValue);
-  });
-
-  function Years(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-    type();
-  }
-
-  document.getElementById("business_name").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedBusinessName");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    Years(typingLabel, businessTypeValue);
-  });
-
-  function Years(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-
-    type();
-  }
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const label = document.getElementById("typing-parent");
-    const select = document.getElementById("businessType");
-    const text = "Could you please describe your Business?";
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = 'block';
-      }
-    }
-    type();
-  });
-
-  document.getElementById("businessType").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedBusinessType");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    BusinessType(typingLabel, businessTypeValue);
-  });
-
-  document.getElementById("firstname").addEventListener("input", updateNames);
-  document.getElementById("lastname").addEventListener("input", updateNames);
-
-  function updateNames() {
-    var firstName = document.getElementById("firstname").value;
-    var lastName = document.getElementById("lastname").value;
-    var selectedFirstNameDiv = document.getElementById("selectedFirstName");
-
-    if (selectedFirstNameDiv.timeout) {
-      clearTimeout(selectedFirstNameDiv.timeout);
-    }
-
-    BusinessType(selectedFirstNameDiv, " " + firstName + " " + lastName);
-  }
-
-  document.getElementById("email").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedEmail");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    BusinessType(typingLabel, businessTypeValue);
-  });
-
-  document.getElementById("phone").addEventListener("change", function() {
-    var typingLabel = document.getElementById("selectedPhone");
-    var businessTypeValue = this.value;
-
-    if (typingLabel.timeout) {
-      clearTimeout(typingLabel.timeout);
-    }
-    BusinessType(typingLabel, businessTypeValue);
-  });
-
-  function BusinessType(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 50;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-    type();
-  }
-
-  function startTyping(label, text) {
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      }
-    }
-    type();
-  }
-
-  document.getElementById("startupContainer").addEventListener("change", showSubCategories);
-  document.getElementById("serviceContainer").addEventListener("change", showSubCategories);
-  document.getElementById("currency").addEventListener("change", showSubCategories);
-  document.getElementById("yearDropdown").addEventListener("change", showSubCategories);
-  document.getElementById("customer_type").addEventListener("change", showSubCategories);
-  document.getElementById("businessName").addEventListener("change", showSubCategories);
-
-
-  function showSubCategories() {
-    const mainCategory = document.getElementById("businessType").value;
-
-    const businessSize = document.getElementById("businessSize");
-    const serviceContainer = document.getElementById("business-service");
-
-    const currency = document.getElementById("currency").value;
-    const foundedYearContainer = document.getElementById("years");
-
-    const yearDropdown = document.getElementById("yearDropdown");
-    const customerContainer = document.getElementById("customerType");
-
-    const customer_type = document.getElementById("customer_type");
-    const businessNameContainer = document.getElementById("businessName");
-
-    const allSubCategoryDivs = document.querySelectorAll("[id^='subCategory']");
-    allSubCategoryDivs.forEach(function(subCategoryDiv) {
-      subCategoryDiv.style.display = "none";
-    });
-
-    const selectedSubCategoryDiv = document.getElementById("subCategory" + mainCategory);
-    if (selectedSubCategoryDiv) {
-      selectedSubCategoryDiv.style.display = "block";
-      selectedSubCategoryDiv.style.animation = "slideInLeft 1.2s ease";
-      const labels = selectedSubCategoryDiv.querySelectorAll(".typing-child");
-      labels.forEach((label) => {
-        startTyping(label, "Could you please describe your Sub Business Category?");
-      });
-    }
-
-
-    if (currency !== "Select Currency") {
-      foundedYearContainer.style.display = "block";
-      foundedYearContainer.style.animation = "slideInLeft 1.5s ease";
-
-      foundedYearContainer.addEventListener("animationend", function() {
-        yearsDetails();
-      }, {
-        once: true
-      });
-    } else {
-      foundedYearContainer.style.display = "none";
-    }
-
-    if (yearDropdown.value !== 'Select Founded Year') {
-      customerContainer.style.display = "block";
-      customerContainer.style.animation = "slideInLeft 1.5s ease";
-
-      customerContainer.addEventListener("animationend", function() {
-        customersDetail();
-      }, {
-        once: true
-      });
-    } else {
-      customerContainer.style.display = "none";
-    }
-    if (customer_type.value !== 'Select an option') {
-      businessNameContainer.style.display = "block";
-      businessNameContainer.style.animation = "slideInLeft 1.5s ease";
-
-      businessNameContainer.addEventListener("animationend", function() {
-        BusinessName();
-      }, {
-        once: true
-      });
-    } else {
-      businessNameContainer.style.display = "none";
-    }
-    if (businessSize.value !== 'Select an option') {
-      serviceContainer.style.display = "block";
-      serviceContainer.style.animation = "slideInLeft 1.5s ease";
-
-      serviceContainer.addEventListener("animationend", function() {
-        serviceWant();
-      }, {
-        once: true
-      });
-    } else {
-      serviceContainer.style.display = "none";
-    }
-  }
-  document.getElementById("firstname").addEventListener("input", function() {
-    const lastNameDiv = document.getElementById("lastNameLabel");
-
-    if (this.value.trim() !== "") {
-      lastNameDiv.style.display = "block";
-      lastNameDiv.style.animation = "slideInLeft 1.2s ease";
-
-      lastNameDiv.addEventListener("animationend", function() {
-        LastName();
-      }, {
-        once: true
-      });
-    } else {
-      lastNameDiv.style.display = "none";
-    }
-  });
-
-  document.getElementById("lastname").addEventListener("input", function() {
-    const emailDiv = document.getElementById("emailLabel");
-
-
-    if (this.value.trim() !== "") {
-      emailDiv.style.display = "block";
-      Email();
-    } else {
-      emailDiv.style.display = "none";
-    }
-  });
-
-  document.getElementById("email").addEventListener("input", function() {
-    const phoneDiv = document.getElementById("phoneLabel");
-
-    if (this.value.trim() !== "") {
-      phoneDiv.style.display = "block";
-      Phone();
-    } else {
-      phoneDiv.style.display = "none";
-    }
-  });
-
-  let typingStarted = {
-    businessService: false,
-    businessServices: false,
-    years: false,
-    lastName: false,
-    email: false,
-    phone: false,
-    customerVerify: false,
-    businessName: false,
-    currencyTyping: false,
-    firstName: false
-  };
-
-  function resetTypingFlags() {
-    for (let key in typingStarted) {
-      typingStarted[key] = false;
-    }
-  }
-
-  function yearsDetails() {
-    if (!typingStarted.years) {
-      typingStarted.years = true;
-      const label = document.getElementById("years");
-      const text = "Please Select founded Year of Your Company";
-      const select = document.getElementById("yearDropdown")
-      let index = 0;
-
-      label.textContent = "";
-
-      function type() {
-        if (index < text.length) {
-          label.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        } else {
-          select.style.display = "block";
-        }
-      }
-
-      type();
-    }
-  }
-
-  function LastName() {
-    const label = document.getElementById("lastNameLabel");
-    const select = document.getElementById("lastname");
-    const text = "Write Your Last Name";
-    let index = 0;
-
-    label.textContent = "";
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = "block";
-      }
-    }
-
-    type();
-  }
-
-  function Email() {
-    if (!typingStarted.email) {
-      typingStarted.email = true;
-      const label = document.getElementById("emailLabel");
-      const select = document.getElementById("email");
-      const text = "Write Your Email";
-      let index = 0;
-
-      label.textContent = "";
-
-      function type() {
-        if (index < text.length) {
-          label.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        } else {
-          select.style.display = "block";
-        }
-      }
-
-      type();
-    }
-  }
-
-  function Phone() {
-    const label = document.getElementById("phoneLabel");
-    const select = document.getElementById("phone");
-    const text = "Please provide your Contact Number";
-    let index = 0;
-
-    label.textContent = "";
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = "block";
-      }
-    }
-
-    type();
-  }
-
-  function customersDetail() {
-    const label = document.getElementById("customerType");
-    const select = document.getElementById("customer_type");
-    const text = "Could you please describe Customer type";
-    let index = 0;
-
-    label.textContent = "";
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = "block";
-      }
-    }
-
-    type();
-  }
-
-
-  function BusinessName() {
-    const label = document.getElementById("businessName");
-    const select = document.getElementById("business_name");
-    const text = "Could you please provide your business Name";
-    let index = 0;
-
-    label.textContent = "";
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = "block";
-      }
-    }
-
-    type();
-  }
-
-  function BusinessService(element, text) {
-    if (!typingStarted.businessService) {
-      typingStarted.businessService = true;
-      let index = 0;
-      const select = document.getElementById("businessSize")
-
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        } else {
-          select.style.display = 'block';
-        }
-      }
-
-      type();
-    }
-  }
-
-  function serviceWant() {
-    const label = document.getElementById("business-service");
-    const select = document.getElementById("businessCategory");
-    const text = "Could you define the Service that you want";
-    let index = 0;
-
-    function type() {
-      if (index < text.length) {
-        label.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 50);
-      } else {
-        select.style.display = 'block';
-      }
-    }
-    type();
-  }
-
-
-  function BusinessServices(element, text) {
-    if (!typingStarted.businessServices) {
-      typingStarted.businessServices = true;
-      let index = 0;
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        }
-      }
-
-      type();
-    }
-  }
-
-  function FirstName(element, text) {
-    if (!typingStarted.firstName) {
-      typingStarted.firstName = true;
-      const select = document.getElementById("firstname");
-      let index = 0;
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        } else {
-          select.style.display = "block";
-        }
-      }
-
-      type();
-    }
-  }
-
-  function CurrencyTyping(element, text) {
-    if (!typingStarted.currencyTyping) {
-      typingStarted.currencyTyping = true;
-      let index = 0;
-      const select = document.getElementById("currency")
-
-      function type() {
-        if (index < text.length) {
-          element.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 50);
-        } else {
-          select.style.display = "block";
-        }
-      }
-
-      type();
-    }
-  }
-
-  function goBack() {
-    resetTypingFlags();
-  }
-  document.addEventListener("DOMContentLoaded", function() {
-    function handleDropdownChange() {
-      var dropdowns = document.querySelectorAll(".autoType");
-      var displayElement = document.getElementById("autoTypingDisplay");
-
-      dropdowns.forEach(function(dropdown) {
-        dropdown.addEventListener("change", function() {
-          if (displayElement.timeout) {
-            clearTimeout(displayElement.timeout);
-          }
-
-          displayElement.style.display = "block";
-          displayElement.innerHTML = "";
-
-          var selectedOption = dropdown.options[dropdown.selectedIndex].text;
-          typeWriter(displayElement, selectedOption, 0);
-        });
-      });
-    }
-    handleDropdownChange();
-  });
-
-  document.addEventListener("DOMContentLoaded", function() {
-    const stepMenus = [
-      document.querySelector('.formbold-step-menu1'),
-      document.querySelector('.formbold-step-menu2'),
-      document.querySelector('.formbold-step-menu3'),
-      document.querySelector('.formbold-step-menu4')
-    ];
-    const formSteps = [
-      document.querySelector('.formbold-form-step-1'),
-      document.querySelector('.formbold-form-step-2'),
-      document.querySelector('.formbold-form-step-3'),
-      document.querySelector('.formbold-form-step-4')
-    ];
-    const formSubmitBtn = document.querySelector('.formbold-btn');
-    const formBackBtn = document.querySelector('.formbold-back-btn');
-    const formNextBtn = document.querySelector('.formbold-next-btn');
-
-    function updateStep() {
-      stepMenus.forEach((stepMenu, index) => {
-        stepMenu.classList.toggle('active', index === currentStepIndex);
-      });
-      formSteps.forEach((formStep, index) => {
-        formStep.classList.toggle('active', index === currentStepIndex);
-      });
-
-      formBackBtn.style.display = currentStepIndex === 0 ? 'none' : 'inline-block';
-      if (currentStepIndex === formSteps.length - 1) {
-        formNextBtn.style.display = 'none';
-        formSubmitBtn.style.display = 'inline-block';
-      } else {
-        formNextBtn.style.display = 'inline-block';
-        formSubmitBtn.style.display = 'none';
-      }
-      if (currentStepIndex === 1) {
-        const label = document.getElementById("business-size");
-        const text = "Could you please describe your Business Size?";
-        BusinessService(label, text);
-      }
-      if (currentStepIndex === 2) {
-        const label = document.getElementById("business-typing");
-        const text = "Please Provide your Currency?";
-        CurrencyTyping(label, text);
-      }
-
-      if (currentStepIndex === 3) {
-        const label = document.getElementById("firstNameLabel");
-        const text = "Please Write Your First Name";
-        FirstName(label, text);
-      }
-    }
-
-    let currentStepIndex = 0;
-    updateStep();
-
-    formNextBtn.addEventListener("click", function(event) {
-      currentStepIndex++;
-      updateStep();
-    });
-
-    formBackBtn.addEventListener("click", function(event) {
-      currentStepIndex--;
-      updateStep();
-    });
-
-    formSubmitBtn.addEventListener("click", function(event) {
-      event.preventDefault();
-      const formData = new FormData(document.querySelector('form'));
-      fetch('./database_operations/subscription_form.php', {
-          method: 'POST',
-          body: formData
-        })
-        .then(response => {
-          if (response.ok) {
-            console.log('Form submitted successfully');
-            const businessCategoryValue = document.getElementById('businessCategory').value.trim().toLowerCase();
-            if (businessCategoryValue === 'bookkeeping') {
-              window.location.href = 'calculator.php';
-            }
-          } else {
-            console.error('Error submitting form');
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    });
-  });
-</script>
-<script>
-  const phoneInputField = document.querySelector("#phone");
-  const phoneInput = window.intlTelInput(phoneInputField, {
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-  });
-</script>
 <script src="assets/js/vendor/modernizr.min.js"></script>
 <script src="assets/js/vendor/jquery.min.js"></script>
 <script src="assets/js/vendor/bootstrap.min.js"></script>
@@ -1619,6 +715,7 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/sal.min.js"></script>
 <script src="assets/js/vendor/masonry.js"></script>
 <script src="assets/js/vendor/imageloaded.js"></script>
+<script src="form.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
 <script src="assets/js/vendor/magnify.min.js"></script>
 <script src="assets/js/vendor/lightbox.js"></script>
