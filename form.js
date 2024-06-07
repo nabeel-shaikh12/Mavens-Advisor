@@ -92,7 +92,33 @@ function BusinessCategory(element, text) {
 
   type();
 }
+document
+  .querySelectorAll(".subCategoryField")
+  .forEach(function (selectElement) {
+    selectElement.addEventListener("change", function () {
+      handleOtherSpecifyField();
+    });
+  });
 
+function handleOtherSpecifyField() {
+  let showOtherField = false;
+
+  document
+    .querySelectorAll(".subCategoryField")
+    .forEach(function (selectElement) {
+      if (selectElement.value.includes("Other")) {
+        showOtherField = true;
+      }
+    });
+
+  const otherSpecifyField = document.getElementById("otherSpecifyField");
+  if (showOtherField) {
+    otherSpecifyField.style.display = "block";
+  } else {
+    otherSpecifyField.style.display = "none";
+    document.getElementById("otherSpecifyInput").value = ""; // Clear the input when hiding
+  }
+}
 document.getElementById("currency").addEventListener("change", function () {
   var typingLabel = document.getElementById("selectedCurrency");
   var businessTypeValue = this.value;
@@ -100,53 +126,18 @@ document.getElementById("currency").addEventListener("change", function () {
   if (typingLabel.timeout) {
     clearTimeout(typingLabel.timeout);
   }
-  Currency(typingLabel, businessTypeValue);
+  BusinessType(typingLabel, businessTypeValue);
 });
 
-function Currency(element, text) {
-  element.style.display = "block";
-  element.textContent = "";
-  let index = 0;
-  let speed = 15;
+document.getElementById("yearDropdown").addEventListener("change", function () {
+  var typingLabel = document.getElementById("selectedFoundedYear");
+  var businessTypeValue = this.value;
 
-  function type() {
-    if (index < text.length) {
-      element.textContent += text.charAt(index);
-      index++;
-      element.timeout = setTimeout(type, speed);
-    }
+  if (typingLabel.timeout) {
+    clearTimeout(typingLabel.timeout);
   }
-  type();
-  document
-    .getElementById("yearDropdown")
-    .addEventListener("change", function () {
-      var typingLabel = document.getElementById("selectedFoundedYear");
-      var businessTypeValue = this.value;
-
-      if (typingLabel.timeout) {
-        clearTimeout(typingLabel.timeout);
-      }
-      Years(typingLabel, businessTypeValue);
-    });
-
-  function Years(element, text) {
-    element.style.display = "block";
-    element.textContent = "";
-    let index = 0;
-    let speed = 15;
-
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        element.timeout = setTimeout(type, speed);
-      }
-    }
-
-    type();
-  }
-}
-
+  BusinessType(typingLabel, businessTypeValue);
+});
 document
   .getElementById("customer_type")
   .addEventListener("change", function () {
@@ -156,25 +147,8 @@ document
     if (typingLabel.timeout) {
       clearTimeout(typingLabel.timeout);
     }
-    Years(typingLabel, businessTypeValue);
+    BusinessType(typingLabel, businessTypeValue);
   });
-
-function Years(element, text) {
-  element.style.display = "block";
-  element.textContent = "";
-  let index = 0;
-  let speed = 15;
-
-  function type() {
-    if (index < text.length) {
-      element.textContent += text.charAt(index);
-      index++;
-      element.timeout = setTimeout(type, speed);
-    }
-  }
-  type();
-}
-
 document
   .getElementById("business_name")
   .addEventListener("change", function () {
@@ -184,24 +158,8 @@ document
     if (typingLabel.timeout) {
       clearTimeout(typingLabel.timeout);
     }
-    Years(typingLabel, businessTypeValue);
+    BusinessType(typingLabel, businessTypeValue);
   });
-
-function Years(element, text) {
-  element.style.display = "block";
-  element.textContent = "";
-  let index = 0;
-  let speed = 15;
-
-  function type() {
-    if (index < text.length) {
-      element.textContent += text.charAt(index);
-      index++;
-      element.timeout = setTimeout(type, speed);
-    }
-  }
-  type();
-}
 
 document.addEventListener("DOMContentLoaded", function () {
   const label = document.getElementById("typing-parent");
@@ -251,7 +209,7 @@ function updateNames() {
     clearTimeout(selectedFirstNameDiv.timeout);
   }
 
-  BusinessType(selectedFirstNameDiv, " " + firstName + " " + lastName);
+  BusinessType(selectedFirstNameDiv, " " + firstName);
 }
 
 document.getElementById("email").addEventListener("change", function () {
@@ -275,6 +233,15 @@ document
     }
     BusinessType(typingLabel, businessTypeValue);
   });
+document.getElementById("whichService").addEventListener("change", function () {
+  var typingLabel = document.getElementById("selectedService");
+  var businessTypeValue = this.value;
+
+  if (typingLabel.timeout) {
+    clearTimeout(typingLabel.timeout);
+  }
+  BusinessType(typingLabel, businessTypeValue);
+});
 document
   .getElementById("accounting_software_used")
   .addEventListener("change", function () {
@@ -405,9 +372,29 @@ document
 document
   .getElementById("selectedSoftwares")
   .addEventListener("change", showSubCategories);
-
 document
   .getElementById("calculatorList")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("customerSpecify")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("whichService")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("softwareQues")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("softwarePrefer")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("softwarePreferred")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("specifySoftware")
+  .addEventListener("change", showSubCategories);
+document
+  .getElementById("quotationDetails")
   .addEventListener("change", showSubCategories);
 
 function showSubCategories() {
@@ -422,9 +409,21 @@ function showSubCategories() {
   const currency = document.getElementById("currency").value;
   const foundedYearContainer = document.getElementById("years");
 
+  const softwarePrefer = document.getElementById("softwarePrefer");
+  const softwarePreferred = document.getElementById("softwarePreferred");
+
+  const specifySoftware = document.getElementById("specifySoftware");
+  // const softwareSpecify = document.getElementById("softwareSpecify");
+  const filingOptions = document.getElementById("filingOptions");
+  const usaFilingOptions = document.getElementById("usaFilingOptions");
+  const ukFilingOptions = document.getElementById("ukFilingOptions");
+  const quotationDetails = document.getElementById("quotationDetails");
   const country = document.getElementById("country");
   const calculatorList = document.getElementById("calculatorList");
 
+  const softwareQues = document.getElementById("softwareQues");
+
+  const whichService = document.getElementById("whichService");
   const countryDropdown = document.getElementById("company_operate_country");
   const revenuelabel = document.getElementById("revenueSize");
 
@@ -462,6 +461,17 @@ function showSubCategories() {
     });
   }
 
+  filingOptions.style.display = "block";
+
+  if (countryDropdown.value === "United States") {
+    usaFilingOptions.style.display = "block";
+    ukFilingOptions.style.display = "none";
+  } else if (countryDropdown.value === "United Kingdom") {
+    ukFilingOptions.style.display = "block";
+    usaFilingOptions.style.display = "none";
+  } else {
+    filingOptions.style.display = "none";
+  }
   if (mainCategory !== "Select an option") {
     businessSizeLabel.style.display = "block";
     businessSizeLabel.style.animation = "slideInLeft 1.5s ease";
@@ -478,6 +488,21 @@ function showSubCategories() {
   } else {
     businessSizeLabel.style.display = "none";
   }
+  // if (accounting_software_used === "other") {
+  //   specifySoftware.style.display = "block";
+  //   specifySoftware.style.display = "slideInLeft 1.5s ease";
+  //   specifySoftware.addEventListener(
+  //     "animationend",
+  //     function () {
+  //       SpecifySoftware();
+  //     },
+  //     {
+  //       once: true,
+  //     }
+  //   );
+  // } else {
+  //   specifySoftware.style.display = "none";
+  // }
 
   if (whichSoftware.value === "yes") {
     softwareType.style.display = "block";
@@ -512,11 +537,18 @@ function showSubCategories() {
   } else {
     foundedYearContainer.style.display = "none";
   }
-  if (accounting_software_used.value !== "Select an option") {
+
+  if (
+    accounting_software_used.value !== "Select an option" ||
+    softwarePreferred.value !== "Select an option"
+  ) {
     calculatorList.style.display = "block";
+    quotationDetails.style.display = "block";
+
     calculatorList.style.animation = "slideInLeft 1.5s ease";
   } else {
     calculatorList.style.display = "none";
+    quotationDetails.style.display = "none";
   }
 
   if (yearDropdown.value !== "Select Founded Year") {
@@ -584,7 +616,22 @@ function showSubCategories() {
   } else {
     revenuelabel.style.display = "none";
   }
+  if (whichService.value != "Select an option") {
+    softwareQues.style.display = "block";
+    softwareQues.style.animation = "slideInLeft 1.5s ease";
 
+    softwareQues.addEventListener(
+      "animationend",
+      function () {
+        Softwares();
+      },
+      {
+        once: true,
+      }
+    );
+  } else {
+    softwareQues.style.display = "none";
+  }
   if (revenueSelect.value !== "Select an option") {
     currencyLabel.style.display = "block";
     currencyLabel.style.animation = "slideInLeft 1.5s ease";
@@ -622,7 +669,106 @@ document.getElementById("business_name").addEventListener("input", function () {
     FirstNameLabel.style.display = "none";
   }
 });
+document
+  .getElementById("customer_type")
+  .addEventListener("change", function () {
+    const customerSpecify = document.getElementById("customerSpecify");
+    const specifyCustomer = document.getElementById("specifyCustomer");
 
+    customerSpecify.textContent = "";
+
+    if (this.value === "Other") {
+      customerSpecify.style.display = "block";
+      customerSpecify.classList.add("slideInLeft");
+
+      customerSpecify.addEventListener(
+        "animationend",
+        function () {
+          CustomerType();
+        },
+        {
+          once: true,
+        }
+      );
+    } else {
+      customerSpecify.style.display = "none";
+      specifyCustomer.style.display = "none";
+    }
+  });
+
+// document.getElementById('company_operate_country').addEventListener('change', function() {
+//   const filingOptions = document.getElementById('filingOptions');
+//   const usaFilingOptions = document.getElementById('usaFilingOptions');
+//   const ukFilingOptions = document.getElementById('ukFilingOptions');
+//   filingOptions.style.display = 'block';
+
+//   if (selectedCountry === 'United States') {
+//     usaFilingOptions.style.display = 'block';
+//     ukFilingOptions.style.display = 'none';
+//   } else if (selectedCountry === 'United Kingdom') {
+//     ukFilingOptions.style.display = 'block';
+//     usaFilingOptions.style.display = 'none';
+//   } else {
+//     filingOptions.style.display = 'none';
+//   }
+
+//   monthlyTransactionInput.style.display = 'block';
+//   monthlyInvoicesInput.style.display = 'block';
+//   contractualPaymentInput.style.display = 'block';
+//   payrollInput.style.display = 'block';
+// });
+document
+  .getElementById("whichSoftware")
+  .addEventListener("change", function () {
+    const softwarePrefer = document.getElementById("softwarePrefer");
+    const softwarePreferred = document.getElementById("softwarePreferred");
+
+    customerSpecify.textContent = "";
+
+    if (this.value === "no") {
+      softwarePrefer.style.display = "block";
+      softwarePrefer.classList.add("slideInLeft");
+
+      softwarePrefer.addEventListener(
+        "animationend",
+        function () {
+          SoftwarePrefer();
+        },
+        {
+          once: true,
+        }
+      );
+    } else {
+      softwarePreferred.style.display = "none";
+      softwarePrefer.style.display = "none";
+    }
+  });
+document
+  .getElementById("accounting_software_used")
+  .addEventListener("change", function () {
+    const specifySoftware = document.getElementById("specifySoftware");
+    const softwareSpecify = document.getElementById("softwareSpecify");
+
+    customerSpecify.textContent = "";
+
+    if (this.value === "other") {
+      specifySoftware.style.display = "block";
+      specifySoftware.classList.add("slideInLeft");
+
+      specifySoftware.addEventListener(
+        "animationend",
+        function () {
+          SpecifySoftware();
+        },
+        {
+          once: true,
+        }
+      );
+    } else {
+      softwareSpecify.style.display = "none";
+      specifySoftware.style.display = "none";
+    }
+  });
 document.getElementById("firstname").addEventListener("input", function () {
   const emailDiv = document.getElementById("emailLabel");
 
@@ -649,16 +795,16 @@ document.getElementById("email").addEventListener("input", function () {
 });
 
 document.getElementById("phone").addEventListener("input", function () {
-  const phoneDiv = document.getElementById("softwareQues");
+  const service = document.getElementById("serviceLooking");
   const submitBtn = document.getElementById("submit");
 
   if (this.value.trim() !== "") {
-    phoneDiv.style.display = "block";
+    service.style.display = "block";
     submitBtn.style.display = "block";
 
-    Softwares();
+    ServiceLooking();
   } else {
-    phoneDiv.style.display = "none";
+    service.style.display = "none";
   }
 });
 
@@ -668,12 +814,27 @@ function resetTypingFlags() {
   }
 }
 
-function yearsDetails() {
-  const label = document.getElementById("years");
-  const text = "Please Select founded Year of Your Company";
-  const select = document.getElementById("yearDropdown");
-  let index = 0;
+const typingStarted = {
+  phone: false,
+  customerType: false,
+  serviceLooking: false,
+  softwarePrefer: false,
+  businessName: false,
+  businessSize: false,
+  currencyTyping: false,
+  businessService: false,
+  country: false,
+  customerTypeSpecify: false,
+  revenue: false,
+  yearsDetails: false,
+  softwares: false,
+  softwareAns: false,
+  email: false,
+};
+function typeText(label, select, text, flag, doubleChar = false) {
+  if (typingStarted[flag]) return;
 
+  let index = 0;
   label.textContent = "";
 
   function type() {
@@ -683,244 +844,154 @@ function yearsDetails() {
       setTimeout(type, 15);
     } else {
       select.style.display = "block";
+      typingStarted[flag] = true;
     }
   }
 
   type();
 }
-function Softwares() {
-  const label = document.getElementById("softwareQues");
-  const text = "Are you using any accounting Softwares?";
-  const select = document.getElementById("whichSoftware");
-  let index = 0;
-
-  label.textContent = "";
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
-}
-function SoftwareAns() {
-  const label = document.getElementById("softwareType");
-  const text = "Which Software do you use?";
-  const select = document.getElementById("accounting_software_used");
-  let index = 0;
-
-  label.textContent = "";
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
-}
-function Email() {
-  const label = document.getElementById("emailLabel");
-  const select = document.getElementById("email");
-  const text = "Write Your Email";
-  let index = 0;
-
-  label.textContent = "";
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
-}
-
 function Phone() {
-  const label = document.getElementById("phoneLabel");
-  const select = document.getElementById("phone-container");
-  const text = "Please provide your Contact Number";
-  let index = 0;
-
-  label.textContent = "";
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
+  typeText(
+    document.getElementById("phoneLabel"),
+    document.getElementById("phone-container"),
+    "Please provide your Contact Number",
+    "phone"
+  );
 }
 
 function customersDetail() {
-  const label = document.getElementById("customerType");
-  const select = document.getElementById("customer_type");
-  const text = "Could you please describe Customer type";
-  let index = 0;
+  typeText(
+    document.getElementById("customerType"),
+    document.getElementById("customer_type"),
+    "Could you please describe Customer type",
+    "customerType"
+  );
+}
 
-  label.textContent = "";
+function ServiceLooking() {
+  typeText(
+    document.getElementById("serviceLooking"),
+    document.getElementById("whichService"),
+    "Services looking for?",
+    "serviceLooking"
+  );
+}
 
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
+function SoftwarePrefer() {
+  typeText(
+    document.getElementById("softwarePrefer"),
+    document.getElementById("softwarePreferred"),
+    "Which Software do you prefer?",
+    "softwarePrefer"
+  );
 }
 
 function BusinessName() {
-  const label = document.getElementById("businessName");
-  const select = document.getElementById("business_name");
-  const text = "Could you please provide your business Name";
-  let index = 0;
-
-  label.textContent = "";
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  type();
+  typeText(
+    document.getElementById("businessName"),
+    document.getElementById("business_name"),
+    "Could you please provide your business Name",
+    "businessName"
+  );
 }
 
 function BusinessService() {
-  const label = document.getElementById("business-size");
-  const text = "Could you please describe your Business Size?";
-  const select = document.getElementById("businessSize");
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      label.textContent = text.substring(0, index + 1);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  label.textContent = "";
-  type();
+  typeText(
+    document.getElementById("business-size"),
+    document.getElementById("businessSize"),
+    "Could you please describe your Business Size?",
+    "businessSize"
+  );
 }
 
 function CurrencyTyping() {
-  const label = document.getElementById("business-typing");
-  const text =
-    "Could you please provide your currency where your company operated?";
-  const select = document.getElementById("currency");
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      label.textContent = text.substring(0, index + 1);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-
-  label.textContent = "";
-  type();
+  typeText(
+    document.getElementById("business-typing"),
+    document.getElementById("currency"),
+    "Could you please provide your currency where your company operated?",
+    "currencyTyping"
+  );
 }
 
 function serviceWant() {
-  const label = document.getElementById("business-service");
-  const select = document.getElementById("businessCategory");
-  const text = "Could you define the Service that you want";
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-  type();
+  typeText(
+    document.getElementById("business-service"),
+    document.getElementById("businessCategory"),
+    "Could you define the Service that you want",
+    "businessService"
+  );
 }
 
 function Country() {
-  const label = document.getElementById("country");
-  const select = document.getElementById("company_operate_country");
-  const text = "Which country company does the operates?";
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-  type();
+  typeText(
+    document.getElementById("country"),
+    document.getElementById("company_operate_country"),
+    "Which country company does the operates?",
+    "country"
+  );
 }
+
+function CustomerType() {
+  typeText(
+    document.getElementById("customerSpecify"),
+    document.getElementById("specifyCustomer"),
+    "Please Specify Customer Type",
+    "customerTypeSpecify"
+  );
+}
+
 function Revenue() {
-  const label = document.getElementById("revenueSize");
-  const select = document.getElementById("company_revenue");
-  const text = "Company Revenue";
-  let index = 0;
-
-  function type() {
-    if (index < text.length) {
-      label.textContent += text.charAt(index);
-      index++;
-      setTimeout(type, 15);
-    } else {
-      select.style.display = "block";
-    }
-  }
-  type();
+  typeText(
+    document.getElementById("revenueSize"),
+    document.getElementById("company_revenue"),
+    "Company Revenue",
+    "revenue"
+  );
 }
-function BusinessServices(element, text) {
-  if (!typingStarted.businessServices) {
-    typingStarted.businessServices = true;
-    let index = 0;
 
-    function type() {
-      if (index < text.length) {
-        element.textContent += text.charAt(index);
-        index++;
-        setTimeout(type, 15);
-      }
-    }
-
-    type();
-  }
+function yearsDetails() {
+  typeText(
+    document.getElementById("years"),
+    document.getElementById("yearDropdown"),
+    "Please Select founded Year of Your Company",
+    "yearsDetails"
+  );
 }
+
+function Softwares() {
+  typeText(
+    document.getElementById("softwareQues"),
+    document.getElementById("whichSoftware"),
+    "Are you using any accounting Softwares?",
+    "softwares"
+  );
+}
+
+function SoftwareAns() {
+  typeText(
+    document.getElementById("softwareType"),
+    document.getElementById("accounting_software_used"),
+    "Which Software do you use?",
+    "softwareAns"
+  );
+}
+
+function Email() {
+  typeText(
+    document.getElementById("emailLabel"),
+    document.getElementById("email"),
+    "Write Your Email",
+    "email"
+  );
+}
+
+const phoneInputField = document.querySelector("#phone");
+const phoneContainer = document.querySelector("#phone-container");
+
+const phoneInput = window.intlTelInput(phoneInputField, {
+  utilsScript:
+    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+});
 
 function FirstName() {
   const label = document.getElementById("firstNameLabel");
@@ -940,7 +1011,23 @@ function FirstName() {
   label.textContent = "";
   type();
 }
-
+function SpecifySoftware() {
+  const label = document.getElementById("specifySoftware");
+  const select = document.getElementById("softwareSpecify");
+  const text = "Please Specify Software";
+  let index = 0;
+  function type() {
+    if (index < text.length) {
+      label.textContent = text.substring(0, index + 1);
+      index++;
+      setTimeout(type, 15);
+    } else {
+      select.style.display = "block";
+    }
+  }
+  label.textContent = "";
+  type();
+}
 document.addEventListener("DOMContentLoaded", function () {
   function handleDropdownChange() {
     var dropdowns = document.querySelectorAll(".autoType");
@@ -1019,6 +1106,37 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+if (window.location.pathname.includes("calculator.php")) {
+  window.addEventListener("pageshow", function (event) {
+    if (window.location.pathname.includes("calculator.php")) {
+      document.getElementById("monthlyTransactionInputField").value = "";
+      document.getElementById("monthlyInvoicesInputField").value = "";
+      document.getElementById("payrollInputField").value = "";
+      document.getElementById("contractualInputField").value = "";
+    }
+  });
+}
+
+$(document).ready(function () {
+  $("#updateFormulaBtn").on("click", function () {
+    updateFormulas();
+  });
+});
+let categoryTotal = {
+  monthlyTransaction: 0,
+  discountMonthlyTransaction: 0,
+  monthlyInvoices: 0,
+  contractualPayment: 0,
+  payroll: 0,
+  expense: 0,
+  irsFiling: 0,
+  stateutoryFiling: 0,
+  cashflow: 0,
+  budget: 0,
+  setup: 0,
+  statutoryStateFiling: 0
+};
+
 function showInputBox(category) {
   const selectedCategory = category;
   const checkbox = document.querySelector(`[value=${selectedCategory}]`);
@@ -1035,14 +1153,29 @@ function showInputBox(category) {
   categoryTotal[selectedCategory] = calculateCategoryTotal(selectedCategory);
   calculatePrices();
 }
-
+document
+  .getElementById("whichSoftware")
+  .addEventListener("change", function () {
+    const setupPriceElement = document.getElementById("setuppp");
+    if (this.value === "no") {
+      setupPriceElement.textContent = "300";
+    } else {
+      setupPriceElement.textContent = "0";
+    }
+    categoryTotal.setup = calculateCategoryTotal("setup");
+    calculatePrices();
+  });
 function calculateCategoryTotal(category) {
   const checkbox = document.querySelector(`[value=${category}]`);
+
   const transactionCheckbox = document.getElementById(
     "monthlyTransactionCheckbox"
   );
   const invoicesCheckbox = document.getElementById("monthlyInvoicesCheckbox");
   const payrollCheckbox = document.getElementById("payrollCheckbox");
+  const contractualPaymentCheckbox = document.getElementById(
+    "contractualPaymentCheckbox"
+  );
 
   if ((category === "cashflow" || category === "budget") && checkbox.checked) {
     return (
@@ -1054,14 +1187,23 @@ function calculateCategoryTotal(category) {
         60) *
       15
     );
-  } else if (category === "setup" && checkbox.checked) {
-    return 300;
+  } else if (
+    (category === "irsFiling" ||
+      category === "statutoryStateFiling" ||
+      category === "hmrcFiling" ||
+      category === "companiesHouseFiling" ||
+      category === "vatFiling") &&
+    checkbox.checked
+  ) {
+    return 200;
   } else if (category === "monthlyTransaction" && transactionCheckbox.checked) {
     return ((categoryTotal.monthlyTransaction * 5) / 60) * 15;
   } else if (category === "monthlyInvoices" && invoicesCheckbox.checked) {
     return ((categoryTotal.monthlyInvoices * 15) / 60) * 15;
   } else if (category === "payroll" && payrollCheckbox.checked) {
     return ((categoryTotal.payroll * 15) / 60) * 15;
+  } else if (category === "contractualPayment" && contractualPaymentCheckbox.checked) {
+    return ((categoryTotal.contractualPayment * 15) / 60) * 15;
   } else {
     return 0;
   }
@@ -1076,10 +1218,178 @@ document
 document
   .getElementById("getDiscountBtn")
   .addEventListener("click", redirectToChat);
-const phoneInputField = document.querySelector("#phone");
-const phoneContainer = document.querySelector("#phone-container");
 
-const phoneInput = window.intlTelInput(phoneInputField, {
-  utilsScript:
-    "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-});
+function calculatePrices() {
+  categoryTotal.monthlyTransaction =
+    parseFloat(document.getElementById("monthlyTransactionInputField").value) ||
+    0;
+  categoryTotal.monthlyInvoices =
+    parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
+  categoryTotal.payroll =
+    parseFloat(document.getElementById("payrollInputField").value) || 0;
+  categoryTotal.contractualPayment =
+    parseFloat(document.getElementById("contractualInputField").value) || 0;
+
+  const cashflowCheckbox = document.getElementById("cashflowCheckbox");
+  const budgetCheckbox = document.getElementById("budgetCheckbox");
+  const irsCheckbox = document.getElementById("irsCheckbox");
+  const stateChecbox = document.getElementById("stateChecbox");
+
+  categoryTotal.cashflow = cashflowCheckbox.checked
+    ? calculateCategoryTotal("cashflow")
+    : 0;
+  categoryTotal.budget = budgetCheckbox.checked
+    ? calculateCategoryTotal("budget")
+    : 0;
+  categoryTotal.irsFiling = irsCheckbox.checked
+    ? calculateCategoryTotal("irsFiling")
+    : 0;
+  categoryTotal.statutoryStateFiling = stateChecbox.checked
+    ? calculateCategoryTotal("statutoryStateFiling")
+    : 0;
+
+  const transactionPrice = (
+    ((categoryTotal.monthlyTransaction * 5) / 60) *
+    15
+  ).toFixed(2);
+  const invoicePrice = (
+    ((categoryTotal.monthlyInvoices * 15) / 60) *
+    15
+  ).toFixed(2);
+  const payrollPrice = (((categoryTotal.payroll * 15) / 60) * 15).toFixed(2);
+  const contractualPaymentPrice = (
+    ((categoryTotal.contractualPayment * 15) / 60) *
+    15
+  ).toFixed(2);
+  const cashflowPrice = categoryTotal.cashflow.toFixed(2);
+  const budgetPrice = categoryTotal.budget.toFixed(2);
+  const irsPrice = categoryTotal.irsFiling.toFixed(2);
+  const statePrice = categoryTotal.statutoryStateFiling.toFixed(2);
+
+  const discountTransactionPrice = (
+    ((categoryTotal.monthlyTransaction * 1) / 60) *
+    10
+  ).toFixed(2);
+  const discountInvoicePrice = (
+    ((categoryTotal.monthlyInvoices * 5) / 60) *
+    10
+  ).toFixed(2);
+  const discountPayrollPrice = (
+    ((categoryTotal.payroll * 5) / 60) *
+    10
+  ).toFixed(2);
+  const discountContractualPaymentPrice = (
+    ((categoryTotal.contractualPayment * 5) / 60) *
+    10
+  ).toFixed(2);
+  const discountCashflowPrice = cashflowCheckbox.checked
+    ? (
+        (((categoryTotal.monthlyTransaction +
+          categoryTotal.monthlyInvoices +
+          categoryTotal.payroll +
+          categoryTotal.expense) *
+          5) /
+          60) *
+        10
+      ).toFixed(2)
+    : 0;
+  const discountBudgetPrice = budgetCheckbox.checked
+    ? (
+        (((categoryTotal.monthlyTransaction +
+          categoryTotal.monthlyInvoices +
+          categoryTotal.payroll +
+          categoryTotal.expense) *
+          5) /
+          60) *
+        10
+      ).toFixed(2)
+    : 0;
+
+  
+  const discountedPrice = (
+    parseFloat(discountTransactionPrice) +
+    parseFloat(discountInvoicePrice) +
+    parseFloat(discountPayrollPrice) +
+    parseFloat(discountCashflowPrice) +
+    parseFloat(discountBudgetPrice) 
+  ).toFixed(2);
+  
+  const totalPrice = (
+    parseFloat(transactionPrice) +
+    parseFloat(invoicePrice) +
+    parseFloat(payrollPrice) +
+    parseFloat(contractualPaymentPrice) +
+    parseFloat(cashflowPrice) +
+    parseFloat(budgetPrice) +
+    parseFloat(irsPrice) +
+    parseFloat(statePrice)
+  ).toFixed(2);
+
+  document.getElementById("transactionPrice").innerText = transactionPrice;
+  document.getElementById("discountTransactionPrice").innerText = discountTransactionPrice;
+  document.getElementById("invoicePrice").innerText = invoicePrice;
+  document.getElementById("discountInvoicePrice").innerText = discountInvoicePrice;
+  document.getElementById("payrollPrice").innerText = payrollPrice;
+  document.getElementById("cashflowPrice").innerText = cashflowPrice;
+  document.getElementById("discountCashflowPrice").innerText =  discountCashflowPrice;
+
+  document.getElementById("budgetPrice").innerText = budgetPrice;
+  document.getElementById("discountBudgetPrice").innerText = discountBudgetPrice;
+  document.getElementById("irsPrice").innerText = irsPrice;
+  document.getElementById("discountPayrollPrice").innerText = discountPayrollPrice;
+  document.getElementById("contractualPaymentPrice").innerText = contractualPaymentPrice;
+  document.getElementById("discountContractualPaymentPrice").innerText = discountContractualPaymentPrice;
+  document.getElementById("discountedPrice").innerText = discountedPrice;
+  document.getElementById("statePrice").innerText = statePrice;
+  document.getElementById("totalPrice").innerHTML = totalPrice;
+}
+
+function redirectToChat() {
+  var discountTransactionPrice = parseFloat(
+    document.getElementById("discountTransactionPrice").innerText
+  );
+  var discountInvoicePrice = parseFloat(
+    document.getElementById("discountInvoicePrice").innerText
+  );
+  var discountPayrollPrice = parseFloat(
+    document.getElementById("discountPayrollPrice").innerText
+  );
+  var discountCashflowPrice = parseFloat(
+    document.getElementById("discountCashflowPrice").innerText
+  );
+  var discountBudgetPrice = parseFloat(
+    document.getElementById("discountBudgetPrice").innerText
+  );
+  var discountedPrice = parseFloat(
+    document.getElementById("discountedPrice").innerText
+  );
+
+  var prices = "";
+
+  if (discountTransactionPrice > 0) {
+    prices += `Transaction Price: $${discountTransactionPrice.toFixed(2)},\n`;
+  }
+  if (discountInvoicePrice > 0) {
+    prices += `Invoice Price: $${discountInvoicePrice.toFixed(2)},\n`;
+  }
+  if (discountPayrollPrice > 0) {
+    prices += `Payroll Price: $${discountPayrollPrice.toFixed(2)},\n`;
+  }
+  if (discountCashflowPrice > 0) {
+    prices += `Cashflow Price: $${discountCashflowPrice.toFixed(2)},\n`;
+  }
+  if (discountBudgetPrice > 0) {
+    prices += `Budget Price: $${discountBudgetPrice.toFixed(2)},\n`;
+  }
+  if (setupPrice > 0) {
+    prices += `Setup Price: $${setupPrice.toFixed(2)},\n`;
+  }
+  if (discountedPrice > 0) {
+    prices += `Total Price: $${discountedPrice.toFixed(2)},\n`;
+  }
+  prices = prices.replace(/,\n$/, "");
+
+  localStorage.setItem("calculatorPrices", prices);
+  window.location.href = "chat.php";
+  window.onload = function () {};
+}

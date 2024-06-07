@@ -31,18 +31,38 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/form.css">
 
 <body>
-  <?php include 'components/topbar.php' ?>
-  <?php include 'components/header.php' ?>
-  <?php include 'components/sidebar.php' ?>
   <main class="page-wrapper">
-    <div>
-      <div class="rainbow-gradient-circle"></div>
-      <div class="rainbow-gradient-circle theme-pink"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="45px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.php">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="service.php">Our Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.php">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    <div class="rainbow-gradient-circle"></div>
+    <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
+
     <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap">
       <div class="formbold-form-wrapper variation-2 rainbow-service-area">
         <form action="./database_operations/subscription_form.php" method="POST">
@@ -277,6 +297,10 @@ if (!isset($_SESSION['visit_count'])) {
                   <div id="autoTypingDisplay" class="auto-typing-display" style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none;"></div>
                 </div>
               </div>
+              <div id="otherSpecifyField" class="form-group" style="display: none;">
+                <label for="otherSpecifyInput">Other (Please Specify):</label>
+                <input type="text" id="otherSpecifyInput" name="other_specify" class="formbold-form-input" placeholder="Please specify">
+              </div>
             </div>
             <div class="form-group" id="startupContainer">
               <label id="business-size" for="businessType"></label>
@@ -287,7 +311,6 @@ if (!isset($_SESSION['visit_count'])) {
                 <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
                 <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
                 <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
-                <option value="Others">Other please specify</option>
               </select>
             </div>
             <div class="row">
@@ -527,6 +550,10 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
             </div>
             <div class="form-group">
+              <label id="customerSpecify" for="customerSpecify"></label>
+              <input type="text" name="customer_type" id="specifyCustomer" class="formbold-form-input" style="display: none;" />
+            </div>
+            <div class="form-group">
               <label id="businessName" for="businessService"></label>
               <input type="text" name="business_name" placeholder="Business Name" id="business_name" class="formbold-form-input" style="display: none;" />
             </div>
@@ -573,6 +600,24 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
             </div>
             <div class="form-group">
+              <label id="serviceLooking" for="serviceLooking"></label>
+              <select id="whichService" name="whichService" class="product_select formbold-form-input" style="display: none;">
+                <option data-display="1. Choose A Question">Select an option</option>
+                <option value="Accounting & Finance">Accounting & Finance</option>
+                <option value="Human Resourse">Human Resource</option>
+                <option value="IT Support">IT Support</option>
+                <option value="Creative & Content Services">Creative & Content Services</option>
+                <option value="Software Development & Maintenance">Software Development & Maintenance</option>
+              </select>
+            </div>
+            <div class="row mt-5">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedService"></p>
+              </div>
+            </div>
+            <div class="form-group">
               <label id="softwareQues" for="softwareQues"></label>
               <select id="whichSoftware" name="whichSoftware" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Choose A Question">Select an option</option>
@@ -598,107 +643,306 @@ if (!isset($_SESSION['visit_count'])) {
                 <option value="Sage">Sage</option>
                 <option value="NetSuite">NetSuite</option>
                 <option value="Wave Accounting">Wave Accounting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftwares"></p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="specifySoftware" for="specifySoftware"></label>
+              <input type="text" name="accounting_software_used" id="softwareSpecify" class="formbold-form-input" style="display: none;" />
+            </div>
+            <div class="form-group" style="margin-top: -40px;">
+              <label id="softwarePrefer" for="softwarePrefer"></label>
+              <select id="softwarePreferred" name="softwarePreferred" class="product_select formbold-form-input" style="display: none;">
+                <option data-display="1. Choose A Question">Select an option</option>
+                <option value="QuickBooks">QuickBooks</option>
+                <option value="Xero">Xero</option>
+                <option value="FreshBooks">FreshBooks</option>
+                <option value="Zoho Books">Zoho Books</option>
+                <option value="Sage">Sage</option>
+                <option value="NetSuite">NetSuite</option>
+                <option value="Wave Accounting">Wave Accounting</option>
                 <option value="Other">Other</option>
               </select>
-              <div class="row mt-3">
-                <div class="col-md-6">
-                </div>
-                <div class="col-md-6">
-                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftwares"></p>
-                </div>
+            </div>
+          </div>
+
+          <div class="row mt-5" style="display: none;" id="calculatorList">
+            <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" style="background-color: #f5f8fa;border-radius:50px">
+              <div class="service gallery-style" style="padding: 50px;">
+                <h5 class="card-title"><b>Accounting & Finance Calculator</b></h5>
+                <form method="POST" action="./calculator_operations.php" id="login calculatorForm">
+                  <br>
+                  <label>
+                    <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
+                    Number of Monthly Transactions
+                  </label>
+                  <br>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
+                    Number of Monthly Invoices
+                  </label>
+                  <br>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
+                    Number of Monthly Payrolls
+                  </label>
+                  <br>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
+                    Number of Contractual Payment
+                  </label>
+                  <br>
+                  <br>
+                  <div id="filingOptions" style="display:none;">
+                    <div id="usaFilingOptions" style="display:none;">
+                      <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
+                        IRS FIling
+                      </label>
+                      <label><input type="checkbox" name="category" value="statutoryStateFiling" id="stateChecbox" onclick="showInputBox('statutoryStateFiling')" autocomplete="off">
+                        Statutory State Filing
+                      </label>
+                    </div>
+                    <div id="ukFilingOptions" style="display:none;">
+                      <label>
+                        <input type="checkbox" name="category">
+                        HMRC FIling
+                      </label>
+                      <label>
+                        <input type="checkbox" name="category">
+                        Companies House Filing
+                      </label>
+                      <label>
+                        <input type="checkbox" name="category">
+                        Value Added Tax (VAT)
+                      </label>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
+                    Monthly cashflow
+                  </label>
+                  <br>
+                  <br>
+                  <div id="cashflowInput" style="display: none;">
+                    <p id="cashflowDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                      This service calculates the price based on various factors, including transactions, invoices, payroll, and expenses.
+                    </p>
+                  </div>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
+                    Monthly Budgeting
+                  </label>
+                  <br>
+                  <div id="budgetInput" style="display: none;">
+                    <p id="budgetDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                      This service calculates the price based on various financial factors, including transactions, invoices, payroll, and expenses.
+                    </p>
+                  </div>
+                  <br>
+                  <label>
+                      <input type="checkbox" name="category" value="setup" id="setupCheckbox" onclick="showInputBox('setup')" min="0" autocomplete="off">
+                      Quickbooks/Xero Setup
+                    </label>
+                  <br>
+                  <div id="setupInput" style="display: none;">
+                    <p id="setupDescription" style="display: none; color: #6c757d; font-size: 16px;">
+                      This service includes the initial setup cost for bookkeeping services.
+                    </p>
+                  </div>
               </div>
-              <div class="row" style="display: none;" id="calculatorList">
-                <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" style="background-color: #f5f8fa;border-radius:50px">
-                  <div class="service gallery-style" style="padding: 50px;">
-                    <h5 class="card-title"><b>Accounting & Finance Calculator</b></h5>
-                    <form method="POST" action="./calculator_operations.php" id="login calculatorForm">
-                      <br>
-                      <label>
-                        <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
-                        Number of Monthly Transactions
-                      </label>
-                      <br>
-                      <div id="monthlyTransactionInput" style="display:none;">
-                        <input type="number" class="form-control" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="calculatePrices()" min="0">
-                        <br>
-                        <p id="monthlyTransactionDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service calculates the price based on the number of monthly transactions.
-                        </p>
-                      </div>
-                      <br>
-                      <label>
-                        <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
-                        Number of Monthly Invoices
-                      </label>
-                      <br>
-                      <div id="monthlyInvoicesInput" style="display: none;">
-                        <input type="number" class="form-control" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="calculatePrices()" min="0">
-                        <br>
-                        <p id="monthlyInvoicesDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service calculates the price based on the number of monthly invoices.
-                        </p>
-                      </div>
-                      <br>
-                      <label>
-                        <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
-                        Number of Monthly Payrolls
-                      </label>
-                      <br>
-                      <div id="payrollInput" style="display: none;">
-                        <input type="number" class="form-control" id="payrollInputField" placeholder="Number of Payrolls" oninput="calculatePrices()" min="0">
-                        <br>
-                        <p id="payrollDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service calculates the price based on the number of payrolls processed.
-                        </p>
-                      </div>
-                      <br>
-                      <label>
-                        <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
-                        Monthly cashflow
-                      </label>
-                      <br>
-                      <div id="cashflowInput" style="display: none;">
-                        <p id="cashflowDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service calculates the price based on various factors, including transactions, invoices, payroll, and expenses.
-                        </p>
-                      </div>
-                      <br>
-                      <label>
-                        <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
-                        Monthly Budgeting
-                      </label>
-                      <br>
-                      <div id="budgetInput" style="display: none;">
-                        <p id="budgetDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service calculates the price based on various financial factors, including transactions, invoices, payroll, and expenses.
-                        </p>
-                      </div>
-                      <br>
-                      <label>
-                        <input type="checkbox" name="category" value="setup" id="setupCheckbox" onclick="showInputBox('setup')" min="0" autocomplete="off">
-                        Quickbooks/Xero Setup
-                      </label>
-                      <br>
-                      <div id="setupInput" style="display: none;">
-                        <p id="setupDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                          This service includes the initial setup cost for bookkeeping services.
-                        </p>
-                      </div>
+            </div>
+          </div>
+          <div id="monthlyTransactionInput" class="form-group mt-3" style="display:none;">
+            <input type="number" class="form-control formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="calculatePrices()" min="0">
+            <br>
+          </div>
+          <div id="monthlyInvoicesInput" class="form-group mt-3" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="calculatePrices()" min="0">
+            <br>
+          </div>
+          <div id="contractualPaymentInput" style="display: none;">
+            <input type="number" class="form-control" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="calculatePrices()" min="0">
+            <br>
+          </div>
+          <div id="payrollInput" class="form-group" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="payrollInputField" placeholder="Number of Payrolls" oninput="calculatePrices()" min="0">
+            <br>
+          </div>
+
+          <div id="quotationDetails" class="col-sm-12 col-lg-12 col-md-12 col-xl-12 service" style="margin-top:30px; justify-content:center;align-items:center;background-color: #f5f8fa;border-radius:50px;padding:30px;display:none">
+            <div class="service gallery-style w-100 ">
+              <h5 class="card-title"><b>Billing Breakup:</b></h5>
+              <br>
+              <div class="row">
+                <div class="col-md-12">
+                  <p><b>Monthly Bank Reconcilation Fee</b></p>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p style="font-family:Arial, Helvetica, sans-serif;"><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountTransactionPrice" name="discountTransactionPrice">0</span> $</b></p>
                   </div>
                 </div>
               </div>
-              <div class="formbold-form-btn-wrapper">
-                <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
-                <button type="button" onclick="goBack()" class="formbold-back-btn">Back
+              <hr>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>Monthly Invoicing Fee</b></p>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
+                  </div>
+                </div>
               </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>Monthly Payroll Fee</b></p>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountPayrollPrice" name="discountPayrollPrice">0</span> $</b></p>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-8">
+                  <p><b>Contractual Payment Fee</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>Monthly Cashflow Fee</b></p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p style="font-size:12px">Regular Price</p>
+                  <s>
+                    <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
+                  </s>
+                </div>
+                <div class="col-md-6">
+                  <p style="font-size:12px">Discounted Price</p>
+                  <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>Monthly Budgeting Fee</b></p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p style="font-size:12px">Regular Price</p>
+                  <s>
+                    <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
+                  </s>
+                </div>
+                <div class="col-md-6">
+                  <p style="font-size:12px">Discounted Price</p>
+                  <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>One-time setup fee</b></p>
+              </div>
+            </div>
+            <div class="row">
+              <p><b><span id="setuppp" name="setuppp">0</span> $</b></p>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>IRS Fee</b></p>
+              </div>
+            </div>
+            <div class="row">
+              <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>Stateutory Filing Fee</b></p>
+              </div>
+            </div>
+            <div class="row">
+              <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>Total Billing</b></p>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <p style="font-size:12px">Regular Price</p>
+                  <s>
+                    <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
+                  </s>
+                </div>
+                <div class="col-md-6">
+                  <p style="font-size:12px">Discounted Price</p>
+                  <p><b><span id="discountedPrice" name="discountedPrice">0</span> $</b></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="formbold-form-btn-wrapper">
+              <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
+              <button type="button" onclick="goBack()" class="formbold-back-btn">Back
+            </div>
         </form>
       </div>
     </div>
   </main>
-  <div style="margin-top:150px;">
+  <!-- <div style="margin-top:150px;">
     <?php include 'components/footer.php' ?>
     <?php include 'components/footerBottom.php' ?>
-  </div>
+  </div> -->
   </main>
   <div class="rainbow-back-top">
     <i class="feather-arrow-up"></i>

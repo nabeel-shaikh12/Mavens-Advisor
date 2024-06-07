@@ -88,6 +88,16 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       bottom: auto;
       background-image: url('./img/Rectangle.png');
     }
+
+    @media only screen and (max-width: 767px) {
+      .mob-div {
+        margin-top: 13px;
+      }
+
+      .mob-row>* {
+        width: inherit;
+      }
+    }
   </style>
 </head>
 
@@ -95,7 +105,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
   <main class="page-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="45px"></a>
+        <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="38px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -124,7 +134,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
     <br>
     <br>
     <div class="container">
-      <div class="row ">
+      <div class="row m-2">
         <div class="col-sm-5 col-lg-5 col-md-5 col-xl-5" style="background-color: #f5f8fa;border-radius:50px">
           <div class="service gallery-style" style="padding: 50px;">
             <h5 class="card-title"><b>Bookkeeping Calculator</b></h5>
@@ -170,6 +180,15 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               </div>
               <br>
               <label>
+                    <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
+                    Number of Contractual Payment
+                  </label>
+                  <div id="contractualPaymentInput" style="display: none;">
+            <input type="number" class="form-control" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="calculatePrices()" min="0">
+            <br>
+          </div>
+              <br>
+              <label>
                 <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
                 Monthly cashflow
               </label>
@@ -179,6 +198,10 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
                   This service calculates the price based on various factors, including transactions, invoices, payroll, and expenses.
                 </p>
               </div>
+              <br>
+              <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
+                        IRS FIling
+                      </label>
               <br>
               <label>
                 <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
@@ -203,7 +226,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               </div>
           </div>
         </div>
-        <div class="col-sm-2 col-lg-2 col-md-2 col-xl-2">
+        <div class="col-sm-2 col-lg-2 col-md-2 col-xl-2 mob-div">
         </div>
         <div class="col-sm-4 col-lg-4 col-md-4 col-xl-4 service" style="justify-content:center;align-items:center;background-color: #f5f8fa;border-radius:50px;padding:30px;">
           <div class="service gallery-style w-100 ">
@@ -213,7 +236,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               <div class="col-md-12">
                 <p><b>Monthly Bank Reconcilation Fee</b></p>
               </div>
-              <div class="row">
+              <div class="row mob-row">
                 <div class="col-md-6">
                   <p style="font-size:12px">Regular Price</p>
                   <s>
@@ -231,7 +254,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               <div class="col-md-8">
                 <p><b>Monthly Invoicing Fee</b></p>
               </div>
-              <div class="row">
+              <div class="row mob-row">
                 <div class="col-md-6">
                   <p style="font-size:12px">Regular Price</p>
                   <s>
@@ -309,6 +332,25 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
             </div>
           </div>
           <hr>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>IRS Fee</b></p>
+              </div>
+            </div>
+            <div class="row">
+              <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
+            </div>
+          <hr>
+          <div class="row">
+                <div class="col-md-8">
+                  <p><b>Contractual Payment Fee</b></p>
+                </div>
+              </div>
+              <div class="row">
+                <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
+              </div>
+            </div>
+          <hr>
           <div class="row">
             <div class="col-md-8">
               <p><b>Total Billing</b></p>
@@ -329,7 +371,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
           <br>
           <div class="row">
             <div class="col-md-6">
-              <input type="submit" class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" onclick="redirectToChat()" value="Lock the Price Now!">
+              <input class="btn btn-primary p-3" style="font-size:15px;border-radius:15px" onclick="redirectToChat()" value="Lock the Price Now!">
             </div>
           </div>
           </form>
@@ -364,7 +406,11 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       expense: 0,
       cashflow: 0,
       budget: 0,
-      setup: 0
+      setup: 0,
+      irsFiling: 0,
+      contractualPayment: 0,
+
+
     };
 
     function showInputBox(category) {
@@ -395,13 +441,19 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         );
       } else if (category === 'setup' && checkbox.checked) {
         return 300;
-      } else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
+      } else if (category === 'irsFiling' && checkbox.checked) {
+        return 300;
+      } 
+      
+      else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
         return (categoryTotal.monthlyTransaction * 5 / 60 * 15);
 
       } else if (category === 'monthlyInvoices' && invoicesCheckbox.checked) {
         return (categoryTotal.monthlyInvoices * 15 / 60 * 15);
       } else if (category === 'payroll' && payrollCheckbox.checked) {
         return (categoryTotal.payroll * 15 / 60 * 15);
+      } else if (category === "contractualPayment" && contractualPaymentCheckbox.checked) {
+        return ((categoryTotal.contractualPayment * 15) / 60) * 15;
       } else {
         return 0;
       }
@@ -417,6 +469,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       categoryTotal.monthlyTransaction = parseFloat(document.getElementById("monthlyTransactionInputField").value) || 0;
       categoryTotal.monthlyInvoices = parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
       categoryTotal.payroll = parseFloat(document.getElementById("payrollInputField").value) || 0;
+      categoryTotal.contractualPayment = parseFloat(document.getElementById("contractualInputField").value) || 0;
 
       const cashflowCheckbox = document.getElementById("cashflowCheckbox");
       const budgetCheckbox = document.getElementById("budgetCheckbox");
@@ -425,12 +478,15 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       categoryTotal.cashflow = cashflowCheckbox.checked ? calculateCategoryTotal("cashflow") : 0;
       categoryTotal.budget = budgetCheckbox.checked ? calculateCategoryTotal("budget") : 0;
       categoryTotal.setup = setupCheckbox.checked ? calculateCategoryTotal("setup") : 0;
+      categoryTotal.irsFiling = irsCheckbox.checked ? calculateCategoryTotal("irsFiling") : 0;
 
       const transactionPrice = (categoryTotal.monthlyTransaction * 5 / 60 * 15).toFixed(2);
       const invoicePrice = (categoryTotal.monthlyInvoices * 15 / 60 * 15).toFixed(2);
       const payrollPrice = (categoryTotal.payroll * 15 / 60 * 15).toFixed(2);
+      const contractualPaymentPrice = (((categoryTotal.contractualPayment * 15) / 60) *15).toFixed(2);
       const cashflowPrice = categoryTotal.cashflow.toFixed(2);
       const budgetPrice = categoryTotal.budget.toFixed(2);
+      const irsPrice = categoryTotal.irsFiling.toFixed(2);
       const setupPrice = categoryTotal.setup.toFixed(2);
 
       const discountTransactionPrice = (categoryTotal.monthlyTransaction * 1 / 60 * 10).toFixed(2);
@@ -447,6 +503,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         parseFloat(discountPayrollPrice) +
         parseFloat(discountCashflowPrice) +
         parseFloat(discountBudgetPrice) +
+        parseFloat(contractualPaymentPrice)+
         parseFloat(setupPrice)
       ).toFixed(2);
 
@@ -457,6 +514,8 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         parseFloat(payrollPrice) +
         parseFloat(cashflowPrice) +
         parseFloat(budgetPrice) +
+        parseFloat(contractualPaymentPrice)+
+        parseFloat(irsPrice)+
         parseFloat(setupPrice)
       ).toFixed(2);
 
@@ -473,7 +532,8 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
 
       document.getElementById("budgetPrice").innerText = budgetPrice;
       document.getElementById("discountBudgetPrice").innerText = discountBudgetPrice;
-
+      document.getElementById("contractualPaymentPrice").innerText = contractualPaymentPrice;
+      document.getElementById("irsPrice").innerText = irsPrice;
 
       document.getElementById("setupPrice").innerText = setupPrice;
       document.getElementById("totalPrice").innerText = totalPrice;
@@ -528,6 +588,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
   <script defer src="assets/js/vendor/waypoint.min.js"></script>
   <script defer src="assets/js/vendor/wow.min.js"></script>
   <script defer src="assets/js/vendor/counterup.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script defer src="assets/js/vendor/feather.min.js"></script>
   <script defer src="assets/js/vendor/sal.min.js"></script>
   <script defer src="assets/js/vendor/masonry.js"></script>
