@@ -180,13 +180,13 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               </div>
               <br>
               <label>
-                    <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
-                    Number of Contractual Payment
-                  </label>
-                  <div id="contractualPaymentInput" style="display: none;">
-            <input type="number" class="form-control" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="calculatePrices()" min="0">
-            <br>
-          </div>
+                <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
+                Number of Contractual Payment
+              </label>
+              <div id="contractualPaymentInput" style="display: none;">
+                <input type="number" class="form-control" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="calculatePrices()" min="0">
+                <br>
+              </div>
               <br>
               <label>
                 <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
@@ -200,12 +200,32 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
               </div>
               <br>
               <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
-                        IRS FIling
-                      </label>
+                IRS FIling
+              </label>
               <br>
               <label>
                 <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
                 Monthly Budgeting
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="category" value="statutoryStateFiling" id="stateCheckbox" onclick="showInputBox('statutoryStateFiling')" min="0" autocomplete="off">
+                Statutory State Filing
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="category" value="hmrc" id="hmrcCheckbox" onclick="showInputBox('hmrc')" min="0" autocomplete="off">
+                HMRC
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="category" value="companyHouseFiling" id="companyCheckbox" onclick="showInputBox('companyHouseFiling')" min="0" autocomplete="off">
+                Company House Filing
+              </label>
+              <br>
+              <label>
+                <input type="checkbox" name="category" value="vat" id="vatCheckbox" onclick="showInputBox('vat')" min="0" autocomplete="off">
+                VAT
               </label>
               <br>
               <div id="budgetInput" style="display: none;">
@@ -332,24 +352,59 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
             </div>
           </div>
           <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>IRS Fee</b></p>
-              </div>
+          <div class="row">
+            <div class="col-md-8">
+              <p><b>IRS Fee</b></p>
             </div>
-            <div class="row">
-              <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
-            </div>
+          </div>
+          <div class="row">
+            <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
+          </div>
           <hr>
           <div class="row">
-                <div class="col-md-8">
-                  <p><b>Contractual Payment Fee</b></p>
-                </div>
-              </div>
-              <div class="row">
-                <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
-              </div>
+            <div class="col-md-8">
+              <p><b>Statutory Filing Fee</b></p>
             </div>
+          </div>
+          <div class="row">
+            <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-8">
+              <p><b>HMRC Filing Fee</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <p><b><span id="hmrcPrice" name="hmrcPrice">0</span> $</b></p>
+          </div>
+          <hr>
+          <hr>
+          <div class="row">
+            <div class="col-md-8">
+              <p><b>Company House Filing Fee</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <p><b><span id="companyPrice" name="companyPrice">0</span> $</b></p>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-8">
+              <p><b>Contractual Payment Fee</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <p><b>VAT Fee</b></p>
+            </div>
+          </div>
+          <div class="row">
+            <p><b><span id="vatPrice" name="vatPrice">0</span> $</b></p>
+          </div>
           <hr>
           <div class="row">
             <div class="col-md-8">
@@ -409,8 +464,10 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       setup: 0,
       irsFiling: 0,
       contractualPayment: 0,
-
-
+      statutoryStateFiling: 0,
+      hmrc: 0,
+      companyHouseFiling: 0,
+      vat: 0
     };
 
     function showInputBox(category) {
@@ -434,6 +491,7 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       const invoicesCheckbox = document.getElementById('monthlyInvoicesCheckbox');
       const payrollCheckbox = document.getElementById('payrollCheckbox');
 
+
       if ((category === 'cashflow' || category === 'budget') && checkbox.checked) {
         return (
           (categoryTotal.monthlyTransaction + categoryTotal.monthlyInvoices + categoryTotal.payroll + categoryTotal.expense) *
@@ -443,9 +501,15 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         return 300;
       } else if (category === 'irsFiling' && checkbox.checked) {
         return 300;
-      } 
-      
-      else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
+      } else if (category === 'statutoryStateFiling' && checkbox.checked) {
+        return 150;
+      } else if (category === 'hmrc' && checkbox.checked) {
+        return 150;
+      } else if (category === "companyHouseFiling" && checkbox.checked) {
+        return 150;
+      } else if (category === "vat" && checkbox.checked) {
+        return 150;
+      } else if (category === 'monthlyTransaction' && transactionCheckbox.checked) {
         return (categoryTotal.monthlyTransaction * 5 / 60 * 15);
 
       } else if (category === 'monthlyInvoices' && invoicesCheckbox.checked) {
@@ -474,20 +538,32 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       const cashflowCheckbox = document.getElementById("cashflowCheckbox");
       const budgetCheckbox = document.getElementById("budgetCheckbox");
       const setupCheckbox = document.getElementById("setupCheckbox");
+      const stateCheckbox = document.getElementById("stateCheckbox");
+      const hmrcCheckbox = document.getElementById("hmrcCheckbox");
+      const companyCheckbox = document.getElementById("companyCheckbox");
+      const vatCheckbox = document.getElementById("vatCheckbox");
 
       categoryTotal.cashflow = cashflowCheckbox.checked ? calculateCategoryTotal("cashflow") : 0;
       categoryTotal.budget = budgetCheckbox.checked ? calculateCategoryTotal("budget") : 0;
       categoryTotal.setup = setupCheckbox.checked ? calculateCategoryTotal("setup") : 0;
       categoryTotal.irsFiling = irsCheckbox.checked ? calculateCategoryTotal("irsFiling") : 0;
+      categoryTotal.statutoryStateFiling = stateCheckbox.checked ? calculateCategoryTotal("statutoryStateFiling") : 0;
+      categoryTotal.hmrc = hmrcCheckbox.checked ? calculateCategoryTotal("hmrc") : 0;
+      categoryTotal.companyHouseFiling = companyCheckbox.checked ? calculateCategoryTotal("companyHouseFiling") : 0;
+      categoryTotal.vat = vatCheckbox ? calculateCategoryTotal("vat") : 0;
 
       const transactionPrice = (categoryTotal.monthlyTransaction * 5 / 60 * 15).toFixed(2);
       const invoicePrice = (categoryTotal.monthlyInvoices * 15 / 60 * 15).toFixed(2);
       const payrollPrice = (categoryTotal.payroll * 15 / 60 * 15).toFixed(2);
-      const contractualPaymentPrice = (((categoryTotal.contractualPayment * 15) / 60) *15).toFixed(2);
+      const contractualPaymentPrice = (((categoryTotal.contractualPayment * 15) / 60) * 15).toFixed(2);
       const cashflowPrice = categoryTotal.cashflow.toFixed(2);
       const budgetPrice = categoryTotal.budget.toFixed(2);
+      const statePrice = categoryTotal.statutoryStateFiling.toFixed(2);
       const irsPrice = categoryTotal.irsFiling.toFixed(2);
       const setupPrice = categoryTotal.setup.toFixed(2);
+      const hmrcPrice = categoryTotal.hmrc.toFixed(2);
+      const companyPrice = categoryTotal.companyHouseFiling.toFixed(2);
+      const vatPrice = categoryTotal.vat.toFixed(2);
 
       const discountTransactionPrice = (categoryTotal.monthlyTransaction * 1 / 60 * 10).toFixed(2);
       const discountInvoicePrice = (categoryTotal.monthlyInvoices * 5 / 60 * 10).toFixed(2);
@@ -503,8 +579,12 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         parseFloat(discountPayrollPrice) +
         parseFloat(discountCashflowPrice) +
         parseFloat(discountBudgetPrice) +
-        parseFloat(contractualPaymentPrice)+
-        parseFloat(setupPrice)
+        parseFloat(contractualPaymentPrice) +
+        parseFloat(setupPrice) +
+        parseFloat(statePrice) +
+        parseFloat(hmrcPrice) +
+        parseFloat(companyPrice) +
+        parseFloat(vatPrice)
       ).toFixed(2);
 
 
@@ -514,9 +594,13 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
         parseFloat(payrollPrice) +
         parseFloat(cashflowPrice) +
         parseFloat(budgetPrice) +
-        parseFloat(contractualPaymentPrice)+
-        parseFloat(irsPrice)+
-        parseFloat(setupPrice)
+        parseFloat(contractualPaymentPrice) +
+        parseFloat(irsPrice) +
+        parseFloat(setupPrice) +
+        parseFloat(statePrice) +
+        parseFloat(hmrcPrice) +
+        parseFloat(companyPrice) +
+        parseFloat(vatPrice)
       ).toFixed(2);
 
 
@@ -536,9 +620,12 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       document.getElementById("irsPrice").innerText = irsPrice;
 
       document.getElementById("setupPrice").innerText = setupPrice;
+      document.getElementById("statePrice").innerText = statePrice;
+      document.getElementById("hmrcPrice").innerText = hmrcPrice;
+      document.getElementById("companyPrice").innerText = companyPrice;
+      document.getElementById("vatPrice").innerText = vatPrice;
       document.getElementById("totalPrice").innerText = totalPrice;
       document.getElementById("discountedPrice").innerText = discountedPrice;
-
     }
 
     function redirectToChat() {
@@ -578,7 +665,6 @@ $_SESSION['visit_count_in_calculator'] = $visitCount;
       localStorage.setItem('calculatorPrices', prices);
       window.location.href = 'chat.php';
       window.onload = function() {};
-
     }
   </script>
   <script defer src="assets/js/vendor/modernizr.min.js"></script>

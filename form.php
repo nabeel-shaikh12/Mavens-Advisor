@@ -25,7 +25,9 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel="stylesheet" href="assets/css/plugins/feature.css">
   <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
   <link rel="stylesheet" href="assets/css/plugins/slick.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-***********" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -33,6 +35,11 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/form.css">
+  <style>
+    .price-section {
+      display: none;
+    }
+  </style>
 
 <body>
   <main class="page-wrapper">
@@ -69,8 +76,6 @@ if (!isset($_SESSION['visit_count'])) {
           <div class="formbold-steps">
             <ul>
               <li class="formbold-step-menu1 active">
-                <!-- <span>1</span>
-                 Business Information -->
               </li>
             </ul>
           </div>
@@ -183,7 +188,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryFood & Beverages" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryFood & Beverages"></label>
-                <select id="foodSubCategory" class="" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="foodSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Baking Business / Dessert">Baking Business / Dessert</option>
                   <option value="Catering Business">Catering Business</option>
@@ -287,14 +292,14 @@ if (!isset($_SESSION['visit_count'])) {
                 </select>
               </div>
               <div id="subCategoryOther Services" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryOther Services"></label>
-                <input class="p-5 subCategoryField" type="text" id="business_subCategory" name="business_subCategory" placeholder="Specify Business Sub Sector" id="business_name" />
+                <label id="businessCategories" for="subCategoryOther Services"></label>
+                <input class="subCategoryField formbold-form-input" type="text" id="business_subCategory" name="business_subCategory" placeholder="Specify Business Sub Sector" id="business_name" />
               </div>
               <div class="row">
                 <div class="col-md-6">
                 </div>
                 <div class="col-md-6">
-                  <div id="autoTypingDisplay" class="auto-typing-display" style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none;"></div>
+                  <p id="autoTypingDisplay" class="auto-typing-display" style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none;"></p>
                 </div>
               </div>
               <div id="otherSpecifyField" class="form-group" style="display: none;">
@@ -552,10 +557,18 @@ if (!isset($_SESSION['visit_count'])) {
             <div class="form-group">
               <label id="customerSpecify" for="customerSpecify"></label>
               <input type="text" name="customer_type" id="specifyCustomer" class="formbold-form-input" style="display: none;" />
+
             </div>
             <div class="form-group">
               <label id="businessName" for="businessService"></label>
-              <input type="text" name="business_name" placeholder="Business Name" id="business_name" class="formbold-form-input" style="display: none;" />
+              <div id="input-group" class="input-group" style="display: none;">
+                <input type="text" name="business_name" placeholder="Business Name" id="business_name" class="formbold-form-input" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="row mt-3">
               <div class="col-md-6">
@@ -566,7 +579,14 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="form-group">
               <label id="firstNameLabel" for="businessService"></label>
-              <input type="text" name="firstname" placeholder="Full name" id="firstname" class="formbold-form-input" style="display: none;" />
+              <div id="input-group2" class="input-group" style="display: none;">
+                <input type="text" name="firstname" placeholder="Full name" id="firstname" class="formbold-form-input" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton2">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="row mt-5">
               <div class="col-md-6">
@@ -575,9 +595,28 @@ if (!isset($_SESSION['visit_count'])) {
                 <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedFirstName"></p>
               </div>
             </div>
+            <!-- <div class="form-group">
+              <label id="emailLabel" for="email"></label>
+              <div id="input-group3" class="input-group" style="display: none;">
+                <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton3">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </div>
+            </div> -->
             <div class="form-group">
               <label id="emailLabel" for="email"></label>
-              <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" style="display: none;" />
+              <div id="input-group3" class="input-group" style="display: none;">
+                <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton3">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </div>
+              <div id="emailError" style="color: red; display: none;">Please enter a valid Email.</div>
             </div>
             <div class="row mt-5">
               <div class="col-md-6">
@@ -588,9 +627,15 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="form-group">
               <label id="phoneLabel" for="phone"></label><br>
-              <div id="phone-container" style="display: none;margin-top:-20px">
+              <div id="input-group4" class="input-group" style="display: none; margin-top: -32px;">
                 <input id="phone" name="phone_no" type="tel" class="formbold-form-input" style="width: 100%;" />
+                <div class="input-group-append">
+                  <button class="btn btn-primary" style="background-color:#0b7ffe; border-radius:50px" type="button" id="enterButton4">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
               </div>
+              <div id="phoneError" style="color: red; display: none;">Please enter a valid phone number.</div>
             </div>
             <div class="row mt-5">
               <div class="col-md-6">
@@ -604,7 +649,7 @@ if (!isset($_SESSION['visit_count'])) {
               <select id="whichService" name="whichService" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Choose A Question">Select an option</option>
                 <option value="Accounting & Finance">Accounting & Finance</option>
-                <option value="Human Resourse">Human Resource</option>
+                <option value="Human Resource">Human Resource</option>
                 <option value="IT Support">IT Support</option>
                 <option value="Creative & Content Services">Creative & Content Services</option>
                 <option value="Software Development & Maintenance">Software Development & Maintenance</option>
@@ -632,7 +677,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftware"></p>
               </div>
             </div>
-            <div class="form-group mt-5">
+            <div class="form-group">
               <label id="softwareType" for="softwareType"></label>
               <select id="accounting_software_used" name="accounting_software_used" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Choose A Question">Select an option</option>
@@ -643,6 +688,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <option value="Sage">Sage</option>
                 <option value="NetSuite">NetSuite</option>
                 <option value="Wave Accounting">Wave Accounting</option>
+                <option value="Excel">Excel</option>
                 <option value="other">Other</option>
               </select>
             </div>
@@ -653,11 +699,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSoftwares"></p>
               </div>
             </div>
-            <div class="form-group">
-              <label id="specifySoftware" for="specifySoftware"></label>
-              <input type="text" name="accounting_software_used" id="softwareSpecify" class="formbold-form-input" style="display: none;" />
-            </div>
-            <div class="form-group" style="margin-top: -40px;">
+            <div class="form-group" style="margin-top: -30px; margin-bottom:40px">
               <label id="softwarePrefer" for="softwarePrefer"></label>
               <select id="softwarePreferred" name="softwarePreferred" class="product_select formbold-form-input" style="display: none;">
                 <option data-display="1. Choose A Question">Select an option</option>
@@ -668,128 +710,188 @@ if (!isset($_SESSION['visit_count'])) {
                 <option value="Sage">Sage</option>
                 <option value="NetSuite">NetSuite</option>
                 <option value="Wave Accounting">Wave Accounting</option>
+                <option value="Excel">Excel</option>
                 <option value="Other">Other</option>
               </select>
             </div>
           </div>
-
-          <div class="row mt-5" style="display: none;" id="calculatorList">
-            <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" style="background-color: #f5f8fa;border-radius:50px">
-              <div class="service gallery-style" style="padding: 50px;">
-                <h5 class="card-title"><b>Accounting & Finance Calculator</b></h5>
-                <form method="POST" action="./calculator_operations.php" id="login calculatorForm">
+          <div class="row mt-3">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="preSoftware"></p>
+              </div>
+            </div>
+          <div class="form-group">
+            <label id="specifySoftware" for="specifySoftware"></label>
+            <input type="text" name="accounting_software_used" id="softwareSpecify" class="mb-5 formbold-form-input" style="display: none;">
+          </div>
+          <div class="row mt-5 form-group" id="scroller">
+            <label style="margin-top: 50px;" id="calculatorLabel" for="calculatorLabel"></label>
+            <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display: none;">
+              <div class="service gallery-style">
+                <form method="POST" action="./calculator_operations.php" id="loginCalculatorForm">
                   <br>
                   <label>
-                    <input type="checkbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
-                    Number of Monthly Transactions
+                    <input type="checkbox" id="monthlyTransactionCheckbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
+                    Monthly Reconciliation
                   </label>
-                  <br>
                   <br>
                   <label>
                     <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
-                    Number of Monthly Invoices
+                    Monthly Invoicing
                   </label>
-                  <br>
                   <br>
                   <label>
                     <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
-                    Number of Monthly Payrolls
+                    Monthly Payroll Management
                   </label>
                   <br>
+                  <label>
+                    <input type="checkbox" name="category" value="expense" onclick="showInputBox('expense')" autocomplete="off">
+                    Monthly Billing
+                  </label>
                   <br>
                   <label>
                     <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
-                    Number of Contractual Payment
+                    Monthly Contractor Payments
                   </label>
-                  <br>
                   <br>
                   <div id="filingOptions" style="display:none;">
                     <div id="usaFilingOptions" style="display:none;">
                       <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
-                        IRS FIling
+                        IRS Filing
                       </label>
-                      <label><input type="checkbox" name="category" value="statutoryStateFiling" id="stateChecbox" onclick="showInputBox('statutoryStateFiling')" autocomplete="off">
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="statutoryStateFiling" id="stateCheckbox" onclick="showInputBox('statutoryStateFiling')" min="0" autocomplete="off">
                         Statutory State Filing
                       </label>
                     </div>
                     <div id="ukFilingOptions" style="display:none;">
                       <label>
-                        <input type="checkbox" name="category">
-                        HMRC FIling
+                        <input type="checkbox" name="category" value="hmrc" id="hmrcCheckbox" onclick="showInputBox('hmrc')" min="0" autocomplete="off">
+                        HMRC Filing
                       </label>
+                      <br>
                       <label>
-                        <input type="checkbox" name="category">
+                        <input type="checkbox" name="category" value="companyHouseFiling" id="companyCheckbox" onclick="showInputBox('companyHouseFiling')" min="0" autocomplete="off">
                         Companies House Filing
                       </label>
+                      <br>
                       <label>
-                        <input type="checkbox" name="category">
-                        Value Added Tax (VAT)
+                        <input type="checkbox" name="category" value="vat" id="vatCheckbox" onclick="showInputBox('vat')" min="0" autocomplete="off">
+                        Value added Tax (VAT) Filing
                       </label>
                     </div>
                   </div>
-                  <br>
-                  <br>
                   <label>
                     <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
                     Monthly cashflow
                   </label>
                   <br>
+                  <label>
+                    <input type="checkbox" name="category" value="financialAnalysis" id="financialCheckbox" onclick="showInputBox('financialAnalysis')" min="0" autocomplete="off">
+                    Monthly Financial Analysis
+                  </label>
                   <br>
-                  <div id="cashflowInput" style="display: none;">
-                    <p id="cashflowDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                      This service calculates the price based on various factors, including transactions, invoices, payroll, and expenses.
-                    </p>
-                  </div>
+                  <label>
+                    <input type="checkbox" name="category" value="monthlyProfitLoss" id="profitCheckbox" onclick="showInputBox('monthlyProfitLoss')" min="0" autocomplete="off">
+                    Monthly Profit and Loss Reporting
+                  </label>
                   <br>
                   <label>
                     <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
-                    Monthly Budgeting
+                    Monthly Budgeting & Forcasting
                   </label>
                   <br>
-                  <div id="budgetInput" style="display: none;">
-                    <p id="budgetDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                      This service calculates the price based on various financial factors, including transactions, invoices, payroll, and expenses.
-                    </p>
-                  </div>
-                  <br>
                   <label>
-                      <input type="checkbox" name="category" value="setup" id="setupCheckbox" onclick="showInputBox('setup')" min="0" autocomplete="off">
-                      Quickbooks/Xero Setup
-                    </label>
+                    <input type="checkbox" name="category" value="strategicAdvice" id="advisoryCheckbox" onclick="showInputBox('strategicAdvice')" autocomplete="off">
+                    Strategic Advice
+                  </label>
                   <br>
-                  <div id="setupInput" style="display: none;">
-                    <p id="setupDescription" style="display: none; color: #6c757d; font-size: 16px;">
-                      This service includes the initial setup cost for bookkeeping services.
-                    </p>
-                  </div>
+                </form>
               </div>
             </div>
           </div>
-          <div id="monthlyTransactionInput" class="form-group mt-3" style="display:none;">
-            <input type="number" class="form-control formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="calculatePrices()" min="0">
+          <label id="transactionLabel" for="monthlyTransactionInput"></label>
+          <!-- <div id="monthlyTransactionInput" class="form-group mt-3" style="display:none;">
+            <input type="number" class="form-control formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues(); calculatePrices();" min="0">
             <br>
+          </div> -->
+          <div id="monthlyTransactionInput" class="input-group" style="display: none;">
+            <input type="number" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
           </div>
-          <div id="monthlyInvoicesInput" class="form-group mt-3" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="calculatePrices()" min="0">
+          <br>
+          <label id="invoiceLabel" for="monthlyInvoicesInput"></label>
+          <!-- <div id="monthlyInvoicesInput" class="form-group mt-3" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues(); calculatePrices();" min="0">
             <br>
+          </div> -->
+          <div id="monthlyInvoicesInput" class="input-group" style="display: none;">
+            <input type="number" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
           </div>
-          <div id="contractualPaymentInput" style="display: none;">
-            <input type="number" class="form-control" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="calculatePrices()" min="0">
+          <br>
+          <label id="payrollLabel" for="payrollInput"></label>
+          <!-- <div id="payrollInput" class="form-group" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="payrollInputField" placeholder="Number of Payrolls" oninput="saveValues(); calculatePrices();" min="0">
             <br>
+          </div> -->
+          <div id="payrollInput" class="input-group" style="display: none;">
+            <input type="number" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
           </div>
-          <div id="payrollInput" class="form-group" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="payrollInputField" placeholder="Number of Payrolls" oninput="calculatePrices()" min="0">
+          <br>
+          <label id="billingLabel" for="expenseInput"></label>
+          <!-- <div id="expenseInput" class="form-group" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="expenseInputField" placeholder="Number of Expense" oninput="saveValues(); calculatePrices();" min="0">
             <br>
+          </div> -->
+          <br>
+          <div id="expenseInput" class="input-group" style="display: none;">
+            <input type="number" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
           </div>
-
-          <div id="quotationDetails" class="col-sm-12 col-lg-12 col-md-12 col-xl-12 service" style="margin-top:30px; justify-content:center;align-items:center;background-color: #f5f8fa;border-radius:50px;padding:30px;display:none">
+          <br>
+          <label id="paymentLabel" for="contractualPaymentInput"></label>
+          <!-- <div id="contractualPaymentInput" style="display: none;">
+            <input type="number" class="form-control formbold-form-input" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="saveValues(); calculatePrices();" min="0">
+            <br>
+          </div> -->
+          <div id="contractualPaymentInput" class="input-group" style="display: none;">
+            <input type="number" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
+            </div>
+          </div>
+          <br>
+          <br>
+          <div id="quotationDetails" class="col-sm-12 col-lg-12 col-md-12 col-xl-12 service" style="display: none;">
             <div class="service gallery-style w-100 ">
               <h5 class="card-title"><b>Billing Breakup:</b></h5>
               <br>
-              <div class="row">
-                <div class="col-md-12">
-                  <p><b>Monthly Bank Reconcilation Fee</b></p>
-                </div>
+              <div class="row mob-row price-section" id="monthlyTransactionPriceSection">
+                <p><b>Monthly Bank Reconcilation Fee</b></p>
                 <div class="row">
                   <div class="col-md-6">
                     <p style="font-size:12px">Regular Price</p>
@@ -800,14 +902,13 @@ if (!isset($_SESSION['visit_count'])) {
                   <div class="col-md-6">
                     <p style="font-size:12px">Discounted Price</p>
                     <p><b><span id="discountTransactionPrice" name="discountTransactionPrice">0</span> $</b></p>
+                    <br>
                   </div>
+                  <hr>
                 </div>
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-md-8">
-                  <p><b>Monthly Invoicing Fee</b></p>
-                </div>
+              <div class="row mob-row price-section" id="monthlyInvoicesPriceSection">
+                <p><b>Monthly Invoicing Fee</b></p>
                 <div class="row">
                   <div class="col-md-6">
                     <p style="font-size:12px">Regular Price</p>
@@ -818,14 +919,30 @@ if (!isset($_SESSION['visit_count'])) {
                   <div class="col-md-6">
                     <p style="font-size:12px">Discounted Price</p>
                     <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
+                    <br>
                   </div>
+                  <hr>
                 </div>
               </div>
-              <hr>
-              <div class="row">
-                <div class="col-md-8">
-                  <p><b>Monthly Payroll Fee</b></p>
+              <div class="row mob-row price-section" id="expensePriceSection">
+                <p><b>Billing Fees</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="expensePrice" name="expensePrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
                 </div>
+              </div>
+              <div class="row price-section" id="payrollPriceSection">
+                <p><b>Monthly Payroll Fee</b></p>
                 <div class="row">
                   <div class="col-md-6">
                     <p style="font-size:12px">Regular Price</p>
@@ -836,83 +953,96 @@ if (!isset($_SESSION['visit_count'])) {
                   <div class="col-md-6">
                     <p style="font-size:12px">Discounted Price</p>
                     <p><b><span id="discountPayrollPrice" name="discountPayrollPrice">0</span> $</b></p>
+                    <br>
                   </div>
+                  <hr>
                 </div>
+              </div>
+              <div class="row price-section" id="cashflowPriceSection">
+                <p><b>Monthly Cashflow Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="row price-section" id="budgetPriceSection">
+                <p><b>Monthly Budgeting Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <p><b>One-time setup fee</b></p>
+                <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
               </div>
               <hr>
-              <div class="row">
-                <div class="col-md-8">
-                  <p><b>Contractual Payment Fee</b></p>
-                </div>
-              </div>
-              <div class="row">
-                <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
-              </div>
             </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>Monthly Cashflow Fee</b></p>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <p style="font-size:12px">Regular Price</p>
-                  <s>
-                    <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
-                  </s>
-                </div>
-                <div class="col-md-6">
-                  <p style="font-size:12px">Discounted Price</p>
-                  <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>Monthly Budgeting Fee</b></p>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <p style="font-size:12px">Regular Price</p>
-                  <s>
-                    <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
-                  </s>
-                </div>
-                <div class="col-md-6">
-                  <p style="font-size:12px">Discounted Price</p>
-                  <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
-                </div>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>One-time setup fee</b></p>
-              </div>
-            </div>
-            <div class="row">
-              <p><b><span id="setuppp" name="setuppp">0</span> $</b></p>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>IRS Fee</b></p>
-              </div>
-            </div>
-            <div class="row">
+            <div class="row price-section" id="irsFilingPriceSection">
+              <p><b>IRS Fee</b></p>
               <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
+              <hr>
             </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>Stateutory Filing Fee</b></p>
-              </div>
-            </div>
-            <div class="row">
+            <div class="row price-section" id="statutoryStateFilingPriceSection">
+              <p><b>Statutory Filing Fee</b></p>
               <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
+              <hr>
             </div>
-            <hr>
+            <div class="row price-section" id="hmrcPriceSection">
+              <p><b>HMRC Filing Fee</b></p>
+              <p><b><span id="hmrcPrice" name="hmrcPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="companyHouseFilingPriceSection">
+              <p><b>Company House Filing Fee</b></p>
+              <p><b><span id="companyPrice" name="companyPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="contractualPaymentPriceSection">
+              <p><b>Contractual Payment Fee</b></p>
+              <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="vatPriceSection">
+              <p><b>VAT Fee</b></p>
+              <p><b><span id="vatPrice" name="vatPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="financialAnalysisPriceSection">
+              <p><b>Monthly Financial Fee</b></p>
+              <p><b><span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="monthlyProfitLossPriceSection">
+              <p><b>Monthly Profit & Loss Fee</b></p>
+              <p><b><span id="profitPrice" name="profitPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="strategicAdvicePriceSection">
+              <p><b>Strategic Advisor</b></p>
+              <p><b><span id="advisoryPrice" name="advisoryPrice">0</span> $</b></p>
+              <hr>
+            </div>
             <div class="row">
               <div class="col-md-8">
                 <p><b>Total Billing</b></p>
@@ -930,17 +1060,65 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
               </div>
             </div>
-
-            <div class="formbold-form-btn-wrapper">
-              <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
-              <button type="button" onclick="goBack()" class="formbold-back-btn">Back
+          </div>
+          <br>
+          <div class="row mt-3">
+            <div class="col-md-6">
             </div>
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSatisfied"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="cfoLabel" for="cfoLabel"></label>
+            <select id="cfo" name="cfo" class="product_select formbold-form-input" style="display: none;">
+              <option data-display="1. Choose A Question">Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCfo"></p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="reasonLabel" for="reasonLabel" style="display: none;"></label>
+            <select id="specifyReason" name="specifyReason" class="product_select formbold-form-input" style="display: none;" onchange="handleReasonChange()">
+              <option data-display="1. Choose A Question">Select an option</option>
+              <option value="High Price">High Price</option>
+              <option value="Service Revision">Service Revision</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedReason"></p>
+            </div>
+          </div>
+          <div id="revisionOptions" style="display: none;">
+          </div>
+          <div class="form-group">
+            <label id="OtherReasonLabel" for="OtherReasonLabel" style="display: none;"></label>
+            <textarea id="otherReason" name="SpecifyReason" class="formbold-form-textarea" rows="3" style="display: none;"></textarea>
+          </div>
+          <div class="form-group mt-5">
+            <label id="highPriceLabel" for="highPriceLabel"></label>
+          </div>
+          <div class="formbold-form-btn-wrapper">
+            <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
+            <button type="submit" id="virtualCfo" style="display: none;" class="formbold-btn" name="Subscribe">Proceed to Virtual CFO</button>
+            <button type="button" onclick="goBack()" class="formbold-back-btn">Back
+          </div>
         </form>
       </div>
     </div>
   </main>
-  <!-- <div style="margin-top:150px;">
-    <?php include 'components/footer.php' ?>
+  <!-- <?php include 'components/footer.php' ?>
     <?php include 'components/footerBottom.php' ?>
   </div> -->
   </main>
@@ -958,6 +1136,7 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/feather.min.js"></script>
 <script src="assets/js/vendor/sal.min.js"></script>
 <script src="assets/js/vendor/masonry.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="assets/js/vendor/imageloaded.js"></script>
 <script src="form.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
@@ -965,10 +1144,10 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/lightbox.js"></script>
 <script src="assets/js/vendor/slick.min.js"></script>
 <script src="assets/js/vendor/easypie.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="assets/js/vendor/text-type.js"></script>
 <script src="assets/js/vendor/jquery.style.swicher.js"></script>
 <script src="assets/js/vendor/js.cookie.js"></script>
 <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-<script src="assets/js/main.js"></script>
 
 </html>

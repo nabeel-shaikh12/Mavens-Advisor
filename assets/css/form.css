@@ -16,6 +16,16 @@ body {
   justify-content: center;
   padding: 48px;
 }
+/* Hide arrows in number input fields */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 .formbold-form-wrapper {
   margin: 0 auto;
@@ -28,7 +38,53 @@ body {
   margin-bottom: 35px;
   border-bottom: 1px solid #DDE3EC;
 }
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
+.formbold-form-input {
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: 5px;
+  border: 1px solid #DDE3EC;
+  background: #FFFFFF;
+  font-weight: 500;
+  font-size: 16px;
+  color: #536387;
+  outline: none;
+  resize: none;
+  padding-right: 50px; 
+}
+
+.formbold-form-textarea{
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: 5px;
+  border: 1px solid #DDE3EC;
+  background: #FFFFFF;
+  font-weight: 500;
+  font-size: 16px;
+  color: #536387;
+  outline: none;
+  resize: none;
+}
+.input-group-append {
+  position: absolute;
+  right: 10px; /* Adjust as needed to position the button correctly */
+  top: 50%;
+  transform: translateY(-50%);
+}
+.btn {
+  border: none;
+  cursor: pointer;
+  margin-bottom: 4px; /* Adjust margin to fit well within the input box */
+}
+
+.btn i {
+  font-size: 16px;
+}
 .formbold-steps ul {
   padding: 0;
   margin: 0;
@@ -80,7 +136,7 @@ body {
   width: 50%;
 }
 
-.formbold-form-input {
+/* .formbold-form-input {
   width: 100%;
   padding: 13px 22px;
   border-radius: 5px;
@@ -91,7 +147,7 @@ body {
   color: #536387;
   outline: none;
   resize: none;
-}
+} */
 
 .formbold-form-input:focus {
   border-color: #019dff;
