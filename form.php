@@ -1149,5 +1149,4 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/jquery.style.swicher.js"></script>
 <script src="assets/js/vendor/js.cookie.js"></script>
 <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-
 </html>
