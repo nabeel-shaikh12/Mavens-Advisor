@@ -23,10 +23,8 @@ if (!isset($_SESSION['visit_count'])) {
 
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
   <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/plugins/animation.css">
@@ -40,6 +38,12 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
+
+
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/form.css">
@@ -55,7 +59,7 @@ if (!isset($_SESSION['visit_count'])) {
       width: 100%;
       height: 100px;
       background-color: #F5F8FA !important;
-      z-index:100;
+      z-index: 100;
       padding: 15px;
     }
 
@@ -85,7 +89,6 @@ if (!isset($_SESSION['visit_count'])) {
       -webkit-filter: blur(50px);
       filter: blur(50px);
     }
-
     .rainbow-gradient-circle.theme-pink {
       left: auto;
       top: -250px;
@@ -94,7 +97,6 @@ if (!isset($_SESSION['visit_count'])) {
       background-image: url('./img/Rectangle.png');
     }
   </style>
-
 <body>
   <main class="page-wrapper">
     <div>
@@ -150,7 +152,7 @@ if (!isset($_SESSION['visit_count'])) {
           <div class="formbold-form-step-1 active">
             <label id="typing-parent" for="businessType"></label>
             <div class="form-group">
-              <select id="businessType" onchange="showSubCategories()" name="business_description" class="product_select w-100 formbold-form-input" style="display: none;">
+              <select id="businessType" name="business_description" class="product_select formbold-form-input" onchange="showSubCategories()" style="display: none;width:100%">
                 <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                 <option value="Retail">Retail</option>
                 <option value="Tech Services">Tech Services</option>
@@ -388,39 +390,39 @@ if (!isset($_SESSION['visit_count'])) {
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedOtherSpecify"></p>
                 </div>
               </div>
-                <div class="form-group" id="startupContainer">
-                  <label id="business-size" for="businessType"></label>
-                  <select id="businessSize" name="business_size" class="product_select formbold-form-input" style="display:none">
-                    <option data-display="1. Choose A Question">Select an option</option>
-                    <option value="Startup (1 - 9 Employees)">Startup (1 - 9 Employees)</option>
-                    <option value="Small (10 - 50 Employees)">Small (10 - 50 Employees)</option>
-                    <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
-                    <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
-                    <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
-                  </select>
+              <div class="form-group" id="startupContainer">
+                <label id="business-size" for="businessType"></label>
+                <select id="businessSize" name="business_size" class="product_select formbold-form-input" style="display:none">
+                  <option data-display="1. Choose A Question">Select an option</option>
+                  <option value="Startup (1 - 9 Employees)">Startup (1 - 9 Employees)</option>
+                  <option value="Small (10 - 50 Employees)">Small (10 - 50 Employees)</option>
+                  <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
+                  <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
+                  <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessSize"></p>
-                  </div>
+                <div class="col-md-6">
+                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessSize"></p>
                 </div>
-                <div class="form-group" id="startupContainer">
-                  <label id="country" for="country"></label>
-                  <select id="company_operate_country" name="company_operate_country" class="product_select formbold-form-input" style="display:none">
-                    <option data-display="1. Choose A Question">Select an option</option>
-                    <option value="United States">United States</option>
-                    <option value="United Kingdom">United Kingdom</option>
-                  </select>
+              </div>
+              <div class="form-group" id="startupContainer">
+                <label id="country" for="country"></label>
+                <select id="company_operate_country" name="company_operate_country" class="product_select formbold-form-input" style="display:none">
+                  <option data-display="1. Choose A Question">Select an option</option>
+                  <option value="United States">United States</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
                 </div>
-                <div class="row">
-                  <div class="col-md-6">
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCountry"></p>
-                  </div>
+                <div class="col-md-6">
+                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCountry"></p>
                 </div>
+              </div>
               <div class="form-group" id="startupContainer">
                 <label id="revenueSize" for="revenueSize"></label>
                 <select id="company_revenue" name="company_revenue" class="product_select formbold-form-input" style="display:none">
@@ -1253,6 +1255,8 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="assets/js/vendor/imageloaded.js"></script>
 <script src="form.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
 <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
 <script src="assets/js/vendor/magnify.min.js"></script>
 <script src="assets/js/vendor/lightbox.js"></script>

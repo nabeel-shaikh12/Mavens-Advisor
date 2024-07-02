@@ -16,15 +16,75 @@ body {
   justify-content: center;
   padding: 48px;
 }
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  display: none !important;
+  white-space: nowrap !important;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+  width: 100%;
+  padding: 13px 22px;
+  border-radius: 5px;
+  border: 1px solid #DDE3EC;
+  background: #FFFFFF;
+  font-weight: 500;
+  font-size: 16px;
+  color: #536387;
+  outline: none;
+  resize: none;
+  padding-right: 50px;
+}
+
+.custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100%; /* Full height arrow */
+  right: 10px; /* Position the arrow */
+}
+
+.custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow b {
+  border-color: #333 transparent transparent transparent; /* Arrow color */
+}
+
+.custom-select2 .select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #333; /* Text color */
+  line-height: 1.5; /* Line height */
+}
+
+/* Hover and focus state */
+.custom-select2 .select2-container--default .select2-selection--single:hover,
+.custom-select2 .select2-container--default .select2-selection--single:focus {
+  border-color: #aaa; /* Border color on hover and focus */
+}
+
+/* Dropdown menu styling */
+.custom-select2 .select2-container--default .select2-results__option {
+  padding: 10px; /* Padding for dropdown items */
+  font-size: 16px; /* Font size */
+  color: #555; /* Text color */
+}
+
+.custom-select2 .select2-container--default .select2-results__option--highlighted {
+  background-color: #eee; /* Background color for highlighted item */
+  color: #333; /* Text color for highlighted item */
+}
 
 input[type=number] {
   -moz-appearance: textfield;
 }
+
 #progressBar {
   width: 100%;
   height: 25px;
@@ -32,8 +92,9 @@ input[type=number] {
   overflow: hidden;
   appearance: none;
 }
+
 #progressBar::-webkit-progress-bar {
-  background-color: #e0e0e0; 
+  background-color: #e0e0e0;
   border-radius: 10px;
 }
 
@@ -43,9 +104,10 @@ input[type=number] {
 }
 
 #progressBar::-moz-progress-bar {
-  background-color: #0b7ffe; 
-  border-radius: 10px; 
+  background-color: #0b7ffe;
+  border-radius: 10px;
 }
+
 #progressPercentageContainer {
   position: absolute;
   top: 0;
@@ -58,6 +120,7 @@ input[type=number] {
   align-items: center;
   height: 100%;
 }
+
 #completionText {
   font-size: 16px;
   color: #444;
@@ -65,6 +128,7 @@ input[type=number] {
   font-weight: bold;
   text-align: center;
 }
+
 .formbold-form-wrapper {
   margin: 0 auto;
   max-width: 1118px;
@@ -76,6 +140,7 @@ input[type=number] {
   margin-bottom: 35px;
   border-bottom: 1px solid #DDE3EC;
 }
+
 .input-group {
   position: relative;
   display: flex;
@@ -93,10 +158,10 @@ input[type=number] {
   color: #536387;
   outline: none;
   resize: none;
-  padding-right: 50px; 
+  padding-right: 50px;
 }
 
-.formbold-form-textarea{
+.formbold-form-textarea {
   width: 100%;
   padding: 13px 22px;
   border-radius: 5px;
@@ -108,21 +173,24 @@ input[type=number] {
   outline: none;
   resize: none;
 }
+
 .input-group-append {
   position: absolute;
-  right: 10px; 
+  right: 10px;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .btn {
   border: none;
   cursor: pointer;
-  margin-bottom: 4px; 
+  margin-bottom: 4px;
 }
 
 .btn i {
   font-size: 16px;
 }
+
 .formbold-steps ul {
   padding: 0;
   margin: 0;
@@ -200,6 +268,7 @@ input[type=number] {
   display: block;
   margin-bottom: 10px;
 }
+
 .rainbow-gradient-circle {
   position: fixed;
   left: -250px;
@@ -350,7 +419,9 @@ input[type=number] {
     display: inline;
   }
 }
+
 @media only screen and (max-width: 768px) {
+
   .iti input,
   .iti input[type=text],
   .iti input[type=tel] {
