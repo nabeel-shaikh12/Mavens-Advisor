@@ -20,6 +20,14 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>
   <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css'>
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/plugins/animation.css">
   <link rel="stylesheet" href="assets/css/plugins/feature.css">
@@ -47,7 +55,7 @@ if (!isset($_SESSION['visit_count'])) {
       width: 100%;
       height: 100px;
       background-color: #F5F8FA !important;
-      z-index: 100;
+      z-index:100;
       padding: 15px;
     }
 
@@ -61,6 +69,30 @@ if (!isset($_SESSION['visit_count'])) {
       z-index: 100;
       padding: 15px;
     }
+
+    .rainbow-gradient-circle {
+      position: fixed;
+      left: -250px;
+      top: 250px;
+      right: auto;
+      bottom: auto;
+      z-index: -1;
+      width: 500px;
+      height: 2000px;
+      border-radius: 1000px;
+      background-image: url('./img/Rectangle.png');
+      opacity: 0.25;
+      -webkit-filter: blur(50px);
+      filter: blur(50px);
+    }
+
+    .rainbow-gradient-circle.theme-pink {
+      left: auto;
+      top: -250px;
+      right: -250px;
+      bottom: auto;
+      background-image: url('./img/Rectangle.png');
+    }
   </style>
 
 <body>
@@ -68,7 +100,7 @@ if (!isset($_SESSION['visit_count'])) {
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light header-sticky-2">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="45px"></a>
+          <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="40px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -89,6 +121,8 @@ if (!isset($_SESSION['visit_count'])) {
             </ul>
           </div>
       </nav>
+      <div class="rainbow-gradient-circle"></div>
+      <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
     <div style="justify-content: center; align-items: center; display: flex;" class="header-sticky">
       <div style="width: 50%; text-align: center; position: relative;">
@@ -327,7 +361,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryOther Services" class="form-group" style="display: none;">
                 <label id="businessCategories" for="subCategoryOther Services"></label>
-                <input class="subCategoryField formbold-form-input" type="text" id="business_subCategory" name="business_subCategory" placeholder="Specify Business Sub Sector" id="business_name" />
+                <input class="subCategoryField formbold-form-input" type="text" id="business_subCategory" name="business_subCategory" placeholder="Specify Business Sub Sector" id="businessCategories" />
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -336,12 +370,12 @@ if (!isset($_SESSION['visit_count'])) {
                   <p id="autoTypingDisplay" class="auto-typing-display" style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none;"></p>
                 </div>
               </div>
-              <div id="otherSpecifyField" class="form-group" style="display: none;">
-                <label id="otherSpecifyInput">Other (Please Specify)</label>
-                <div id="input-group8" class="input-group">
+              <div id="otherSpecifyField" class="form-group">
+                <label id="otherSpecifyLabel" for="otherSpecifyInput"></label>
+                <div id="input-group8" class="input-group" style="display: none;">
                   <input type="text" id="otherSpecifyInput" name="other_specify" class="formbold-form-input" placeholder="Please specify">
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton6">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton6">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -354,39 +388,39 @@ if (!isset($_SESSION['visit_count'])) {
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedOtherSpecify"></p>
                 </div>
               </div>
-              <div class="form-group" id="startupContainer">
-                <label id="business-size" for="businessType"></label>
-                <select id="businessSize" name="business_size" class="product_select formbold-form-input" style="display:none">
-                  <option data-display="1. Choose A Question">Select an option</option>
-                  <option value="Startup (1 - 9 Employees)">Startup (1 - 9 Employees)</option>
-                  <option value="Small (10 - 50 Employees)">Small (10 - 50 Employees)</option>
-                  <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
-                  <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
-                  <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
-                </select>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
+                <div class="form-group" id="startupContainer">
+                  <label id="business-size" for="businessType"></label>
+                  <select id="businessSize" name="business_size" class="product_select formbold-form-input" style="display:none">
+                    <option data-display="1. Choose A Question">Select an option</option>
+                    <option value="Startup (1 - 9 Employees)">Startup (1 - 9 Employees)</option>
+                    <option value="Small (10 - 50 Employees)">Small (10 - 50 Employees)</option>
+                    <option value="Mid-size (51 - 250 Employees)">Mid-size (51 - 250 Employees)</option>
+                    <option value="Middle Market (250 - 1000 Employees)">Middle Market (250 - 1000 Employees)</option>
+                    <option value="Enterprise (1000+ Employees)">Enterprise (1000+ Employees)</option>
+                  </select>
                 </div>
-                <div class="col-md-6">
-                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessSize"></p>
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedBusinessSize"></p>
+                  </div>
                 </div>
-              </div>
-              <div class="form-group" id="startupContainer">
-                <label id="country" for="country"></label>
-                <select id="company_operate_country" name="company_operate_country" class="product_select formbold-form-input" style="display:none">
-                  <option data-display="1. Choose A Question">Select an option</option>
-                  <option value="United States">United States</option>
-                  <option value="United Kingdom">United Kingdom</option>
-                </select>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
+                <div class="form-group" id="startupContainer">
+                  <label id="country" for="country"></label>
+                  <select id="company_operate_country" name="company_operate_country" class="product_select formbold-form-input" style="display:none">
+                    <option data-display="1. Choose A Question">Select an option</option>
+                    <option value="United States">United States</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                  </select>
                 </div>
-                <div class="col-md-6">
-                  <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCountry"></p>
+                <div class="row">
+                  <div class="col-md-6">
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCountry"></p>
+                  </div>
                 </div>
-              </div>
               <div class="form-group" id="startupContainer">
                 <label id="revenueSize" for="revenueSize"></label>
                 <select id="company_revenue" name="company_revenue" class="product_select formbold-form-input" style="display:none">
@@ -406,7 +440,6 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div class="form-group">
                 <label id="business-typing" for="currency"></label>
-                <!-- <div id="currency-div"> -->
                 <select id="currency" name="currency" class="product_select formbold-form-input" style="width: 100%;display:none">
                   <option value="">Select Currency</option>
                   <option value="Afghan Afghani (AFN)">Afghan Afghani (AFN)</option>
@@ -563,7 +596,6 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Zambian Kwacha (ZMW)">Zambian Kwacha (ZMW)</option>
                   <option value="Zimbabwean Dollar (ZWL)">Zimbabwean Dollar (ZWL)</option>
                 </select>
-                <!-- </div> -->
                 <div class="row mt-3">
                   <div class="col-md-6">
                   </div>
@@ -607,7 +639,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <div id="input-group7" class="input-group" style="display: none;">
                   <input type="text" name="customer_type" id="specifyCustomer" placeholder="Please Specify Customer" class="formbold-form-input" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton8">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton8">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -625,7 +657,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <div id="input-group" class="input-group" style="display: none;">
                   <input type="text" name="business_name" placeholder="Business Name" id="business_name" class="formbold-form-input" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -643,7 +675,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <div id="input-group2" class="input-group" style="display: none;">
                   <input type="text" name="firstname" placeholder="Full name" id="firstname" class="formbold-form-input" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton2">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton2">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -661,7 +693,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <div id="input-group3" class="input-group" style="display: none;">
                   <input type="email" name="email" placeholder="Email" id="email" class="formbold-form-input" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton3">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton3">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -680,7 +712,7 @@ if (!isset($_SESSION['visit_count'])) {
                 <div id="input-group4" class="input-group" style="display: none; margin-top: -32px;">
                   <input id="phone" name="phone_no" type="tel" class="formbold-form-input" style="width: 100%;" />
                   <div class="input-group-append">
-                    <button class="btn btn-primary" style="background-color:#0b7ffe; border-radius:50px" type="button" id="enterButton4">
+                    <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe; border-radius:50px" type="button" id="enterButton4">
                       <i class="fas fa-arrow-up"></i>
                     </button>
                   </div>
@@ -773,11 +805,29 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
             </div>
             <div class="form-group">
+              <label id="spcifySoftwares" for="spcifySoftwares"></label>
+              <div id="input-group11" class="input-group" style="display: none;">
+                <input type="text" name="softwareSpecifies" id="softwareSpecifies" placeholder="Please specify Software" class="formbold-form-input">
+                <div class="input-group-append">
+                  <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton10">
+                    <i class="fas fa-arrow-up"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-6">
+              </div>
+              <div class="col-md-6">
+                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="specSoftware"></p>
+              </div>
+            </div>
+            <div class="form-group">
               <label id="specifySoftware" for="specifySoftware"></label>
               <div id="input-group10" class="input-group" style="display: none;">
                 <input type="text" name="accounting_software_used" id="softwareSpecify" placeholder="Please specify Software" class="formbold-form-input">
                 <div class="input-group-append">
-                  <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton9">
+                  <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton9">
                     <i class="fas fa-arrow-up"></i>
                   </button>
                 </div>
@@ -1213,4 +1263,5 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/jquery.style.swicher.js"></script>
 <script src="assets/js/vendor/js.cookie.js"></script>
 <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+
 </html>

@@ -8,7 +8,6 @@ if (!isset($_SESSION['visit_count'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +33,6 @@ if (!isset($_SESSION['visit_count'])) {
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -104,17 +102,14 @@ if (!isset($_SESSION['visit_count'])) {
             background: #019dff;
             color: #FFFFFF;
         }
-
         .formbold-input-flex {
             display: flex;
             gap: 20px;
             margin-bottom: 22px;
         }
-
         .formbold-input-flex>div {
             width: 50%;
         }
-
         .formbold-form-input {
             width: 100%;
             padding: 13px 22px;

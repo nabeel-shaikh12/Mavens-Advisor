@@ -16,7 +16,6 @@ body {
   justify-content: center;
   padding: 48px;
 }
-/* Hide arrows in number input fields */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -27,50 +26,44 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 #progressBar {
-  width: 100%; /* Full width */
-  height: 25px; /* Taller height */
-  border-radius: 10px; /* Rounded corners */
-  overflow: hidden; /* Ensure rounded corners */
-  appearance: none; /* Remove default styling */
+  width: 100%;
+  height: 25px;
+  border-radius: 10px;
+  overflow: hidden;
+  appearance: none;
 }
-
-/* Custom styles for different browsers */
 #progressBar::-webkit-progress-bar {
-  background-color: #e0e0e0; /* Light grey background */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #e0e0e0; 
+  border-radius: 10px;
 }
 
 #progressBar::-webkit-progress-value {
-  background-color: #0b7ffe; /* Teal progress color */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #0b7ffe;
+  border-radius: 10px;
 }
 
 #progressBar::-moz-progress-bar {
-  background-color: #0b7ffe; /* Teal progress color */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #0b7ffe; 
+  border-radius: 10px; 
 }
-
-/* Container for the percentage text */
 #progressPercentageContainer {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  color: white; /* White text for visibility */
-  font-weight: bold; /* Bold text */
-  font-size: 14px; /* Size of the percentage text */
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
   display: flex;
   align-items: center;
   height: 100%;
 }
-
-/* Styles for the completion text */
 #completionText {
-  font-size: 16px; /* Font size for completion text */
-  color: #444; /* Slightly lighter text color */
-  margin-top: 20px; /* Space above the completion text */
-  font-weight: bold; /* Bold text */
-  text-align: center; /* Center alignment */
+  font-size: 16px;
+  color: #444;
+  margin-top: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 .formbold-form-wrapper {
   margin: 0 auto;
@@ -117,14 +110,14 @@ input[type=number] {
 }
 .input-group-append {
   position: absolute;
-  right: 10px; /* Adjust as needed to position the button correctly */
+  right: 10px; 
   top: 50%;
   transform: translateY(-50%);
 }
 .btn {
   border: none;
   cursor: pointer;
-  margin-bottom: 4px; /* Adjust margin to fit well within the input box */
+  margin-bottom: 4px; 
 }
 
 .btn i {
@@ -261,7 +254,7 @@ input[type=number] {
 .iti input[type=text],
 .iti input[type=tel] {
   width: 100% !important;
-  padding-right: 840px !important;
+  padding-right: 840px;
   margin-right: 0;
 }
 
@@ -355,5 +348,14 @@ input[type=number] {
 @media (max-width: 767px) {
   .formbold-steps ul {
     display: inline;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .iti input,
+  .iti input[type=text],
+  .iti input[type=tel] {
+    width: 100% !important;
+    background: transparent;
+    padding-right: 0 !important;
   }
 }
