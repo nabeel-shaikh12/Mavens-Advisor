@@ -2,54 +2,6 @@ const currentYear = new Date().getFullYear();
 const numYears = 100;
 const dropdown = document.getElementById("yearDropdown");
 
-document.getElementById("businessType").addEventListener("change", function () {
-  resetFieldsAndCallServices();
-});
-
-function resetFieldsAndCallServices() {
-  resetAndAnimate(
-    "business-size",
-    "businessSize",
-    "selectedBusinessSize",
-    BusinessService
-  );
-  resetAndAnimate(
-    "country",
-    "company_operate_country",
-    "selectedCountry",
-    Country
-  );
-}
-
-function resetAndAnimate(labelId, sizeId, selectedId, callback) {
-  const label = document.getElementById(labelId);
-  const size = document.getElementById(sizeId);
-  const selected = document.getElementById(selectedId);
-
-  label.style.display = "none";
-  size.style.display = "none";
-  selected.style.display = "none";
-
-  label.style.animation = "none";
-  size.style.animation = "none";
-  label.style.animation = "slideInLeft 1.2s ease";
-  label.addEventListener(
-    "animationend",
-    function () {
-      if (callback) {
-        callback();
-      }
-    },
-    { once: true }
-  );
-}
-$(document).ready(function() {
-  $('.select2').select2({
-    placeholder: 'Select an option', // Placeholder text
-    allowClear: true // Allow clearing the selection
-  });
-});
-
 for (let i = 0; i < numYears; i++) {
   const year = currentYear - i;
   const option = document.createElement("option");
@@ -57,6 +9,16 @@ for (let i = 0; i < numYears; i++) {
   option.textContent = year;
   dropdown.appendChild(option);
 }
+
+
+// document.getElementById("businessType").addEventListener("change", function() {
+//   const inputs = document.querySelectorAll('input');
+//   inputs.forEach(input => input.value = '');
+
+//   const selects = document.querySelectorAll('select');
+//   selects.forEach(select => select.selectedIndex = 0);
+// });
+
 function typeWriter(element, text, i, callback) {
   if (i < text.length) {
     element.innerHTML += text.charAt(i);
@@ -125,19 +87,17 @@ function setCompletionText(text) {
   completionText.textContent = text;
 }
 
-function typeWriter(element, text, index) {
-  if (index < text.length) {
-    element.textContent += text.charAt(index);
-    setTimeout(() => typeWriter(element, text, index + 1), 50);
-  }
-}
+// function typeWriter(element, text, index) {
+//   if (index < text.length) {
+//     element.textContent += text.charAt(index);
+//     setTimeout(() => typeWriter(element, text, index + 1), 50);
+//   }
+// }
 
 function checkStepCompletion() {
   const businessType = document.getElementById("businessType").value;
   const businessSize = document.getElementById("businessSize").value;
-  const companyOperateCountry = document.getElementById(
-    "company_operate_country"
-  ).value;
+  const companyOperateCountry = document.getElementById("company_operate_country").value;
   const companyRevenue = document.getElementById("company_revenue").value;
   const currency = document.getElementById("currency").value;
   const foundedYear = document.getElementById("yearDropdown").value;
@@ -148,26 +108,14 @@ function checkStepCompletion() {
   const whichService = document.getElementById("whichService").value;
   const whichSoftware = document.getElementById("whichSoftware").value;
   const softwarePreferred = document.getElementById("softwarePreferred").value;
-  const accountingSoftwareUsed = document.getElementById(
-    "accounting_software_used"
-  ).value;
+  const accountingSoftwareUsed = document.getElementById("accounting_software_used").value;
   const phone = document.getElementById("phone").value.trim();
   const specifyReason = document.getElementById("specifyReason").value;
-  const monthlyTransactionInputField = document
-    .getElementById("monthlyTransactionInputField")
-    .value.trim();
-  const monthlyInvoicesInputField = document
-    .getElementById("monthlyInvoicesInputField")
-    .value.trim();
-  const payrollInputField = document
-    .getElementById("payrollInputField")
-    .value.trim();
-  const expenseInputField = document
-    .getElementById("expenseInputField")
-    .value.trim();
-  const contractualPaymentInputField = document
-    .getElementById("contractualPaymentInputField")
-    .value.trim();
+  const monthlyTransactionInputField = document.getElementById("monthlyTransactionInputField").value.trim();
+  const monthlyInvoicesInputField = document.getElementById("monthlyInvoicesInputField").value.trim();
+  const payrollInputField = document.getElementById("payrollInputField").value.trim();
+  const expenseInputField = document.getElementById("expenseInputField").value.trim();
+  const contractualPaymentInputField = document.getElementById("contractualPaymentInputField").value.trim();
   const cfo = document.getElementById("cfo").value;
 
   let progress = 0;
@@ -312,9 +260,7 @@ function BusinessSize(element, text) {
   }
   type();
 }
-document
-  .querySelector('button[name="Subscribe"]')
-  .addEventListener("click", function (event) {
+document.querySelector('button[name="Subscribe"]').addEventListener("click", function (event) {
     event.preventDefault();
 
     const businessSize = document.getElementById("businessSize").value;
@@ -338,7 +284,6 @@ document
     ) {
       alert("Please fill out all fields before submitting.");
     } else {
-      window.location.href = "calculator.php";
     }
   });
 function BusinessCategory(element, text) {
@@ -356,20 +301,16 @@ function BusinessCategory(element, text) {
   }
   type();
 }
-document
-  .querySelectorAll(".subCategoryField")
-  .forEach(function (selectElement) {
+document.querySelectorAll(".subCategoryField").forEach(function (selectElement) {
     selectElement.addEventListener("change", function () {
       handleOtherSpecifyField();
     });
-  });
+});
 
 function handleOtherSpecifyField() {
   let showOtherField = false;
 
-  document
-    .querySelectorAll(".subCategoryField")
-    .forEach(function (selectElement) {
+document.querySelectorAll(".subCategoryField").forEach(function (selectElement) {
       if (selectElement.value.includes("Other (Please Specify)")) {
         showOtherField = true;
       }
@@ -611,9 +552,7 @@ document.getElementById("enterButton3").addEventListener("click", function () {
   BusinessType(typingLabel, businessTypeValue);
 });
 
-document
-  .getElementById("whichSoftware")
-  .addEventListener("change", function () {
+document.getElementById("whichSoftware").addEventListener("change", function () {
     var typingLabel = document.getElementById("selectedSoftware");
     var businessTypeValue = this.value;
 
@@ -633,9 +572,7 @@ document.getElementById("cfo").addEventListener("change", function () {
   BusinessType(typingLabel, businessTypeValue);
 });
 
-document
-  .getElementById("specifyReason")
-  .addEventListener("change", function () {
+document.getElementById("specifyReason").addEventListener("change", function () {
     var typingLabel = document.getElementById("selectedReason");
     var businessTypeValue = this.value;
 
@@ -653,9 +590,7 @@ document.getElementById("whichService").addEventListener("change", function () {
   }
   BusinessType(typingLabel, businessTypeValue);
 });
-document
-  .getElementById("accounting_software_used")
-  .addEventListener("change", function () {
+document.getElementById("accounting_software_used").addEventListener("change", function () {
     var typingLabel = document.getElementById("selectedSoftwares");
     var businessTypeValue = this.value;
 
@@ -665,9 +600,7 @@ document
     BusinessType(typingLabel, businessTypeValue);
   });
 
-document
-  .getElementById("softwarePreferred")
-  .addEventListener("change", function () {
+document.getElementById("softwarePreferred").addEventListener("change", function () {
     var typingLabel = document.getElementById("preSoftware");
     var businessTypeValue = this.value;
 
@@ -677,9 +610,7 @@ document
     BusinessType(typingLabel, businessTypeValue);
   });
 
-document
-  .getElementById("company_operate_country")
-  .addEventListener("change", function () {
+document.getElementById("company_operate_country").addEventListener("change", function () {
     var typingLabel = document.getElementById("selectedCountry");
     var businessTypeValue = this.value;
 
@@ -689,9 +620,7 @@ document
     BusinessType(typingLabel, businessTypeValue);
   });
 
-document
-  .getElementById("company_revenue")
-  .addEventListener("change", function () {
+document.getElementById("company_revenue").addEventListener("change", function () {
     var typingLabel = document.getElementById("selectedRevenue");
     var businessTypeValue = this.value;
 
@@ -710,19 +639,51 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-document.getElementById("enterButton4").addEventListener("click", function () {
-  var typingLabel = document.getElementById("selectedPhone");
-  var businessTypeElement = document.getElementById("phone");
+// document.getElementById("enterButton4").addEventListener("click", function () {
+//   var typingLabel = document.getElementById("selectedPhone");
+//   var businessTypeElement = document.getElementById("phone");
 
-  if (typingLabel && businessTypeElement) {
-    var businessTypeValue = businessTypeElement.value;
-    typingLabel.textContent = "Typing: " + businessTypeValue;
+//   if (typingLabel && businessTypeElement) {
+//     var businessTypeValue = businessTypeElement.value;
+//     typingLabel.textContent = "Typing: " + businessTypeValue;
+//     typingLabel.style.display = "block";
+//     BusinessType(typingLabel, businessTypeValue);
+//   } else {
+//     console.error("One or more elements are not found.");
+//   }
+// });
+document.getElementById("enterButton4").addEventListener("click", function () {
+  const phoneInput = document.getElementById("phone");
+  const phoneValue = phoneInput.value;
+  const phoneError = document.getElementById("phoneError");
+  const typingLabel = document.getElementById("selectedPhone");
+
+  const phonePattern = /^\+\d{12}$/;
+
+  // First functionality: Form validation and handling
+  if (phonePattern.test(phoneValue)) {
+    phoneError.style.display = "none";
+    phoneInput.style.border = "";
+    const service = document.getElementById("serviceLooking");
+    service.style.display = "block";
+    ServiceLooking(); // Assuming this function handles service display
+    phoneInput.disabled = true;
+  } else {
+    phoneError.style.display = "block";
+    phoneInput.style.border = "2px solid red";
+    phoneInput.disabled = false;
+  }
+
+  // Second functionality: Typing label update
+  if (typingLabel && phoneInput) {
+    typingLabel.textContent = "Typing: " + phoneValue;
     typingLabel.style.display = "block";
-    BusinessType(typingLabel, businessTypeValue);
+    BusinessType(typingLabel, phoneValue); // Assuming this function handles business type
   } else {
     console.error("One or more elements are not found.");
   }
 });
+
 
 function BusinessType(element, text) {
   element.style.display = "block";
@@ -745,7 +706,7 @@ const typingStarted1 = {
 
 function subCatories(label, text, select) {
   if (!typingStarted1[label.id]) {
-    typingStarted1[label.id] = true;
+    typingStarted1[label.id] = true; 
     let index = 0;
     label.textContent = "";
 
@@ -755,13 +716,50 @@ function subCatories(label, text, select) {
         index++;
         setTimeout(type, 15);
       } else {
-        select.style.display = "block";
+        if (select) {
+          select.style.display = "block";
+        }
       }
     }
-
     type();
+  } else {
+    typingStarted1[label.id] = false;
   }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  function updateHiddenInputs() {
+    document.getElementById('hiddenTransactionPrice').value = document.getElementById('transactionPrice').innerText.trim();
+    document.getElementById('hiddenDiscountTransactionPrice').value = document.getElementById('discountTransactionPrice').innerText.trim();
+    document.getElementById('hiddenInvoicePrice').value = document.getElementById('invoicePrice').innerText.trim();
+    document.getElementById('hiddenDiscountInvoicePrice').value = document.getElementById('discountInvoicePrice').innerText.trim();
+    document.getElementById('hiddenExpensePrice').value = document.getElementById('expensePrice').innerText.trim();
+    document.getElementById('hiddenDiscountExpencePrice').value = document.getElementById('discountExpencePrice').innerText.trim();
+    document.getElementById('hiddenPayrollPrice').value = document.getElementById('payrollPrice').innerText.trim();
+    document.getElementById('hiddenDiscountPayrollPrice').value = document.getElementById('discountPayrollPrice').innerText.trim();
+    document.getElementById('hiddenCashflowPrice').value = document.getElementById('cashflowPrice').innerText.trim();
+    document.getElementById('hiddenDiscountCashflowPrice').value = document.getElementById('discountCashflowPrice').innerText.trim();
+    document.getElementById('hiddenBudgetPrice').value = document.getElementById('budgetPrice').innerText.trim();
+    document.getElementById('hiddenDiscountBudgetPrice').value = document.getElementById('discountBudgetPrice').innerText.trim();
+    document.getElementById('hiddenSetupPrice').value = document.getElementById('setupPrice').innerText.trim();
+    document.getElementById('hiddenIrsPrice').value = document.getElementById('irsPrice').innerText.trim();
+    document.getElementById('hiddenStatePrice').value = document.getElementById('statePrice').innerText.trim();
+    document.getElementById('hiddenHmrcPrice').value = document.getElementById('hmrcPrice').innerText.trim();
+    document.getElementById('hiddenCompanyPrice').value = document.getElementById('companyPrice').innerText.trim();
+    document.getElementById('hiddenContractualPaymentPrice').value = document.getElementById('contractualPaymentPrice').innerText.trim();
+    document.getElementById('hiddenVatPrice').value = document.getElementById('vatPrice').innerText.trim();
+    document.getElementById('hiddenFinancialAnalysisPrice').value = document.getElementById('financialAnalysisPrice').innerText.trim();
+    document.getElementById('hiddenProfitPrice').value = document.getElementById('profitPrice').innerText.trim();
+    document.getElementById('hiddenAdvisoryPrice').value = document.getElementById('advisoryPrice').innerText.trim();
+    document.getElementById('hiddenTotalPrice').value = document.getElementById('totalPrice').innerText.trim();
+    document.getElementById('hiddenDiscountedPrice').value = document.getElementById('discountedPrice').innerText.trim();
+  }
+  updateHiddenInputs();
+  document.getElementById('cfoForm').addEventListener('submit', function(event) {
+    updateHiddenInputs();
+  });
+});
+
 const elementsToWatch = [
   "startupContainer",
   "currency",
@@ -837,6 +835,7 @@ function showSubCategories() {
   const highPriceLabel = document.getElementById("highPriceLabel");
   const virtualCfo = document.getElementById("virtualCfo");
   const specifyReason = document.getElementById("specifyReason");
+  const virtualCfo2 = document.getElementById("virtualCfo2");
   const otherReason = document.getElementById("otherReason");
   const submit = document.getElementById("submit");
   const softwarePreferred = document.getElementById("softwarePreferred");
@@ -877,9 +876,7 @@ function showSubCategories() {
   const specSoftware = document.getElementById("specSoftware");
   const softwareSpecifyInput = document.getElementById("input-group10");
   const specifySoftwares = document.getElementById("specifySoftwares");
-  const specifyCustomerDetail = document.getElementById(
-    "specifyCustomerDetail"
-  );
+  const specifyCustomerDetail = document.getElementById("specifyCustomerDetail");
   const paymentLabel = document.getElementById("paymentLabel");
   const cfoLabel = document.getElementById("cfoLabel");
   const currencyLabel = document.getElementById("business-typing");
@@ -887,16 +884,12 @@ function showSubCategories() {
   const specifySoftware = document.getElementById("specifySoftware");
   const quotationDetails = document.getElementById("quotationDetails");
   const preSoftware = document.getElementById("preSoftware");
-  const subCategoryField = document
-    .querySelectorAll(".subCategoryField")
-    .forEach((select) => {
-      select.addEventListener("change", handleSubCategoryChange);
-    });
+  const subCategoryField = document.querySelectorAll(".subCategoryField").forEach((select) => {
+    select.addEventListener("change", handleSubCategoryChange);
+  });
   const selectedSoftware = document.getElementById("selectedSoftware");
   const softwarePrefer = document.getElementById("softwarePrefer");
-  const accounting_software_used = document.getElementById(
-    "accounting_software_used"
-  );
+  const accounting_software_used = document.getElementById("accounting_software_used");
   const yearDropdown = document.getElementById("yearDropdown");
   const customerContainer = document.getElementById("customerType");
   const customer_type = document.getElementById("customer_type");
@@ -921,7 +914,7 @@ function showSubCategories() {
   } else {
     const autoTypingDisplay = document.getElementById("autoTypingDisplay");
     const otherSpecifyLabel = document.getElementById("otherSpecifyLabel");
-    const inputGroup8 = document.getElementById("input-group8");
+    // const inputGroup8 = document.getElementById("input-group8");
     autoTypingDisplay.style.display = "none";
     inputGroup8.style.display = "none";
     otherSpecifyLabel.style.display = "none";
@@ -1143,7 +1136,7 @@ function showSubCategories() {
     whichService.value === "Creative & Content Services" ||
     whichService.value === "Software Development & Maintenance"
   ) {
-    submit.style.display = "block";
+    virtualCfo2.style.display = "block";
 
     const elementsToHide = [
       accounting_software_used,
@@ -1520,26 +1513,26 @@ document.getElementById("enterButton3").addEventListener("click", function () {
   }
 });
 
-document.getElementById("enterButton4").addEventListener("click", function () {
-  const phoneInput = document.getElementById("phone");
-  const phoneValue = phoneInput.value;
-  const phoneError = document.getElementById("phoneError");
+// document.getElementById("enterButton4").addEventListener("click", function () {
+//   const phoneInput = document.getElementById("phone");
+//   const phoneValue = phoneInput.value;
+//   const phoneError = document.getElementById("phoneError");
 
-  const phonePattern = /^\+\d{12}$/;
+//   const phonePattern = /^\+\d{12}$/;
 
-  if (phonePattern.test(phoneValue)) {
-    phoneError.style.display = "none";
-    phoneInput.style.border = "";
-    const service = document.getElementById("serviceLooking");
-    service.style.display = "block";
-    ServiceLooking();
-    phoneInput.disabled = true;
-  } else {
-    phoneError.style.display = "block";
-    phoneInput.style.border = "2px solid red";
-    phoneInput.disabled = false;
-  }
-});
+//   if (phonePattern.test(phoneValue)) {
+//     phoneError.style.display = "none";
+//     phoneInput.style.border = "";
+//     const service = document.getElementById("serviceLooking");
+//     service.style.display = "block";
+//     ServiceLooking();
+//     phoneInput.disabled = true;
+//   } else {
+//     phoneError.style.display = "block";
+//     phoneInput.style.border = "2px solid red";
+//     phoneInput.disabled = false;
+//   }
+// });
 
 let typingStarted = {
   phone: false,
@@ -1669,6 +1662,14 @@ function typeText(label, select, text, flag, nextFunction, doubleChar = false) {
   }
   type();
 }
+// function FirstType(){
+//   typeText(
+//     document.getElementById("firstType"),
+//     document.getElementById("typing-parent"),
+//     "hi",
+//     "firsttype"
+//   )
+// }
 function Phone() {
   typeText(
     document.getElementById("phoneLabel"),
@@ -2053,16 +2054,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-if (window.location.pathname.includes("calculator.php")) {
-  window.addEventListener("pageshow", function (event) {
-    if (window.location.pathname.includes("calculator.php")) {
-      document.getElementById("monthlyTransactionInputField").value = "";
-      document.getElementById("monthlyInvoicesInputField").value = "";
-      document.getElementById("payrollInputField").value = "";
-      document.getElementById("contractualPaymentInputField").value = "";
-    }
-  });
-}
+// if (window.location.pathname.includes("calculator.php")) {
+//   window.addEventListener("pageshow", function (event) {
+//     if (window.location.pathname.includes("calculator.php")) {
+//       document.getElementById("monthlyTransactionInputField").value = "";
+//       document.getElementById("monthlyInvoicesInputField").value = "";
+//       document.getElementById("payrollInputField").value = "";
+//       document.getElementById("contractualPaymentInputField").value = "";
+//     }
+//   });
+// }
 $(document).ready(function () {
   $("#updateFormulaBtn").on("click", function () {
     updateFormulas();

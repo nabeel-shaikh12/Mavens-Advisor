@@ -50,8 +50,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow {
-  height: 100%; /* Full height arrow */
-  right: 10px; /* Position the arrow */
+  height: 100%; 
+  right: 10px; 
 }
 
 .custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -59,11 +59,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-select2 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  color: #333; /* Text color */
+  color: #333; 
   line-height: 1.5; /* Line height */
 }
 
-/* Hover and focus state */
 .custom-select2 .select2-container--default .select2-selection--single:hover,
 .custom-select2 .select2-container--default .select2-selection--single:focus {
   border-color: #aaa; /* Border color on hover and focus */

@@ -41,11 +41,8 @@ if (!isset($_SESSION['visit_count'])) {
 
 
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet">
-
-
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
-  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/form.css">
   <style>
     .price-section {
@@ -89,6 +86,7 @@ if (!isset($_SESSION['visit_count'])) {
       -webkit-filter: blur(50px);
       filter: blur(50px);
     }
+
     .rainbow-gradient-circle.theme-pink {
       left: auto;
       top: -250px;
@@ -97,6 +95,7 @@ if (!isset($_SESSION['visit_count'])) {
       background-image: url('./img/Rectangle.png');
     }
   </style>
+
 <body>
   <main class="page-wrapper">
     <div>
@@ -140,9 +139,9 @@ if (!isset($_SESSION['visit_count'])) {
     <div class="rainbow-gradient-circle"></div>
     <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
-    <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
-      <div class="formbold-form-wrapper variation-2 rainbow-service-area">
-        <form action="./database_operations/subscription_form.php" method="POST">
+    <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
+      <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
+        <div class="formbold-form-wrapper variation-2 rainbow-service-area">
           <div class="formbold-steps">
             <ul>
               <li class="formbold-step-menu1 active">
@@ -150,6 +149,7 @@ if (!isset($_SESSION['visit_count'])) {
             </ul>
           </div>
           <div class="formbold-form-step-1 active">
+            <label id="firstType" for="firstType"></label>
             <label id="typing-parent" for="businessType"></label>
             <div class="form-group">
               <select id="businessType" name="business_description" class="product_select formbold-form-input" onchange="showSubCategories()" style="display: none;width:100%">
@@ -219,7 +219,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryBeauty" class="form-group" style="display: none;">
                 <label id="typing-child" for="subCategoryBeauty"></label>
-                <select class="beautySubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input subCategoryField">
+                <select class="beautySubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Beautician (At Home Services)">Beautician (At Home Services)</option>
                   <option value="Beauty Salon">Beauty Salon</option>
@@ -639,7 +639,7 @@ if (!isset($_SESSION['visit_count'])) {
               <div class="form-group">
                 <label id="customerSpecify" for="customerSpecify"></label>
                 <div id="input-group7" class="input-group" style="display: none;">
-                  <input type="text" name="customer_type" id="specifyCustomer" placeholder="Please Specify Customer" class="formbold-form-input" />
+                  <input type="text" name="abcd" id="specifyCustomer" placeholder="Please Specify Customer" class="formbold-form-input" />
                   <div class="input-group-append">
                     <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton8">
                       <i class="fas fa-arrow-up"></i>
@@ -744,6 +744,7 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
                 <div class="col-md-6">
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedService"></p>
+                  <button type="submit" id="virtualCfo2" style="justify-content:right;display: none; margin-top:12px" class="formbold-btn" name="Subscribe">Proceed to Virtual Cfo</button>
                 </div>
               </div>
               <div class="form-group">
@@ -846,87 +847,85 @@ if (!isset($_SESSION['visit_count'])) {
               <label style="margin-top: 30px;" id="calculatorLabel" for="calculatorLabel"></label>
               <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display: none;">
                 <div class="service gallery-style">
-                  <form method="POST" action="./calculator_operations.php" id="loginCalculatorForm">
-                    <br>
-                    <label>
-                      <input type="checkbox" id="monthlyTransactionCheckbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
-                      Monthly Reconciliation
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
-                      Monthly Invoicing
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
-                      Monthly Payroll Management
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="expense" onclick="showInputBox('expense')" autocomplete="off">
-                      Monthly Billing
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
-                      Monthly Contractor Payments
-                    </label>
-                    <br>
-                    <div id="filingOptions" style="display:none;">
-                      <div id="usaFilingOptions" style="display:none;">
-                        <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
-                          IRS Filing
-                        </label>
-                        <br>
-                        <label>
-                          <input type="checkbox" name="category" value="statutoryStateFiling" id="stateCheckbox" onclick="showInputBox('statutoryStateFiling')" min="0" autocomplete="off">
-                          Statutory State Filing
-                        </label>
-                      </div>
-                      <div id="ukFilingOptions" style="display:none;">
-                        <label>
-                          <input type="checkbox" name="category" value="hmrc" id="hmrcCheckbox" onclick="showInputBox('hmrc')" min="0" autocomplete="off">
-                          HMRC Filing
-                        </label>
-                        <br>
-                        <label>
-                          <input type="checkbox" name="category" value="companyHouseFiling" id="companyCheckbox" onclick="showInputBox('companyHouseFiling')" min="0" autocomplete="off">
-                          Companies House Filing
-                        </label>
-                        <br>
-                        <label>
-                          <input type="checkbox" name="category" value="vat" id="vatCheckbox" onclick="showInputBox('vat')" min="0" autocomplete="off">
-                          Value added Tax (VAT) Filing
-                        </label>
-                      </div>
+                  <br>
+                  <label>
+                    <input type="checkbox" id="monthlyTransactionCheckbox" class="checkbox-custom" name="category" value="monthlyTransaction" onclick="showInputBox('monthlyTransaction')" autocomplete="off">
+                    Monthly Reconciliation
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="monthlyInvoices" onclick="showInputBox('monthlyInvoices')" autocomplete="off">
+                    Monthly Invoicing
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="payroll" onclick="showInputBox('payroll')" autocomplete="off">
+                    Monthly Payroll Management
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="expense" onclick="showInputBox('expense')" autocomplete="off">
+                    Monthly Billing
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="contractualPayment" onclick="showInputBox('contractualPayment')" autocomplete="off">
+                    Monthly Contractor Payments
+                  </label>
+                  <br>
+                  <div id="filingOptions" style="display:none;">
+                    <div id="usaFilingOptions" style="display:none;">
+                      <label><input type="checkbox" name="category" value="irsFiling" id="irsCheckbox" onclick="showInputBox('irsFiling')" min="0" autocomplete="off">
+                        IRS Filing
+                      </label>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="statutoryStateFiling" id="stateCheckbox" onclick="showInputBox('statutoryStateFiling')" min="0" autocomplete="off">
+                        Statutory State Filing
+                      </label>
                     </div>
-                    <label>
-                      <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
-                      Monthly cashflow
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="financialAnalysis" id="financialCheckbox" onclick="showInputBox('financialAnalysis')" min="0" autocomplete="off">
-                      Monthly Financial Analysis
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="monthlyProfitLoss" id="profitCheckbox" onclick="showInputBox('monthlyProfitLoss')" min="0" autocomplete="off">
-                      Monthly Profit and Loss Reporting
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
-                      Monthly Budgeting & Forcasting
-                    </label>
-                    <br>
-                    <label>
-                      <input type="checkbox" name="category" value="strategicAdvice" id="advisoryCheckbox" onclick="showInputBox('strategicAdvice')" autocomplete="off">
-                      Strategic Advice
-                    </label>
-                    <br>
-                  </form>
+                    <div id="ukFilingOptions" style="display:none;">
+                      <label>
+                        <input type="checkbox" name="category" value="hmrc" id="hmrcCheckbox" onclick="showInputBox('hmrc')" min="0" autocomplete="off">
+                        HMRC Filing
+                      </label>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="companyHouseFiling" id="companyCheckbox" onclick="showInputBox('companyHouseFiling')" min="0" autocomplete="off">
+                        Companies House Filing
+                      </label>
+                      <br>
+                      <label>
+                        <input type="checkbox" name="category" value="vat" id="vatCheckbox" onclick="showInputBox('vat')" min="0" autocomplete="off">
+                        Value added Tax (VAT) Filing
+                      </label>
+                    </div>
+                  </div>
+                  <label>
+                    <input type="checkbox" name="category" value="cashflow" id="cashflowCheckbox" onclick="showInputBox('cashflow')" min="0" autocomplete="off">
+                    Monthly cashflow
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="financialAnalysis" id="financialCheckbox" onclick="showInputBox('financialAnalysis')" min="0" autocomplete="off">
+                    Monthly Financial Analysis
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="monthlyProfitLoss" id="profitCheckbox" onclick="showInputBox('monthlyProfitLoss')" min="0" autocomplete="off">
+                    Monthly Profit and Loss Reporting
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="budget" id="budgetCheckbox" onclick="showInputBox('budget')" min="0" autocomplete="off">
+                    Monthly Budgeting & Forcasting
+                  </label>
+                  <br>
+                  <label>
+                    <input type="checkbox" name="category" value="strategicAdvice" id="advisoryCheckbox" onclick="showInputBox('strategicAdvice')" autocomplete="off">
+                    Strategic Advice
+                  </label>
+                  <br>
                 </div>
               </div>
             </div>
@@ -936,7 +935,7 @@ if (!isset($_SESSION['visit_count'])) {
             <br>
           </div> -->
             <div id="monthlyTransactionInput" class="input-group" style="display: none;">
-              <input type="number" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
+              <input type="number" name="numberOfTransaction" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
               <div class="input-group-append">
                 <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
@@ -950,7 +949,7 @@ if (!isset($_SESSION['visit_count'])) {
             <br>
           </div> -->
             <div id="monthlyInvoicesInput" class="input-group" style="display: none;">
-              <input type="number" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
+              <input type="number" name="numberOfInvoiceInput" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
               <div class="input-group-append">
                 <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
@@ -964,7 +963,7 @@ if (!isset($_SESSION['visit_count'])) {
             <br>
           </div> -->
             <div id="payrollInput" class="input-group" style="display: none;">
-              <input type="number" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
+              <input type="number" name="numberOfPayroll" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
               <div class="input-group-append">
                 <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
@@ -979,7 +978,7 @@ if (!isset($_SESSION['visit_count'])) {
           </div> -->
             <br>
             <div id="expenseInput" class="input-group" style="display: none;">
-              <input type="number" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
+              <input type="number" name="noOfExpense" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
               <div class="input-group-append">
                 <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
@@ -993,7 +992,7 @@ if (!isset($_SESSION['visit_count'])) {
             <br>
           </div> -->
             <div id="contractualPaymentInput" class="input-group" style="display: none;">
-              <input type="number" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
+              <input type="number" name="numberOfContractualPayment" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
               <div class="input-group-append">
                 <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
@@ -1051,7 +1050,7 @@ if (!isset($_SESSION['visit_count'])) {
                     </div>
                     <div class="col-md-6">
                       <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
+                      <p><b><span id="discountExpencePrice" name="discountExpencePrice">0</span> $</b></p>
                       <br>
                     </div>
                     <hr>
@@ -1174,6 +1173,30 @@ if (!isset($_SESSION['visit_count'])) {
                     <p style="font-size:12px">Discounted Price</p>
                     <p><b><span id="discountedPrice" name="discountedPrice">0</span> $</b></p>
                   </div>
+                  <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">
+                  <input type="hidden" id="hiddenDiscountTransactionPrice" name="discountTransactionPrice">
+                  <input type="hidden" id="hiddenInvoicePrice" name="invoicePrice">
+                  <input type="hidden" id="hiddenDiscountInvoicePrice" name="discountInvoicePrice">
+                  <input type="hidden" id="hiddenExpensePrice" name="expensePrice">
+                  <input type="hidden" id="hiddenDiscountExpencePrice" name="discountExpencePrice">
+                  <input type="hidden" id="hiddenPayrollPrice" name="payrollPrice">
+                  <input type="hidden" id="hiddenDiscountPayrollPrice" name="discountPayrollPrice">
+                  <input type="hidden" id="hiddenCashflowPrice" name="cashflowPrice">
+                  <input type="hidden" id="hiddenDiscountCashflowPrice" name="discountCashflowPrice">
+                  <input type="hidden" id="hiddenBudgetPrice" name="budgetPrice">
+                  <input type="hidden" id="hiddenDiscountBudgetPrice" name="discountBudgetPrice">
+                  <input type="hidden" id="hiddenSetupPrice" name="setupPrice">
+                  <input type="hidden" id="hiddenIrsPrice" name="irsPrice">
+                  <input type="hidden" id="hiddenStatePrice" name="statePrice">
+                  <input type="hidden" id="hiddenHmrcPrice" name="hmrcPrice">
+                  <input type="hidden" id="hiddenCompanyPrice" name="companyPrice">
+                  <input type="hidden" id="hiddenContractualPaymentPrice" name="contractualPaymentPrice">
+                  <input type="hidden" id="hiddenVatPrice" name="vatPrice">
+                  <input type="hidden" id="hiddenFinancialAnalysisPrice" name="financialAnalysisPrice">
+                  <input type="hidden" id="hiddenProfitPrice" name="profitPrice">
+                  <input type="hidden" id="hiddenAdvisoryPrice" name="advisoryPrice">
+                  <input type="hidden" id="hiddenTotalPrice" name="totalPrice">
+                  <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
                 </div>
               </div>
             </div>
@@ -1220,7 +1243,7 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="form-group">
               <label id="OtherReasonLabel" for="OtherReasonLabel" style="display: none;"></label>
-              <textarea id="otherReason" name="SpecifyReason" class="formbold-form-textarea" rows="3" style="display: none;"></textarea>
+              <textarea id="otherReason" name="otherReason" class="formbold-form-textarea" rows="3" style="display: none;"></textarea>
             </div>
             <div class="form-group mt-5">
               <label id="highPriceLabel" for="highPriceLabel"></label>
@@ -1228,11 +1251,10 @@ if (!isset($_SESSION['visit_count'])) {
             <div class="formbold-form-btn-wrapper">
               <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
               <button type="submit" id="virtualCfo" style="display: none;" class="formbold-btn" name="Subscribe">Proceed to Virtual CFO</button>
-              <button type="button" onclick="goBack()" class="formbold-back-btn">Back
             </div>
-        </form>
-      </div>
-    </div>
+          </div>
+        </div>
+    </form>
   </main>
   <!-- <?php include 'components/footer.php' ?>
     <?php include 'components/footerBottom.php' ?>
@@ -1267,4 +1289,5 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/jquery.style.swicher.js"></script>
 <script src="assets/js/vendor/js.cookie.js"></script>
 <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
+
 </html>
