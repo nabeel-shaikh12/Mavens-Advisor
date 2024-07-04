@@ -139,7 +139,6 @@ if (!isset($_SESSION['visit_count'])) {
     <div class="rainbow-gradient-circle"></div>
     <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
-    <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
       <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
         <div class="formbold-form-wrapper variation-2 rainbow-service-area">
           <div class="formbold-steps">
@@ -148,6 +147,7 @@ if (!isset($_SESSION['visit_count'])) {
               </li>
             </ul>
           </div>
+          <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
           <div class="formbold-form-step-1 active">
             <label id="firstType" for="firstType"></label>
             <label id="typing-parent" for="businessType"></label>
@@ -195,7 +195,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryAgriculture" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryAgriculture"></label>
-                <select id="agricultureSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input subCategoryField">
+                <select id="agricultureSubCategory" class="product_select w-100 formbold-form-input subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Farming">Farming</option>
                   <option value="Gardening Supplies">Gardening Supplies</option>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryArtisanal and Handcraft" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategorArtisanal and Handcraft"></label>
-                <select id="artisnalSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input subCategoryField">
+                <select id="artisnalSubCategory"  class="product_select w-100 formbold-form-input subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Artist / Painter">Artist / Painter</option>
                   <option value="Candle Making">Candle Making</option>
@@ -219,7 +219,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryBeauty" class="form-group" style="display: none;">
                 <label id="typing-child" for="subCategoryBeauty"></label>
-                <select class="beautySubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select class="beautySubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Beautician (At Home Services)">Beautician (At Home Services)</option>
                   <option value="Beauty Salon">Beauty Salon</option>
@@ -236,7 +236,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryEducation" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryEducation"></label>
-                <select id="educationSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="educationSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Beautician (At Home Services)">Academic Consultant</option>
                   <option value="Edtech">Edtech</option>
@@ -247,7 +247,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryFactory Production Facility" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryFactory Production Facility"></label>
-                <select id="factorySubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="factorySubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Bags Manufacturer">Bags Manufacturer</option>
                   <option value="Furniture Manufacturer">Furniture Manufacturer</option>
@@ -258,7 +258,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryFood & Beverages" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryFood & Beverages"></label>
-                <select id="foodSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="foodSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Baking Business / Dessert">Baking Business / Dessert</option>
                   <option value="Catering Business">Catering Business</option>
@@ -269,7 +269,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryFreelancer" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryFreelancer"></label>
-                <select id="freelancerSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="freelancerSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Consultant">Consultant</option>
                   <option value="Customer Service">Customer Service</option>
@@ -286,7 +286,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryGifting Service" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryGifting Service"></label>
-                <select id="giftingServiceSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="giftingServiceSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Gift Delivery">Gift Delivery</option>
                   <option value="Gift Packing">Gift Packing</option>
@@ -295,7 +295,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryHealth" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryHealth"></label>
-                <select id="healthSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="healthSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Dentist">Dentist</option>
                   <option value="Dermotologist">Dermotologist</option>
@@ -311,7 +311,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryInfluencer" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryInfluencer"></label>
-                <select id="influencerSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="influencerSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Youtuber">Youtuber</option>
                   <option value="Other (Please Specify)">Other (Please Specify)</option>
@@ -319,7 +319,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryPerformers" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryPerformers"></label>
-                <select id="performersSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="performersSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Choreographer">Choreographer</option>
                   <option value="Comedian">Comedian</option>
@@ -331,7 +331,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryPets" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryPets"></label>
-                <select id="petsSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType autoType subCategoryField">
+                <select id="petsSubCategory" class="product_select w-100 formbold-form-input autoType autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Choreographer">Pets Accessories</option>
                   <option value="Comedian">Comedian</option>
@@ -342,7 +342,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryTech Services" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryTech Services"></label>
-                <select id="techSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="techSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Hardware Development">Hardware Development</option>
                   <option value="IoT Services">IoT Services</option>
@@ -352,7 +352,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryTravel & Tourism" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryTravel & Tourism"></label>
-                <select id="tourismSubCategory" name="business_subCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="tourismSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Guest House / Hotel">Guest House / Hotel</option>
                   <option value="Immigration Services">Immigration Services</option>
@@ -361,9 +361,10 @@ if (!isset($_SESSION['visit_count'])) {
                   <option value="Other please specify">Other please specify</option>
                 </select>
               </div>
+              <input type="hidden" id="hiddenInputField" name="business_subCategory" value="">
               <div id="subCategoryOther Services" class="form-group" style="display: none;">
                 <label id="businessCategories" for="subCategoryOther Services"></label>
-                <input class="subCategoryField formbold-form-input" type="text" id="business_subCategory" name="business_subCategory" placeholder="Specify Business Sub Sector" id="businessCategories" />
+                <input class="subCategoryField formbold-form-input" type="text" id="business_subCategory" placeholder="Specify Business Sub Sector" id="businessCategories" />
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -383,6 +384,7 @@ if (!isset($_SESSION['visit_count'])) {
                   </div>
                 </div>
               </div>
+              <input type="hidden" id="hiddenOtherSpecifyInput" name="other_specify">
               <div class="row">
                 <div class="col-md-6">
                 </div>
@@ -639,7 +641,7 @@ if (!isset($_SESSION['visit_count'])) {
               <div class="form-group">
                 <label id="customerSpecify" for="customerSpecify"></label>
                 <div id="input-group7" class="input-group" style="display: none;">
-                  <input type="text" name="abcd" id="specifyCustomer" placeholder="Please Specify Customer" class="formbold-form-input" />
+                  <input type="text" name="specifyCustomer" id="specifyCustomer" placeholder="Please Specify Customer" class="formbold-form-input" />
                   <div class="input-group-append">
                     <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton8">
                       <i class="fas fa-arrow-up"></i>
@@ -647,6 +649,7 @@ if (!isset($_SESSION['visit_count'])) {
                   </div>
                 </div>
               </div>
+              <input type="hidden" id="hiddenCustomerSpecify" name="specifyCustomer">
               <div class="row mt-3">
                 <div class="col-md-6">
                 </div>
@@ -665,6 +668,7 @@ if (!isset($_SESSION['visit_count'])) {
                   </div>
                 </div>
               </div>
+              <input type="hidden" id="hiddenBusinessName" name="business_name">
               <div class="row mt-3">
                 <div class="col-md-6">
                 </div>
@@ -675,7 +679,7 @@ if (!isset($_SESSION['visit_count'])) {
               <div class="form-group">
                 <label id="firstNameLabel" for="businessService"></label>
                 <div id="input-group2" class="input-group" style="display: none;">
-                  <input type="text" name="firstname" placeholder="Full name" id="firstname" class="formbold-form-input" />
+                  <input type="text" name="firstnames" placeholder="Full name" id="firstname" class="formbold-form-input" />
                   <div class="input-group-append">
                     <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton2">
                       <i class="fas fa-arrow-up"></i>
@@ -683,6 +687,7 @@ if (!isset($_SESSION['visit_count'])) {
                   </div>
                 </div>
               </div>
+              <input type="hidden" id="hiddenFirstName" name="firstnames">
               <div class="row mt-5">
                 <div class="col-md-6">
                 </div>
@@ -702,6 +707,7 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
                 <div id="emailError" style="color: red; display: none;">Please enter a valid Email.</div>
               </div>
+              <input type="hidden" id="hiddenEmail" name="email">
               <div class="row mt-5">
                 <div class="col-md-6">
                 </div>
@@ -721,6 +727,7 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
                 <div id="phoneError" style="color: red; display: none;">Please enter a valid phone number.</div>
               </div>
+              <input type="hidden" id="hiddenPhone" name="phone_no">
               <div class="row mt-5">
                 <div class="col-md-6">
                 </div>
@@ -744,7 +751,7 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
                 <div class="col-md-6">
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedService"></p>
-                  <button type="submit" id="virtualCfo2" style="justify-content:right;display: none; margin-top:12px" class="formbold-btn" name="Subscribe">Proceed to Virtual Cfo</button>
+                  <input type="submit" id="virtualCfo2" style="display:none; margin-top:12px" value="Proceed to Virtual Cfo" class=" ml-5 formbold-btn" name="Subscribe">
                 </div>
               </div>
               <div class="form-group">
@@ -764,7 +771,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div class="form-group">
                 <label id="softwareType" for="softwareType"></label>
-                <select id="accounting_software_used" name="accounting_software_used" class="product_select formbold-form-input" style="display: none;">
+                <select id="accounting_software_useds" name="accounting_software_used" class="product_select formbold-form-input" style="display: none;">
                   <option data-display="1. Choose A Question">Select an option</option>
                   <option value="QuickBooks">QuickBooks</option>
                   <option value="Xero">Xero</option>
@@ -828,7 +835,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div class="form-group">
               <label id="specifySoftware" for="specifySoftware"></label>
               <div id="input-group10" class="input-group" style="display: none;">
-                <input type="text" name="accounting_software_used" id="softwareSpecify" placeholder="Please specify Software" class="formbold-form-input">
+                <input type="text" name="softwareSpecify" id="softwareSpecify" placeholder="Please specify Software" class="formbold-form-input">
                 <div class="input-group-append">
                   <button class="btn btn-primary enter-trigger" style="background-color:#0b7ffe;border-radius:50px" type="button" id="enterButton9">
                     <i class="fas fa-arrow-up"></i>
@@ -844,7 +851,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
             </div>
             <div class="row mt-5 form-group" id="scroller">
-              <label style="margin-top: 30px;" id="calculatorLabel" for="calculatorLabel"></label>
+              <label style="margin-top: 20px;" id="calculatorLabel" for="calculatorLabel"></label>
               <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display: none;">
                 <div class="service gallery-style">
                   <br>
@@ -937,7 +944,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div id="monthlyTransactionInput" class="input-group" style="display: none;">
               <input type="number" name="numberOfTransaction" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
               <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton1" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
                 </button>
               </div>
@@ -951,7 +958,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div id="monthlyInvoicesInput" class="input-group" style="display: none;">
               <input type="number" name="numberOfInvoiceInput" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
               <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton2" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
                 </button>
               </div>
@@ -965,7 +972,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div id="payrollInput" class="input-group" style="display: none;">
               <input type="number" name="numberOfPayroll" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
               <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton3" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
                 </button>
               </div>
@@ -980,7 +987,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div id="expenseInput" class="input-group" style="display: none;">
               <input type="number" name="noOfExpense" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
               <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton4" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
                 </button>
               </div>
@@ -994,7 +1001,7 @@ if (!isset($_SESSION['visit_count'])) {
             <div id="contractualPaymentInput" class="input-group" style="display: none;">
               <input type="number" name="numberOfContractualPayment" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
               <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton" onclick="calculatePrices()">
+                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton5" onclick="calculatePrices()">
                   <i class="fas fa-arrow-up"></i>
                 </button>
               </div>
@@ -1249,13 +1256,13 @@ if (!isset($_SESSION['visit_count'])) {
               <label id="highPriceLabel" for="highPriceLabel"></label>
             </div>
             <div class="formbold-form-btn-wrapper">
-              <button type="submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">Submit</button>
-              <button type="submit" id="virtualCfo" style="display: none;" class="formbold-btn" name="Subscribe">Proceed to Virtual CFO</button>
+              <input type="submit" value="Submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">
+              <input type="submit" id="virtualCfo" value="Proceed to Virtual Cfo" style="display: none;" class="formbold-btn" name="Subscribe">
             </div>
+            </form>
           </div>
         </div>
-    </form>
-  </main>
+      </main>
   <!-- <?php include 'components/footer.php' ?>
     <?php include 'components/footerBottom.php' ?>
   </div> -->
@@ -1278,7 +1285,6 @@ if (!isset($_SESSION['visit_count'])) {
 <script src="assets/js/vendor/imageloaded.js"></script>
 <script src="form.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
 <script src="assets/js/vendor/magnify.min.js"></script>
 <script src="assets/js/vendor/lightbox.js"></script>

@@ -55,29 +55,28 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .custom-select2 .select2-container--default .select2-selection--single .select2-selection__arrow b {
-  border-color: #333 transparent transparent transparent; /* Arrow color */
+  border-color: #333 transparent transparent transparent;
 }
 
 .custom-select2 .select2-container--default .select2-selection--single .select2-selection__rendered {
   color: #333; 
-  line-height: 1.5; /* Line height */
+  line-height: 1.5;
 }
 
 .custom-select2 .select2-container--default .select2-selection--single:hover,
 .custom-select2 .select2-container--default .select2-selection--single:focus {
-  border-color: #aaa; /* Border color on hover and focus */
+  border-color: #aaa;
 }
 
-/* Dropdown menu styling */
 .custom-select2 .select2-container--default .select2-results__option {
-  padding: 10px; /* Padding for dropdown items */
-  font-size: 16px; /* Font size */
-  color: #555; /* Text color */
+  padding: 10px; 
+  font-size: 16px;
+  color: #555; 
 }
 
 .custom-select2 .select2-container--default .select2-results__option--highlighted {
-  background-color: #eee; /* Background color for highlighted item */
-  color: #333; /* Text color for highlighted item */
+  background-color: #eee;
+  color: #333; 
 }
 
 input[type=number] {
