@@ -139,15 +139,15 @@ if (!isset($_SESSION['visit_count'])) {
     <div class="rainbow-gradient-circle"></div>
     <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
-      <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
-        <div class="formbold-form-wrapper variation-2 rainbow-service-area">
-          <div class="formbold-steps">
-            <ul>
-              <li class="formbold-step-menu1 active">
-              </li>
-            </ul>
-          </div>
-          <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
+    <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
+      <div class="formbold-form-wrapper variation-2 rainbow-service-area">
+        <div class="formbold-steps">
+          <ul>
+            <li class="formbold-step-menu1 active">
+            </li>
+          </ul>
+        </div>
+        <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
           <div class="formbold-form-step-1 active">
             <label id="firstType" for="firstType"></label>
             <label id="typing-parent" for="businessType"></label>
@@ -206,7 +206,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryArtisanal and Handcraft" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategorArtisanal and Handcraft"></label>
-                <select id="artisnalSubCategory"  class="product_select w-100 formbold-form-input subCategoryField">
+                <select id="artisnalSubCategory" class="product_select w-100 formbold-form-input subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Artist / Painter">Artist / Painter</option>
                   <option value="Candle Making">Candle Making</option>
@@ -219,7 +219,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryBeauty" class="form-group" style="display: none;">
                 <label id="typing-child" for="subCategoryBeauty"></label>
-                <select class="beautySubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select class="beautySubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Beautician (At Home Services)">Beautician (At Home Services)</option>
                   <option value="Beauty Salon">Beauty Salon</option>
@@ -236,7 +236,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryEducation" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryEducation"></label>
-                <select id="educationSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="educationSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Beautician (At Home Services)">Academic Consultant</option>
                   <option value="Edtech">Edtech</option>
@@ -286,7 +286,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryGifting Service" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryGifting Service"></label>
-                <select id="giftingServiceSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="giftingServiceSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Gift Delivery">Gift Delivery</option>
                   <option value="Gift Packing">Gift Packing</option>
@@ -311,7 +311,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryInfluencer" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryInfluencer"></label>
-                <select id="influencerSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="influencerSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Youtuber">Youtuber</option>
                   <option value="Other (Please Specify)">Other (Please Specify)</option>
@@ -352,7 +352,7 @@ if (!isset($_SESSION['visit_count'])) {
               </div>
               <div id="subCategoryTravel & Tourism" class="form-group" style="display: none;">
                 <label class="typing-child" for="subCategoryTravel & Tourism"></label>
-                <select id="tourismSubCategory"  class="product_select w-100 formbold-form-input autoType subCategoryField">
+                <select id="tourismSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
                   <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
                   <option value="Guest House / Hotel">Guest House / Hotel</option>
                   <option value="Immigration Services">Immigration Services</option>
@@ -751,7 +751,14 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
                 <div class="col-md-6">
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedService"></p>
-                  <input type="submit" id="virtualCfo2" style="display:none; margin-top:12px" value="Proceed to Virtual Cfo" class=" ml-5 formbold-btn" name="Subscribe">
+                  <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                      <input type="submit" id="virtualCfo2" style="display:none; margin-top:12px" value="Proceed to Virtual Cfo" class=" ml-5 formbold-btn" name="Subscribe">
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="form-group">
@@ -1259,10 +1266,10 @@ if (!isset($_SESSION['visit_count'])) {
               <input type="submit" value="Submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">
               <input type="submit" id="virtualCfo" value="Proceed to Virtual Cfo" style="display: none;" class="formbold-btn" name="Subscribe">
             </div>
-            </form>
-          </div>
-        </div>
-      </main>
+        </form>
+      </div>
+    </div>
+  </main>
   <!-- <?php include 'components/footer.php' ?>
     <?php include 'components/footerBottom.php' ?>
   </div> -->

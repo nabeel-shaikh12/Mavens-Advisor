@@ -457,6 +457,25 @@ document.getElementById("enterButton10").addEventListener("click", function () {
   BusinessType(typingLabel, businessTypeValue);
   businessTypeInput.disabled = true;
 });
+function subCategories(label, text, select) {
+  if (!typingStarted1[label.id]) {
+    typingStarted1[label.id] = true; 
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        label.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 15);
+      } else {
+        typingStarted1[label.id] = false;
+        if (select) {
+          select.style.display = "block";
+        }
+      }
+    }
+    type();
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const label = document.getElementById("typing-parent");
@@ -624,9 +643,9 @@ const typingStarted1 = {
   subCategoryDiv: false,
 };
 
-function subCatories(label, text, select) {
+function subCategories(label, text, select) {
   if (!typingStarted1[label.id]) {
-    typingStarted1[label.id] = true; 
+    typingStarted1[label.id] = true;
     let index = 0;
     label.textContent = "";
     function type() {
@@ -848,14 +867,16 @@ function showSubCategories() {
         "Could you please describe your Sub Business Category?"
       );
     });
-  } else {
+  } 
+
+  else {
     const autoTypingDisplay = document.getElementById("autoTypingDisplay");
     const otherSpecifyLabel = document.getElementById("otherSpecifyLabel");
-    // const inputGroup8 = document.getElementById("input-group8");
     autoTypingDisplay.style.display = "none";
     inputGroup8.style.display = "none";
     otherSpecifyLabel.style.display = "none";
   }
+
   filingOptions.style.display = "block";
   if (countryDropdown.value === "United States") {
     usaFilingOptions.style.display = "block";
@@ -1734,7 +1755,7 @@ function Cfo() {
     document.getElementById("cfo"),
     "Would you like to proceed to virtual CFO?",
     "cfo",
-    Calculator
+    null
   );
 }
 
@@ -2213,9 +2234,7 @@ function updateAdvisoryPrice() {
 function updateSetupPrice() {
   const setupPriceElement = document.getElementById("setupPrice");
   const softwarePreferred = document.getElementById("softwarePreferred").value;
-  const accounting_software_useds = document.getElementById(
-    "accounting_software_useds"
-  ).value;
+  const accounting_software_useds = document.getElementById("accounting_software_useds").value;
   const whichSoftware = document.getElementById("whichSoftware").value;
 
   if (whichSoftware === "no") {
@@ -2240,16 +2259,11 @@ document.getElementById("advisoryCheckbox").addEventListener("change", updateAdv
 
 function calculateCategoryTotal(category) {
   const checkbox = document.querySelector(`[value=${category}]`);
-  const transactionCheckbox = document.getElementById(
-    "monthlyTransactionCheckbox"
-  );
+  const transactionCheckbox = document.getElementById("monthlyTransactionCheckbox");
   const invoicesCheckbox = document.getElementById("monthlyInvoicesCheckbox");
   const payrollCheckbox = document.getElementById("payrollCheckbox");
   const expenseCheckbox = document.getElementById("expenseCheckbox");
-  const contractualPaymentCheckbox = document.getElementById(
-    "contractualPaymentCheckbox"
-  );
-
+  const contractualPaymentCheckbox = document.getElementById("contractualPaymentCheckbox");
   if ((category === "cashflow" || category === "budget") && checkbox.checked) {
     return (
       (((categoryTotal.monthlyTransaction +
@@ -2309,18 +2323,11 @@ document.getElementById("calculatorForm").addEventListener("submit", function (e
 document.getElementById("getDiscountBtn").addEventListener("click", redirectToChat);
 
 function calculatePrices() {
-  categoryTotal.monthlyTransaction =
-    parseFloat(document.getElementById("monthlyTransactionInputField").value) ||
-    0;
-  categoryTotal.monthlyInvoices =
-    parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
-  categoryTotal.payroll =
-    parseFloat(document.getElementById("payrollInputField").value) || 0;
-  categoryTotal.contractualPayment =
-    parseFloat(document.getElementById("contractualPaymentInputField").value) ||
-    0;
-  categoryTotal.expense =
-    parseFloat(document.getElementById("expenseInputField").value) || 0;
+  categoryTotal.monthlyTransaction = parseFloat(document.getElementById("monthlyTransactionInputField").value) || 0;
+  categoryTotal.monthlyInvoices = parseFloat(document.getElementById("monthlyInvoicesInputField").value) || 0;
+  categoryTotal.payroll = parseFloat(document.getElementById("payrollInputField").value) || 0;
+  categoryTotal.contractualPayment = parseFloat(document.getElementById("contractualPaymentInputField").value) || 0;
+  categoryTotal.expense = parseFloat(document.getElementById("expenseInputField").value) || 0;
 
   const cashflowCheckbox = document.getElementById("cashflowCheckbox");
   const budgetCheckbox = document.getElementById("budgetCheckbox");
@@ -2362,19 +2369,10 @@ function calculatePrices() {
     ? categoryTotal.strategicAdvice
     : 0;
 
-  const transactionPrice = (
-    ((categoryTotal.monthlyTransaction * 5) / 60) *
-    15
-  ).toFixed(2);
-  const invoicePrice = (
-    ((categoryTotal.monthlyInvoices * 15) / 60) *
-    15
-  ).toFixed(2);
+  const transactionPrice = (((categoryTotal.monthlyTransaction * 5) / 60) * 15).toFixed(2);
+  const invoicePrice = (((categoryTotal.monthlyInvoices * 15) / 60) * 15).toFixed(2);
   const payrollPrice = (((categoryTotal.payroll * 15) / 60) * 15).toFixed(2);
-  const contractualPaymentPrice = (
-    ((categoryTotal.contractualPayment * 15) / 60) *
-    15
-  ).toFixed(2);
+  const contractualPaymentPrice = (((categoryTotal.contractualPayment * 15) / 60) * 15).toFixed(2);
   const expensePrice = (((categoryTotal.expense * 15) / 60) * 15).toFixed(2);
   const cashflowPrice = categoryTotal.cashflow.toFixed(2);
   const budgetPrice = categoryTotal.budget.toFixed(2);
@@ -2387,7 +2385,6 @@ function calculatePrices() {
   const vatPrice = categoryTotal.vat.toFixed(2);
   const financialAnalysisPrice = categoryTotal.financialAnalysis.toFixed(2);
   const profitPrice = categoryTotal.monthlyProfitLoss.toFixed(2);
-
   const discountTransactionPrice = (
     ((categoryTotal.monthlyTransaction * 1) / 60) *
     10
@@ -2535,62 +2532,3 @@ checkboxes.forEach((checkbox) => {
 });
 
 calculatePrices();
-// function redirectToChat() {
-//   var discountTransactionPrice = parseFloat(document.getElementById("discountTransactionPrice").innerText);
-//   var discountInvoicePrice = parseFloat(document.getElementById("discountInvoicePrice").innerText);
-//   var discountPayrollPrice = parseFloat(
-//     document.getElementById("discountPayrollPrice").innerText
-//   );
-//   var discountCashflowPrice = parseFloat(
-//     document.getElementById("discountCashflowPrice").innerText
-//   );
-//   var discountBudgetPrice = parseFloat(
-//     document.getElementById("discountBudgetPrice").innerText
-//   );
-//   var discountedPrice = parseFloat(
-//     document.getElementById("discountedPrice").innerText
-//   );
-//   var prices = "";
-//   if (discountTransactionPrice > 0) {
-//     prices += `Transaction Price: $${discountTransactionPrice.toFixed(2)},\n`;
-//   }
-//   if (discountInvoicePrice > 0) {
-//     prices += `Invoice Price: $${discountInvoicePrice.toFixed(2)},\n`;
-//   }
-//   if (discountPayrollPrice > 0) {
-//     prices += `Payroll Price: $${discountPayrollPrice.toFixed(2)},\n`;
-//   }
-//   if (discountCashflowPrice > 0) {
-//     prices += `Cashflow Price: $${discountCashflowPrice.toFixed(2)},\n`;
-//   }
-//   if (discountBudgetPrice > 0) {
-//     prices += `Budget Price: $${discountBudgetPrice.toFixed(2)},\n`;
-//   }
-//   if (parseFloat(document.getElementById("setupPrice").innerText) > 0) {
-//     prices += `Setup Price: $${parseFloat(
-//       document.getElementById("setupPrice").innerText
-//     ).toFixed(2)},\n`;
-//   }
-//   if (discountedPrice > 0) {
-//     prices += `Total Price: $${discountedPrice.toFixed(2)},\n`;
-//   }
-//   prices = prices.replace(/,\n$/, "");
-
-//   localStorage.setItem("calculatorPrices", prices);
-//   window.location.href = "chat.php";
-//   window.onload = function () {};
-// }
-// function scrollChatToBottom() {
-//   const chatContainer = document.getElementById("chat");
-//   chatContainer.scrollTop = chatContainer.scrollHeight;
-
-//   const windowHeight = window.innerHeight;
-//   const chatContainerHeight = chatContainer.clientHeight;
-
-//   if (chatContainerHeight > windowHeight) {
-//     window.scrollTo({
-//       top: document.body.scrollHeight,
-//       behavior: "smooth",
-//     });
-//   }
-// }
