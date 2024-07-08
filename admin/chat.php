@@ -130,6 +130,7 @@ if (isset($_POST['logout'])) {
 
 		.style-1.active {
 			background-color: #F3F0EC;
+			padding: 40px;
 		}
 	</style>
 </head>
@@ -140,8 +141,8 @@ if (isset($_POST['logout'])) {
 		<?php include 'components/header.php' ?>
 		<?php include 'components/sidebar.php' ?>
 		<div class="content-body">
-			<div class="container flex-1 justify-content-center align-items-center">
-				<div class="row gx-0">
+		<div class="container-fluid">
+		<div class="row gx-0">
 					<div class="col-xl-12">
 						<div class="card overflow-hidden">
 							<div class="card-body p-0">
@@ -163,7 +164,7 @@ if (isset($_POST['logout'])) {
 							$sql = "SELECT * FROM messages WHERE email_address != 'admin@gmail.com' GROUP BY email_address ORDER BY timestamp Desc";
 							$result = $conn->query($sql);
 							?>
-							<div class="row gx-0">
+							<div class="row gx-0 w-100">
 								<div class="col-xl-4 col-lg-4 col-sm-4 col-md-4 chat-border mobile-chat ">
 									<div class="people-list dz-scroll">
 										<?php

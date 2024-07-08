@@ -56,43 +56,49 @@ if (isset($_POST['logout'])) {
                                     <tr>
                                         <th>ID</th>
                                         <th>Business Description</th>
-                                        <th>Business Size</th>
-                                        <th>Business Category</th>
                                         <th>Business Sub Category</th>
-                                        <th>Business Name</th>
+                                        <th>Other Specify</th>
+                                        <th>Business Size</th>
+                                        <th>Company Operate Country</th>
+                                        <th>Company Revenue</th>
                                         <th>Currency</th>
                                         <th>Founded Year</th>
+                                        <th>Business Name</th>
                                         <th>Customer Type</th>
                                         <th>First Name</th>
-                                        <th>Last Name</th>
                                         <th>Email</th>
                                         <th>Phone Number</th>
-                                        <th>Updated Date</th>
+                                        <th>Service Selected</th>
+                                        <th>Accounting Software Used</th>
+                                        <th>Preferred Software</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     include '../db/dbCon.php';
-                                    $fetch_subscription_sql = "SELECT * FROM subscription_form ORDER BY created_at";
+                                    $fetch_subscription_sql = "SELECT * FROM subscription_form";
                                     $fetch_subscription_result = $conn->query($fetch_subscription_sql);
                                     if ($fetch_subscription_result->num_rows > 0) {
                                         while ($subscription_data = $fetch_subscription_result->fetch_assoc()) {
                                             echo '<tr>';
                                             echo '<td>' . $subscription_data["id"] . '</td>';
                                             echo '<td>' . $subscription_data["business_description"] . '</td>';
-                                            echo '<td>' . $subscription_data["business_size"] . '</td>';
-                                            echo '<td>' . $subscription_data["business_category"] . '</td>';
                                             echo '<td>' . $subscription_data["business_subCategory"] . '</td>';
-                                            echo '<td>' . $subscription_data["business_name"] . '</td>';
+                                            echo '<td>' . $subscription_data["other_specify"] . '</td>';
+                                            echo '<td>' . $subscription_data["business_size"] . '</td>';
+                                            echo '<td>' . $subscription_data["company_operate_country"] . '</td>';
+                                            echo '<td>' . $subscription_data["company_revenue"] . '</td>';
                                             echo '<td>' . $subscription_data["currency"] . '</td>';
-                                            echo '<td>' . $subscription_data["foundedYear"] . '</td>';
+                                            echo '<td>' . $subscription_data["yearDropdown"] . '</td>';
+                                            echo '<td>' . $subscription_data["business_name"] . '</td>';
                                             echo '<td>' . $subscription_data["customer_type"] . '</td>';
-                                            echo '<td>' . $subscription_data["firstname"] . '</td>';
-                                            echo '<td>' . $subscription_data["lastname"] . '</td>';
+                                            echo '<td>' . $subscription_data["firstnames"] . '</td>';
                                             echo '<td>' . $subscription_data["email"] . '</td>';
                                             echo '<td>' . $subscription_data["phone_no"] . '</td>';
-                                            echo '<td>' . $subscription_data["created_at"] . '</td>';
+                                            echo '<td>' . $subscription_data["whichService"] . '</td>';
+                                            echo '<td>' . $subscription_data["accounting_software_used"] . '</td>';
+                                            echo '<td>' . $subscription_data["softwarePreferred"] . '</td>';
                                             echo '<td>';
                                             echo '<a class="btn btn-danger" href="form_delete.php?id=' . $subscription_data["id"] . '">Delete</a>';
                                             echo '</td>';

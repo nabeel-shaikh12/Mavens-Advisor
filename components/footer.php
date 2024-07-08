@@ -1,12 +1,12 @@
-<footer class="rainbow-footer footer-style-default variation-two" style="height:300px;">
-            <div class="rainbow-callto-action clltoaction-style-default style-7" >
+<footer class="rainbow-footer footer-style-default variation-two" style="height:300px;align-items:center">
+            <div class="rainbow-callto-action clltoaction-style-default style-7">
                 <div class="container">
                     <div class="row row--0 align-items-center content-wrapper">
                         <div class="col-lg-8 col-md-8">
                             <div class="inner">
                                 <div class="content text-left">
                                     <div class="logo">
-                                        <a href="index.html">
+                                        <a href="index.php">
                                         <img class="logo-light" src="img/Just-Another-Logo white.png" alt="Corporate Logo">
                                     <img class="logo-dark" src="img/Just-Another-Logo (2).png" alt="Corporate Logo">
                                         </a>
@@ -29,7 +29,7 @@
                                     <i class="feather-twitter"></i>
                                     </a>
                                 </li>
-                                <li><a href="https://www.instagram.com/">
+                                <li><a href="https://www.instagram.com/mavensadvisor?igsh=aHBkemJlNnB2bHZ2">
                                     <i class="feather-instagram"></i>
                                     </a>
                                 </li> 

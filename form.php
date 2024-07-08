@@ -8,7 +8,6 @@ if (!isset($_SESSION['visit_count'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +19,6 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>
   <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css'>
-
-
-
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
-
   <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/plugins/animation.css">
   <link rel="stylesheet" href="assets/css/plugins/feature.css">
@@ -38,10 +31,6 @@ if (!isset($_SESSION['visit_count'])) {
   <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-
-
-  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
   <link rel="stylesheet" href="assets/css/form.css">
   <style>
@@ -756,7 +745,7 @@ if (!isset($_SESSION['visit_count'])) {
 
                     </div>
                     <div class="col-md-6">
-                      <input type="submit" id="virtualCfo2" style="display:none; margin-top:12px" value="Proceed to Virtual Cfo" class=" ml-5 formbold-btn" name="Subscribe">
+                      <input type="submit" id="virtualCfo2" style="display:none; margin-top:12px" value="Proceed to Customer Support" class=" ml-5 formbold-btn" name="Subscribe">
                     </div>
                   </div>
                 </div>
@@ -1121,11 +1110,12 @@ if (!isset($_SESSION['visit_count'])) {
                     <hr>
                   </div>
                 </div>
-                <div class="row">
+                <div id="setUp" class="row" style="display: none;">
                   <p><b>One-time setup fee</b></p>
                   <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
+                  <br>
+                  <hr>
                 </div>
-                <hr>
               </div>
               <div class="row price-section" id="irsFilingPriceSection">
                 <p><b>IRS Fee</b></p>

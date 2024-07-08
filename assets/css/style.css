@@ -266,10 +266,11 @@ form {
   margin: 0;
 }
 .div_img{
-  background-image: url('../../img/financial-analysis.jpg') !important;
-  background-attachment:fixed !important;
+  background-image: url('../../img/professionals-edit.jpg')  !important;
+  background-attachment: fixed !important;
   height: 800px !important;
   width: 100% !important;
+  background-size: contain;
   background-repeat: no-repeat;
 }
 fieldset {

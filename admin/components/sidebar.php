@@ -1,13 +1,7 @@
 <style>
-	.nav-text {
-		color: black !important;
-	}
 
-	.menu-icon {
-		color: black !important;
-	}
 </style>
-<div class="deznav" style="background:white">
+<div class="deznav">
 	<div class="deznav-scroll">
 		<ul class="metismenu" id="menu">
 			<li class="menu-title">Operations</li>

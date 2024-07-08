@@ -44,7 +44,7 @@
                         <div class="inner text-left ">
                             <h1 class="display-two">We are Innovating a <span style="color:#0b7ffe">Digital Financial</span> World!</h1>
                             <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
-                                strategic guidance and operational support on a <br> flexible basis? If so, you’ve come to the right place.</p>
+                                strategic guidance and operational support on a <br> flexible basis? If so, you've come to the right place.</p>
                             <div class="button-group">
 
                             </div>
@@ -58,48 +58,43 @@
                 </div>
             </div>
         </div>
-        <div class="service-area">
+        </div>
+        <div class="about-area about-style-4 ">
             <div class="container">
-                <div class="row">
+                <div class="row row--40 align-items-center">
                     <div class="col-lg-6">
-                        <div class="content">
-                            <h3 class="title">We are creative digital agency working for our company brands.</h3>
+                        <div class="video-btn">
+                            <div class="video-popup icon-center">
+                                <div class="overlay-content">
+                                    <div class="thumbnail"><img class="radius-small" src="img/Revenue-bro.png" alt="Corporate Image"></div>
+                                    <div class="video-icon">
+                                        <a class="" href="https://www.youtube.com/watch?v=tj9-MGHCs38">
+                                            <span><i class="feather-play"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-lightbox-wrapper"></div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
-                        <p class="mb--10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, quis. Ullam
-                            accusantium dignissimos repellendus nemo fugiat numquam, nisi odio adipisci. Veniam neque
-                            itaque expedita officiis rem ipsa! Ratione, rem reiciendis?</p>
+                    <div class="col-lg-6 mt_md--40 mt_sm--40">
+                        <div class="content">
+                            <div class="inner">
+                                <h3 class="title">Uncompromising Quality Through <strong>Strategic Efficiency</strong>
+                                </h3>
+				<p>We've developed a pricing strategy that balances affordability with top-quality service.
+				 By efficiently managing client projects, our highly qualified CFOs lead dedicated teams, allowing
+			 us to reduce the per-hour rate without compromising service quality. Tasks are strategically delegated, 
+				enabling our CFOs to focus on thorough reviews and ensuring exemplary service.</p>                               
+                                <div class="about-btn mt--30"><a class="btn-default" href="./service">Our Services</a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="rainbow-brand-area pb--60 pt--30">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 mt--10">
-                        <ul class="brand-list brand-style-2">
-                            <li><a href="#"><img src="assets/images/brand/brand-01.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-02.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-03.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-04.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-05.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-06.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-07.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-08.png" alt="Brand Image"></a></li>
-                            <li><a href="#"><img src="assets/images/brand/brand-01.png" alt="Brand Image"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="rbt-separator-mid">
-            <div class="container">
-                <hr class="rbt-separator m-0">
-            </div>
-        </div>
-        </div>
-        <div class="rainbow-advance-tab-area rainbow-section-gap">
+
+        <div class="rainbow-advance-tab-area">
             <div class="container">
                 <div class="html-tabs" data-tabs="true">
                     <div class="row row--30">
@@ -159,63 +154,6 @@
                 </div>
             </div>
         </div>
-        </div>
-        <div class="rbt-separator-mid">
-            <div class="container">
-                <hr class="rbt-separator m-0">
-            </div>
-        </div>
-        <div class="about-area about-style-4 rainbow-section-gap">
-            <div class="container">
-                <div class="row row--40 align-items-center">
-                    <div class="col-lg-6">
-                        <div class="video-btn">
-                            <div class="video-popup icon-center">
-                                <div class="overlay-content">
-                                    <div class="thumbnail"><img class="radius-small" src="img/Revenue-bro.png" alt="Corporate Image"></div>
-                                    <div class="video-icon">
-                                        <a class="" href="https://www.youtube.com/watch?v=tj9-MGHCs38">
-                                            <span><i class="feather-play"></i></span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="video-lightbox-wrapper"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 mt_md--40 mt_sm--40">
-                        <div class="content">
-                            <div class="inner">
-                                <h3 class="title">Mavens advisors specializes in <br> small <strong>Fintech Business.</strong>
-                                </h3>
-                                <ul class="feature-list">
-                                    <li>
-                                        <div class="icon">
-                                            <i class="feather-check"></i>
-                                        </div>
-                                        <div class="title-wrapper">
-                                            <h4 class="title">A good traveler has no fixed plans</h4>
-                                            <p class="text">Lorem ipsum dolor consectetur adipiscing do eiusmod tempor
-                                                incididunt labore.</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="feather-check"></i>
-                                        </div>
-                                        <div class="title-wrapper">
-                                            <h4 class="title">A good traveler has no fixed plans</h4>
-                                            <p class="text">Lorem ipsum dolor consectetur adipiscing do eiusmod tempor
-                                                incididunt labore.</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="about-btn mt--30"><a class="btn-default" href="./service">Our Services</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="rainbow-counterup-area pb--100">
             <div class="container">
@@ -277,7 +215,7 @@
                     In addition to his entrepreneurial endeavors, Adeel holds strategic positions, including Vice President at Nash Technologies, where he leverages his Gen Z perspective and technology-driven mindset to drive impactful business strategies.<br><br>
                     A seasoned Gen Z business consultant, Adeel excels in managing a diverse portfolio of local and international clients. <span id="showMoreAdeel" class="highlight">Show more</span>
                     <span id="moreContentAdeel" style="display:none;">His expertise spans a wide array of services, including bookkeeping, offshore audit services, virtual CFO services, FinTech consultancy, blockchain modeling, and e-commerce solutions.<br><br>
-                        Adeel’s academic background is equally impressive, having graduated from both Oxford Brookes and Karachi University with a BSc in Accounting and Finance. As an associate of the Association of Chartered Certified Accountants, he brings a wealth of financial knowledge and strategic insights to his ventures.<br><br>
+                        Adeel's academic background is equally impressive, having graduated from both Oxford Brookes and Karachi University with a BSc in Accounting and Finance. As an associate of the Association of Chartered Certified Accountants, he brings a wealth of financial knowledge and strategic insights to his ventures.<br><br>
                         With over seven years of experience serving clients across the UK, Canada, and the USA, Adeel is a trusted advisor and QuickBooks Online Certified ProAdvisor and Xero Certified ProAdvisor. His relentless pursuit of excellence and dedication to driving innovation make him a standout figure in the ever-evolving landscape of business and technology.</span></p>
                 <a href="#"><i class="feather-linkedin"></i></a>
             </div>
@@ -291,13 +229,13 @@
             <div class="col-md-6">
                 <h2>Nabeel Shaikh</h2>
                 <h5>Co-Founder</h5>
-                <p style="font-size: 15px;">Meet Nabeil Schaik, a seasoned chartered accountant with a whopping 18 years of experience under his belt. Throughout his dynamic career journey, he’s donned multiple hats, from being a Founder and Co-Founder in startup ventures to currently steering the ship as the Co-Founder and Chief Strategic Officer at Mavens Advisors (Mavensadvisor.com). At Mavens Advisors, Nabeil leads the charge, ensuring the company sails smoothly and efficiently, especially in the realm of business process outsourcing.<br><br>
-                    But that's not all. Nabeil is also deeply involved with Ed-Watch, another venture where he plays a pivotal role in forming key partnerships and expanding the company’s reach globally. His fingerprints are all over the product development process, where his knack for innovation shines. Ed-Watch focuses on elevating the skills and knowledge of finance professionals through its learning and development platform.<br><br>
+                <p style="font-size: 15px;">Meet Nabeil Schaik, a seasoned chartered accountant with a whopping 18 years of experience under his belt. Throughout his dynamic career journey, he's donned multiple hats, from being a Founder and Co-Founder in startup ventures to currently steering the ship as the Co-Founder and Chief Strategic Officer at Mavens Advisors (Mavensadvisor.com). At Mavens Advisors, Nabeil leads the charge, ensuring the company sails smoothly and efficiently, especially in the realm of business process outsourcing.<br><br>
+                    But that's not all. Nabeil is also deeply involved with Ed-Watch, another venture where he plays a pivotal role in forming key partnerships and expanding the company's reach globally. His fingerprints are all over the product development process, where his knack for innovation shines. Ed-Watch focuses on elevating the skills and knowledge of finance professionals through its learning and development platform.<br><br>
                     Nabeil's journey to expertise began with his Chartered Accountancy qualification from the esteemed Institute of Chartered Accountants of Pakistan (ICAP) in 2013, followed by an MSc in Accounting and Finance from the University of Northampton in 2021, a testament to his commitment to mastering his craft. <span id="showMoreNabeel" class="highlight">Show more</span><br>
                     <span id="moreContentNabeel" style="display:none;">
                     Before diving into entrepreneurship, Nabeil honed his skills in renowned organizations like Riyadh Capital, SNB Capital, PwC, KPMG, and LG, where he handled various finance leadership roles with finesse, spanning different industries.
                     Presently, Nabeil wears many hats. Besides his role as a Financial Advisor at a leading GCC-based Unicorn in Saudi Arabia, he also wears the hat of a Corporate Trainer and Public Speaker, generously sharing his wealth of knowledge with corporate audiences.<br><br>
-                    In 2023, Nabeil embarked on yet another entrepreneurial endeavor, founding Nashfact (nashfact.com). Nashfact serves as an online hub delivering authentic insights from the business world, covering everything from emerging trends to startup narratives and educational content. But Nabeil's influence extends beyond entrepreneurship; he’s also a Social Media Influencer, leveraging his expertise to connect with a wide audience. Additionally, he holds strategic positions as a board member at Manozi Limited (UK) and Nash Technologies, where his insights drive organizational growth.</span></p>
+                    In 2023, Nabeil embarked on yet another entrepreneurial endeavor, founding Nashfact (nashfact.com). Nashfact serves as an online hub delivering authentic insights from the business world, covering everything from emerging trends to startup narratives and educational content. But Nabeil's influence extends beyond entrepreneurship; he's also a Social Media Influencer, leveraging his expertise to connect with a wide audience. Additionally, he holds strategic positions as a board member at Manozi Limited (UK) and Nash Technologies, where his insights drive organizational growth.</span></p>
                 <a href="#"><i class="feather-linkedin"></i></a>
             </div>
             <div class="col-md-6">

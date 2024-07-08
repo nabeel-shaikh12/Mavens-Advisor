@@ -5,13 +5,12 @@ require '../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Validate email format
+session_start();
 function validateEmail($email)
 {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
-// Sanitize inputs to prevent XSS
 function sanitizeInput($input)
 {
     return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
@@ -84,7 +83,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $values[] = $value;
                 $columns[] = $field;
                 $bind_types .= $type;
-                $message .= ucfirst(str_replace('_', ' ', $field)) . ": " . ($value ?? 'N/A') . "\n";
+                if ($value !== '0.00' &&  $value !== '0' && $value !== 'Select an option') {
+                    $message .= ucfirst(str_replace('_', ' ', $field)) . ": " . ($value ?? 'N/A') . "\n";
+                }
             }
         }
     }
@@ -92,6 +93,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     if (!validateEmail($email)) {
         echo json_encode(["success" => false, "message" => "Invalid email address."]);
+        exit();
+    }
+    $check_email_sql = "SELECT * FROM user WHERE email_address = ?";
+    $check_email_stmt = $conn->prepare($check_email_sql);
+    if (!$check_email_stmt) {
+        die('Error preparing check email statement: ' . $conn->error);
+    }
+    $check_email_stmt->bind_param('s', $email);
+    $check_email_stmt->execute();
+    $result = $check_email_stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $check_email_stmt->close();
+        $conn->close();
+        header('Location: ../customer/index.php');
         exit();
     }
 
@@ -115,17 +131,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $firstnames = $_POST['firstnames'] ?? '';
             $token = bin2hex(random_bytes(16));
             $token_expiry = date('Y-m-d H:i:s', strtotime('+1 hour'));
+            $random_password = bin2hex(random_bytes(8));
+            $hashed_password = password_hash($random_password, PASSWORD_DEFAULT);
 
-            $user_sql = "INSERT INTO user (email_address, user_name, token, token_expiry) VALUES (?, ?, ?, ?)";
+            $user_sql = "INSERT INTO user (email_address, user_name, password, token, token_expiry) VALUES (?, ?, ?, ?, ?)";
             $user_stmt = $conn->prepare($user_sql);
 
             if (!$user_stmt) {
                 die('Error preparing user statement: ' . $conn->error);
             }
 
-            $user_stmt->bind_param('ssss', $email, $firstnames, $token, $token_expiry);
+            $user_stmt->bind_param('sssss', $email, $firstnames, $hashed_password, $token, $token_expiry);
 
             if ($user_stmt->execute()) {
+                $_SESSION['user_id'] = $conn->insert_id;
+                $_SESSION['email_address'] = $email;
+                $_SESSION['user_name'] = $firstnames;
                 $reset_link = "http://localhost/mavens%20advisor/reset_password.php?token=" . $token;
                 $subject = "Password Reset";
                 $email_message = "Click the link to reset your password: " . $reset_link;
@@ -136,11 +157,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->isSMTP();
                     $mail->Host       = 'smtp.gmail.com';
                     $mail->SMTPAuth   = true;
-                    $mail->Username   = 'qaziabdurrahman12@gmail.com';
-                    $mail->Password   = 'gzlg vgjt uadi avoq';
+                    $mail->Username   = 'qaziabdurrahman12@gmail.com'; 
+                    $mail->Password   = 'gzlg vgjt uadi avoq'; 
                     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $mail->Port       = 587;
-
                     $mail->setFrom('no-reply@mavensadvisor.com', 'Mavens Advisor');
                     $mail->addAddress($email);     
                     $mail->isHTML(true);
@@ -191,12 +211,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $msg_response = ["success" => false, "message" => "Error: " . $msg_stmt->error];
         }
 
-        echo json_encode($msg_response);
         $msg_stmt->close();
     }
 
     $conn->close();
-    header('Location: ../index.php');
+    header('Location: ../customer/index.php');
     exit();
 }
 ?>

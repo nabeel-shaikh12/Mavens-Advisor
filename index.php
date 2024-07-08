@@ -7,7 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1"> 
-    <title>Home || Finance</title>
+    <title>Home - Mavens Advisor</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/MA Logo circle.png">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/animation.css">
@@ -34,9 +34,9 @@ session_start();
                 <div class="row" style="display:flex;justify-content:center;align-items:center">
                     <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40">
                         <div class="inner text-left">
-                                <h1 class="display-two mob-1">Attracting Top-tier CFO Talent for <span style="color:#0b7ffe">Explosive</span> Business Growth!</h1>
-                            <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
-                            strategic guidance and operational support on a <br> flexible basis? If so, you’ve come to the right place.</p>
+                                <h1 class="display-two mob-1"> Empower Growth with <span style="color:#0b7ffe">Mavens Advisor's</span><br>Virtual CFO Services!</h1>
+                            <p class="description text-md" style="font-size:19px">
+Elevate your business to new heights with Mavens Advisor's Virtual CFO <br>services. Our seasoned financial experts provide remote guidance and <br>support, leveraging AI for transformative financial management.<br> Access top-tier expertise without the expense of a full-time CFO.<br> Let us enhance your financial management and drive growth together.</p>
                             <div class="button-group">
                                 <a class="btn btn-outline-primary p-4" style="font-size:16px;border-radius:15px;font-weight:bold;border-width:2px" href="./form">GET SUBSCRIPTION NOW
                                      <i class="icon feather-arrow-right"></i></a>
@@ -51,88 +51,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="rainbow-timeline-area rainbow-section-gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                            <h4 class="subtitle "><span class="theme-gradient">Timeline</span></h4>
-                            <h2 class="title w-600 mb--20">Working Process.</h2>
-                            <p class="description b1">We help our clients succeed by creating brand identities, <br>
-                                digital experiences, and print materials.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1 mt--50">
-                        <div class="timeline-style-two bg-color-blackest">
-                            <div class="row row--0">
-                                <div class="col-lg-3 col-md-3 rainbow-timeline-single">
-                                    <div class="rainbow-timeline">
-                                        <h6 class="title">Knowledge</h6>
-                                        <div class="progress-line">
-                                            <div class="line-inner"></div>
-                                        </div>
-                                        <div class="progress-dot">
-                                            <div class="dot-level">
-                                                <div class="dot-inner"></div>
-                                            </div>
-                                        </div>
-                                        <p class="description">Present all available features in Essentials.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 rainbow-timeline-single">
-                                    <div class="rainbow-timeline">
-                                        <h6 class="title">Working</h6>
-                                        <div class="progress-line">
-                                            <div class="line-inner"></div>
-                                        </div>
-                                        <div class="progress-dot">
-                                            <div class="dot-level">
-                                                <div class="dot-inner"></div>
-                                            </div>
-                                        </div>
-                                        <p class="description">All Feature available features in Essentials.</p>
-
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 rainbow-timeline-single">
-                                    <div class="rainbow-timeline">
-
-                                        <h6 class="title">Solution</h6>
-                                        <div class="progress-line">
-                                            <div class="line-inner"></div>
-                                        </div>
-                                        <div class="progress-dot">
-                                            <div class="dot-level">
-                                                <div class="dot-inner"></div>
-                                            </div>
-                                        </div>
-                                        <p class="description">Popular Feature available features in Essentials.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-3 rainbow-timeline-single">
-                                    <div class="rainbow-timeline">
-                                        <h6 class="title">Process</h6>
-                                        <div class="progress-line">
-                                            <div class="line-inner"></div>
-                                        </div>
-                                        <div class="progress-dot">
-                                            <div class="dot-level">
-                                                <div class="dot-inner"></div>
-                                            </div>
-                                        </div>
-                                        <p class="description">Latest Feature available features in Essentials.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     
-        <div class="rainbow-service-area slider-area rainbow-section-gap ">
+       <div class="rainbow-service-area slider-area rainbow-section-gap ">
             <div class="container">
             <div class="row  d-flex flex-column flex-md-row">
                     <div class="col-lg-10">
@@ -149,14 +68,14 @@ session_start();
                         <div class="service service__style--2 text-center">
                             <div class="inner">
                                 <div class="image">
-                                    <img src="img/art-1.png" alt="card Images" class="rounder-lg">
+                                    <a href="./form"><img src="img/art-1.png" alt="card Images" class="rounder-lg"></a>
                                 </div>
                                 <div class="content">
                                     <h4 class="title">
-                                        <a href="#">Cloud Bookkeeping</a>
+                                        <a href="./form">Cloud Bookkeeping</a>
                                     </h4>
                                     <p class="description b1 color-gray mb--0">
-                                    Streamline business success with cloud-based bookkeeping, offering insights, efficiency, and accessibility.</p>
+                                   Keep your financial records accurate and up-to-date with our comprehensive monthly bookkeeping service. We meticulously track all financial transactions, ensuring that your books reflect an accurate and timely record of your business's financial health..</p>
                                 </div>
                             </div>
                         </div>
@@ -165,138 +84,149 @@ session_start();
                         <div class="service service__style--2 text-center">
                             <div class="inner">
                                 <div class="image">
-                                    <img src="img/illustrator_art.png" alt="card Images">
+                                    <a href="./form"><img src="img/invoicing.png" alt="card Images"></a>
                                 </div>
                                 <div class="content">
                                     <h4 class="title">
-                                        <a href="#">Accounting Service</a>
+                                        <a href="./form">Monthly Invoicing Service</a>
                                     </h4>
                                     <p class="description b1 color-gray mb--0">
-                                        Experienced team, cost-effective services, advanced tools, tailored solutions for efficient <br> accounting.</p>
-                                </div>
+                                       Streamline your billing process with our monthly invoicing service. We handle the creation and distribution of your invoices, ensuring timely billing and efficient payment collection, which improves your cash flow and financial stability.                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="200">
-                        <div class="service service__style--2 text-center">
+                        <a href="calculator.php"><div class="service service__style--2 text-center">
                             <div class="inner">
                                 <div class="image">
-                                    <img src="img/men-art.png" alt="card Images">
+                                    <a href="./form"><img src="img/tax-filing.png" alt="card Images"></a>
                                 </div>
                                 <div class="content">
                                     <h4 class="title">
-                                        <a href="#">Tax Services</a>
+                                        <a href="./form">Tax Filing</a>
                                     </h4>
-                                    <p class="description b1 color-gray mb--0">Mavens Advisor offers competitive, specialized tax accounting for streamlined compliance and reporting.</p>
+                                    <p class="description b1 color-gray mb--0">Simplify your tax obligations with our expert tax filing service. We manage the preparation and submission of your tax returns, ensuring accuracy and compliance with all applicable laws and regulations to minimize your tax liabilities.</p>
                                 </div>
-                            </div>
+                            </div></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="rbt-separator-mid">
-            <div class="container">
-                <hr class="rbt-separator m-0">
-            </div>
-        </div>
-        <div class="about-area about-style-4 rainbow-section-gap">
-            <div class="container">
-                <div class="row row--40 align-items-center">
 
-                    <div class="col-lg-6 col-md-6 col-sm-12 mt_md--40 mt_sm--40">
-                        <div class="content">
-                            <div class="inner">
-                                <div class="section-title">
-                                    <h4 class="subtitle">
-                                        <span class="theme-gradient">Security, Simplicity, Easiness</span>
-                                    </h4>
-                                    <h1 class="title display-two unique"><span class="theme-graient"><b>Unique Business</b></span> <br>
-                                <span class="header-caption">
-                                    <span class="cd-headline clip is-full-width auto_typing">
-                                        <span class="cd-words-wrapper">
-                                            <b class="is-visible theme-gradient">Finance.</b>
-                                            <b class="is-hidden theme-gradient">Consulting.</b>
-                                            <b class="is-hidden theme-gradient">Fintech.</b>
-                                        </span>
-                                </span>
-                                </span>
-                            </h1>
-                                </div>
-                                <div class="about-inner">
-                                    <p>It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
-                                        that it has a more-or-less normal distribution of letters, as opposed to using
-                                        'Content here,</p>
-                                </div>
-                                <div class="about-btn mt--30"><a class="btn-default" href="./about">About Mavens Advisors</a></div>
-                            </div>
+              <div class="rainbow-advance-tab-area rainbow-section-gap">
+            <div class="container">
+                <!-- Start Section Title  -->
+                <div class="row mb--40">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center sal-animate">
+                            <h4 class="subtitle "><span class="theme-gradient ">Case Study</span></h4>
+                            <h2 class="title w-600">Steps to subscribe to a plan.</h2>
+                            <p class="description b1">There are many variations of passages of Lorem Ipsum available,
+                                <br> but the majority have suffered alteration.
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="about-app-thumbnail">
-                            <div class="about-app-activation rainbow-slick-dot rainbow-slick-arrow">
-                                <div class="thumbnail">
-                                    <img class="radius-small" src="img/phone-01.png" alt="Corporate Image">
-                                </div>
-                                <div class="thumbnail">
-                                    <img class="radius-small" src="img/phone-02.png" alt="Corporate Image">
-                                </div>
-                                <div class="thumbnail">
-                                    <img class="radius-small" src="img/phone-03 (2).png" alt="Corporate Image">
+                <!-- End Section Title  -->
+                <!-- Start tab  -->
+                <div class="advance-tab-four bg-color-blackest theme-shape" data-tabs="true">
+                    <div class="row row--30 gy-5">
+                        <!-- Start tab Button  -->
+                        <div class="col-lg-5 col-md-12 col-sm-12 col-12 mt_md--30 mt_sm--30 d-flex flex-column justify-content-center order-2 order-lg-1">
+                            <div class="advance-tab-top">
+                                <h5 class="subtitle"><span class="theme-gradient">Step 01</span></h5>
+                                <h3 class="title"> Fill out the form!</h3>
+                                <p class="description">Send, receive, and transform raw data or tokens with any
+                                    endpoint on the internet using our Reactor and Proxy services.</p>
+                            </div>
+                            <div class="advance-tab-bottom">
+                                <div class="advance-tab-button advance-tab-button-1">
                                 </div>
                             </div>
+                        </div>
+                        <!-- End tab Button  -->
+
+                        <!-- Start tab Content  -->
+                        <div class="col-lg-7 col-md-12 col-sm-12 col-12 order-1 order-lg-2">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show advance-tab-content-1 bg-primary-gradient radius active" id="case" role="tabpanel" aria-labelledby="case-tab">
+                                    <div class="thumbnail">
+                                        <img class="radius" src="./img/Forms-rafiki.png" alt="advance-tab-image">
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade advance-tab-content-1 bg-primary-gradient radius" id="casetabtwo" role="tabpanel" aria-labelledby="casetabtwo-tab">
+                                    <div class="thumbnail">
+                                        <img class="radius" src="assets/images/advance-tab/tab-5.png" alt="advance-tab-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End tab Content  -->
+                    </div>
+                </div>
+                <!-- End tab  -->
+
+                <div class="row row--20">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 sal-animate" data-sal="slide-up" data-sal-duration="700">
+                        <div class="service service__style--1 bg-color-blackest radius mt--40 text-left overflow-hidden">
+                            <div class="content">
+                                <h6 class="subtitle"><span class="theme-gradient">Step 02</span></h6>
+                                <h4 class="title w-600">
+                                    <a href="#">Calculate Bookeeping Services</a>
+                                </h4>
+                                <p class="description b1 color-gray mb--0">There are many variations variations
+                                    of passages of Lorem Ipsum available, but the majority have suffered.</p>
+                            </div>
+                            <center>
+                            <div class="service-thumbnail-offset bg-primary-gradient mt--40">
+                                <img src="./img/bookkeeping-step.png" alt="image">
+                            </div>
+			   </center>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12 sal-animate" data-sal="slide-up" data-sal-duration="700">
+                        <div class="service service__style--1 bg-color-blackest radius mt--40 text-left overflow-hidden">
+                            <div class="content">
+                                <h6 class="subtitle"><span class="theme-gradient">Step 03</span></h6>
+                                <h4 class="title w-600">
+                                    <a href="#">Lock the price and let's chat</a>
+                                </h4>
+                                <p class="description b1 color-gray mb--0">There are many variations of passages of
+                                    Lorem Ipsum available, but the majority have suffered.</p>
+                            </div>
+			  <center>
+                            <div class="service-thumbnail-offset bg-primary-gradient mt--40">
+                                <img src="./img/chat-interface.png" alt="image">
+                            </div>
+			</center>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="slider-area rainbow-section-gap" >
-            <div class="container">
-                <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="thumbnail">
-                            <img src="img/banner-shape-image-05.png" alt="image-slider">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-12">
-                        <div class="inner Collaborate-inner text-left">
-                        <h1 class="title display-two unique"><span class="theme-graient"><b>Unique Business</b></span> <br>
-                                <span class="header-caption">
-                                    <span class="cd-headline clip is-full-width auto_typing">
-                                        <span class="cd-words-wrapper">
-                                            <b class="is-visible theme-gradient">Finance.</b>
-                                            <b class="is-hidden theme-gradient">Fintech.</b>
-                                            <b class="is-hidden theme-gradient">Consulting.</b>
-                                        </span>
-                                </span>
-                                </span>
-                            </h1>                          
-                            <p class="description">Through clinical laboratory tests, healthcare providers can diagnose specific diseases or conditions, monitor patient health, and make decisions for patient care. </p>
-                        </div>
-                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="rainbow-split-area" style="margin-top:150px">
+           <div class="rainbow-split-area" style="margin-top:150px">
             <div class="wrapper">
                 <div class="rainbow-splite-style bg-color-blackest" >
                     <div class="split-wrapper">
                         <div class="row g-0 radius-10 align-items-center">
-                            <div class="col-lg-12 col-xl-6 col-12">
+                             <div class="col-lg-12 col-xl-6 col-12">
                                 <div class="thumbnail div_img">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-6 col-12">
                                 <div class="split-inner">
-                                    <h1 class="title heading_2">Continue Your <span style="color:#0b7ffe">Business</span> With Us.</h1>
-                                    <p class="description">Randomised words which don't look even slightly
-                                        believable. If you are to use a passage of Lorem Ipsum. You need to be sure
-                                        there isn't anything embarrassing hidden in the middle of text. in some
-                                        form, by injectedeed bedhumour, or randomised even .</p>
-                                    <div class="row">
+                                    <h1 class="title heading_2"><span style="color:#0b7ffe">Unique</span> Selling Proposition</h1>
+                                   <p class="description">What sets our VCFO services apart is our integration of advanced AI technology. 
+					Our AI-driven services leverage algorithms and machine learning to provide unparalleled insights 
+					into your financial landscape. By analyzing vast datasets and financial patterns, AI enables:</p>
+<ul class="feature-list">
+  <li style="font-size:16px">Enhanced Financial Understanding: AI helps clients understand their current financial needs and forecast future requirements with precision.</li>
+  <li style="font-size:16px">Personalized Recommendations: Clients receive tailored advice and insights, empowering them to make informed decisions.</li>
+  <li style="font-size:16px">Strategic Guidance: Navigate complex financial scenarios with confidence and optimize resource allocation.</li>
+  <li style="font-size:16px">Streamlined Processes: AI automates routine tasks, improving efficiency and reducing the risk of human error.</li>
+</ul>                                    <div class="row">
                                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">     
                                             <div class="count-box counter-style-4 text-start">
                                                 <div>

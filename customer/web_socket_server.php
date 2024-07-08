@@ -12,11 +12,14 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onOpen(ConnectionInterface $conn) {
+        // Store the new connection
         $this->clients->attach($conn);
+        echo "New connection! ({$conn->resourceId})\n";
     }
 
     public function onMessage(ConnectionInterface $from, $msg) {
         foreach ($this->clients as $client) {
+            // Send the message to all clients except the sender
             if ($from !== $client) {
                 $client->send($msg);
             }
@@ -24,17 +27,24 @@ class Chat implements MessageComponentInterface {
     }
 
     public function onClose(ConnectionInterface $conn) {
+        // Detach the connection
         $this->clients->detach($conn);
+        echo "Connection {$conn->resourceId} has disconnected\n";
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e) {
+        echo "An error has occurred: {$e->getMessage()}\n";
         $conn->close();
     }
 }
 
-$server = \Ratchet\Server\IoServer::factory(
-    new \Ratchet\Http\HttpServer(
-        new \Ratchet\WebSocket\WsServer(
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
+
+$server = IoServer::factory(
+    new HttpServer(
+        new WsServer(
             new Chat()
         )
     ),

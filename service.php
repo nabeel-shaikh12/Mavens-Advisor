@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1"> <!-- 0 == light, 1 == dark -->
-
-    <title>Service || Finance</title>
-    <!-- Favicon -->
+    <title>Services - Mavens Advisor</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/MA Logo circle.png">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/animation.css">
@@ -33,9 +31,10 @@
             <div class="row" style="display:flex;justify-content:center;align-items:center">
               <div class="col-lg-7 order-2 order-lg-1 mt_md--40 mt_sm--40 ">
                 <div class="inner text-left ">
-                  <h1 class="display-two">Having more than <span style="color:#0b7ffe">25 Years</span> of Experience!</h1>
-                    <p class="description text-md" style="font-size:19px">Do you immediately need an SME (Subject Matter Expert) like CFO, CSO, <br>or COO who can provide
-                      strategic guidance and operational support on a <br> flexible basis? If so, you’ve come to the right place.</p>
+                  <h1 class="display-two">Tailored <span style="color:#0b7ffe">Financial Solutions</span> For Your Success!</h1>
+                    <p class="description text-md" style="font-size:19px">Unlock the full potential of your business with our comprehensive financial solutions. 
+			From strategic planning to meticulous execution, we're dedicated to helping you thrive in today's dynamic market. Let us be your trusted 
+			partner on the path to success.</p>
                       <div class="button-group">
                         <!-- <a class="btn btn-outline-primary display-two p-4 border-lg " style="font-size:16px" href="index-marketing-agency.html">GET SUBSCRIPTION NOW
                         <i class="icon feather-arrow-right"></i></a> -->
@@ -44,12 +43,13 @@
                 </div>
                 <div class="col-lg-5 order-1 order-lg-2">
                   <div class="thumbnail">
-                    <img src="img/bg-2.png" height="400px"   alt="Banner Images">
+                       <div class="thumbnail"><img class="radius-small" src="img/Revenue-bro.png" alt="Corporate Image"></div>
                    </div>
                   </div>
                 </div>
                </div>
               </div>
+            <!-- Start Service-7 Area  -->
             <div class="rainbow-service-area mb-5">
                 <div class="container">
                     <div class="row">
@@ -59,40 +59,40 @@
                                     <span class="theme-gradient">What we can do for you</span>
                                 </h4>
                                 <h2 class="title w-600 mb--20">Have A Look At The Services We Offer.</h2>
-                                <p class="description b1">There are many variations of passages of Lorem Ipsum
-                                    available,
-                                    <br>but the majority have suffered alteration.
+                                <p class="description b1">Discover the array of specialized solutions we provide <br> to help you achieve your financial goals effectively and efficiently.
+
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="row row--15 service-wrapper">
-                     <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                       <a href="calculator.php"><div class="service gallery-style text-left">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
+                            <div class="service gallery-style text-left">
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="calculator.php">Cloud Bookkeeping</a>
+                                            <a href="./form">Cloud Bookkeeping</a>
                                         </h4>
-                                        <p class="description"> Streamline business success with cloud-based bookkeeping, offering insights, efficiency, and accessibility.</p>
+                                        <p class="description"> Keep your financial records accurate and up-to-date with our comprehensive monthly bookkeeping service. We meticulously track all financial transactions, ensuring that your books reflect an accurate and timely record of your business's financial health. </p>
                                     </div>
                                     <div class="image">
-                                        <a href="calculator.php"><img src="img/art-1.png" alt="card Images"></a>
+                                        <a href="./form"><img src="img/art-1.png" alt="card Images"></a>
                                     </div>
                                 </div>
-                            </div></a>
+                            </div>
                         </div>
+
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
                             <div class="service gallery-style text-left">
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Accounting Service</a>
+                                            <a href="./form">Monthly Invoicing</a>
                                         </h4>
-                                        <p class="description">Experienced team, cost-effective services, advanced tools, tailored solutions for efficient accounting.</p>
+                                        <p class="description"> Streamline your billing process with our monthly invoicing service. We handle the creation and distribution of your invoices, ensuring timely billing and efficient payment collection, which improves your cash flow and financial stability.</p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/illustrator_art.png" alt="card Images">
+                                        <a href="./form"><img src="img/invoicing.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
@@ -103,12 +103,12 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Tax Servcice</a>
+                                            <a href="./form">Monthly Billing</a>
                                         </h4>
-                                        <p class="description">Mavens Advisor offers competitive, specialized tax accounting for streamlined compliance and reporting</p>
+                                        <p class="description">Simplify your recurring billing cycles with our monthly billing service. We manage the entire billing process for you, from generating statements to tracking payments, so you can focus on growing your business without worrying about payment processing complexities. </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/men-art.png" alt="card Images">
+                                        <a href="./form"><img src="img/men-art.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
@@ -121,12 +121,12 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Virtual CFO Service</a>
+                                            <a href="./form">Monthly Payroll</a>
                                         </h4>
-                                        <p class="description">Affordable Virtual CFO guides SMEs for sustainable growth with expert practices.</p>
+                                        <p class="description"> Ensure your employees are paid accurately and on time with our monthly payroll service. We handle all aspects of payroll management, including wage calculations, deductions, and tax withholdings, ensuring compliance with all relevant laws and regulations. </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/art_3.png" alt="card Images">
+                                        <a href="./form"><img src="img/payroll.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
@@ -136,12 +136,12 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Audit Service</a>
+                                            <a href="./form">Monthly Contractor Payments</a>
                                         </h4>
-                                        <p class="description">Audit Support aids auditors with tasks like data cleansing, and statistical sampling.</p>
+                                        <p class="description">Manage your contractor payments effortlessly with our specialized service. We take care of the timely and accurate payment of your contractors, helping you maintain smooth operations and positive working relationships. </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/art_4.png" alt="card Images">
+                                        <a href="./form"><img src="img/payment.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
@@ -151,14 +151,14 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Valuation Service</a>
+                                            <a href="./form">Document Keeping</a>
                                         </h4>
                                         <p class="description">
-                                            Versatile valuation: business, assets, stock, securities, and derivatives.
+                                            Maintain organized and secure financial records with our document keeping service. We systematically store and manage all essential documents, ensuring easy access and retrieval whenever needed for audits, reviews, or financial planning. 
                                         </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/art_5.png" alt="card Images">
+                                        <a href="./form"><img src="img/record.png" alt="card Images"></a>
                                     </div>
                                   </div>
                             </div>
@@ -172,12 +172,12 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Operations Partner</a>
+                                            <a href="./form">Monthly Profit and Loss Reporting</a>
                                         </h4>
-                                        <p class="description">Professionals adept in best practices enable affordable access, ensuring SME growth.</p>
+                                        <p class="description">Gain insights into your business's financial performance with our monthly profit and loss reporting. We provide detailed reports that highlight your revenues, expenses, and profits, helping you make informed decisions for strategic growth. </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/operation-partner.png" alt="card Images">
+                                        <a href="./form"><img src="img/profit-loss.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
@@ -187,21 +187,77 @@
                                 <div class="inner">
                                     <div class="content">
                                         <h4 class="title">
-                                            <a href="#">Compilance partner</a>
+                                            <a href="./form">Monthly Cashflow Forecast</a>
                                         </h4>
-                                        <p class="description">Legal experts ensure corporate compliance with domestic and international regulations.</p>
+                                        <p class="description">Plan for the future with confidence using our monthly cashflow forecast service. We provide accurate predictions of your cash inflows and outflows, allowing you to navigate financial challenges and capitalize on opportunities. </p>
                                     </div>
                                     <div class="image">
-                                        <img src="img/compilance-partner.png" alt="card Images">
+                                        <a href="./form"><img src="img/forcast.png" alt="card Images"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                            <div class="service gallery-style text-left">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Monthly Financial Analysis</a>
+                                        </h4>
+                                        <p class="description"> Make data-driven decisions with our monthly financial analysis service. We analyze your financial data to provide actionable insights, identifying trends and areas for improvement to enhance your overall financial performance. </p>
+                                    </div>
+                                    <div class="image">
+                                        <a href="./form"><img src="img/analysis.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                      
+
+                     
                 </div>
             </div>
+              <div class="row">  
+                    <div class="row row--15 service-wrapper">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
+                            <div class="service gallery-style text-left">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Tax Filing</a>
+                                        </h4>
+                                        <p class="description">Simplify your tax obligations with our expert tax filing service. We manage the preparation and submission of your tax returns, ensuring accuracy and compliance with all applicable laws and regulations to minimize your tax liabilities. </p>
+                                    </div>
+                                    <div class="image">
+                                        <a href="./form"><img src="img/tax-filing.png" alt="card Images"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                            <div class="service gallery-style text-left">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Strategic Advice</a>
+                                        </h4>
+                                        <p class="description"> Achieve your business goals with our tailored strategic advice. Our experienced consultants work closely with you to develop long-term financial strategies that drive growth, improve profitability, and ensure sustainable success. </p>
+                                    </div>
+                                    <div class="image">
+                                        <a href="./form"><img src="img/advice.png" alt="card Images"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+
+                     
+                </div>
+            </div>
+
             </div>
             </div>
+</div>
         <?php include 'components/footer.php'?>
        <?php include 'components/footerBottom.php'?>
     </main>

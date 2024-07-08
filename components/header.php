@@ -17,7 +17,7 @@
                                   <li class="has-droupdown has-menu-child-item"><a href="./service">Our Services</a>
                                     </li>
                                     <li><a href="./contact">Contact Us</a></li>
-                                    <li><a href="./faq">Faq</a></li>
+                                    <li><a href="./faq">FAQ</a></li>
                                 </ul>
                             </nav>
                         </div>

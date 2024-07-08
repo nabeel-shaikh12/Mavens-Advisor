@@ -480,7 +480,7 @@ function subCategories(label, text, select) {
 document.addEventListener("DOMContentLoaded", function () {
   const label = document.getElementById("typing-parent");
   const select = document.getElementById("businessType");
-  const text = "Could you please describe your Business?";
+  const text = "Could you please describe your Business Industry?";
   let index = 0;
 
   function type() {
@@ -738,7 +738,6 @@ function subCatories(label, text, select) {
     type();
   }
 }
-
 const elementsToWatch = [
   "startupContainer",
   "currency",
@@ -969,8 +968,6 @@ function showSubCategories() {
     spcifySoftwares.style.display = "none";
     inputGroup11.style.display = "none";
     specSoftware.style.display = "none";
-    // calculatorLabel.style.display = "none";
-    // calculatorList.style.display = "none";
     accounting_software_useds.style.display = "none";
     softwarePrefer.style.animation = "slideInLeft 1.5s ease";
 
@@ -1039,7 +1036,6 @@ function showSubCategories() {
     );
   } else {
     softwareType.style.display = "none";
-    // accounting_software_used.style.display = "none";
     selectedSoftwares.style.display = "none";
   }
 
@@ -1078,8 +1074,6 @@ function showSubCategories() {
       }
     );
   } else {
-    // calculatorLabel.style.display = "none"; // Hide calculatorLabel
-    // calculatorList.style.display = "none"; // Hide calculatorList
   }
 
   if (specifyReason.value === "High Price") {
@@ -1683,7 +1677,7 @@ function CurrencyTyping() {
   typeText(
     document.getElementById("business-typing"),
     document.getElementById("currency"),
-    "Could you please provide your currency where your company operated?",
+    "In which currency Business Operates?",
     "currencyTyping",
     serviceWant
   );
@@ -1703,7 +1697,7 @@ function Country() {
   typeText(
     document.getElementById("country"),
     document.getElementById("company_operate_country"),
-    "Which country company does the operates?",
+    "In which country company operates?",
     "country",
     Revenue
   );
@@ -1713,7 +1707,7 @@ function Revenue() {
   typeText(
     document.getElementById("revenueSize"),
     document.getElementById("company_revenue"),
-    "Company Revenue",
+    "Company's Annual Revenue",
     "revenueSize",
     yearsDetails
   );
@@ -1885,7 +1879,7 @@ function HighPrice() {
   typeText(
     document.getElementById("highPriceLabel"),
     null,
-    "Thank you for considering our products. We understand that you’ve selected a higher price option. Rest assured, our pricing is highly competitive within the market. We strive to offer the best value for your investment, ensuring top-quality products and services that you won't find anywhere else. If you have any questions or need further assistance, please don't hesitate to reach out.",
+    "Thank you for considering our Services. We understand that you’ve selected a higher price option. Rest assured, our pricing is highly competitive within the market. We strive to offer the best value for your investment, ensuring top-quality products and services that you won't find anywhere else. If you have any questions or need further assistance, please don't hesitate to reach out.",
     "highprice",
     function () {
       const submit = document.getElementById("submit");
@@ -2255,12 +2249,16 @@ function updateSetupPrice() {
   const softwarePreferred = document.getElementById("softwarePreferred").value;
   const accounting_software_useds = document.getElementById("accounting_software_useds").value;
   const whichSoftware = document.getElementById("whichSoftware").value;
+  const setUp = document.getElementById("setUp");
 
   if (whichSoftware === "no") {
     if (accounting_software_useds !== "Excel" && softwarePreferred !== "Excel") {
+      setUp.style.display = "block";
       setupPriceElement.textContent = "300";
+
     } else {
       setupPriceElement.textContent = "0";
+      setUp.style.display = "none";
     }
   } else {
     setupPriceElement.textContent = "0";
@@ -2549,5 +2547,4 @@ checkboxes.forEach((checkbox) => {
     showInputBox(checkbox.value);
   });
 });
-
 calculatePrices();

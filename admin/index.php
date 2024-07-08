@@ -1,15 +1,15 @@
 <?php
 session_start();
 if (!isset($_SESSION['email'])) {
-    header('Location: login.php');
-    exit();
-} 
+	header('Location: login.php');
+	exit();
+}
 if (isset($_POST['logout'])) {
-    $_SESSION = array();
-    session_destroy();
-    header("Location: login.php");
-    exit; 
-    }
+	$_SESSION = array();
+	session_destroy();
+	header("Location: login.php");
+	exit;
+}
 
 include '../db/dbCon.php';
 
@@ -60,7 +60,6 @@ if ($result4 && $result4->num_rows > 0) {
 } else {
 	$totalChatsOpen = 0;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -185,89 +184,6 @@ if ($result4 && $result4->num_rows > 0) {
 						</div>
 					</div>
 
-					<!-- <div class="col-xl-4 col-lg-5">
-						<div class="card">
-							<div class="card-header border-0">
-								<h4 class="heading mb-0">Social Networking</h4>
-							</div>
-							<div class="card-body py-0">
-								<div id="redial"></div>
-								<div class="text-center">
-									<h5 class="mb-0">Total sales made week</h5>
-									<h4>$86</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-								</div>
-								<div class="row">
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Target</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-up me-1 text-success"></i>$15k</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Last week</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-down me-1 text-danger"></i>$55k</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Last Year</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-up me-1 text-success"></i>$65k</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-8 col-lg-7">
-						<div class="card overflow-hidden">
-							<div class="card-header border-0 pb-0 flex-wrap">
-								<h4 class="heading mb-0">Projects Overview</h4>
-								<ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>
-								  </li>
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>
-								  </li>
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>
-								  </li>
-								   <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>
-								  </li>
-								</ul>
-							</div>
-							<div class="card-body custome-tooltip p-0">
-									<div id="overiewChart"></div>
-								<div class="ttl-project ds-chart">
-									<div class="pr-data">
-										<h5>12,721</h5>
-										<span>Number of Projects</span>
-									</div>
-									<div class="pr-data">
-										<h5 class="text-primary">721</h5>
-										<span>Active Projects</span>
-									</div>
-									<div class="pr-data">
-										<h5>$2,50,523</h5>
-										<span>Revenue</span>
-									</div>
-									<div class="pr-data">
-										<h5 class="text-success">12,275h</h5>
-										<span>Working Hours</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 					<div class="col-xl-6">
 						<div class="card">
 							<div class="card-body p-0">
@@ -337,14 +253,21 @@ if ($result4 && $result4->num_rows > 0) {
 												<tr>
 													<th>ID</th>
 													<th>Business Description</th>
+													<th>Business Sub Category</th>
+													<th>Other Specify</th>
 													<th>Business Size</th>
-													<th>Business Category</th>
+													<th>Company Operate Country</th>
+													<th>Company Revenue</th>
+													<th>Currency</th>
+													<th>Founded Year</th>
 													<th>Business Name</th>
+													<th>Customer Type</th>
 													<th>First Name</th>
-													<th>Last Name</th>
 													<th>Email</th>
 													<th>Phone Number</th>
-													<th>Updated Date</th>
+													<th>Service Selected</th>
+													<th>Accounting Software Used</th>
+													<th>Preferred Software</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -357,14 +280,21 @@ if ($result4 && $result4->num_rows > 0) {
 														echo '<tr>';
 														echo '<td>' . $subscription_data["id"] . '</td>';
 														echo '<td>' . $subscription_data["business_description"] . '</td>';
+														echo '<td>' . $subscription_data["business_subCategory"] . '</td>';
+														echo '<td>' . $subscription_data["other_specify"] . '</td>';
 														echo '<td>' . $subscription_data["business_size"] . '</td>';
-														echo '<td>' . $subscription_data["business_category"] . '</td>';
+														echo '<td>' . $subscription_data["company_operate_country"] . '</td>';
+														echo '<td>' . $subscription_data["company_revenue"] . '</td>';
+														echo '<td>' . $subscription_data["currency"] . '</td>';
+														echo '<td>' . $subscription_data["yearDropdown"] . '</td>';
 														echo '<td>' . $subscription_data["business_name"] . '</td>';
-														echo '<td>' . $subscription_data["firstname"] . '</td>';
-														echo '<td>' . $subscription_data["lastname"] . '</td>';
+														echo '<td>' . $subscription_data["customer_type"] . '</td>';
+														echo '<td>' . $subscription_data["firstnames"] . '</td>';
 														echo '<td>' . $subscription_data["email"] . '</td>';
 														echo '<td>' . $subscription_data["phone_no"] . '</td>';
-														echo '<td>' . $subscription_data["updated_date"] . '</td>';
+														echo '<td>' . $subscription_data["whichService"] . '</td>';
+														echo '<td>' . $subscription_data["accounting_software_used"] . '</td>';
+														echo '<td>' . $subscription_data["softwarePreferred"] . '</td>';
 														echo '</tr>';
 													}
 												} else {
