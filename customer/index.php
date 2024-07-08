@@ -205,20 +205,8 @@ $user_email = $_SESSION['email_address'];
 								exit();
 							}
 							$user_email = $_SESSION['email_address'];
-							$sql = "SELECT 
-							id, 
-							admin_email, 
-							email_address, 
-							message, 
-							timestamp
-							FROM 
-							  messages 
-							WHERE 
-								email_address = '$user_email' 
-							ORDER BY 
-								timestamp DESC 
-							LIMIT 1;
-							";
+							$sql = "SELECT id, admin_email, email_address, message, timestamp FROM messages 
+							WHERE email_address = '$user_email' ORDER BY timestamp DESC LIMIT 1;";
 							$result = $conn->query($sql);
 							if ($conn->connect_error) {
 								die("Connection failed: " . $conn->connect_error);
@@ -234,9 +222,8 @@ $user_email = $_SESSION['email_address'];
 												echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
 												echo '<div class="d-flex" onclick="toggleMessageSend()">';
 												echo '<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0">';
-												echo '<i class="fas fa-user"></i>'; // Font Awesome icon for the dummy image
+												echo '<i class="fas fa-user"></i>';
 												echo '</div>';
-
 												echo '<div class="ms-2">';
 												echo '<h6 class="mb-0">info@mavensadvisor.com</h6>';
 												echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
@@ -308,17 +295,6 @@ $user_email = $_SESSION['email_address'];
 									}
 								}
 							</script>
-							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-							<script src="./vendor/global/global.min.js"></script>
-							<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
-							<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-							<script src="./vendor/apexchart/apexchart.js"></script>
-							<script src="./js/custom.js"></script>
-							<script src="./js/deznav-init.js"></script>
-							<script src="./js/demo.js"></script>
-							<script src="./js/styleSwitcher.js"></script>
-
-							</script>
 							<script>
 								var intervalId;
 								var previousMessages = '';
@@ -334,12 +310,9 @@ $user_email = $_SESSION['email_address'];
 												var currentMessages = xhr.responseText;
 												if (currentMessages !== previousMessages) {
 													chatDetailContent.innerHTML = currentMessages;
-
-													// Calculate scroll height difference
 													var scrollHeightDifference = chatDetailContent.scrollHeight - previousScrollHeight;
 
 													if (scrollHeightDifference > 0) {
-														// Adjust scroll position to maintain view
 														chatDetailContent.scrollTop += scrollHeightDifference;
 													}
 
@@ -355,8 +328,6 @@ $user_email = $_SESSION['email_address'];
 									xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
 									xhr.send();
 								}
-
-
 								function setupSendMessageListener(emailAddress) {
 									var sendMessageForm = document.getElementById("messageForm");
 									sendMessageForm.onsubmit = function(e) {
@@ -379,8 +350,6 @@ $user_email = $_SESSION['email_address'];
 													fetchChatDetail(emailAddress);
 													document.getElementById("message").value = '';
 													document.getElementById("file").value = '';
-
-													// Restore scroll position after sending message
 													chatDetailContent.scrollTop = scrollPos;
 												} else {
 													console.error("Error sending message. Status code: " + xhr.status);
@@ -396,5 +365,13 @@ $user_email = $_SESSION['email_address'];
 									}, 1000);
 								}
 							</script>
-
-</html>
+							<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+							<script src="./vendor/global/global.min.js"></script>
+							<script src="./vendor/chart.js/Chart.bundle.min.js"></script>
+							<script src="./vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+							<script src="./vendor/apexchart/apexchart.js"></script>
+							<script src="./js/custom.js"></script>
+							<script src="./js/deznav-init.js"></script>
+							<script src="./js/demo.js"></script>
+							<script src="./js/styleSwitcher.js"></script>
+						</html>

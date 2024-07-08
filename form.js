@@ -719,6 +719,25 @@ document.addEventListener("DOMContentLoaded", function() {
     updateHiddenInputs();
   });
 });
+function subCatories(label, text, select) {
+  if (!typingStarted1[label.id]) {
+    typingStarted1[label.id] = true;
+    let index = 0;
+    label.textContent = "";
+
+    function type() {
+      if (index < text.length) {
+        label.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 15);
+      } else {
+        select.style.display = "block";
+      }
+    }
+
+    type();
+  }
+}
 
 const elementsToWatch = [
   "startupContainer",
