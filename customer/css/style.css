@@ -13343,6 +13343,26 @@ h6,
   position: relative;
 }
 
+[data-sidebarbg="color_2"][data-theme-version="light"], [data-sidebarbg="color_2"] {
+  --sidebar-bg: #ffffff !important;
+}
+[data-sidebarbg="color_2"][data-theme-version="dark"], [data-sidebarbg="color_2"] {
+  --sidebar-bg: #182236 !important;
+}
+
+[data-sidebarbg="color_2"][data-theme-version="dark"] .deznav .metismenu a, [data-sidebarbg="color_2"] .deznav .metismenu a {
+  color: #ffff !important;
+}
+[data-sidebarbg="color_2"][data-theme-version="light"] .deznav .metismenu a, [data-sidebarbg="color_2"] .deznav .metismenu a {
+  color: #000 !important;
+}
+[data-nav-headerbg="color_2"][data-theme-version="light"], [data-nav-headerbg="color_2"] {
+  --nav-headbg: #ffffff;
+}
+[data-nav-headerbg="color_2"][data-theme-version="dark"], [data-nav-headerbg="color_2"] {
+  --nav-headbg: #182236 ;
+}
+
 .scale1 {
   transform: scale(1.1);
   -moz-transform: scale(1.1);

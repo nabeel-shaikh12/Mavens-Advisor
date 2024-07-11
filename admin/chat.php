@@ -129,8 +129,10 @@ if (isset($_POST['logout'])) {
 		}
 
 		.style-1.active {
-			background-color: #F3F0EC;
-			padding: 40px;
+			background-color: #019dff;
+			color: white;
+			padding: 20px;
+			border-radius: 20px;
 		}
 	</style>
 </head>
@@ -141,8 +143,8 @@ if (isset($_POST['logout'])) {
 		<?php include 'components/header.php' ?>
 		<?php include 'components/sidebar.php' ?>
 		<div class="content-body">
-		<div class="container-fluid">
-		<div class="row gx-0">
+			<div class="container-fluid">
+				<div class="row gx-0">
 					<div class="col-xl-12">
 						<div class="card overflow-hidden">
 							<div class="card-body p-0">
@@ -165,31 +167,41 @@ if (isset($_POST['logout'])) {
 							$result = $conn->query($sql);
 							?>
 							<div class="row gx-0 w-100">
-								<div class="col-xl-4 col-lg-4 col-sm-4 col-md-4 chat-border mobile-chat ">
+								<div class="col-xl-4 col-lg-4 col-sm-4 col-md-4 chat-border mobile-chat">
 									<div class="people-list dz-scroll">
 										<?php
 										if ($result->num_rows > 0) {
 											while ($row = $result->fetch_assoc()) {
-												echo '<hr>';
-												echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')">';
-												echo '<div class="d-flex" onclick="toggleMessageSend()">';
-												echo '<a href="#" class="delete-btn" data-email="' . $row['email_address'] . '"><i class="delete-btn fas fa-trash-alt mt-2" style="color:red"></i></a>';
-												echo '<div class="ms-2">';
-												echo '<h6 class="mb-0">' . $row['email_address'] . '</h6>';
-												echo '<span class="unread-indicator"></span>';
-												echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
-												echo '</div>';
-												echo '</div>';
-												echo '<span>' . $row['timestamp'] . '</span>';
-												echo '</div>';
-												echo '<hr>';
+										?>
+												<hr>
+												<div class="chat-p style-1" data-email="<?php echo $row['email_address']; ?>" onclick="fetchChatDetail('<?php echo $row['email_address']; ?>')">
+													<div class="d-flex" onclick="toggleMessageSend()">
+														<!-- <a href="#" class="delete-btn" data-email="<?php echo $row['email_address']; ?>">
+															<i class="delete-btn fas fa-trash-alt mt-2" style="color:red"></i>
+														</a> -->
+														<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0; width: 50px; height: 50px;">
+															<span style="font-size: 20px;"><?php echo substr($row['email_address'], 0, 1); ?></span>
+														</div>
+														<div class="ms-2">
+															<span style="font-size:16px" class="mb-0"><?php echo $row['email_address']; ?></span>
+															<span class="unread-indicator"></span>
+															<span style="font-size:14px"><strong>New Message:</strong> <?php echo $row['message']; ?><br></span>
+														</div>
+													</div>
+													<span><?php echo $row['timestamp']; ?></span>
+												</div>
+												<hr>
+										<?php
 											}
 										} else {
-											echo "No chats Available";
+											echo "<p>No chats Available</p>";
 										}
 										$conn->close();
 										?>
 									</div>
+
+
+
 
 									<?php
 									function getRandomAvatar()
@@ -337,4 +349,5 @@ if (isset($_POST['logout'])) {
 								}
 							</script>
 </body>
+
 </html>

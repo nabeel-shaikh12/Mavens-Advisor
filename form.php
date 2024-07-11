@@ -8,6 +8,7 @@ if (!isset($_SESSION['visit_count'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -848,7 +849,7 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="row mt-5 form-group" id="scroller">
               <label style="margin-top: 20px;" id="calculatorLabel" for="calculatorLabel"></label>
-              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display: none;">
+              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" >
                 <div class="service gallery-style">
                   <br>
                   <label>
@@ -932,330 +933,414 @@ if (!isset($_SESSION['visit_count'])) {
                 </div>
               </div>
             </div>
-            <label id="transactionLabel" for="monthlyTransactionInput"></label>
-            <!-- <div id="monthlyTransactionInput" class="form-group mt-3" style="display:none;">
-            <input type="number" class="form-control formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues(); calculatePrices();" min="0">
-            <br>
-          </div> -->
-            <div id="monthlyTransactionInput" class="input-group" style="display: none;">
-              <input type="number" name="numberOfTransaction" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
-              <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton1" onclick="calculatePrices()">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-              </div>
+          </div>
+          <label id="transactionLabel" for="monthlyTransactionInput"></label>
+          <div id="monthlyTransactionInput" class="input-group" style="display: none;">
+            <input type="number" name="numberOfTransaction" class="formbold-form-input" id="monthlyTransactionInputField" placeholder="Number of Transactions" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton1" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
             </div>
-            <br>
-            <label id="invoiceLabel" for="monthlyInvoicesInput"></label>
-            <!-- <div id="monthlyInvoicesInput" class="form-group mt-3" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues(); calculatePrices();" min="0">
-            <br>
-          </div> -->
-            <div id="monthlyInvoicesInput" class="input-group" style="display: none;">
-              <input type="number" name="numberOfInvoiceInput" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
-              <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton2" onclick="calculatePrices()">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-              </div>
+          </div>
+          <br>
+          <br>
+          <label id="invoiceLabel" for="monthlyInvoicesInput"></label>
+          <div id="monthlyInvoicesInput" class="input-group" style="display: none;">
+            <input type="number" name="numberOfInvoiceInput" class="formbold-form-input" id="monthlyInvoicesInputField" placeholder="Number of Invoices" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton2" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
             </div>
-            <br>
-            <label id="payrollLabel" for="payrollInput"></label>
-            <!-- <div id="payrollInput" class="form-group" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="payrollInputField" placeholder="Number of Payrolls" oninput="saveValues(); calculatePrices();" min="0">
-            <br>
-          </div> -->
-            <div id="payrollInput" class="input-group" style="display: none;">
-              <input type="number" name="numberOfPayroll" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
-              <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton3" onclick="calculatePrices()">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-              </div>
+          </div>
+          <br>
+          <label id="payrollLabel" for="payrollInput"></label>
+          <div id="payrollInput" class="input-group" style="display: none;">
+            <input type="number" name="numberOfPayroll" class="formbold-form-input" id="payrollInputField" placeholder="Number of Payroll" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton3" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
             </div>
-            <br>
-            <label id="billingLabel" for="expenseInput"></label>
-            <!-- <div id="expenseInput" class="form-group" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="expenseInputField" placeholder="Number of Expense" oninput="saveValues(); calculatePrices();" min="0">
-            <br>
-          </div> -->
-            <br>
-            <div id="expenseInput" class="input-group" style="display: none;">
-              <input type="number" name="noOfExpense" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
-              <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton4" onclick="calculatePrices()">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-              </div>
+          </div>
+          <br>
+          <label id="billingLabel" for="expenseInput"></label>
+          <div id="expenseInput" class="input-group" style="display: none;">
+            <input type="number" name="noOfExpense" class="formbold-form-input" id="expenseInputField" placeholder="Number of Billings" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton4" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
             </div>
-            <br>
-            <label id="paymentLabel" for="contractualPaymentInput"></label>
-            <!-- <div id="contractualPaymentInput" style="display: none;">
-            <input type="number" class="form-control formbold-form-input" id="contractualInputField" placeholder="Number of Contractual Payment" oninput="saveValues(); calculatePrices();" min="0">
-            <br>
-          </div> -->
-            <div id="contractualPaymentInput" class="input-group" style="display: none;">
-              <input type="number" name="numberOfContractualPayment" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
-              <div class="input-group-append">
-                <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton5" onclick="calculatePrices()">
-                  <i class="fas fa-arrow-up"></i>
-                </button>
-              </div>
+          </div>
+          <br>
+          <label id="paymentLabel" for="contractualPaymentInput"></label>
+          <div id="contractualPaymentInput" class="input-group" style="display: none;">
+            <input type="number" name="numberOfContractualPayment" class="formbold-form-input" id="contractualPaymentInputField" placeholder="Number of Contractual Payments" oninput="saveValues()" min="0">
+            <div class="input-group-append">
+              <button class="btn btn-primary" style="background-color:#0b7ffe;border-radius:50px" type="button" id="calculateButton5" onclick="calculatePrices()">
+                <i class="fas fa-arrow-up"></i>
+              </button>
             </div>
-            <br>
-            <br>
-            <div id="quotationDetails" class="col-sm-12 col-lg-12 col-md-12 col-xl-12 service" style="display: none;">
-              <div class="service gallery-style w-100 ">
-                <h5 class="card-title"><b>Billing Breakup:</b></h5>
-                <br>
-                <div class="row mob-row price-section" id="monthlyTransactionPriceSection">
-                  <p><b>Monthly Bank Reconcilation Fee</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p style="font-family:Arial, Helvetica, sans-serif;"><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountTransactionPrice" name="discountTransactionPrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row mob-row price-section" id="monthlyInvoicesPriceSection">
-                  <p><b>Monthly Invoicing Fee</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row mob-row price-section" id="expensePriceSection">
-                  <p><b>Billing Fees</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p><b><span id="expensePrice" name="expensePrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountExpencePrice" name="discountExpencePrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row price-section" id="payrollPriceSection">
-                  <p><b>Monthly Payroll Fee</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountPayrollPrice" name="discountPayrollPrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row price-section" id="cashflowPriceSection">
-                  <p><b>Monthly Cashflow Fee</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div class="row price-section" id="budgetPriceSection">
-                  <p><b>Monthly Budgeting Fee</b></p>
-                  <div class="row">
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Regular Price</p>
-                      <s>
-                        <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
-                      </s>
-                    </div>
-                    <div class="col-md-6">
-                      <p style="font-size:12px">Discounted Price</p>
-                      <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
-                      <br>
-                    </div>
-                    <hr>
-                  </div>
-                </div>
-                <div id="setUp" class="row" style="display: none;">
-                  <p><b>One-time setup fee</b></p>
-                  <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
-                  <br>
-                  <hr>
-                </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div id="quotationDetails" class="col-md-6" style="font-size:16px; background-color:#0b7ffe; padding:13px; border-radius:20px; color:white;">
+              <div class="row price-section" id="monthlyTransactionPriceSection">
+                <p>Monthly Transaction Fee: <span id="transactionPrice" name="transactionPrice">0</span>$</p>
+                <p>Discount Monthly Transaction Fee: <span id="discountTransactionPrice" name="discountTransactionPrice">0</span>$</p>
               </div>
-              <div class="row price-section" id="irsFilingPriceSection">
-                <p><b>IRS Fee</b></p>
-                <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
-                <hr>
+              <br>
+              <div class="row price-section" id="monthlyInvoicesPriceSection">
+                <p>Monthly Invoice Fee: <span id="invoicePrice" name="invoicePrice">0</span>$</p>
+                <p>Discount Monthly Invoice Fee: <span id="discountInvoicePrice" name="discountInvoicePrice">0</span>$</p>
               </div>
-              <div class="row price-section" id="statutoryStateFilingPriceSection">
-                <p><b>Statutory Filing Fee</b></p>
-                <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
-                <hr>
+              <br>
+              <div class="row price-section" id="payrollPriceSection">
+                <p>Monthly Payroll Fee: <span id="payrollPrice" name="payrollPrice">0</span>$</p>
+                <p>Discount Monthly Payroll Fee: <span id="discountPayrollPrice" name="discountPayrollPrice">0</span>$</p>
               </div>
-              <div class="row price-section" id="hmrcPriceSection">
-                <p><b>HMRC Filing Fee</b></p>
-                <p><b><span id="hmrcPrice" name="hmrcPrice">0</span> $</b></p>
-                <hr>
+              <br>
+              <div class="row price-section" id="expensePriceSection">
+                <p>Monthly Expense Fee: <span id="expensePrice" name="expensePrice">0</span>$</p>
+                <p>Discounted Expense Fee: <span id="discountExpencePrice" name="discountExpencePrice">0</span>$</p>
               </div>
-              <div class="row price-section" id="companyHouseFilingPriceSection">
-                <p><b>Company House Filing Fee</b></p>
-                <p><b><span id="companyPrice" name="companyPrice">0</span> $</b></p>
-                <hr>
-              </div>
+              <br>
               <div class="row price-section" id="contractualPaymentPriceSection">
-                <p><b>Contractual Payment Fee</b></p>
-                <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
-                <hr>
+                <p>Contractual Payment Fee: <span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span>$</p>
               </div>
+              <br>
+              <div class="row price-section" id="cashflowPriceSection">
+                <p>Monthly Cashflow Fee: <span id="cashflowPrice" name="cashflowPrice">0</span>$</p>
+                <p>Discounted Cashflow Price: <span id="discountCashflowPrice" name="discountCashflowPrice">0</span>$</p>
+              </div>
+              <br>
+              <div class="row price-section" id="budgetPriceSection">
+                <p>Monthly Budget Fee: <span id="budgetPrice" name="budgetPrice">0</span>$</p>
+                <p>Discounted Budget Fee: <span id="discountBudgetPrice" name="discountBudgetPrice">0</span>$</p>
+              </div>
+              <br>
+              <div id="setUp" class="row" style="display: none;">
+                <p>One Time Setup Fee: <span id="setupPrice" name="setupPrice">0</span>$</p>
+              </div>
+              <br>
+              <div class="row price-section" id="irsFilingPriceSection">
+                <p>IRS Fee: <span id="irsPrice" name="irsPrice">0</span>$</p>
+              </div>
+              <br>
+              <div class="row price-section" id="statutoryStateFilingPriceSection">
+                <p>Statutory Filing Fee: <span id="statePrice" name="statePrice">0</span>$</p>
+              </div>
+              <br>
+              <div class="row price-section" id="hmrcPriceSection">
+                <p>Hmrc Filing Fee: <span id="hmrcPrice" name="hmrcPrice">0</span>$</p>
+              </div>
+              <br>
+              <div class="row price-section" id="companyHouseFilingPriceSection">
+                <p>Company House Filing Fee: <span id="companyPrice" name="companyPrice">0</span>$</p>
+              </div>
+              <br>
               <div class="row price-section" id="vatPriceSection">
-                <p><b>VAT Fee</b></p>
-                <p><b><span id="vatPrice" name="vatPrice">0</span> $</b></p>
-                <hr>
+                <p>VAT Fee: <span id="vatPrice" name="vatPrice">0</span>$</p>
               </div>
+              <br>
               <div class="row price-section" id="financialAnalysisPriceSection">
-                <p><b>Monthly Financial Fee</b></p>
-                <p><b><span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span> $</b></p>
-                <hr>
+                <p>Monthly Financial Fee: <span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span>$</p>
               </div>
+              <br>
               <div class="row price-section" id="monthlyProfitLossPriceSection">
-                <p><b>Monthly Profit & Loss Fee</b></p>
-                <p><b><span id="profitPrice" name="profitPrice">0</span> $</b></p>
-                <hr>
+                <p>Monthly Profit & Loss Fee: <span id="profitPrice" name="profitPrice">0</span>$</p>
               </div>
+              <br>
               <div class="row price-section" id="strategicAdvicePriceSection">
-                <p><b>Strategic Advisor</b></p>
-                <p><b><span id="advisoryPrice" name="advisoryPrice">0</span> $</b></p>
-                <hr>
+                <p>Strategic Advisory Fee: <span id="advisoryPrice" name="advisoryPrice">0</span>$</p>
               </div>
+              <br>
               <div class="row">
-                <div class="col-md-8">
-                  <p><b>Total Billing</b></p>
-                </div>
+                <p>Total Fee: <span id="totalPrice" name="totalPrice">0</span>$</p>
+                <p>Total Fee After Discount: <span id="discountedPrice" name="discountedPrice">0</span>$</p>
+              </div>
+              <br>
+              <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">
+              <input type="hidden" id="hiddenDiscountTransactionPrice" name="discountTransactionPrice">
+              <input type="hidden" id="hiddenInvoicePrice" name="invoicePrice">
+              <input type="hidden" id="hiddenDiscountInvoicePrice" name="discountInvoicePrice">
+              <input type="hidden" id="hiddenExpensePrice" name="expensePrice">
+              <input type="hidden" id="hiddenDiscountExpencePrice" name="discountExpencePrice">
+              <input type="hidden" id="hiddenPayrollPrice" name="payrollPrice">
+              <input type="hidden" id="hiddenDiscountPayrollPrice" name="discountPayrollPrice">
+              <input type="hidden" id="hiddenCashflowPrice" name="cashflowPrice">
+              <input type="hidden" id="hiddenDiscountCashflowPrice" name="discountCashflowPrice">
+              <input type="hidden" id="hiddenBudgetPrice" name="budgetPrice">
+              <input type="hidden" id="hiddenDiscountBudgetPrice" name="discountBudgetPrice">
+              <input type="hidden" id="hiddenSetupPrice" name="setupPrice">
+              <input type="hidden" id="hiddenIrsPrice" name="irsPrice">
+              <input type="hidden" id="hiddenStatePrice" name="statePrice">
+              <input type="hidden" id="hiddenHmrcPrice" name="hmrcPrice">
+              <input type="hidden" id="hiddenCompanyPrice" name="companyPrice">
+              <input type="hidden" id="hiddenContractualPaymentPrice" name="contractualPaymentPrice">
+              <input type="hidden" id="hiddenVatPrice" name="vatPrice">
+              <input type="hidden" id="hiddenFinancialAnalysisPrice" name="financialAnalysisPrice">
+              <input type="hidden" id="hiddenProfitPrice" name="profitPrice">
+              <input type="hidden" id="hiddenAdvisoryPrice" name="advisoryPrice">
+              <input type="hidden" id="hiddenTotalPrice" name="totalPrice">
+              <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
+            </div>
+          </div>
+          <!-- <div id="quotationDetails" class="col-sm-8 col-lg-8 col-md-8 col-xl-8 service" style="display: none; justify-content: center; align-items: center;">
+            <div class="service gallery-style w-100 ">
+              <h5 class="card-title"><b>Billing Breakup:</b></h5>
+              <br>
+              <div class="row mob-row price-section" id="monthlyTransactionPriceSection">
+                <p><b>Monthly Bank Reconcilation Fee</b></p>
                 <div class="row">
                   <div class="col-md-6">
                     <p style="font-size:12px">Regular Price</p>
                     <s>
-                      <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
+                      <p><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
                     </s>
                   </div>
                   <div class="col-md-6">
                     <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountedPrice" name="discountedPrice">0</span> $</b></p>
+                    <p><b><span id="discountTransactionPrice" name="discountTransactionPrice">0</span> $</b></p>
+                    <br>
                   </div>
-                  <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">
-                  <input type="hidden" id="hiddenDiscountTransactionPrice" name="discountTransactionPrice">
-                  <input type="hidden" id="hiddenInvoicePrice" name="invoicePrice">
-                  <input type="hidden" id="hiddenDiscountInvoicePrice" name="discountInvoicePrice">
-                  <input type="hidden" id="hiddenExpensePrice" name="expensePrice">
-                  <input type="hidden" id="hiddenDiscountExpencePrice" name="discountExpencePrice">
-                  <input type="hidden" id="hiddenPayrollPrice" name="payrollPrice">
-                  <input type="hidden" id="hiddenDiscountPayrollPrice" name="discountPayrollPrice">
-                  <input type="hidden" id="hiddenCashflowPrice" name="cashflowPrice">
-                  <input type="hidden" id="hiddenDiscountCashflowPrice" name="discountCashflowPrice">
-                  <input type="hidden" id="hiddenBudgetPrice" name="budgetPrice">
-                  <input type="hidden" id="hiddenDiscountBudgetPrice" name="discountBudgetPrice">
-                  <input type="hidden" id="hiddenSetupPrice" name="setupPrice">
-                  <input type="hidden" id="hiddenIrsPrice" name="irsPrice">
-                  <input type="hidden" id="hiddenStatePrice" name="statePrice">
-                  <input type="hidden" id="hiddenHmrcPrice" name="hmrcPrice">
-                  <input type="hidden" id="hiddenCompanyPrice" name="companyPrice">
-                  <input type="hidden" id="hiddenContractualPaymentPrice" name="contractualPaymentPrice">
-                  <input type="hidden" id="hiddenVatPrice" name="vatPrice">
-                  <input type="hidden" id="hiddenFinancialAnalysisPrice" name="financialAnalysisPrice">
-                  <input type="hidden" id="hiddenProfitPrice" name="profitPrice">
-                  <input type="hidden" id="hiddenAdvisoryPrice" name="advisoryPrice">
-                  <input type="hidden" id="hiddenTotalPrice" name="totalPrice">
-                  <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
+                  <hr>
                 </div>
               </div>
-            </div>
-            <br>
-            <div class="row mt-3">
-              <div class="col-md-6">
+              <div class="row mob-row price-section" id="monthlyInvoicesPriceSection">
+                <p><b>Monthly Invoicing Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
               </div>
-              <div class="col-md-6">
-                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSatisfied"></p>
+              <div class="row mob-row price-section" id="expensePriceSection">
+                <p><b>Billing Fees</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="expensePrice" name="expensePrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountExpencePrice" name="discountExpencePrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="row price-section" id="payrollPriceSection">
+                <p><b>Monthly Payroll Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountPayrollPrice" name="discountPayrollPrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="row price-section" id="cashflowPriceSection">
+                <p><b>Monthly Cashflow Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="row price-section" id="budgetPriceSection">
+                <p><b>Monthly Budgeting Fee</b></p>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Regular Price</p>
+                    <s>
+                      <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
+                    </s>
+                  </div>
+                  <div class="col-md-6">
+                    <p style="font-size:12px">Discounted Price</p>
+                    <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
+                    <br>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div id="setUp" class="row" style="display: none;">
+                <p><b>One-time setup fee</b></p>
+                <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
+                <br>
+                <hr>
               </div>
             </div>
-            <div class="form-group">
-              <label id="cfoLabel" for="cfoLabel"></label>
-              <select id="cfo" name="cfo" class="product_select formbold-form-input" style="display: none;">
-                <option data-display="1. Choose A Question">Select an option</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
-              </select>
+            <div class="row price-section" id="irsFilingPriceSection">
+              <p><b>IRS Fee</b></p>
+              <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
+              <hr>
             </div>
-            <div class="row mt-3">
-              <div class="col-md-6">
+            <div class="row price-section" id="statutoryStateFilingPriceSection">
+              <p><b>Statutory Filing Fee</b></p>
+              <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="hmrcPriceSection">
+              <p><b>HMRC Filing Fee</b></p>
+              <p><b><span id="hmrcPrice" name="hmrcPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="companyHouseFilingPriceSection">
+              <p><b>Company House Filing Fee</b></p>
+              <p><b><span id="companyPrice" name="companyPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="contractualPaymentPriceSection">
+              <p><b>Contractual Payment Fee</b></p>
+              <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="vatPriceSection">
+              <p><b>VAT Fee</b></p>
+              <p><b><span id="vatPrice" name="vatPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="financialAnalysisPriceSection">
+              <p><b>Monthly Financial Fee</b></p>
+              <p><b><span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="monthlyProfitLossPriceSection">
+              <p><b>Monthly Profit & Loss Fee</b></p>
+              <p><b><span id="profitPrice" name="profitPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row price-section" id="strategicAdvicePriceSection">
+              <p><b>Strategic Advisor</b></p>
+              <p><b><span id="advisoryPrice" name="advisoryPrice">0</span> $</b></p>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-md-8">
+                <p><b>Total Billing</b></p>
               </div>
-              <div class="col-md-6">
-                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCfo"></p>
+              <div class="row">
+                <div class="col-md-6">
+                  <p style="font-size:12px">Regular Price</p>
+                  <s>
+                    <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
+                  </s>
+                </div>
+                <div class="col-md-6">
+                  <p style="font-size:12px">Discounted Price</p>
+                  <p><b><span id="discountedPrice" name="discountedPrice">0</span> $</b></p>
+                </div>
+                <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">
+                <input type="hidden" id="hiddenDiscountTransactionPrice" name="discountTransactionPrice">
+                <input type="hidden" id="hiddenInvoicePrice" name="invoicePrice">
+                <input type="hidden" id="hiddenDiscountInvoicePrice" name="discountInvoicePrice">
+                <input type="hidden" id="hiddenExpensePrice" name="expensePrice">
+                <input type="hidden" id="hiddenDiscountExpencePrice" name="discountExpencePrice">
+                <input type="hidden" id="hiddenPayrollPrice" name="payrollPrice">
+                <input type="hidden" id="hiddenDiscountPayrollPrice" name="discountPayrollPrice">
+                <input type="hidden" id="hiddenCashflowPrice" name="cashflowPrice">
+                <input type="hidden" id="hiddenDiscountCashflowPrice" name="discountCashflowPrice">
+                <input type="hidden" id="hiddenBudgetPrice" name="budgetPrice">
+                <input type="hidden" id="hiddenDiscountBudgetPrice" name="discountBudgetPrice">
+                <input type="hidden" id="hiddenSetupPrice" name="setupPrice">
+                <input type="hidden" id="hiddenIrsPrice" name="irsPrice">
+                <input type="hidden" id="hiddenStatePrice" name="statePrice">
+                <input type="hidden" id="hiddenHmrcPrice" name="hmrcPrice">
+                <input type="hidden" id="hiddenCompanyPrice" name="companyPrice">
+                <input type="hidden" id="hiddenContractualPaymentPrice" name="contractualPaymentPrice">
+                <input type="hidden" id="hiddenVatPrice" name="vatPrice">
+                <input type="hidden" id="hiddenFinancialAnalysisPrice" name="financialAnalysisPrice">
+                <input type="hidden" id="hiddenProfitPrice" name="profitPrice">
+                <input type="hidden" id="hiddenAdvisoryPrice" name="advisoryPrice">
+                <input type="hidden" id="hiddenTotalPrice" name="totalPrice">
+                <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
               </div>
             </div>
-            <div class="form-group">
-              <label id="reasonLabel" for="reasonLabel" style="display: none;"></label>
-              <select id="specifyReason" name="specifyReason" class="product_select formbold-form-input" style="display: none;" onchange="handleReasonChange()">
-                <option data-display="1. Choose A Question">Select an option</option>
-                <option value="High Price">High Price</option>
-                <option value="Service Revision">Service Revision</option>
-                <option value="Other">Other</option>
-              </select>
+          </div> -->
+          <br>
+          <div class="row mt-3">
+            <div class="col-md-6">
             </div>
-            <div class="row mt-3">
-              <div class="col-md-6">
-              </div>
-              <div class="col-md-6">
-                <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedReason"></p>
-              </div>
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedSatisfied"></p>
             </div>
-            <div id="revisionOptions" style="display: none;">
+          </div>
+          <div class="form-group">
+            <label id="cfoLabel" for="cfoLabel"></label>
+            <select id="cfo" name="cfo" class="product_select formbold-form-input" style="display: none;">
+              <option data-display="1. Choose A Question">Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
             </div>
-            <div class="form-group">
-              <label id="OtherReasonLabel" for="OtherReasonLabel" style="display: none;"></label>
-              <textarea id="otherReason" name="otherReason" class="formbold-form-textarea" rows="3" style="display: none;"></textarea>
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedCfo"></p>
             </div>
-            <div class="form-group mt-5">
-              <label id="highPriceLabel" for="highPriceLabel"></label>
+          </div>
+          <div class="form-group">
+            <label id="reasonLabel" for="reasonLabel" style="display: none;"></label>
+            <select id="specifyReason" name="specifyReason" class="product_select formbold-form-input" style="display: none;" onchange="handleReasonChange()">
+              <option data-display="1. Choose A Question">Select an option</option>
+              <option value="High Price">High Price</option>
+              <option value="Service Revision">Service Revision</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
             </div>
-            <div class="formbold-form-btn-wrapper">
-              <input type="submit" value="Submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">
-              <input type="submit" id="virtualCfo" value="Proceed to Virtual Cfo" style="display: none;" class="formbold-btn" name="Subscribe">
+            <div class="col-md-6">
+              <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none" id="selectedReason"></p>
             </div>
+          </div>
+          <div id="revisionOptions" style="display: none;">
+          </div>
+          <div class="form-group">
+            <label id="OtherReasonLabel" for="OtherReasonLabel" style="display: none;"></label>
+            <textarea id="otherReason" name="otherReason" class="formbold-form-textarea" rows="3" style="display: none;"></textarea>
+          </div>
+          <div class="form-group mt-5">
+            <label id="highPriceLabel" for="highPriceLabel"></label>
+          </div>
+          <div class="formbold-form-btn-wrapper">
+            <input type="submit" value="Submit" id="submit" style="display: none;" class="formbold-btn" name="Subscribe">
+            <input type="submit" id="virtualCfo" value="Proceed to Virtual Cfo" style="display: none;" class="formbold-btn" name="Subscribe">
+          </div>
         </form>
       </div>
     </div>

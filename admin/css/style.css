@@ -22132,7 +22132,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_1+label,
 .sidebar-right #secondary_color_1+label,
 .sidebar-right #primary_color_1+label {
-  background-color: #fff;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_2+label,
@@ -22140,7 +22140,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_2+label,
 .sidebar-right #secondary_color_2+label,
 .sidebar-right #primary_color_2+label {
-  background-color: #222B40;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_3+label,
@@ -22148,7 +22148,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_3+label,
 .sidebar-right #secondary_color_3+label,
 .sidebar-right #primary_color_3+label {
-  background-color: #452B90;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_4+label,
@@ -22156,7 +22156,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_4+label,
 .sidebar-right #secondary_color_4+label,
 .sidebar-right #primary_color_4+label {
-  background-color: #F8B940;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_5+label,
@@ -22164,7 +22164,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_5+label,
 .sidebar-right #secondary_color_5+label,
 .sidebar-right #primary_color_5+label {
-  background-color: #3250ff;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_6+label,
@@ -22172,7 +22172,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_6+label,
 .sidebar-right #secondary_color_6+label,
 .sidebar-right #primary_color_6+label {
-  background-color: #3f8cff;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_7+label,
@@ -22180,7 +22180,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_7+label,
 .sidebar-right #secondary_color_7+label,
 .sidebar-right #primary_color_7+label {
-  background-color: #40a7e2;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_8+label,
@@ -22188,7 +22188,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_8+label,
 .sidebar-right #secondary_color_8+label,
 .sidebar-right #primary_color_8+label {
-  background-color: #B65FBD;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_9+label,
@@ -22196,7 +22196,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_9+label,
 .sidebar-right #secondary_color_9+label,
 .sidebar-right #primary_color_9+label {
-  background-color: #88a67e;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_10+label,
@@ -22204,7 +22204,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_10+label,
 .sidebar-right #secondary_color_10+label,
 .sidebar-right #primary_color_10+label {
-  background-color: #1C2E9E;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_11+label,
@@ -22212,7 +22212,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_11+label,
 .sidebar-right #secondary_color_11+label,
 .sidebar-right #primary_color_11+label {
-  background-color: #c6164f;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_12+label,
@@ -22220,15 +22220,33 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_12+label,
 .sidebar-right #secondary_color_12+label,
 .sidebar-right #primary_color_12+label {
-  background-color: #343a40;
+  background-color: #ffff;
+}
+[data-sidebarbg="color_2"][data-theme-version="light"], [data-sidebarbg="color_2"] {
+  --sidebar-bg: #ffffff !important;
+}
+[data-sidebarbg="color_2"][data-theme-version="dark"], [data-sidebarbg="color_2"] {
+  --sidebar-bg: #182236 !important;
 }
 
+[data-sidebarbg="color_2"][data-theme-version="dark"] .deznav .metismenu a, [data-sidebarbg="color_2"] .deznav .metismenu a {
+  color: #ffff !important;
+}
+[data-sidebarbg="color_2"][data-theme-version="light"] .deznav .metismenu a, [data-sidebarbg="color_2"] .deznav .metismenu a {
+  color: #000 !important;
+}
+[data-nav-headerbg="color_2"][data-theme-version="light"], [data-nav-headerbg="color_2"] {
+  --nav-headbg: #ffffff;
+}
+[data-nav-headerbg="color_2"][data-theme-version="dark"], [data-nav-headerbg="color_2"] {
+  --nav-headbg: #182236 ;
+}
 .sidebar-right #nav_header_color_13+label,
 .sidebar-right #header_color_13+label,
 .sidebar-right #sidebar_color_13+label,
 .sidebar-right #secondary_color_13+label,
 .sidebar-right #primary_color_13+label {
-  background-color: #2a2a2a;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_14+label,
@@ -22236,7 +22254,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_14+label,
 .sidebar-right #secondary_color_14+label,
 .sidebar-right #primary_color_14+label {
-  background-color: #4885ed;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_15+label,
@@ -22244,7 +22262,7 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 .sidebar-right #sidebar_color_15+label,
 .sidebar-right #secondary_color_15+label,
 .sidebar-right #primary_color_15+label {
-  background-color: #4cb32b;
+  background-color: #ffff;
 }
 
 .sidebar-right #nav_header_color_1+label,

@@ -1,60 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
-    <style>
-        .media {
-            margin-top: 10px;
-            display: flex;
-        }
+<style>
+    .media {
+        margin-top: 10px;
+        display: flex;
+    }
 
-        .message-sent {
-            padding: 10px;
-            border-radius: 8px;
-            max-width: 70%;
-            background-color: #f0f0f0; 
-            word-wrap: break-word; 
-        }
+    .chat-box-area .message-sent p {
+        background: #019dff;
+        padding: 10px 15px;
+        border-radius: 10px 10px 0px 10px;
+        color: white !important;
+        color: var(--primary);
+        border-radius: 15px;
+        text-align: right;
+        font-size: 13px;
+    }
 
-        .justify-content-start {
-            justify-content: flex-start;
-            text-align: left;
-        }
+    .justify-content-start {
+        justify-content: flex-start;
+        text-align: left;
+    }
 
-        .justify-content-end {
-            justify-content: flex-end;
-            text-align: right;
-        }
+    .justify-content-end {
+        justify-content: flex-end;
+        text-align: right;
+    }
 
-        .align-items-end {
-            align-items: flex-end;
-        }
+    .align-items-end {
+        align-items: flex-end;
+    }
 
-        .fs-12 {
-            font-size: 12px;
-            color: gray;
-        }
+    .fs-12 {
+        font-size: 12px;
+        color: gray;
+    }
 
-        .message-sent img,
-        .message-sent object {
-            max-width: 100%;
-            height: auto;
-        }
+    .message-sent img,
+    .message-sent object {
+        max-width: 100%;
+        height: auto;
+    }
 
-        .message-sent object {
-            width: 100%;
-            height: 500px;
-        }
+    .message-sent object {
+        width: 100%;
+        height: 500px;
+    }
 
-        .chat-box-area {
-            max-height: 500px;
-            overflow-y: auto; 
-        }
-    </style>
-</head>
-<body>
+    .chat-box-area {
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+    }
+</style>
+
 <?php
 session_start();
 include '../db/dbCon.php';
@@ -78,10 +74,18 @@ if ($resultMessages->num_rows > 0) {
     echo '    </div>';
     echo '</div>';
 
+    $messageCounter = 0; // Counter to track the message number
+
     while ($row = $resultMessages->fetch_assoc()) {
+        $messageCounter++; // Increment the counter
         $message = $row['message'];
-        $message = preg_replace('/\b(http[s]?:\/\/\S+)/i', '<a href="$1" target="_blank">$1</a>', $message); 
-        $message = nl2br($message);
+
+        if ($messageCounter == 1) {
+            $message = "Chat initiate to Virtual Cfo";
+        } else {
+            $message = preg_replace('/\b(http[s]?:\/\/\S+)/i', '<a href="$1" target="_blank">$1</a>', $message);
+            $message = nl2br($message);
+        }
 
         $sender = $row['email_address'];
         $messageClass = ($row['email_address'] == $user_email) ? 'justify-content-end' : 'justify-content-start';
@@ -115,9 +119,7 @@ if ($resultMessages->num_rows > 0) {
 } else {
     $htmlContent .= '<p>No messages found.</p>';
 }
-$htmlContent .= '</div>'; 
+$htmlContent .= '</div>';
 echo $htmlContent;
 $conn->close();
 ?>
-</body>
-</html>

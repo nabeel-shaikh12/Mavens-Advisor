@@ -154,21 +154,11 @@ $user_email = $_SESSION['email_address'];
 			background-position: center;
 		}
 
-		.btn-send-message {
-			position: absolute;
-			bottom: 10px;
-			right: 10px;
-			padding: 10px 20px;
-			background-color: transparent;
-			color: #0b7ffe !important;
-			border: 2px solid #0b7ffe;
-			padding: 15px;
-			border-radius: 10px;
-		}
-
-		.btn-send-message:hover {
-			background-color: #007bff;
-			color: #ffff !important;
+		.style-1.active {
+			background-color: #019dff;
+			color: white;
+			padding: 20px;
+			border-radius: 20px;
 		}
 	</style>
 </head>
@@ -216,31 +206,62 @@ $user_email = $_SESSION['email_address'];
 								<div class="col-xl-5 col-lg-5 col-sm-5 chat-border mobile-chat ">
 									<div class="people-list dz-scroll">
 										<?php
-										if ($result->num_rows > 0) {
-											while ($row = $result->fetch_assoc()) {
-												echo '<div onclick="toggleMessageSend()">';
-												echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
-												echo '<div class="d-flex" onclick="toggleMessageSend()">';
-												echo '<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0">';
-												echo '<i class="fas fa-user"></i>';
-												echo '</div>';
-												echo '<div class="ms-2">';
-												echo '<h6 class="mb-0">info@mavensadvisor.com</h6>';
-												echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
-												echo '</div>';
-												echo '</div>';
-												echo '<span>' . $row['timestamp'] . '</span>';
-												echo '</div>';
-												echo '</div>';
-											}
-										} else if ($result->num_rows == 0) {
-											echo '<button type="button" class="btn-send-message" data-bs-toggle="modal" data-bs-target="#newMessageModal">';
-											echo '<i class="fas fa-pencil-alt"></i> Send New Message';
-											echo '</button>';
-										} else {
-											echo "No chats Available";
-										}
-										$conn->close();
+										        if ($result->num_rows > 0) {
+													while ($row = $result->fetch_assoc()) {
+														echo '<div onclick="toggleMessageSend()">';
+														echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
+														echo '<div class="d-flex" onclick="toggleMessageSend()">';
+														echo '<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0">';
+														echo '<i class="fas fa-user"></i>';
+														echo '</div>';
+														echo '<div class="ms-2">';
+														
+														// Check if the message is sent to admin
+														if ($row['admin_email'] == $user_email) {
+															echo '<h6 class="mb-0">Message sent to Admin</h6>';
+														} else {
+															echo '<h6 class="mb-0">' . $row['email_address'] . '</h6>';
+														}
+														
+														echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
+														echo '</div>';
+														echo '</div>';
+														echo '<span>' . $row['timestamp'] . '</span>';
+														echo '</div>';
+														echo '</div>';
+													}
+												} else {
+													// Display a button to send new message if no chats available
+													echo '<button type="button" class="btn-send-message" data-bs-toggle="modal" data-bs-target="#newMessageModal">';
+													echo '<i class="fas fa-pencil-alt"></i> Send New Message';
+													echo '</button>';
+												}
+												$conn->close();
+										// if ($result->num_rows > 0) {
+										// 	while ($row = $result->fetch_assoc()) {
+										// 		echo '<div onclick="toggleMessageSend()">';
+										// 		echo '<div class="chat-p style-1" data-email="' . $row['email_address'] . '" onclick="fetchChatDetail(\'' . $row['email_address'] . '\')" >';
+										// 		echo '<div class="d-flex" onclick="toggleMessageSend()">';
+										// 		echo '<div class="avatar text-light rounded-circle d-flex align-items-center justify-content-center" style="background-color:#E8EBF0">';
+										// 		echo '<i class="fas fa-user"></i>';
+										// 		echo '</div>';
+										// 		echo '<div class="ms-2">';
+										// 		echo '<h6 class="mb-0">info@mavensadvisor.com</h6>';
+										// 		echo '<span style="font-size:14px"><strong>New Message:</strong> ' . $row['message'] . '<br>' . '</span>';
+										// 		echo '</div>';
+										// 		echo '</div>';
+										// 		echo '<span>' . $row['timestamp'] . '</span>';
+										// 		echo '</div>';
+										// 		echo '</div>';
+										// 	}
+										// } else if ($result->num_rows == 0) {
+										// 	echo '<button type="button" class="btn-send-message" data-bs-toggle="modal" data-bs-target="#newMessageModal">';
+										// 	echo '<i class="fas fa-pencil-alt"></i> Send New Message';
+										// 	echo '</button>';
+										// } else {
+										// 	echo "No chats Available";
+										// }
+										// $conn->close();
 										?>
 									</div>
 								</div>
