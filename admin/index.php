@@ -76,8 +76,8 @@ if ($result4 && $result4->num_rows > 0) {
 	<meta property="og:description" content="Yeshadmin:Customer Relationship Management Admin Bootstrap 5 Template">
 	<meta property="og:image" content="https://yeshadmin.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-	<title>Dashboard</title>
-	<link rel="shortcut icon" type="image/png" href="../img/MA Logo circle.png">
+	<title>Dashboard - VirSME</title>
+	<link rel="shortcut icon" type="image/png" href="../img/virstual-expert.png">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="./vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
 	<link href="./vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
@@ -183,89 +183,6 @@ if ($result4 && $result4->num_rows > 0) {
 							</div>
 						</div>
 					</div>
-					<!-- <div class="col-xl-4 col-lg-5">
-						<div class="card">
-							<div class="card-header border-0">
-								<h4 class="heading mb-0">Social Networking</h4>
-							</div>
-							<div class="card-body py-0">
-								<div id="redial"></div>
-								<div class="text-center">
-									<h5 class="mb-0">Total sales made week</h5>
-									<h4>$86</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-								</div>
-								<div class="row">
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Target</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-up me-1 text-success"></i>$15k</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Last week</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-down me-1 text-danger"></i>$55k</h4>
-											</div>
-										</div>
-									</div>
-									<div class="col-xl-4 col-lg-4 col-sm-4 tg-base">
-										<div class="card text-center">
-											<div class="card-body p-2">
-												<span class="mb-1 d-block">Last Year</span>
-												<h4 class="mb-0"><i class="fa-solid fa-arrow-up me-1 text-success"></i>$65k</h4>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xl-8 col-lg-7">
-						<div class="card overflow-hidden">
-							<div class="card-header border-0 pb-0 flex-wrap">
-								<h4 class="heading mb-0">Projects Overview</h4>
-								<ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>
-								  </li>
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>
-								  </li>
-								  <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>
-								  </li>
-								   <li class="nav-item" role="presentation">
-									<button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>
-								  </li>
-								</ul>
-							</div>
-							<div class="card-body custome-tooltip p-0">
-									<div id="overiewChart"></div>
-								<div class="ttl-project ds-chart">
-									<div class="pr-data">
-										<h5>12,721</h5>
-										<span>Number of Projects</span>
-									</div>
-									<div class="pr-data">
-										<h5 class="text-primary">721</h5>
-										<span>Active Projects</span>
-									</div>
-									<div class="pr-data">
-										<h5>$2,50,523</h5>
-										<span>Revenue</span>
-									</div>
-									<div class="pr-data">
-										<h5 class="text-success">12,275h</h5>
-										<span>Working Hours</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div> -->
 					<div class="col-xl-6">
 						<div class="card">
 							<div class="card-body p-0">

@@ -68,7 +68,7 @@
     $user_email = $_GET['email'];
     $sqlMessages = "SELECT * FROM messages WHERE email_address = '$user_email' OR admin_email = '$user_email'";
     $resultMessages = $conn->query($sqlMessages);
-    $htmlContent = '<div class="chat-box-area style-2 dz-scroll">';
+    $htmlContent = '<div class="chat-box-area style-2 dz-scroll" id="chatBox">';
 
     if ($resultMessages->num_rows > 0) {
         echo '<div class="card">';
@@ -127,7 +127,54 @@
     echo $htmlContent;
     $conn->close();
     ?>
-    <script src="chat.js"></script>
+    <script>
+        function scrollToBottom() {
+            var chatBox = document.getElementById("chatBox");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function fetchChatDetail(emailAddress) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("chatBox").innerHTML = xhr.responseText;
+                    setTimeout(scrollToBottom, 100); // Adjusted timeout to ensure DOM is fully updated
+                }
+            };
+            var encodedEmailAddress = encodeURIComponent(emailAddress);
+            xhr.open("GET", "fetch_messages.php?email=" + encodedEmailAddress, true);
+            xhr.send();
+        }
+
+        function setupSendMessageListener(emailAddress) {
+            var sendMessageForm = document.getElementById("messageForm");
+            sendMessageForm.onsubmit = function (e) {
+                e.preventDefault();
+                var message = document.getElementById("message").value;
+                var fileInput = document.getElementById("file").files[0];
+                var formData = new FormData();
+                formData.append('email', emailAddress);
+                formData.append('message', message);
+                formData.append('file', fileInput);
+
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        fetchChatDetail(emailAddress);
+                        document.getElementById("message").value = '';
+                        document.getElementById("file").value = '';
+                        setTimeout(scrollToBottom, 100); // Adjusted timeout to ensure DOM is fully updated
+                    }
+                };
+                xhr.open("POST", "send_message.php", true);
+                xhr.send(formData);
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            scrollToBottom(); // Scroll to bottom on page load
+        });
+    </script>
 </body>
 
 </html>

@@ -56,7 +56,7 @@ $user_email = $_SESSION['email_address'];
 	<meta property="og:image" content="https://yeshadmin.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
 	<title>Chat</title>
-	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="../img/virstual-expert.png">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 	<link href="./vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
 	<link href="./vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">

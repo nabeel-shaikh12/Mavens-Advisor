@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION['visit_count'])) {
   $_SESSION['visit_count'] = 1;
 } else {
-  $_SESSION['visit_count']++;
+  $_SESSION['visit_count'] ++;
 }
 ?>
 <!DOCTYPE html>
@@ -13,8 +13,8 @@ if (!isset($_SESSION['visit_count'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-style-mode" content="1">
-  <title>Form || Finance</title>
-  <link rel="shortcut icon" type="image/x-icon" href="img/MA Logo circle.png">
+  <title>Subscription - virSME</title>
+  <link rel="shortcut icon" type="image/png" href="img/virstual-expert.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>
@@ -38,7 +38,6 @@ if (!isset($_SESSION['visit_count'])) {
     .price-section {
       display: none;
     }
-
     .header-sticky {
       position: fixed;
       top: 100px;
@@ -49,7 +48,6 @@ if (!isset($_SESSION['visit_count'])) {
       z-index: 100;
       padding: 15px;
     }
-
     .header-sticky-2 {
       position: fixed;
       top: 0;
@@ -60,7 +58,6 @@ if (!isset($_SESSION['visit_count'])) {
       z-index: 100;
       padding: 15px;
     }
-
     .rainbow-gradient-circle {
       position: fixed;
       left: -250px;
@@ -76,13 +73,71 @@ if (!isset($_SESSION['visit_count'])) {
       -webkit-filter: blur(50px);
       filter: blur(50px);
     }
-
     .rainbow-gradient-circle.theme-pink {
       left: auto;
       top: -250px;
       right: -250px;
       bottom: auto;
       background-image: url('./img/Rectangle.png');
+    }
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+    .blinking-dots::after {
+      content: "...";
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+    .blinking-dots::after {
+      content: ".";
+      animation: blink 1s infinite;
+      font-size: 4em;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .loader {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      opacity: 0.9;
+      z-index: 1000;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+    }
+
+    .loader p {
+      margin: 0;
+      color: #0b7ffe;
     }
   </style>
 
@@ -91,7 +146,7 @@ if (!isset($_SESSION['visit_count'])) {
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light header-sticky-2">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="img/Just-Another-Logo (2).png" height="40px"></a>
+          <a class="navbar-brand" href="#"><img src="./img/Virsme.png" height="80px"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -138,7 +193,12 @@ if (!isset($_SESSION['visit_count'])) {
           </ul>
         </div>
         <form action="database_operations/subscription_form.php" method="POST" id="cfoForm">
+
           <div class="formbold-form-step-1 active">
+            <div id="loader" class="loader">
+              <p id="typing-text"></p>
+            </div>
+
             <label id="firstType" for="firstType"></label>
             <label id="typing-parent" for="businessType"></label>
             <div class="form-group">
@@ -849,7 +909,7 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="row mt-5 form-group" id="scroller">
               <label style="margin-top: 20px;" id="calculatorLabel" for="calculatorLabel"></label>
-              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" >
+              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display:none">
                 <div class="service gallery-style">
                   <br>
                   <label>
@@ -1089,206 +1149,6 @@ if (!isset($_SESSION['visit_count'])) {
               <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
             </div>
           </div>
-          <!-- <div id="quotationDetails" class="col-sm-8 col-lg-8 col-md-8 col-xl-8 service" style="display: none; justify-content: center; align-items: center;">
-            <div class="service gallery-style w-100 ">
-              <h5 class="card-title"><b>Billing Breakup:</b></h5>
-              <br>
-              <div class="row mob-row price-section" id="monthlyTransactionPriceSection">
-                <p><b>Monthly Bank Reconcilation Fee</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="transactionPrice" name="transactionPrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountTransactionPrice" name="discountTransactionPrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div class="row mob-row price-section" id="monthlyInvoicesPriceSection">
-                <p><b>Monthly Invoicing Fee</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="invoicePrice" name="invoicePrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountInvoicePrice" name="discountInvoicePrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div class="row mob-row price-section" id="expensePriceSection">
-                <p><b>Billing Fees</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="expensePrice" name="expensePrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountExpencePrice" name="discountExpencePrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div class="row price-section" id="payrollPriceSection">
-                <p><b>Monthly Payroll Fee</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="payrollPrice" name="payrollPrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountPayrollPrice" name="discountPayrollPrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div class="row price-section" id="cashflowPriceSection">
-                <p><b>Monthly Cashflow Fee</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="cashflowPrice" name="cashflowPrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountCashflowPrice" name="discountCashflowPrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div class="row price-section" id="budgetPriceSection">
-                <p><b>Monthly Budgeting Fee</b></p>
-                <div class="row">
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Regular Price</p>
-                    <s>
-                      <p><b><span id="budgetPrice" name="budgetPrice">0</span> $</b></p>
-                    </s>
-                  </div>
-                  <div class="col-md-6">
-                    <p style="font-size:12px">Discounted Price</p>
-                    <p><b><span id="discountBudgetPrice" name="discountBudgetPrice">0</span> $</b></p>
-                    <br>
-                  </div>
-                  <hr>
-                </div>
-              </div>
-              <div id="setUp" class="row" style="display: none;">
-                <p><b>One-time setup fee</b></p>
-                <p><b><span id="setupPrice" name="setupPrice">0</span> $</b></p>
-                <br>
-                <hr>
-              </div>
-            </div>
-            <div class="row price-section" id="irsFilingPriceSection">
-              <p><b>IRS Fee</b></p>
-              <p><b><span id="irsPrice" name="irsPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="statutoryStateFilingPriceSection">
-              <p><b>Statutory Filing Fee</b></p>
-              <p><b><span id="statePrice" name="statePrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="hmrcPriceSection">
-              <p><b>HMRC Filing Fee</b></p>
-              <p><b><span id="hmrcPrice" name="hmrcPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="companyHouseFilingPriceSection">
-              <p><b>Company House Filing Fee</b></p>
-              <p><b><span id="companyPrice" name="companyPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="contractualPaymentPriceSection">
-              <p><b>Contractual Payment Fee</b></p>
-              <p><b><span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="vatPriceSection">
-              <p><b>VAT Fee</b></p>
-              <p><b><span id="vatPrice" name="vatPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="financialAnalysisPriceSection">
-              <p><b>Monthly Financial Fee</b></p>
-              <p><b><span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="monthlyProfitLossPriceSection">
-              <p><b>Monthly Profit & Loss Fee</b></p>
-              <p><b><span id="profitPrice" name="profitPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row price-section" id="strategicAdvicePriceSection">
-              <p><b>Strategic Advisor</b></p>
-              <p><b><span id="advisoryPrice" name="advisoryPrice">0</span> $</b></p>
-              <hr>
-            </div>
-            <div class="row">
-              <div class="col-md-8">
-                <p><b>Total Billing</b></p>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <p style="font-size:12px">Regular Price</p>
-                  <s>
-                    <p><b><span id="totalPrice" name="totalPrice">0</span> $</b></p>
-                  </s>
-                </div>
-                <div class="col-md-6">
-                  <p style="font-size:12px">Discounted Price</p>
-                  <p><b><span id="discountedPrice" name="discountedPrice">0</span> $</b></p>
-                </div>
-                <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">
-                <input type="hidden" id="hiddenDiscountTransactionPrice" name="discountTransactionPrice">
-                <input type="hidden" id="hiddenInvoicePrice" name="invoicePrice">
-                <input type="hidden" id="hiddenDiscountInvoicePrice" name="discountInvoicePrice">
-                <input type="hidden" id="hiddenExpensePrice" name="expensePrice">
-                <input type="hidden" id="hiddenDiscountExpencePrice" name="discountExpencePrice">
-                <input type="hidden" id="hiddenPayrollPrice" name="payrollPrice">
-                <input type="hidden" id="hiddenDiscountPayrollPrice" name="discountPayrollPrice">
-                <input type="hidden" id="hiddenCashflowPrice" name="cashflowPrice">
-                <input type="hidden" id="hiddenDiscountCashflowPrice" name="discountCashflowPrice">
-                <input type="hidden" id="hiddenBudgetPrice" name="budgetPrice">
-                <input type="hidden" id="hiddenDiscountBudgetPrice" name="discountBudgetPrice">
-                <input type="hidden" id="hiddenSetupPrice" name="setupPrice">
-                <input type="hidden" id="hiddenIrsPrice" name="irsPrice">
-                <input type="hidden" id="hiddenStatePrice" name="statePrice">
-                <input type="hidden" id="hiddenHmrcPrice" name="hmrcPrice">
-                <input type="hidden" id="hiddenCompanyPrice" name="companyPrice">
-                <input type="hidden" id="hiddenContractualPaymentPrice" name="contractualPaymentPrice">
-                <input type="hidden" id="hiddenVatPrice" name="vatPrice">
-                <input type="hidden" id="hiddenFinancialAnalysisPrice" name="financialAnalysisPrice">
-                <input type="hidden" id="hiddenProfitPrice" name="profitPrice">
-                <input type="hidden" id="hiddenAdvisoryPrice" name="advisoryPrice">
-                <input type="hidden" id="hiddenTotalPrice" name="totalPrice">
-                <input type="hidden" id="hiddenDiscountedPrice" name="discountedPrice">
-              </div>
-            </div>
-          </div> -->
           <br>
           <div class="row mt-3">
             <div class="col-md-6">
@@ -1344,10 +1204,6 @@ if (!isset($_SESSION['visit_count'])) {
         </form>
       </div>
     </div>
-  </main>
-  <!-- <?php include 'components/footer.php' ?>
-    <?php include 'components/footerBottom.php' ?>
-  </div> -->
   </main>
   <div class="rainbow-back-top">
     <i class="feather-arrow-up"></i>

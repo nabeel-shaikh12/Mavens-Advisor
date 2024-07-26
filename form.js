@@ -61,7 +61,7 @@ function typeWriter(element, text, i, callback) {
     i++;
     setTimeout(function () {
       typeWriter(element, text, i, callback);
-    }, 15);
+    }, 9);
   } else if (typeof callback === "function") {
     setTimeout(callback, 700);
   }
@@ -292,7 +292,7 @@ function BusinessSize(element, text) {
   element.style.display = "block";
   element.textContent = "";
   let index = 0;
-  let speed = 15;
+  let speed = 9;
 
   function type() {
     if (index < text.length) {
@@ -307,7 +307,7 @@ function BusinessCategory(element, text) {
   element.style.display = "block";
   element.textContent = "";
   let index = 0;
-  let speed = 15;
+  let speed = 9;
 
   function type() {
     if (index < text.length) {
@@ -483,7 +483,7 @@ function subCategories(label, text, select) {
       if (index < text.length) {
         label.textContent += text.charAt(index);
         index++;
-        setTimeout(type, 15);
+        setTimeout(type, 9);
       } else {
         typingStarted1[label.id] = false;
         if (select) {
@@ -505,7 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index < text.length) {
       label.textContent += text.charAt(index);
       index++;
-      setTimeout(type, 15);
+      setTimeout(type, 9);
     } else {
       select.style.display = "block";
     }
@@ -650,7 +650,7 @@ function BusinessType(element, text) {
   element.style.display = "block";
   element.textContent = "";
   let index = 0;
-  let speed = 15;
+  let speed = 9;
 
   function type() {
     if (index < text.length) {
@@ -674,7 +674,7 @@ function subCategories(label, text, select) {
       if (index < text.length) {
         label.textContent += text.charAt(index);
         index++;
-        setTimeout(type, 15);
+        setTimeout(type, 9);
       } else {
         if (select) {
           select.style.display = "block";
@@ -803,7 +803,7 @@ function subCatories(label, text, select) {
       if (index < text.length) {
         label.textContent += text.charAt(index);
         index++;
-        setTimeout(type, 15);
+        setTimeout(type, 9);
       } else {
         select.style.display = "block";
       }
@@ -1009,17 +1009,7 @@ function showSubCategories() {
     otherSpecifyLabel.style.display = "none";
     inputGroup8.style.display = "none";
     selectedOtherSpecify.style.display = "none";
-    businessSizeLabel.style.animation = "slideInLeft 1.5s ease";
-
-    businessSizeLabel.addEventListener(
-      "animationend",
-      function () {
-        BusinessService();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(businessSizeLabel, BusinessService);
   } else {
   }
   function handleSubCategoryChange(event) {
@@ -1029,16 +1019,7 @@ function showSubCategories() {
       selectedOption !== "Other (Please Specify)"
     ) {
       businessSizeLabel.style.display = "block";
-      businessSizeLabel.style.animation = "slideInLeft 1.5s ease";
-      businessSizeLabel.addEventListener(
-        "animationend",
-        function () {
-          BusinessService();
-        },
-        {
-          once: true,
-        }
-      );
+      animateElement(businessSizeLabel, BusinessService);
     }
   }
   document.querySelectorAll(".subCategoryField").forEach((select) => {
@@ -1051,17 +1032,7 @@ function showSubCategories() {
     inputGroup11.style.display = "none";
     specSoftware.style.display = "none";
     accounting_software_useds.style.display = "none";
-    softwarePrefer.style.animation = "slideInLeft 1.5s ease";
-
-    softwarePrefer.addEventListener(
-      "animationend",
-      function () {
-        SoftwarePrefer();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(softwarePrefer, SoftwarePrefer);
   } else {
     softwarePreferred.style.display = "none";
     softwarePrefer.style.display = "none";
@@ -1071,15 +1042,7 @@ function showSubCategories() {
     OtherReasonLabel.style.display = "block";
     submit.style.display = "block";
     OtherReasonLabel.style.animation = "slideInLeft 1.5s ease";
-    OtherReasonLabel.addEventListener(
-      "animationend",
-      function () {
-        OtherReason();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(OtherReasonLabel, OtherReason);
   } else {
     otherReason.style.display = "none";
     submit.style.display = "none";
@@ -1101,19 +1064,9 @@ function showSubCategories() {
     softwareType.style.display = "block";
     softwareSpecifyInput.style.display = "none";
     specifySoftwares.style.display = "none";
-    softwareType.style.animation = "slideInLeft 1.5s ease";
     preSoftware.style.display = "none";
-
     specifySoftware.style.display = "none";
-    softwareType.addEventListener(
-      "animationend",
-      function () {
-        SoftwareAns();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(softwareType, SoftwareAns);
   } else {
     softwareType.style.display = "none";
     selectedSoftwares.style.display = "none";
@@ -1121,17 +1074,7 @@ function showSubCategories() {
 
   if (currency !== "") {
     foundedYearContainer.style.display = "block";
-    foundedYearContainer.style.animation = "slideInLeft 1.5s ease";
-
-    foundedYearContainer.addEventListener(
-      "animationend",
-      function () {
-        yearsDetails();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(foundedYearContainer, yearsDetails);
   } else {
     foundedYearContainer.style.display = "none";
   }
@@ -1144,48 +1087,21 @@ function showSubCategories() {
   ) {
     calculatorLabel.style.display = "block";
     calculatorLabel.style.animation = "slideInLeft 1.5s ease";
-    calculatorLabel.addEventListener(
-      "animationend",
-      function () {
-        Calculator();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(calculatorLabel, Calculator);
   } else {
   }
 
   if (specifyReason.value === "High Price") {
     highPriceLabel.style.display = "block";
-    highPriceLabel.style.animation = "slideInLeft 1.5s ease";
     submit.style.display = "none";
-
-    highPriceLabel.addEventListener(
-      "animationend",
-      function () {
-        HighPrice();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(highPriceLabel, HighPrice);
     submit.style.display = "block";
   } else {
     highPriceLabel.style.display = "none";
   }
   if (cfo.value === "no") {
     reasonLabel.style.display = "block";
-    reasonLabel.style.animation = "slideInLeft 1.5s ease";
-    reasonLabel.addEventListener(
-      "animationend",
-      function () {
-        Reason();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(reasonLabel, Reason);
   } else {
     reasonLabel.style.display = "none";
   }
@@ -1245,17 +1161,7 @@ function showSubCategories() {
 
   if (yearDropdown.value !== "Select Founded Year") {
     customerContainer.style.display = "block";
-    customerContainer.style.animation = "slideInLeft 1.5s ease";
-
-    customerContainer.addEventListener(
-      "animationend",
-      function () {
-        customersDetail();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(customerContainer, customersDetail);
   } else {
     customerContainer.style.display = "none";
   }
@@ -1267,55 +1173,32 @@ function showSubCategories() {
     customerSpecify.style.display = "none";
     inputGroup7.style.display = "none";
     specifyCustomerDetail.style.display = "none";
-    businessNameContainer.style.animation = "slideInLeft 1.5s ease";
-
-    businessNameContainer.addEventListener(
-      "animationend",
-      function () {
-        BusinessName();
-      },
-      { once: true }
-    );
+    animateElement(businessNameContainer, BusinessName);
   } else {
     businessNameContainer.style.display = "none";
   }
 
   if (businessSize.value !== "Select an option") {
     country.style.display = "block";
-    country.style.animation = "slideInLeft 1.5s ease";
-
-    country.addEventListener(
-      "animationend",
-      function () {
-        Country();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(country, Country);
   } else {
     country.style.display = "none";
   }
   if (cfo.value === "yes") {
     virtualCfo.style.display = "block";
     specifyReason.style.display = "none";
+    selectedReason.style.display = "none";
+    OtherReasonLabel.style.display = "none";
+    otherReason.style.display = "none";
+    revisionOptions.style.display = "none";
+    submit.style.display = "none";
   } else {
     virtualCfo.style.display = "none";
   }
 
   if (countryDropdown.value !== "Select an option") {
     revenuelabel.style.display = "block";
-    revenuelabel.style.animation = "slideInLeft 1.5s ease";
-
-    revenuelabel.addEventListener(
-      "animationend",
-      function () {
-        Revenue();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(revenuelabel, Revenue);
   } else {
     revenuelabel.style.display = "none";
   }
@@ -1327,43 +1210,33 @@ function showSubCategories() {
     whichService.value != "Software Development & Maintenance"
   ) {
     softwareQues.style.display = "block";
-    softwareQues.style.animation = "slideInLeft 1.5s ease";
-
-    softwareQues.addEventListener(
-      "animationend",
-      function () {
-        Softwares();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(softwareQues, Softwares);
   } else {
     softwareQues.style.display = "none";
   }
   if (revenueSelect.value !== "Select an option") {
     currencyLabel.style.display = "block";
-    currencyLabel.style.animation = "slideInLeft 1.5s ease";
-
-    currencyLabel.addEventListener(
-      "animationend",
-      function () {
-        CurrencyTyping();
-      },
-      {
-        once: true,
-      }
-    );
+    animateElement(currencyLabel, CurrencyTyping);
   } else {
     currencyLabel.style.display = "none";
   }
+}
+function animateElement(element, callback) {
+  element.style.animation = "slideInLeft 0.2s ease";
+  element.addEventListener(
+    "animationend",
+    function () {
+      if (callback) callback();
+    },
+    { once: true }
+  );
 }
 document.getElementById("enterButton").addEventListener("click", function () {
   const FirstNameLabel = document.getElementById("firstNameLabel");
   const inputValue = document.getElementById("business_name").value;
   if (inputValue.trim() !== "") {
     FirstNameLabel.style.display = "block";
-    FirstNameLabel.style.animation = "slideInLeft 1.2s ease";
+    FirstNameLabel.style.animation = "slideInLeft 0.2s ease";
     FirstNameLabel.addEventListener(
       "animationend",
       function () {
@@ -1383,7 +1256,7 @@ document.getElementById("enterButton8").addEventListener("click", function () {
   const inputValue = document.getElementById("specifyCustomer").value;
   if (inputValue.trim() !== "") {
     businessName.style.display = "block";
-    businessName.style.animation = "slideInLeft 1.2s ease";
+    businessName.style.animation = "slideInLeft 0.2s ease";
 
     businessName.addEventListener(
       "animationend",
@@ -1404,7 +1277,7 @@ document.getElementById("enterButton6").addEventListener("click", function () {
   const inputValue = document.getElementById("otherSpecifyInput").value;
   if (inputValue.trim() !== "") {
     businessSizeLabel.style.display = "block";
-    businessSizeLabel.style.animation = "slideInLeft 1.2s ease";
+    businessSizeLabel.style.animation = "slideInLeft 0.2s ease";
 
     businessSizeLabel.addEventListener(
       "animationend",
@@ -1425,7 +1298,7 @@ document.getElementById("enterButton9").addEventListener("click", function () {
   const inputValue = document.getElementById("softwareSpecify").value;
   if (inputValue.trim() !== "") {
     calculatorLabel.style.display = "block";
-    calculatorLabel.style.animation = "slideInLeft 1.2s ease";
+    calculatorLabel.style.animation = "slideInLeft 0.2s ease";
 
     calculatorLabel.addEventListener(
       "animationend",
@@ -1446,7 +1319,7 @@ document.getElementById("enterButton10").addEventListener("click", function () {
   const inputValue = document.getElementById("softwareSpecifies").value;
   if (inputValue.trim() !== "") {
     calculatorLabel.style.display = "block";
-    calculatorLabel.style.animation = "slideInLeft 1.2s ease";
+    calculatorLabel.style.animation = "slideInLeft 0.2s ease";
 
     calculatorLabel.addEventListener(
       "animationend",
@@ -1572,32 +1445,6 @@ document.getElementById("enterButton3").addEventListener("click", function () {
   }
 });
 
-let typingStarted = {
-  phone: false,
-  customerType: false,
-  serviceLooking: false,
-  softwarePrefer: false,
-  businessName: false,
-  businessSize: false,
-  currencyTyping: false,
-  businessService: false,
-  country: false,
-  customerTypeSpecify: false,
-  revenue: false,
-  yearsDetails: false,
-  softwares: false,
-  softwareAns: false,
-  email: false,
-  transaction: false,
-  monthlyinvoices: false,
-  payrollmanagement: false,
-  billing: false,
-  contractualpayment: false,
-  highprice: false,
-  reason: false,
-  otherreason: false,
-};
-
 function resetTypingFlags() {
   for (let key in typingStarted) {
     typingStarted[key] = false;
@@ -1680,26 +1527,57 @@ function getNextTypingElement(nextFunction) {
       return null;
   }
 }
-function typeText(label, select, text, flag, nextFunction, doubleChar = false) {
+let typingStarted = {
+  phone: false,
+  customerType: false,
+  serviceLooking: false,
+  softwarePrefer: false,
+  businessName: false,
+  businessSize: false,
+  currencyTyping: false,
+  businessService: false,
+  country: false,
+  customerTypeSpecify: false,
+  revenue: false,
+  yearsDetails: false,
+  softwares: false,
+  softwareAns: false,
+  email: false,
+  transaction: false,
+  monthlyinvoices: false,
+  payrollmanagement: false,
+  billing: false,
+  contractualpayment: false,
+  highprice: false,
+  reason: false,
+  otherreason: false,
+};
+
+function typeText(label, select, text, flag, nextFunction) {
   if (typingStarted[flag]) return;
 
   typingStarted[flag] = true;
   let index = 0;
   label.textContent = "";
+  label.classList.add("blinking-dots");
+  select.style.display = "none";
 
   function type() {
     if (index < text.length) {
       label.textContent += text.charAt(index);
       index++;
-      setTimeout(type, 15);
+      setTimeout(type, 10);
     } else {
+      label.classList.remove("blinking-dots");
       select.style.display = "block";
       typingStarted[flag] = false;
       autoScrollDown(nextFunction);
     }
   }
-  type();
+
+  setTimeout(type, 1000);
 }
+
 function Phone() {
   typeText(
     document.getElementById("phoneLabel"),
@@ -1997,7 +1875,7 @@ function FirstName() {
     if (index < text.length) {
       label.textContent = text.substring(0, index + 1);
       index++;
-      setTimeout(type, 15);
+      setTimeout(type, 9);
     } else {
       select.style.display = "block";
     }
@@ -2194,13 +2072,14 @@ function showInputBox(category) {
   saveValues();
   calculatePrices();
 }
+
 function animateAndExecute(labelId, func) {
   const label = document.getElementById(labelId);
   if (label) {
     label.style.display = "block";
     label.style.animation = "none";
-    label.offsetHeight;
-    label.style.animation = "slideInLeft 1.5s ease";
+    label.offsetHeight; // trigger reflow
+    label.style.animation = "slideInLeft 0.5s ease"; // faster typing speed
     label.addEventListener(
       "animationend",
       function () {

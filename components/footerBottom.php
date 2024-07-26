@@ -1,7 +1,7 @@
-<div class="copyright-area copyright-style-one">
+<div class="copyright-area copyright-style-one" style="background:transparent;border:none">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-6 col-md-8 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6">
                         <div class="copyright-left">
                             <ul class="ft-menu link-hover">
                                 <li>
@@ -16,9 +16,9 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-4 col-sm-12 col-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6">
                         <div class="copyright-right text-center text-lg-end">
-                            <p class="copyright-text">© Mavens Advisor 2024</p>
+                            <p class="copyright-text">© Virsme 2024</p>
                         </div>
                     </div>
                 </div>

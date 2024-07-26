@@ -2,7 +2,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 :root {
-  --color-primary: #059DFF;
+  --color-primary: #0b7ffe;
   --color-primary-rgba: rgb(5, 157, 255);
   --color-primary-rgba-2: rgba(5, 157, 255,0.15);
   --color-primary-alt: #059DFF;
@@ -10946,7 +10946,7 @@ div.btn-default.rounded-player.sm-size {
 }
 .rainbow-box-card.border-gradient .thumbnail,
 .team-style-default.border-gradient .thumbnail {
-  background: linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98%/200% 100%;
+  background: linear-gradient(to right, #0B7FFE, #000000);
   padding: 5px;
   border: 0 none;
 }

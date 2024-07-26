@@ -1,8 +1,8 @@
 <?php
 $servername = "localhost";
-$username = "u402019268_dbroot";
-$password = "3JKu=Ku$oB";
-$dbname = "u402019268_advisor";
+$username = "root";
+$password = "";
+$dbname = "mavens_advisor";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {

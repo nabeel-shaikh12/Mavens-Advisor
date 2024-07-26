@@ -56,10 +56,11 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 	<meta property="og:description" content="Yashadmin:Sales Management System Admin Bootstrap 5 Template">
 	<meta property="og:image" content="https:/yashadmin.dexignzone.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
-	<title>Login</title>
-	<link rel="shortcut icon" type="image/png" href="../img/MA Logo circle.png">
+	<title>Login - VirSME</title>
+	<link rel="shortcut icon" type="image/png" href="../img/virstual-expert.png">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link href="./vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="../assets/css/custom.css" rel="">
 	<link href="./css/style.css" rel="stylesheet">
 	<style>
 		.form-group {
