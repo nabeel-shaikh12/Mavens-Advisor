@@ -151,6 +151,9 @@
    .contents{
         width:80% !important;
     }
+    .ab-res{
+        margin-top: 200px !important;
+    }
 }
 
 @media (max-width: 480px) {

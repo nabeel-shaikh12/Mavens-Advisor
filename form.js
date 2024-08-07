@@ -1093,9 +1093,15 @@ function showSubCategories() {
 
   if (specifyReason.value === "High Price") {
     highPriceLabel.style.display = "block";
-    submit.style.display = "none";
-    animateElement(highPriceLabel, HighPrice);
     submit.style.display = "block";
+    highPriceLabel.style.animation = "slideInLeft 0.2s ease";
+    highPriceLabel.addEventListener(
+      "animationend",
+      function () {
+        HighPrice();
+      },
+      { once: true }
+    );
   } else {
     highPriceLabel.style.display = "none";
   }
@@ -1560,7 +1566,10 @@ function typeText(label, select, text, flag, nextFunction) {
   let index = 0;
   label.textContent = "";
   label.classList.add("blinking-dots");
-  select.style.display = "none";
+  
+  if (select) {
+    select.style.display = "none";
+  }
 
   function type() {
     if (index < text.length) {
@@ -1569,15 +1578,20 @@ function typeText(label, select, text, flag, nextFunction) {
       setTimeout(type, 10);
     } else {
       label.classList.remove("blinking-dots");
-      select.style.display = "block";
+      if (select) {
+        select.style.display = "block";
+      }
       typingStarted[flag] = false;
-      autoScrollDown(nextFunction);
+      if (typeof autoScrollDown === 'function') {
+        autoScrollDown(nextFunction);
+      } else if (nextFunction) {
+        nextFunction();
+      }
     }
   }
 
   setTimeout(type, 1000);
 }
-
 function Phone() {
   typeText(
     document.getElementById("phoneLabel"),
@@ -1844,13 +1858,9 @@ function HighPrice() {
   typeText(
     document.getElementById("highPriceLabel"),
     null,
-    "Thank you for considering our Services. We understand that you’ve selected a higher price option. Rest assured, our pricing is highly competitive within the market. We strive to offer the best value for your investment, ensuring top-quality products and services that you won't find anywhere else. If you have any questions or need further assistance, please don't hesitate to reach out.",
+    "Thank you for considering our Services. We understand that you have selected a higher price option. Rest assured, our pricing is highly competitive within the market. We strive to offer the best value for your investment, ensuring top-quality products and services that you won't find anywhere else. If you have any questions or need further assistance, please don't hesitate to reach out.",
     "highprice",
-    function () {
-      const submit = document.getElementById("submit");
-      if (submit) submit.style.display = "none";
-      autoScrollDown();
-    }
+    null
   );
 }
 document.addEventListener("DOMContentLoaded", function () {
@@ -2514,23 +2524,17 @@ function calculatePrices() {
   ).toFixed(2);
 
   document.getElementById("transactionPrice").innerText = transactionPrice;
-  document.getElementById("discountTransactionPrice").innerText =
-    discountTransactionPrice;
+  document.getElementById("discountTransactionPrice").innerText = discountTransactionPrice;
   document.getElementById("invoicePrice").innerText = invoicePrice;
-  document.getElementById("discountInvoicePrice").innerText =
-    discountInvoicePrice;
+  document.getElementById("discountInvoicePrice").innerText = discountInvoicePrice;
   document.getElementById("payrollPrice").innerText = payrollPrice;
   document.getElementById("expensePrice").innerText = expensePrice;
-  document.getElementById("discountPayrollPrice").innerText =
-    discountPayrollPrice;
+  document.getElementById("discountPayrollPrice").innerText = discountPayrollPrice;
   document.getElementById("cashflowPrice").innerText = cashflowPrice;
-  document.getElementById("discountCashflowPrice").innerText =
-    discountCashflowPrice;
+  document.getElementById("discountCashflowPrice").innerText = discountCashflowPrice;
   document.getElementById("budgetPrice").innerText = budgetPrice;
-  document.getElementById("discountBudgetPrice").innerText =
-    discountBudgetPrice;
-  document.getElementById("contractualPaymentPrice").innerText =
-    contractualPaymentPrice;
+  document.getElementById("discountBudgetPrice").innerText = discountBudgetPrice;
+  document.getElementById("contractualPaymentPrice").innerText = contractualPaymentPrice;
   document.getElementById("irsPrice").innerText = irsPrice;
   document.getElementById("setupPrice").innerText = setupPrice;
   document.getElementById("advisoryPrice").innerText = advisoryPrice;
@@ -2538,8 +2542,7 @@ function calculatePrices() {
   document.getElementById("hmrcPrice").innerText = hmrcPrice;
   document.getElementById("companyPrice").innerText = companyPrice;
   document.getElementById("vatPrice").innerText = vatPrice;
-  document.getElementById("financialAnalysisPrice").innerText =
-    financialAnalysisPrice;
+  document.getElementById("financialAnalysisPrice").innerText = financialAnalysisPrice;
   document.getElementById("profitPrice").innerText = profitPrice;
   document.getElementById("totalPrice").innerText = totalPrice;
   document.getElementById("discountedPrice").innerText = discountedPrice;

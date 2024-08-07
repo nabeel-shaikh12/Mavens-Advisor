@@ -909,7 +909,7 @@ if (!isset($_SESSION['visit_count'])) {
             </div>
             <div class="row mt-5 form-group" id="scroller">
               <label style="margin-top: 20px;" id="calculatorLabel" for="calculatorLabel"></label>
-              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display:none">
+              <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12" id="calculatorList" style="display: none;">
                 <div class="service gallery-style">
                   <br>
                   <label>
@@ -1049,78 +1049,62 @@ if (!isset($_SESSION['visit_count'])) {
             <div class="col-md-6"></div>
             <div id="quotationDetails" class="col-md-6" style="font-size:16px; background-color:#0b7ffe; padding:13px; border-radius:20px; color:white;">
               <div class="row price-section" id="monthlyTransactionPriceSection">
-                <p>Monthly Transaction Fee: <span id="transactionPrice" name="transactionPrice">0</span>$</p>
-                <p>Discount Monthly Transaction Fee: <span id="discountTransactionPrice" name="discountTransactionPrice">0</span>$</p>
+                <p><b>Monthly Transaction Fee:</b> <span id="transactionPrice" name="transactionPrice">0</span>$</p>
+                <p><b>Discount Monthly Transaction Fee:</b> <span id="discountTransactionPrice" name="discountTransactionPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="monthlyInvoicesPriceSection">
-                <p>Monthly Invoice Fee: <span id="invoicePrice" name="invoicePrice">0</span>$</p>
-                <p>Discount Monthly Invoice Fee: <span id="discountInvoicePrice" name="discountInvoicePrice">0</span>$</p>
+              <div class="row price-section mt-5" id="monthlyInvoicesPriceSection">
+                <p><b>Monthly Invoice Fee:</b> <span id="invoicePrice" name="invoicePrice">0</span>$</p>
+                <p><b>Discount Monthly Invoice Fee:</b> <span id="discountInvoicePrice" name="discountInvoicePrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="payrollPriceSection">
-                <p>Monthly Payroll Fee: <span id="payrollPrice" name="payrollPrice">0</span>$</p>
-                <p>Discount Monthly Payroll Fee: <span id="discountPayrollPrice" name="discountPayrollPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="payrollPriceSection">
+                <p><b>Monthly Payroll Fee:</b> <span id="payrollPrice" name="payrollPrice">0</span>$</p>
+                <p><b>Discount Monthly Payroll Fee:</b> <span id="discountPayrollPrice" name="discountPayrollPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="expensePriceSection">
-                <p>Monthly Expense Fee: <span id="expensePrice" name="expensePrice">0</span>$</p>
-                <p>Discounted Expense Fee: <span id="discountExpencePrice" name="discountExpencePrice">0</span>$</p>
+              <div class="row price-section mt-5" id="expensePriceSection">
+                <p><b>Monthly Expense Fee:</b> <span id="expensePrice" name="expensePrice">0</span>$</p>
+                <p><b>Discounted Expense Fee:</b> <span id="discountExpencePrice" name="discountExpencePrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="contractualPaymentPriceSection">
-                <p>Contractual Payment Fee: <span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="contractualPaymentPriceSection">
+                <p><b>Contractual Payment Fee:</b> <span id="contractualPaymentPrice" name="contractualPaymentPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="cashflowPriceSection">
-                <p>Monthly Cashflow Fee: <span id="cashflowPrice" name="cashflowPrice">0</span>$</p>
-                <p>Discounted Cashflow Price: <span id="discountCashflowPrice" name="discountCashflowPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="cashflowPriceSection">
+                <p><b>Monthly Cashflow Fee:</b> <span id="cashflowPrice" name="cashflowPrice">0</span>$</p>
+                <p><b>Discounted Cashflow Price:</b> <span id="discountCashflowPrice" name="discountCashflowPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="budgetPriceSection">
-                <p>Monthly Budget Fee: <span id="budgetPrice" name="budgetPrice">0</span>$</p>
-                <p>Discounted Budget Fee: <span id="discountBudgetPrice" name="discountBudgetPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="budgetPriceSection">
+                <p><b>Monthly Budget Fee:</b> <span id="budgetPrice" name="budgetPrice">0</span>$</p>
+                <p><b>Discounted Budget Fee:</b> <span id="discountBudgetPrice" name="discountBudgetPrice">0</span>$</p>
               </div>
-              <br>
               <div id="setUp" class="row" style="display: none;">
-                <p>One Time Setup Fee: <span id="setupPrice" name="setupPrice">0</span>$</p>
+                <p><b>One Time Setup Fee:</b> <span id="setupPrice" name="setupPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="irsFilingPriceSection">
-                <p>IRS Fee: <span id="irsPrice" name="irsPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="irsFilingPriceSection">
+                <p><b>IRS Fee:</b> <span id="irsPrice" name="irsPrice">0</span>$</p>
               </div>
-              <br>
               <div class="row price-section" id="statutoryStateFilingPriceSection">
-                <p>Statutory Filing Fee: <span id="statePrice" name="statePrice">0</span>$</p>
+                <p><b>Statutory Filing Fee:</b> <span id="statePrice" name="statePrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="hmrcPriceSection">
-                <p>Hmrc Filing Fee: <span id="hmrcPrice" name="hmrcPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="hmrcPriceSection">
+                <p><b>Hmrc Filing Fee:</b> <span id="hmrcPrice" name="hmrcPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="companyHouseFilingPriceSection">
-                <p>Company House Filing Fee: <span id="companyPrice" name="companyPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="companyHouseFilingPriceSection">
+                <p><b>Company House Filing Fee:</b> <span id="companyPrice" name="companyPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="vatPriceSection">
-                <p>VAT Fee: <span id="vatPrice" name="vatPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="vatPriceSection">
+                <p><b>VAT Fee:</b> <span id="vatPrice" name="vatPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="financialAnalysisPriceSection">
-                <p>Monthly Financial Fee: <span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="financialAnalysisPriceSection">
+                <p><b>Monthly Financial Fee:</b> <span id="financialAnalysisPrice" name="financialAnalysisPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="monthlyProfitLossPriceSection">
-                <p>Monthly Profit & Loss Fee: <span id="profitPrice" name="profitPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="monthlyProfitLossPriceSection">
+                <p><b>Monthly Profit & Loss Fee:</b> <span id="profitPrice" name="profitPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row price-section" id="strategicAdvicePriceSection">
-                <p>Strategic Advisory Fee: <span id="advisoryPrice" name="advisoryPrice">0</span>$</p>
+              <div class="row price-section mt-5" id="strategicAdvicePriceSection">
+                <p><b>Strategic Advisory Fee:</b> <span id="advisoryPrice" name="advisoryPrice">0</span>$</p>
               </div>
-              <br>
-              <div class="row">
-                <p>Total Fee: <span id="totalPrice" name="totalPrice">0</span>$</p>
-                <p>Total Fee After Discount: <span id="discountedPrice" name="discountedPrice">0</span>$</p>
+              <div class="row mt-5">
+                <p><b>Total Fee:</b> <span id="totalPrice" name="totalPrice">0</span>$</p>
+                <p><b>Total Fee After Discount:</b> <span id="discountedPrice" name="discountedPrice">0</span>$</p>
               </div>
               <br>
               <input type="hidden" id="hiddenTransactionPrice" name="transactionPrice">

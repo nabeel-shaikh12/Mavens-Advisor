@@ -39,7 +39,6 @@ session_start();
         }
     </style>
 </head>
-
 <body>
     <main class="page-wrapper">
         <!-- <?php include 'components/topbar.php' ?> -->
@@ -84,7 +83,6 @@ session_start();
                         </div>
                     </div>
                     <div class="col-md-2">
-
                     </div>
                     <div class="col-lg-7">
                         <div class="row">
@@ -214,7 +212,7 @@ session_start();
                     <br>
                     <br>
                     <div class="col-lg-2"></div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 ab-res">
                         <div class="section-title justify-content-start" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
                             <h2 class="title w-600" style="font-size:30px; margin-top:-20px; font-weight:bolder !important;">We Completed 1500+ Projects Yearly Successfully & Counting</h2>
                             <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the.</p>
@@ -338,5 +336,4 @@ session_start();
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
-
 </html>

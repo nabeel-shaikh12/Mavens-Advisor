@@ -126,7 +126,7 @@
                 <hr class="rbt-separator m-0">
             </div>
         </div>
-        <div class="container">
+        <div class="container rainbow-section-gap ab-res">
             <div class="row">
                 <div class="col-md-4" data-sal="slide-up" data-sal-duration="1000" data-sal-delay="500">
                     <center>
