@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-style-mode" content="1">
     <title>Services - VirSME</title>
-	<link rel="shortcut icon" type="image/png" href="img/virstual-expert.png">
+    <link rel="shortcut icon" type="image/png" href="img/virstual-expert.png">
     <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/animation.css">
     <link rel="stylesheet" href="assets/css/plugins/feature.css">
@@ -113,55 +113,55 @@
                             </div>
                         </div>
                     </div>
-                        <div class="row">
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
-                                <div class="service service__style--2" style="border-radius: 50px;">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <h4 class="title">
-                                                <a href="./form">Monthly Payroll</a>
-                                            </h4>
-                                            <p class="description"> Ensure your employees are paid accurately and on time with our monthly payroll service. We handle all aspects of payroll management, including wage calculations, deductions, and tax withholdings, ensuring compliance with all relevant laws and regulations. </p>
-                                        </div>
-                                        <div class="image">
-                                            <a href="./form"><img src="img/payroll.png" alt="card Images"></a>
-                                        </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
+                            <div class="service service__style--2" style="border-radius: 50px;">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Monthly Payroll</a>
+                                        </h4>
+                                        <p class="description"> Ensure your employees are paid accurately and on time with our monthly payroll service. We handle all aspects of payroll management, including wage calculations, deductions, and tax withholdings, ensuring compliance with all relevant laws and regulations. </p>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                                <div class="service service__style--2" style="border-radius: 50px;">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <h4 class="title">
-                                                <a href="./form">Monthly Contractor Payments</a>
-                                            </h4>
-                                            <p class="description">Manage your contractor payments effortlessly with our specialized service. We take care of the timely and accurate payment of your contractors, helping you maintain smooth operations and positive working relationships. </p>
-                                        </div>
-                                        <div class="image">
-                                            <a href="./form"><img style="height: 382px;" src="img/payment.png" alt="card Images"></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="200">
-                                <div class="service service__style--2" style="border-radius: 50px;">
-                                    <div class="inner">
-                                        <div class="content">
-                                            <h4 class="title">
-                                                <a href="./form">Document Keeping</a>
-                                            </h4>
-                                            <p class="description">
-                                                Maintain organized and secure financial records with our document keeping service. We systematically store and manage all essential documents, ensuring easy access and retrieval whenever needed for audits, reviews, or financial planning.
-                                            </p>
-                                        </div>
-                                        <div class="image">
-                                            <a href="./form"><img style="height: 354px;" src="img/record.png" alt="card Images"></a>
-                                        </div>
+                                    <div class="image">
+                                        <a href="./form"><img src="img/payroll.png" alt="card Images"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                            <div class="service service__style--2" style="border-radius: 50px;">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Monthly Contractor Payments</a>
+                                        </h4>
+                                        <p class="description">Manage your contractor payments effortlessly with our specialized service. We take care of the timely and accurate payment of your contractors, helping you maintain smooth operations and positive working relationships. </p>
+                                    </div>
+                                    <div class="image">
+                                        <a href="./form"><img style="height: 382px;" src="img/payment.png" alt="card Images"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700" data-sal-delay="200">
+                            <div class="service service__style--2" style="border-radius: 50px;">
+                                <div class="inner">
+                                    <div class="content">
+                                        <h4 class="title">
+                                            <a href="./form">Document Keeping</a>
+                                        </h4>
+                                        <p class="description">
+                                            Maintain organized and secure financial records with our document keeping service. We systematically store and manage all essential documents, ensuring easy access and retrieval whenever needed for audits, reviews, or financial planning.
+                                        </p>
+                                    </div>
+                                    <div class="image">
+                                        <a href="./form"><img style="height: 354px;" src="img/record.png" alt="card Images"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="row row--15 service-wrapper">
                             <div class="col-lg-4 col-md-6 col-sm-6 col-12" data-sal="slide-up" data-sal-duration="700">
@@ -275,4 +275,5 @@
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
+
 </html>

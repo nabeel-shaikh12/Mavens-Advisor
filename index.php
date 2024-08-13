@@ -269,7 +269,7 @@ session_start();
                             <li><i class="bx bx-check-circle"></i> 1 User Included</li>
                         </ul>
                         <div class="price-btn-area text-center">
-                            <a href="pricing.html" class="price-btn">Subscribe Now</a>
+                            <a href="form.php" class="price-btn">Subscribe Now</a>
                         </div>
                     </div>
                 </div>
@@ -290,7 +290,7 @@ session_start();
                             <li><i class="bx bx-check-circle"></i> 2 User Included</li>
                         </ul>
                         <div class="price-btn-area text-center">
-                            <a href="pricing.html" class="price-btn">Subscribe Now</a>
+                            <a href="form.php" class="price-btn">Subscribe Now</a>
                         </div>
                     </div>
                 </div>
@@ -311,16 +311,252 @@ session_start();
                             <li><i class="bx bx-check-circle"></i> 4 User Included</li>
                         </ul>
                         <div class="price-btn-area text-center">
-                            <a href="pricing.html" class="price-btn">Subscribe Now</a>
+                            <a href="form.php" class="price-btn">Subscribe Now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-        <br>
-        <br>
-        <br>
+        </div>
+        <div class="rainbow-testimonial-area rainbow-section-gap">
+            <div class="container">
+                <div class="row mb--20">
+                    <div class="col-lg-12">
+                        <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                            <h4 class="subtitle"><span class="theme-gradient">Client Feedback</span></h4>
+                            <h2 class="title w-600 mb--20" style="font-weight: bolder;">What Customer Say.</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rainbow-slick-dot rainbow-slick-arrow testimonial-activation">
+                    <div class="col-lg-12">
+                        <div class="testimonial-style-two">
+                            <div class="row">
+                                <div class="col-md-4 box-shadow" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 box-shadow" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 box-shadow" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="testimonial-style-two">
+                            <div class="row">
+                                <div class="col-md-4" style="background-color:white;padding:20px">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="testimonial-style-two">
+                            <div class="row">
+                                <div class="col-md-4" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="background-color:white">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="img/inverted.PNG">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                        <div class="rating">
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star icon8"></i>
+                                            <i class="fas fa-star-half icon8"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php include 'components/footer.php' ?>
         <?php include 'components/footerBottom.php' ?>
     </main>

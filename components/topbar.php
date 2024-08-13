@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<div class="header-top-news" style="background-color: #d5eafd;height:70px !important">
+<div class="header-top-news topbar" style="background-color: #d5eafd;height:70px !important">
     <div class="wrapper">
         <div class="container">
             <div class="row">
                 <div class="col-md-2 col-sm-2 col-xl-2 col-lg-2 mt-4">
-                    <p><i style="color: #0b7ffe;" class="fa fa-phone" aria-hidden="true"></i>
+                    <p style="color: black;"><i style="color: #0b7ffe;" class="fa fa-phone" aria-hidden="true"></i>
                         +1 619 612 8944</p>
                 </div>
                 <div class="col-md-2 col-sm-2 col-xl-2 col-lg-2 mt-4">
-                    <p><i style="color: #0b7ffe;" class="fa fa-envelope" aria-hidden="true"></i>
+                    <p style="color: black;"><i style="color: #0b7ffe;" class="fa fa-envelope" aria-hidden="true"></i>
                         info@virSME.com</p>
                 </div>
                 <div class="col-md-4">
