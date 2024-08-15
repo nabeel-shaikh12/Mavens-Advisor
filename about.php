@@ -20,7 +20,7 @@
 
 <body>
     <main class="page-wrapper">
-        <!-- <?php include 'components/topbar.php' ?> -->
+        <?php include 'components/topbar.php' ?>
         <?php include 'components/header.php' ?>
         <?php include 'components/sidebar.php' ?>
         <div>
