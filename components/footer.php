@@ -21,9 +21,8 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xl-4 bottoms" data-sal="slide-up" data-sal-duration="400" data-sal-delay="150">
                     <h5>Stay With Us.</h5>
-                    <div class="call-to-btn text-left mt_sm--20 text-lg-right">
                         <ul class="social-icon social-default justify-content-start" style="padding:0px">
                             <li><a href="https://www.facebook.com/MavensAdvisor">
                                     <i class="feather-facebook"></i>
@@ -44,7 +43,6 @@
                         </ul>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </footer>

@@ -1,4 +1,4 @@
-<div class="copyright-area copyright-style-one" style="background:transparent;border:none">
+<div class="copyright-area copyright-style-one bottoms" style="background:transparent;border:none">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6">

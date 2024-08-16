@@ -25,6 +25,8 @@ session_start();
     <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <style>
         .overlapping-image {
             width: 500% !important;
@@ -59,14 +61,14 @@ session_start();
                     <div class="carousel-item active">
                         <div class="slide">
                             <div class="content">
-                                <div class="slide-div">
+                                <div class="slide-div" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
                                     <h1 class="slide-h1">Best <span style="color: #0B7FFE;">Virtual Assistant</span> For your Business</h1>
                                     <p style="color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua quis ipsum.</p>
                                     <a href="./form"><button class="gradient-button" style="font-size:15px;border-radius:40px"><span> Get Subscription Now <i class="icon feather-arrow-right"></i></span></button></a>
                                 </div>
                             </div>
-                            <div class="image">
+                            <div class="image" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <img src="./img/home-two-img3.jpg" alt="People working">
                             </div>
                         </div>
@@ -74,14 +76,14 @@ session_start();
                     <div class="carousel-item">
                         <div class="slide">
                             <div class="content">
-                                <div class="slide-div">
+                                <div class="slide-div" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
                                     <h1 class="slide-h1">Best <span style="color: #0B7FFE;">Virtual Assistant</span> For your Business</h1>
                                     <p style="color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua quis ipsum.</p>
                                     <a href="./form"><button class="gradient-button" style="font-size:15px;border-radius:40px"><span> Get Subscription Now <i class="icon feather-arrow-right"></i></span></button></a>
                                 </div>
                             </div>
-                            <div class="image">
+                            <div class="image" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <img src="./img/home-two-img3.jpg" alt="People working">
                             </div>
                         </div>
@@ -89,14 +91,14 @@ session_start();
                     <div class="carousel-item">
                         <div class="slide">
                             <div class="content">
-                                <div class="slide-div">
+                                <div class="slide-div" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
                                     <h1 class="slide-h1">Best <span style="color: #0B7FFE;">Virtual Assistant</span> For your Business</h1>
                                     <p style="color: black;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                                         ut labore et dolore magna aliqua quis ipsum.</p>
                                     <a href="./form"><button class="gradient-button" style="font-size:15px;border-radius:40px"><span> Get Subscription Now <i class="icon feather-arrow-right"></i></span></button></a>
                                 </div>
                             </div>
-                            <div class="image">
+                            <div class="image" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <img src="./img/home-two-img3.jpg" alt="People working">
                             </div>
                         </div>
@@ -318,6 +320,171 @@ session_start();
                 </div>
             </div>
         </div>
+
+        <div class="rainbow-section-gap image-background">
+            <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <h3 class="mb-3">List Services</h3>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                            <i class="fa fa-arrow-left"></i>
+                        </a>
+                        <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="col-12">
+                        <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row">
+
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="assistant-card">
+                                                <div class="top">
+                                                    <img src="img/shape1-edit.png" alt="Shape 1" class="shape shape1">
+                                                    <img src="img/shape2-edit.png" alt="Shape 2" class="shape shape2">
+                                                    <img src="img/price-icon1.png" alt="Images">
+                                                    <h3>project Management</h3>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
+                                                        abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container rainbow-section-gap">
             <div class="row">
                 <div class="col-md-6" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
@@ -346,7 +513,6 @@ session_start();
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -376,259 +542,273 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="rainbow-testimonial-area rainbow-section-gap">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-6">
-                        <div class="" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                            <h4 class=""><span class="theme-gradient">Client Feedback</span></h4>
-                            <h2 class="" style="font-weight: bolder;">What Customer Say.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- <button class="custom-nav-btn prev-btn mt-5" id="prevBtn"><i class="fas fa-arrow-left"></i></button>
-                        <button class="custom-nav-btn next-btn" id="nextBtn"><i class="fas fa-arrow-right"></i></button> -->
-                    </div>
+        <div class="container rainbow-section-gap desktop">
+            <div class="row">
+                <div class="col-6">
+                    <h3 class="mb-3">Our Happy Clients </h3>
                 </div>
-                <div class="container">
-                    <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#testimonialCarousel" data-slide-to="1"></li>
-                            <li data-target="#testimonialCarousel" data-slide-to="2"></li>
-                        </ol>
+                <div class="col-6 text-right">
+                    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators3" role="button" data-slide="prev">
+                        <i class="fa fa-arrow-left"></i>
+                    </a>
+                    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators3" role="button" data-slide="next">
+                        <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="col-12">
+                    <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="testimonial-item">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                    <div class="col-md-4">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="carousel-item">
                                 <div class="row">
+                                    <div class="col-md-4 ">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-4">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 d-none d-md-block">
-                                        <div class="testimonial-item text-center">
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                    <div class="col-md-4">
+                                        <div class="card" style="border: none;">
+                                            <div class="testimonial-item text-center">
+                                                <div class="row">
+                                                    <div class="col-md-2">
+                                                        <img src="img/testimonial-profile1.jpg" alt="Testimonials Images" style="border-radius: 50px;">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <img src="img/inverted.PNG">
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-8">
-                                                    <h5>Orbindu Jeason<br><span style="font-weight: 400;">Manager</span></h5>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <img src="img/inverted.PNG">
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
-                                                <div class="rating">
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star icon8"></i>
-                                                    <i class="fas fa-star-half icon8"></i>
+                                                <div class="row">
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra</p>
+                                                    <div class="rating">
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star icon8"></i>
+                                                        <i class="fas fa-star-half icon8"></i>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -636,18 +816,12 @@ session_start();
                                 </div>
                             </div>
                         </div>
-                        <!-- <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a> -->
                     </div>
                 </div>
-                <?php include 'components/footer.php' ?>
-                <?php include 'components/footerBottom.php' ?>
+            </div>
+        </div>
+        <?php include 'components/footer.php' ?>
+        <?php include 'components/footerBottom.php' ?>
     </main>
     <div class="rainbow-back-top">
         <i class="feather-arrow-up"></i>
@@ -661,6 +835,7 @@ session_start();
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/vendor/popper.min.js"></script>
     <script src="assets/js/vendor/waypoint.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/js/vendor/wow.min.js"></script>
     <script src="assets/js/vendor/counterup.min.js"></script>
     <script src="assets/js/vendor/feather.min.js"></script>
@@ -688,7 +863,6 @@ session_start();
             $(".services-slider").owlCarousel({
                 items: 3,
                 loop: true,
-                margin: 10,
                 nav: true,
                 dots: false,
                 navText: [
@@ -710,7 +884,6 @@ session_start();
             $(".pricing-slider").owlCarousel({
                 items: 3,
                 loop: true,
-                margin: 10,
                 nav: true,
                 dots: false,
                 navText: [
@@ -729,15 +902,6 @@ session_start();
                     }
                 }
             });
-            // $(document).ready(function() {
-            //     $('#testimonialPrevBtn').on('click', function() {
-            //         $('#testimonialCarousel').carousel('prev');
-            //     });
-
-            //     $('#testimonialNextBtn').on('click', function() {
-            //         $('#testimonialCarousel').carousel('next');
-            //     });
-            // });
         });
     </script>
 </body>

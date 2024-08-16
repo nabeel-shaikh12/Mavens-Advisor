@@ -2,7 +2,7 @@
     <div class="inner">
         <div class="header-top">
                 <a href="index.php">
-                    <img class="responsive-logo" src="/img/Virsme.png" alt="Corporate Logo">
+                    <img class="responsive-logo" src="../img/Virsme.png" height="200px" alt="Corporate Logo">
                 </a>
             <div class="close-menu">
                 <button class="close-button">

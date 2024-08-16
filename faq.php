@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  <!-- <?php include 'components/topbar.php' ?> -->
+  <?php include 'components/topbar.php' ?>
   <header class="navigation bg-tertiary">
     <?php include 'components/header.php' ?>
   </header>
