@@ -87,15 +87,15 @@ session_start();
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d188705.91888215818!2d-83.41066912377171!3d42.352543296629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824ca0110cb1d75%3A0x5776864e35b9c4d2!2sDetroit%2C%20MI%2C%20USA!5e0!3m2!1sen!2s!4v1705939842784!5m2!1sen!2s" width="600" height="280" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
             </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6" data-sal="slide-left" data-sal-duration="1000" data-sal-delay="500">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-6 mt-5" data-sal="slide-left" data-sal-duration="1000" data-sal-delay="500">
               <div class="contact_div">
                 <div class="form-div">
                   <form method="POST" action="contactFormProcess.php">
                     <div class="form-group mb-4 pb-2">
-                      <input type="text" class="form-control" style="border-radius:30px;border-color:#DEDEDE; color:white !important; border-width:1px;" placeholder="Full Name" id="full_name" name="full_name">
+                      <input type="text" class="form-control" style="border-radius:30px;border-color:#DEDEDE; color:black !important; border-width:1px;" placeholder="Full Name" id="full_name" name="full_name">
                     </div>
                     <div class="form-group mb-4 pb-2">
-                      <input type="email" class="form-control" style="border-radius:30px;border-color:#DEDEDE; color:white !important; border-width:1px;" placeholder="Email" id="email_address" name="email_address">
+                      <input type="email" class="form-control" style="border-radius:30px;border-color:#DEDEDE; color:black !important; border-width:1px;" placeholder="Email" id="email_address" name="email_address">
                     </div>
                     <div class="form-group mb-4 pb-2">
                       <textarea class="form-control" placeholder="Message" id="message" name="message" class="display-two" style="border-radius:30px;border-width:1px;background:transparent;border-color:white; border-color:#DEDEDE; color:white !important;opacity:1" rows="3"></textarea>

@@ -448,3 +448,54 @@
 
 
 
+$(document).ready(function() {
+    $('#nextBtn').click(function() {
+        $('#carouselExampleIndicators').carousel('next');
+    });
+
+    $('#prevBtn').click(function() {
+        $('#carouselExampleIndicators').carousel('prev');
+    });
+    $(".services-slider").owlCarousel({
+        items: 3,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="flaticon-arrow-pointing-to-left"></i>',
+            '<i class="flaticon-arrow-pointing-to-right"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
+    $(".pricing-slider").owlCarousel({
+        items: 3,
+        loop: true,
+        nav: true,
+        dots: false,
+        navText: [
+            '<i class="bx bx-left-arrow-alt"></i>',
+            '<i class="bx bx-right-arrow-alt"></i>'
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            1000: {
+                items: 3
+            }
+        }
+    });
+});
