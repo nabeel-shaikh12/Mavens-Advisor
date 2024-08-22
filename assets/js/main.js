@@ -444,10 +444,6 @@
     doobJs.i();
 
 })(window, document, jQuery)
-
-
-
-
 $(document).ready(function() {
     $('#nextBtn').click(function() {
         $('#carouselExampleIndicators').carousel('next');

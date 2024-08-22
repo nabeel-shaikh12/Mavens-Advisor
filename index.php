@@ -117,19 +117,19 @@ session_start();
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active" id="simple-tab-0" data-toggle="tab" href="#simple-tabpanel-0" role="tab"
-                            aria-controls="simple-tabpanel-0" aria-selected="true">Content Writing</a>
+                            aria-controls="simple-tabpanel-0" aria-selected="true">Information & Technology</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="simple-tab-1" data-toggle="tab" href="#simple-tabpanel-1" role="tab"
-                            aria-controls="simple-tabpanel-1" aria-selected="false">Project Management</a>
+                            aria-controls="simple-tabpanel-1" aria-selected="false">Financial Services</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="simple-tab-2" data-toggle="tab" href="#simple-tabpanel-2" role="tab"
-                            aria-controls="simple-tabpanel-2" aria-selected="false">Bookkeeping</a>
+                            aria-controls="simple-tabpanel-2" aria-selected="false">Human Resource</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link" id="simple-tab-3" data-toggle="tab" href="#simple-tabpanel-3" role="tab"
-                            aria-controls="simple-tabpanel-3" aria-selected="false">Social Media Marketing</a>
+                            aria-controls="simple-tabpanel-3" aria-selected="false">Marketing & Analysis</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="tab-content">
@@ -249,6 +249,79 @@ session_start();
             </div>
         </div>
 
+        <div class="rainbow-section-gap" style="background-color:#FBFBFB">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="sp-title2">Pricing Plan</span>
+                    <h2>Select Pricing Plan To Get More</h2>
+                </div>
+                <div class="row pt-45 justify-content-center">
+                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                        <div class="pricing-card">
+                            <div class="top">
+                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
+                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
+                                <div class="price-icon">
+                                    <img src="img/price-icon1.png" alt="Images">
+                                </div>
+                                <h3>Entrepreneur Plan</h3>
+                                <h4>$399 <span>/Weekly</span></h4>
+                                <ul>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 24 Hours Per Month</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> Dedicated Assistant</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 4 User Included</li>
+                                </ul>
+                                <div class="price-btn-area text-center">
+                                    <a href="form.php" class="price-btn">Subscribe Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                        <div class="pricing-card">
+                            <div class="top">
+                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
+                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
+                                <div class="price-icon">
+                                    <img src="img/price-icon2.png" style="margin-top:20px !important" alt="Images">
+                                </div>
+                                <h3>Small Business Plan</h3>
+                                <h4>$999 <span>/Monthly</span></h4>
+                                <ul>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 24 Hours Per Month</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> Dedicated Assistant</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 4 User Included</li>
+                                </ul>
+                                <div class="price-btn-area text-center">
+                                    <a href="form.php" class="price-btn">Subscribe Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
+                        <div class="pricing-card">
+                            <div class="top">
+                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
+                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
+                                <div class="price-icon">
+                                    <img src="img/price-icon3.png" alt="Images">
+                                </div>
+                                <h3>Team Plan</h3>
+                                <h4>$1090 <span>/Yearly </span></h4>
+                                <ul>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 24 Hours Per Month</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> Dedicated Assistant</li>
+                                    <li class="zoom-hover"><i class="fa-solid fa-circle-check"></i> 4 User Included</li>
+                                </ul>
+                                <div class="price-btn-area text-center">
+                                    <a href="form.php" class="price-btn">Subscribe Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container rainbow-section-gap">
             <div class="section-title text-center">
                 <span class="sp-title2">Project</span>
@@ -268,7 +341,7 @@ session_start();
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-lg-5">
                     <div class="thumbs-wrap">
                         <div class="owl-thumbs project-area-thumb" data-slider-id="1">
@@ -296,79 +369,6 @@ session_start();
             </div>
         </div>
 
-        <div class="rainbow-section-gap" style="background-color:#FBFBFB">
-            <div class="container">
-                <div class="section-title text-center">
-                    <span class="sp-title2">Pricing Plan</span>
-                    <h2>Select Pricing Plan To Get More</h2>
-                </div>
-                <div class="row pt-45 justify-content-center">
-                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                        <div class="pricing-card">
-                            <div class="top">
-                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
-                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
-                                <div class="price-icon">
-                                    <img src="img/price-icon1.png" alt="Images">
-                                </div>
-                                <h3>Entrepreneur Plan</h3>
-                                <h4>$399 <span>/Weekly</span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check-circle"></i> 12 Hours Per Month</li>
-                                    <li><i class="bx bx-check-circle"></i> Dedicated Assistant</li>
-                                    <li><i class="bx bx-check-circle"></i> 1 User Included</li>
-                                </ul>
-                                <div class="price-btn-area text-center">
-                                    <a href="form.php" class="price-btn">Subscribe Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                        <div class="pricing-card">
-                            <div class="top">
-                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
-                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
-                                <div class="price-icon">
-                                    <img src="img/price-icon2.png" style="margin-top:20px !important" alt="Images">
-                                </div>
-                                <h3>Small Business Plan</h3>
-                                <h4>$999 <span>/Monthly</span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check-circle"></i> 18 Hours Per Month</li>
-                                    <li><i class="bx bx-check-circle"></i> Dedicated Assistant</li>
-                                    <li><i class="bx bx-check-circle"></i> 2 User Included</li>
-                                </ul>
-                                <div class="price-btn-area text-center">
-                                    <a href="form.php" class="price-btn">Subscribe Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                        <div class="pricing-card">
-                            <div class="top">
-                                <img src="img/services-top.png" alt="Shape 1" class="shape shape1">
-                                <img src="img/services-top2.png" alt="Shape 2" class="shape shape2">
-                                <div class="price-icon">
-                                    <img src="img/price-icon3.png" alt="Images">
-                                </div>
-                                <h3>Team Plan</h3>
-                                <h4>$1090 <span>/Yearly </span></h4>
-                                <ul>
-                                    <li><i class="bx bx-check-circle"></i> 24 Hours Per Month</li>
-                                    <li><i class="bx bx-check-circle"></i> Dedicated Assistant</li>
-                                    <li><i class="bx bx-check-circle"></i> 4 User Included</li>
-                                </ul>
-                                <div class="price-btn-area text-center">
-                                    <a href="form.php" class="price-btn">Subscribe Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="rainbow-section-gap image-background">
             <div class="container">
                 <div class="row">
@@ -485,7 +485,6 @@ session_start();
                                 </div>
                                 <div class="carousel-item">
                                     <div class="row">
-
                                         <div class="col-md-4 mb-3">
                                             <div class="assistant-card">
                                                 <div class="top">
@@ -497,7 +496,7 @@ session_start();
                                                         Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
                                                         abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
                                                     </p>
-                                                    <button class="btn btn-primary">Read More</button>
+                                                    <button class="btn btn-primary" style="background-color: #EFEEEE;color:#0B7FFE">Read More</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -512,7 +511,7 @@ session_start();
                                                         Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
                                                         abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
                                                     </p>
-                                                    <button class="btn btn-primary">Read More</button>
+                                                    <button class="btn btn-primary" style="background-color: #EFEEEE;color:#0B7FFE">Read More</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -527,7 +526,7 @@ session_start();
                                                         Lorem ipsum dolor sit amet, consecteturadipig elit, sed do eiusmod tempor incididunt utlit
                                                         abore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.lacus
                                                     </p>
-                                                    <button class="btn btn-primary">Read More</button>
+                                                    <button class="btn btn-primary" style="background-color: #EFEEEE;color:#0B7FFE">Read More</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -539,7 +538,6 @@ session_start();
                 </div>
             </div>
         </div>
-
         <div class="container rainbow-section-gap">
             <div class="row">
                 <div class="col-md-5" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
@@ -601,10 +599,12 @@ session_start();
         <div class="rainbow-section-gap image-backgrounds">
             <div class="container mb-5">
                 <div class="row">
-                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6">
-                        <h3 class="mb-3">What Client’s Say About of Us</h3>
+                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-6 text-right">
+                    <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4">
+                        <h3 class="text-center mb-3" style="font-weight: 500;margin-top:-30px">What Client’s Say About of Us</h3>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4 text-right">
                         <a class="arrow-btn btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators3" role="button" data-slide="prev">
                             <i class="fa fa-arrow-left"></i>
                         </a>
