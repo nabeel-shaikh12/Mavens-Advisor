@@ -138,7 +138,7 @@ session_start();
                             <div class="col-md-6" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
                                 <img src="img/services-large1.jpg" width="100%" class="services">
                             </div>
-                            <div class="col-md-6" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
+                            <div class="col-md-6 mtt" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <h4 style="font-size: 30px; font-weight:500">Project Management Consulting</h4>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -184,7 +184,7 @@ session_start();
                                 </div>
                                 <button class="btn-2 mt-3">More About Us</button>
                             </div>
-                            <div class="col-md-6" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
+                            <div class="col-md-6 mtt" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <img src="img/services-large2.jpg" width="100%" class="services">
                             </div>
                         </div>
@@ -194,7 +194,7 @@ session_start();
                             <div class="col-md-6" data-sal="slide-right" data-sal-duration="700" data-sal-delay="100">
                                 <img src="img/services-large3.jpg" width="100%" class="services">
                             </div>
-                            <div class="col-md-6" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
+                            <div class="col-md-6 mtt" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <h4 style="font-size: 30px; font-weight:500">Project Management Consulting</h4>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -240,7 +240,7 @@ session_start();
                                 </div>
                                 <button class="btn-2 mt-3">More About Us</button>
                             </div>
-                            <div class="col-md-6" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
+                            <div class="col-md-6 mtt" data-sal="slide-left" data-sal-duration="700" data-sal-delay="100">
                                 <img src="img/services-large2.jpg" width="100%" class="services">
                             </div>
                         </div>
@@ -374,8 +374,9 @@ session_start();
                 <div class="row">
                     <div class="col-md-4 col">
                     </div>
-                    <div class="col-md-4">
-                        <h3 class="mb-3 text-center" style="font-weight: 500;">Best Virtual Assistant Service</h3>
+                    <div class="col-md-4 text-center" style="margin-top:-30px">
+                        <span class="sp-title2" style="color: #0B7FFE;">Services</span>
+                        <h3>Our Services</h3>
                     </div>
                     <div class="col-md-4 col-sm-4 col-xl-4 col-lg-4 text-right">
                         <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
@@ -387,7 +388,7 @@ session_start();
                     </div>
                     <div class="col-12">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner mobile-carousels">
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-md-4 mb-3">
@@ -601,8 +602,9 @@ session_start();
                 <div class="row">
                     <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                     </div>
-                    <div class="col-md-4 col-sm-4 col-lg-4 col-xl-4">
-                        <h3 class="text-center mb-3" style="font-weight: 500;margin-top:-30px">What Client’s Say About of Us</h3>
+                    <div class="col-md-4 text-center" style="margin-top:-30px">
+                        <span class="sp-title2" style="color: #0B7FFE;">Reviews</span>
+                        <h3>What Client Say About Us!</h3>
                     </div>
                     <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4 text-right">
                         <a class="arrow-btn btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators3" role="button" data-slide="prev">
@@ -614,7 +616,7 @@ session_start();
                     </div>
                     <div class="col-12">
                         <div id="carouselExampleIndicators3" class="carousel slide" data-ride="carousel">
-                            <div class="carousel-inner">
+                            <div class="carousel-inner mobile-carousels">
                                 <div class="carousel-item active">
                                     <div class="row">
                                         <div class="col-md-4 mb-3">

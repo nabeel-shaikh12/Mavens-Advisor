@@ -154,6 +154,5 @@ session_start();
   <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </body>
 </html>

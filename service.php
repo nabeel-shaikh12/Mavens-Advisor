@@ -30,9 +30,9 @@
             <div class="slider-area slider-style-1 bg-transparent variation-2 height-750 particles_css">
                 <div class="container">
                     <div class="row" style="display:flex;justify-content:center;align-items:center">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6 order-2 order-lg-1 mt_md--40 mt_sm--40" data-sal="slide-right" data-sal-duration="1000" data-sal-delay="500">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xl-6" data-sal="slide-right" data-sal-duration="1000" data-sal-delay="500">
                             <div class="inner text-left ">
-                                <h1 class="display-two" style="font-size: 45px;">Tailored <span style="color:#0b7ffe">Financial <br> Solutions</span> <br> For Your Success!</h1>
+                                <h1 class="display-two mob-h1" style="font-size: 45px;">Tailored <span style="color:#0b7ffe">Financial Solutions</span> For Your Success!</h1>
                                 <p class="description text-md" style="font-size:12px">Unlock the full potential of your business with our comprehensive financial <br> solutions.
                                     From strategic planning to meticulous execution, we're dedicated to <br> helping you thrive in today's dynamic market. Let us be your trusted
                                     partner <br> on the path to success.</p>

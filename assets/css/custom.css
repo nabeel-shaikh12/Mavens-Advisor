@@ -252,7 +252,7 @@
     background-color: #fff;
     border: 1px solid #eaeaea;
     padding: 30px;
-    height: 360px;
+    height: auto !important;
     border-radius: 10px;
     margin-bottom: 30px;
     background-image: linear-gradient(to bottom, #0B7FFE 0%, #0B7FFE 100%);
@@ -882,6 +882,10 @@ p {
         height: 40px;
     }
 
+    .mob-h1 {
+        font-size: 25px !important;
+    }
+
     .curved-content {
         padding: 15px;
     }
@@ -914,12 +918,33 @@ p {
         transform: none !important;
     }
 
-    .assistant-card {
-        height: 380px !important;
-    }
-
     #message {
         background: transparent !important;
+    }
+
+    .mobile-carousels {
+        height: 450px !important;
+    }
+
+    .custom-nav-btn i {
+        font-size: 20px;
+        margin-left: 150px;
+        margin-top: -150px !important;
+    }
+
+    .assistant-card {
+        height: 800px !important;
+    }
+
+    #completionText {
+        font-size: 12px;
+        color: #444;
+        margin-top: 0px !important;
+        font-weight: 400;
+        text-align: center;
+    }
+    .mtt{
+        margin-top: 5px !important;
     }
 }
 
@@ -928,7 +953,8 @@ p {
         width: 90% !important;
         max-width: 300px;
         height: auto;
-        margin: 50px auto;
+        margin-left: 50px !important;
+        margin-top: 10px !important;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1219,6 +1245,7 @@ p {
     position: relative;
     z-index: 2;
 }
+
 .project-slider .project-item {
     background-color: #fff;
     padding: 15px;
@@ -1286,4 +1313,10 @@ p {
     display: block;
     color: #ffff;
     transition: color 0.3s ease;
+}
+
+#completionText {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
 }

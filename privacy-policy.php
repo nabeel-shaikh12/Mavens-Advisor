@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
     <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 <body>
     <main class="page-wrapper">
@@ -47,7 +48,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="entry-content">
-                            <h2>Welcome to Doob Privacy Policy</h2>
+                            <h2>Welcome to Virsme Privacy Policy</h2>
                             <ol>
                                 <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud

@@ -144,9 +144,9 @@ if (!isset($_SESSION['visit_count'])) {
 <body>
   <main class="page-wrapper">
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light header-sticky-2">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-          <a class="navbar-brand" href="#"><img src="./img/Virsme.png" height="80px"></a>
+          <a href="#"><img src="./img/Virsme.png" class="responsive-logo"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -178,7 +178,7 @@ if (!isset($_SESSION['visit_count'])) {
             <span id="progressPercentage" style="color: #ffff;margin-bottom:5px"></span>
           </div>
         </div>
-        <div id="completionText" style="margin-top: 20px; font-size: 16px; font-weight: bold;"></div>
+        <div id="completionText"></div>
       </div>
     </div>
     <div class="rainbow-gradient-circle"></div>
