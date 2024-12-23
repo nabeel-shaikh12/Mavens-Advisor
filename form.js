@@ -318,24 +318,24 @@ function BusinessCategory(element, text) {
   }
   type();
 }
-document
-  .querySelectorAll(".subCategoryField")
-  .forEach(function (selectElement) {
-    selectElement.addEventListener("change", function () {
-      handleOtherSpecifyField();
-    });
-  });
+// document
+//   .querySelectorAll(".subCategoryField")
+//   .forEach(function (selectElement) {
+//     selectElement.addEventListener("change", function () {
+//       handleOtherSpecifyField();
+//     });
+//   });
 
 function handleOtherSpecifyField() {
   let showOtherField = false;
 
-  document
-    .querySelectorAll(".subCategoryField")
-    .forEach(function (selectElement) {
-      if (selectElement.value.includes("Other (Please Specify)")) {
-        showOtherField = true;
-      }
-    });
+  // document
+  //   .querySelectorAll(".subCategoryField")
+  //   .forEach(function (selectElement) {
+  //     if (selectElement.value.includes("Other (Please Specify)")) {
+  //       showOtherField = true;
+  //     }
+  //   });
   const otherSpecifyLabel = document.getElementById("otherSpecifyLabel");
   const otherSpecifyField = document.getElementById("otherSpecifyField");
   const selectedOtherSpecify = document.getElementById("selectedOtherSpecify");
@@ -498,7 +498,7 @@ function subCategories(label, text, select) {
 document.addEventListener("DOMContentLoaded", function () {
   const label = document.getElementById("typing-parent");
   const select = document.getElementById("businessType");
-  const text = "Could you please describe your Business Industry?";
+  const text = "Could you please describe your Business Idea?";
   let index = 0;
 
   function type() {
@@ -938,11 +938,7 @@ function showSubCategories() {
   const specifySoftware = document.getElementById("specifySoftware");
   const quotationDetails = document.getElementById("quotationDetails");
   const preSoftware = document.getElementById("preSoftware");
-  const subCategoryField = document
-    .querySelectorAll(".subCategoryField")
-    .forEach((select) => {
-      select.addEventListener("change", handleSubCategoryChange);
-    });
+
   const selectedSoftware = document.getElementById("selectedSoftware");
   const softwarePrefer = document.getElementById("softwarePrefer");
   const accounting_software_useds = document.getElementById(
@@ -988,22 +984,7 @@ function showSubCategories() {
     filingOptions.style.display = "none";
   }
   if (
-    mainCategory !== "Select an option" &&
-    mainCategory !== "Tech Services" &&
-    mainCategory !== "Health" &&
-    mainCategory !== "Food & Beverages" &&
-    mainCategory !== "Education" &&
-    mainCategory !== "Travel & Tourism" &&
-    mainCategory !== "Freelancer" &&
-    mainCategory !== "Beauty" &&
-    mainCategory !== "Online Stores" &&
-    mainCategory !== "Artisanal and Handcraft" &&
-    mainCategory !== "Factory Production Facility" &&
-    mainCategory !== "Gifting Service" &&
-    mainCategory !== "Pets" &&
-    mainCategory !== "Agriculture" &&
-    mainCategory !== "Performers" &&
-    subCategoryField !== "Other (Please Specify)"
+    mainCategory !== "Select an option"
   ) {
     businessSizeLabel.style.display = "block";
     otherSpecifyLabel.style.display = "none";
@@ -1012,19 +993,6 @@ function showSubCategories() {
     animateElement(businessSizeLabel, BusinessService);
   } else {
   }
-  function handleSubCategoryChange(event) {
-    const selectedOption = event.target.value;
-    if (
-      selectedOption !== "Select an option" &&
-      selectedOption !== "Other (Please Specify)"
-    ) {
-      businessSizeLabel.style.display = "block";
-      animateElement(businessSizeLabel, BusinessService);
-    }
-  }
-  document.querySelectorAll(".subCategoryField").forEach((select) => {
-    select.addEventListener("change", handleSubCategoryChange);
-  });
 
   if (whichSoftware.value === "no") {
     softwarePrefer.style.display = "block";
@@ -1492,7 +1460,7 @@ function getNextTypingElement(nextFunction) {
     case CurrencyTyping:
       return document.getElementById("business-service");
     case serviceWant:
-      return document.getElementById("country");
+      return document.getElementById("calculatorLabel");
     case Country:
       return document.getElementById("customerSpecify");
     case CustomerType:
@@ -1507,8 +1475,8 @@ function getNextTypingElement(nextFunction) {
       return document.getElementById("emailLabel");
     case Email:
       return document.getElementById("cfoLabel");
-    case Cfo:
-      return document.getElementById("calculatorLabel");
+    // case Cfo:
+    //   return document.getElementById("calculatorLabel");
     case Calculator:
       return document.getElementById("transactionLabel");
     case Transaction:
@@ -1648,7 +1616,7 @@ function BusinessService() {
     document.getElementById("businessSize"),
     "Could you please describe your Business Size?",
     "businessSize",
-    CurrencyTyping
+    Calculator
   );
 }
 

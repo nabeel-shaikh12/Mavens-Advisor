@@ -38,7 +38,7 @@ if (!isset($_SESSION['visit_count'])) {
     .price-section {
       display: none;
     }
-    .header-sticky {
+    /* .header-sticky {
       position: fixed;
       top: 100px;
       left: 0;
@@ -57,7 +57,7 @@ if (!isset($_SESSION['visit_count'])) {
       background-color: aqua;
       z-index: 100;
       padding: 15px;
-    }
+    } */
     .rainbow-gradient-circle {
       position: fixed;
       left: -250px;
@@ -144,7 +144,7 @@ if (!isset($_SESSION['visit_count'])) {
 <body>
   <main class="page-wrapper">
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <a href="#"><img src="./img/Virsme.png" class="responsive-logo"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -166,11 +166,11 @@ if (!isset($_SESSION['visit_count'])) {
               </li>
             </ul>
           </div>
-      </nav>
+      </nav> -->
       <div class="rainbow-gradient-circle"></div>
       <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
-    <div style="justify-content: center; align-items: center; display: flex;" class="header-sticky">
+    <div style="justify-content: center; margin-top: 50px; align-items: center; display: flex;" class="header-sticky">
       <div style="width: 50%; text-align: center; position: relative;">
         <div style="position: relative; width: 80%; margin: 0 auto;">
           <progress id="progressBar" value="0" max="100" style="width: 100%; height: 20px;"></progress>
@@ -184,7 +184,7 @@ if (!isset($_SESSION['visit_count'])) {
     <div class="rainbow-gradient-circle"></div>
     <div class="rainbow-gradient-circle theme-pink"></div>
     </div>
-    <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap" style="margin-top: 200px;">
+    <div class="formbold-main-wrapper bg-transparent rainbow-service-area rainbow-section-gap">
       <div class="formbold-form-wrapper variation-2 rainbow-service-area">
         <div class="formbold-steps">
           <ul>
@@ -242,174 +242,6 @@ if (!isset($_SESSION['visit_count'])) {
                 <div class="col-md-6">
                   <p style="font-size:16px;background-color:#0b7ffe;padding:13px;border-radius:20px;color:white;display:none;" id="selectedBusinessType"></p>
                 </div>
-              </div>
-              <div id="subCategoryAgriculture" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryAgriculture"></label>
-                <select id="agricultureSubCategory" class="product_select w-100 formbold-form-input subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Farming">Farming</option>
-                  <option value="Gardening Supplies">Gardening Supplies</option>
-                  <option value="Livestock & Poultry">Livestock & Poultry</option>
-                  <option value="Other Agriculture Service">Other Agriculture Service</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryArtisanal and Handcraft" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategorArtisanal and Handcraft"></label>
-                <select id="artisnalSubCategory" class="product_select w-100 formbold-form-input subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Artist / Painter">Artist / Painter</option>
-                  <option value="Candle Making">Candle Making</option>
-                  <option value="Handmade Leather Products">Handmade Leather Products</option>
-                  <option value="Handmade Soaps">Handmade Soaps</option>
-                  <option value="Pottery">Pottery</option>
-                  <option value="Other Artisanal and Handcraft">Other Artisanal and Handcraft</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryBeauty" class="form-group" style="display: none;">
-                <label id="typing-child" for="subCategoryBeauty"></label>
-                <select class="beautySubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Beautician (At Home Services)">Beautician (At Home Services)</option>
-                  <option value="Beauty Salon">Beauty Salon</option>
-                  <option value="Cosmetologist / Aesthetician">Cosmetologist / Aesthetician</option>
-                  <option value="Hairstylist (Specialize Service)">Hairstylist (Specialize Service)</option>
-                  <option value="Henna Artist (Specialize Service)">Henna Artist (Specialize Service)</option>
-                  <option value="Lash Technician (Specialize Service)">Lash Technician (Specialize Service)</option>
-                  <option value="Makup Artist (Specialize Service)">Makup Artist (Specialize Service)</option>
-                  <option value="ManuFacture Cosmetics / Skin Care">ManuFacture Cosmetics / Skin Care</option>
-                  <option value="Nail Technician (Specialize Service)">Nail Technician (Specialize Service)</option>
-                  <option value="Reselling Cosmetics">Reselling Cosmetics</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryEducation" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryEducation"></label>
-                <select id="educationSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Beautician (At Home Services)">Academic Consultant</option>
-                  <option value="Edtech">Edtech</option>
-                  <option value="School">School</option>
-                  <option value="Tution Center / Academy">Tution Center / Academy</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryFactory Production Facility" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryFactory Production Facility"></label>
-                <select id="factorySubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Bags Manufacturer">Bags Manufacturer</option>
-                  <option value="Furniture Manufacturer">Furniture Manufacturer</option>
-                  <option value="Jewelry Designer / Manufacturer">School</option>
-                  <option value="Shoe / Manufacturer">Shoe / Manufacturer</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryFood & Beverages" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryFood & Beverages"></label>
-                <select id="foodSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Baking Business / Dessert">Baking Business / Dessert</option>
-                  <option value="Catering Business">Catering Business</option>
-                  <option value="Online Food Business / Fresh or Frozen">Online Food Business / Fresh or Frozen</option>
-                  <option value="Restaurent / Cafe">Restaurent / Cafe</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryFreelancer" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryFreelancer"></label>
-                <select id="freelancerSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Consultant">Consultant</option>
-                  <option value="Customer Service">Customer Service</option>
-                  <option value="Graphic Designer (Freelance)">Graphic Designer (Freelance)</option>
-                  <option value="Online Assistant">Online Assistant</option>
-                  <option value="Software Developer">Software Developer</option>
-                  <option value="Teacher (Freelance)">Teacher (Freelance)</option>
-                  <option value="Translation">Translation</option>
-                  <option value="UI / UX Designer">UI / UX Designer</option>
-                  <option value="Video Editor">Video Editor</option>
-                  <option value="Writer (Freelance)">Writer (Freelance)</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryGifting Service" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryGifting Service"></label>
-                <select id="giftingServiceSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Gift Delivery">Gift Delivery</option>
-                  <option value="Gift Packing">Gift Packing</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryHealth" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryHealth"></label>
-                <select id="healthSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Dentist">Dentist</option>
-                  <option value="Dermotologist">Dermotologist</option>
-                  <option value="Doctor (Private Practice)">Doctor (Private Practice)</option>
-                  <option value="Gym Business">Gym Business</option>
-                  <option value="Gym Trainer / Instructor">Gym Trainer / Instructor</option>
-                  <option value="Mental Health Practioners">Mental Health Practioners</option>
-                  <option value="Nutritionist">Nutritionist</option>
-                  <option value="Pharmaceutical">Pharmaceutical</option>
-                  <option value="Yoga Instructor">Yoga Instructor</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryInfluencer" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryInfluencer"></label>
-                <select id="influencerSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Youtuber">Youtuber</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryPerformers" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryPerformers"></label>
-                <select id="performersSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Choreographer">Choreographer</option>
-                  <option value="Comedian">Comedian</option>
-                  <option value="Magician">Magician</option>
-                  <option value="Musician">Musician</option>
-                  <option value="Singer">Singer</option>
-                  <option value="Other please specify">Other please specify</option>
-                </select>
-              </div>
-              <div id="subCategoryPets" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryPets"></label>
-                <select id="petsSubCategory" class="product_select w-100 formbold-form-input autoType autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Choreographer">Pets Accessories</option>
-                  <option value="Comedian">Comedian</option>
-                  <option value="Pet Services">Pet Services</option>
-                  <option value="Veterinary Services">Veterinary Services</option>
-                  <option value="Other please specify">Other please specify</option>
-                </select>
-              </div>
-              <div id="subCategoryTech Services" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryTech Services"></label>
-                <select id="techSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Hardware Development">Hardware Development</option>
-                  <option value="IoT Services">IoT Services</option>
-                  <option value="Software House">Software House</option>
-                  <option value="Other (Please Specify)">Other (Please Specify)</option>
-                </select>
-              </div>
-              <div id="subCategoryTravel & Tourism" class="form-group" style="display: none;">
-                <label class="typing-child" for="subCategoryTravel & Tourism"></label>
-                <select id="tourismSubCategory" class="product_select w-100 formbold-form-input autoType subCategoryField">
-                  <option value="Select an option" data-display="1. Choose A Question">Select an option</option>
-                  <option value="Guest House / Hotel">Guest House / Hotel</option>
-                  <option value="Immigration Services">Immigration Services</option>
-                  <option value="Tour Company / Operator / Guide">Tour Company / Operator / Guide</option>
-                  <option value="Travel Agency">Travel Agency</option>
-                  <option value="Other please specify">Other please specify</option>
-                </select>
               </div>
               <input type="hidden" id="hiddenInputField" name="business_subCategory" value="">
               <div id="subCategoryOther Services" class="form-group" style="display: none;">
