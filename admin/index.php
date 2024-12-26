@@ -111,7 +111,7 @@ if ($result4 && $result4->num_rows > 0) {
 										<?php
 										echo '<h3 class="text-success count">' . $visitCount . '</h3>';
 										?>
-										<span class="text-success count">Calculator Visit</span>
+										<span class="text-success count">Pending Task</span>
 									</div>
 								</div>
 							</div>
@@ -130,7 +130,7 @@ if ($result4 && $result4->num_rows > 0) {
 									</div>
 									<div class="total-projects ms-3">
 										<?php echo '<h3 class="text-primary count">' . $visitCountSubscription . '</h3>' ?>
-										<span class="text-primary count">Subscription form Visit</span>
+										<span class="text-primary count">Task Completed</span>
 									</div>
 								</div>
 							</div>
@@ -333,9 +333,6 @@ if ($result4 && $result4->num_rows > 0) {
 					<script src="./js/deznav-init.js"></script>
 					<script src="./js/demo.js"></script>
 					<script src="./js/styleSwitcher.js"></script>
-
-
-
 </body>
 
 </html>

@@ -16,7 +16,7 @@ if (isset($_POST['logout'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Contact form data</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="keywords" content="">
 	<meta name="author" content="">
@@ -38,11 +38,6 @@ if (isset($_POST['logout'])) {
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <style>
-  /* .message-column {
-        max-width: 300px; /* Adjust the maximum width as needed */
-        overflow: hidden;
-        word-wrap: break-word; /* Allow the text to wrap within the column */
-    } */
 </style>
 <body>
 <div id="main-wrapper">

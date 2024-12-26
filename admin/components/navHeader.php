@@ -1,6 +1,6 @@
 	<div class="nav-header">
 		<a href="index.html" style="align-items: center; justify-content:center;display:flex" class="brand-logo">
-			<img src="../img/MA Logo circle.png" height="80px" width="80px">
+			<img src="../img/Virsme-1.webp" class="mt-2" height="55px" width="100%">
 		</a>
 		<div class="nav-control">
 			<div class="hamburger">
