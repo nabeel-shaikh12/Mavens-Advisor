@@ -413,7 +413,7 @@ color: #eee;
                                 <p>5 Hours</p>
                                 <div class="selected-services">
                                 </div>
-                                <button class="btn-select">Select</button>
+                                <button type="button" class="btn-select">Select</button>
                             </div>
                         </div>
                         <div class="swiper-slide slide-item">
@@ -424,7 +424,7 @@ color: #eee;
                                     <h5>Selected Services:</h5>
                                 </div>
 
-                                <button class="btn-select">Select</button>
+                                <button type="button" class="btn-select">Select</button>
                             </div>
                         </div>
                         <div class="swiper-slide slide-item swiper-slide-active">
@@ -434,7 +434,7 @@ color: #eee;
                                 <div class="selected-services">
                                     <h5>Selected Services:</h5>
                                 </div>
-                                <button class="btn-select">Select</button>
+                                <button type="button" class="btn-select">Select</button>
                             </div>
                         </div>
                         <div class="swiper-slide slide-item">
@@ -444,7 +444,7 @@ color: #eee;
                                 <div class="selected-services">
                                     <h5>Selected Services:</h5>
                                 </div>
-                                <button class="btn-select">Select</button>
+                                <button type="button" class="btn-select">Select</button>
                             </div>
                         </div>
                     </div>
