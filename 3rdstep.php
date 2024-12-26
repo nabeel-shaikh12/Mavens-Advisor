@@ -83,7 +83,8 @@
         color: #fff;
         transition: all 0.3s ease;
         box-shadow: 0 0 8px rgba(217, 217, 217, 0.4);
-        min-height: 200px;
+        min-height: 300px;
+        
     }
 
     .business-card:hover {
@@ -97,7 +98,10 @@
         border-color: #2077d1;
         background: rgba(32, 119, 209, 0.4);
     }
-
+    .business-card p{
+        font-size: 14px;
+        font-weight: 600;
+    }
     .swiper-slide-active .business-card {
     border-color: #007bff;
     transform: scale(1.1);
@@ -106,13 +110,45 @@
     background-image: url(img/plan-bg.png);
     background-size: cover;
 }
-    .swiper-slide-active .business-card h5{
+    .swiper-slide-active .business-card h4{
         font-weight: 600;
     font-size: 23px;
     color: #bdbdbdad;
 }
+.selected-services ul{
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: center;
+}
+.selected-services h5{
+    font-size: 15px;
+    font-weight: 600;
+}
+.selected-services ul li{
+    color: #eee;
+    margin: 0 8px 15px 0;
+    display: block;
+    font-size: 14px;
+    color: #797979;
+    position: relative;
+    font-weight: 300;
+}
+.selected-services ul li i{
+    font-size: 15px;
+    margin-right: 10px;
+}
+.swiper-slide-active .business-card .selected-services ul li{
+color: #eee;
+}
     .swiper-slide-active .business-card .btn-select{
-        box-shadow: 0px 4px 15px 3px #1e344d7a;
+        border: 1px solid #fff;
+        background-color: transparent;
+}
+    .swiper-slide-active .business-card .btn-select:hover{
+        border: 1px solid #195ba1;
+        background-color: #195ba1;
+        box-shadow: 0px 0px 4px 0px #567fab7a;
 }
 .swiper-slide-active:before {
     content: "";
@@ -275,9 +311,7 @@
       font-size: 18px;
       padding: 20px;
     }
-    .slide-item{
-        padding: 0;
-    }
+
     .swiper-slide-next{
         z-index: -1;
     }
@@ -294,8 +328,8 @@
     padding: 5px 30px;
     display: inline-block;
     color: #fff;
-    border: 1px solid transparent;
-    box-shadow: 0px 4px 15px 3px #567fab7a;
+    border: 1px solid #195ba1;
+    box-shadow: 0px 0px 4px 0px #567fab7a;
     border-radius: 30px;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
@@ -304,7 +338,34 @@
     transition: all .3s ease-in-out;
     background: #195ba1;
     font-size: 14px;
+    margin-top: 50%;
 }
+.swiper-pagination{
+    position: unset;
+}
+
+.mySwiper {
+    width: 100%; /* Default for extra-small and small screens */
+}
+
+@media screen and (min-width: 768px) { /* Medium screens and up (md) */
+    .mySwiper{
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 992px) { /* Large screens and up (lg) */
+    .mySwiper {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1200px) { /* Extra-large screens and up (xl) */
+    .mySwiper {
+        width: 75%;
+    }
+}
+
     </style>
 
 </head>
@@ -344,33 +405,45 @@
 
             <form class="py-3">
                 <h3 class="text-center">Select Business Size</h3>
-                <div class="swiper mySwiper w-75">
+                <div class="swiper mySwiper">
                     <div class="swiper-wrapper py-5">
                         <div class="swiper-slide slide-item">
                             <div class="business-card  " data-value="5" id="startup">
-                                <h5>Startup</h5>
+                                <h4>Startup</h4>
                                 <p>5 Hours</p>
+                                <div class="selected-services">
+                                </div>
                                 <button class="btn-select">Select</button>
                             </div>
                         </div>
                         <div class="swiper-slide slide-item">
                             <div class="business-card  " data-value="10" id="small-business">
-                                <h5>Small Business</h5>
+                                <h4>Small Business</h4>
                                 <p>10 Hours</p>
+                                <div class="selected-services">
+                                    <h5>Selected Services:</h5>
+                                </div>
+
                                 <button class="btn-select">Select</button>
                             </div>
                         </div>
-                        <div class="swiper-slide slide-item">
+                        <div class="swiper-slide slide-item swiper-slide-active">
                             <div class="business-card  " data-value="15" id="medium-business">
-                                <h5>Medium Business</h5>
+                                <h4>Medium Business</h4>
                                 <p>15 Hours</p>
+                                <div class="selected-services">
+                                    <h5>Selected Services:</h5>
+                                </div>
                                 <button class="btn-select">Select</button>
                             </div>
                         </div>
                         <div class="swiper-slide slide-item">
                             <div class="business-card  " data-value="20" id="enterprise">
-                                <h5>Enterprise</h5>
+                                <h4>Enterprise</h4>
                                 <p>20 Hours</p>
+                                <div class="selected-services">
+                                    <h5>Selected Services:</h5>
+                                </div>
                                 <button class="btn-select">Select</button>
                             </div>
                         </div>
@@ -573,6 +646,30 @@
         });
     });
 
+    if (step == 2) {
+    // Get all the `selected-services` elements in all slides
+    const servicesElements = document.querySelectorAll('.selected-services');
+
+    // Loop through each `selected-services` element
+    servicesElements.forEach(servicesElement => {
+        // Clear any existing content to avoid duplication
+        servicesElement.innerHTML = '<h5>Selected Services:</h5>';
+
+        // Create a new list element
+        const servicesList = document.createElement('ul');
+
+        // Loop through the `selectedServices` array and populate the list
+        selectedServices.forEach(service => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `<i class="fa fa-check" aria-hidden="true"></i> ${service.service}`;
+            servicesList.appendChild(listItem);
+        });
+
+        // Append the populated list to the current `selected-services` element
+        servicesElement.appendChild(servicesList);
+    });
+}
+
 
     if (step === 3) {
         // Get selected business size hours
@@ -657,9 +754,10 @@
 <script>
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
-    //   spaceBetween: 30,
+      spaceBetween: 0,
       loop: true,
       centeredSlides: true,
+      initialSlide: 1,
     //   autoplay: {
     //     delay: 3000,
     //     disableOnInteraction: false,
@@ -668,6 +766,22 @@
         el: ".swiper-pagination",
         clickable: true,
       },
+      breakpoints: {
+    
+        240: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+        },
+        450: {
+            slidesPerView: 2,
+            spaceBetween: 0,
+        },
+
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+        },
+    },
     });
   </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
