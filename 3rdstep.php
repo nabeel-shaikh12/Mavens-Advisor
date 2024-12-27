@@ -33,7 +33,7 @@ require_once 'db/dbCon.php';
      align-items: center;
      justify-content: center;
      height: 100vh;
-     background: #020202d6;
+     background: #020202d9;
 }
 .progress{
     background: transparent !important;
