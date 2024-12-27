@@ -88,8 +88,7 @@ require_once 'db/dbCon.php';
 
  /* Business Card Styling */
  .business-card {
-     background: rgba(255, 255, 255, 0.1);
-     border: 2px solid transparent;
+     border: 2px solid #dbdbdbd6;
      border-radius: 10px;
      padding: 20px 30px;
      text-align: center;
@@ -924,10 +923,10 @@ require_once 'db/dbCon.php';
       loop: true,
       centeredSlides: true,
       initialSlide: 1,
-    //   autoplay: {
-    //     delay: 4000,
-    //     disableOnInteraction: true,
-    // },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: true,
+    },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
