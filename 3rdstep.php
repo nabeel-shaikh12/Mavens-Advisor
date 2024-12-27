@@ -26,13 +26,15 @@ require_once 'db/dbCon.php';
      background-image: url('img/formbg.jpg');
      background-size: cover;
      background-position: right;
+     background-repeat: no-repeat;
+     height: 100vh;
 
  }
 .stepsForm{
     display: flex;
      align-items: center;
      justify-content: center;
-     height: 100vh;
+     height: 100%;
      background: #020202d9;
 }
 .progress{
@@ -529,32 +531,6 @@ require_once 'db/dbCon.php';
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
-                    <!-- <div class="py-5 row justify-content-center ">
-                        <div class="col-md-3">
-                            <div class="business-card mx-2" data-value="5" id="startup">
-                                <h5>Startup</h5>
-                                <p>5 Hours</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="business-card mx-2" data-value="10" id="small-business">
-                                <h5>Small Business</h5>
-                                <p>10 Hours</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="business-card mx-2" data-value="15" id="medium-business">
-                                <h5>Medium Business</h5>
-                                <p>15 Hours</p>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="business-card mx-2" data-value="20" id="enterprise">
-                                <h5>Enterprise</h5>
-                                <p>20 Hours</p>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <h3 class="text-center mt-4">Annual Revenue</h3>
                     <!-- Styled Dropdown -->
@@ -575,7 +551,7 @@ require_once 'db/dbCon.php';
                         </ul>
                     </div>
                 </form>
-                <div class="d-flex justify-content-between mt-5">
+                <div class="d-flex justify-content-between mt-2">
                     <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
                     <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                 </div>
