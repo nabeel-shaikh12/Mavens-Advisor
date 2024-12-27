@@ -1,193 +1,141 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-style-mode" content="1">
-  <title>FAQ - VirSME</title>
-	<link rel="shortcut icon" type="image/png" href="img/virstual-expert.png">
-  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/plugins/animation.css">
-  <link rel="stylesheet" href="assets/css/plugins/feature.css">
-  <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
-  <link rel="stylesheet" href="assets/css/plugins/slick.css">
-  <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
-
+    <title>VirSME - FAQ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/virstual-expert.png">
+    <link rel="stylesheet" href="assets/css/tabanimation.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/iconsax-style.css">
+    <link rel="stylesheet" href="assets/css/iconly.css">
+    <link rel="stylesheet" href="assets/css/lity.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
-<body>
-  <?php include 'components/topbar.php' ?>
-  <header class="navigation bg-tertiary">
-    <?php include 'components/header.php' ?>
-  </header>
-  <div>
-    <div class="rainbow-gradient-circle"></div>
-    <div class="rainbow-gradient-circle theme-pink"></div>
-  </div>
-  <section class="rainbow-section-gap">
-    <div class="modal applyLoanModal fade" id="applyLoan" tabindex="-1" aria-labelledby="applyLoanLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header border-bottom-0">
-            <h4 class="modal-title" id="exampleModalLabel">How much do you need?</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="#!" method="post">
-              <div class="row">
-                <div class="col-lg-6 mb-4 pb-2">
-                  <div class="form-group">
-                    <label for="loan_amount" class="form-label">Amount</label>
-                    <input type="number" class="form-control shadow-none" id="loan_amount" placeholder="ex: 25000">
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4 pb-2">
-                  <div class="form-group">
-                    <label for="loan_how_long_for" class="form-label">How long for?</label>
-                    <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
-                  </div>
-                </div>
-                <div class="col-lg-12 mb-4 pb-2">
-                  <div class="form-group">
-                    <label for="loan_repayment" class="form-label">Repayment</label>
-                    <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4 pb-2">
-                  <div class="form-group">
-                    <label for="loan_full_name" class="form-label">Full Name</label>
-                    <input type="text" class="form-control shadow-none" id="loan_full_name">
-                  </div>
-                </div>
-                <div class="col-lg-6 mb-4 pb-2">
-                  <div class="form-group">
-                    <label for="loan_email_address" class="form-label">Email address</label>
-                    <input type="email" class="form-control shadow-none" id="loan_email_address">
-                  </div>
-                </div>
-                <div class="col-lg-12">
-                  <button type="submit" class="btn btn-primary w-100">Get Your Loan Now</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="rainbow-accordion-area rainbow-section-gap">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 offset-lg-1">
-            <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-              <h4 class="subtitle "><span class="theme-gradient">Frequient Questions</span></h4>
-              <h2 class="title w-600 mb--20">Frequently Asked Questions</h2>
+<body class="nba_demo_one">
+    <?php include 'components/preloader.php' ?>
+    <!-- end preloder -->
+    <div class="smooth-scroll" data-scroll-container>
+        <div class="section-wrapper" data-scroll-section>
+            <!-- Header Start -->
+            <?php include 'components/header.php' ?>
+            <!-- Header End -->
+
+            <!--offcanvus start-->
+            <?php include 'components/offCanvas.php' ?>
+            <!--offcanvus end-->
+
+            <!--mobile menu start-->
+            <?php include 'components/mobileMenu.php' ?>
+            <!--mobile menu end-->
+
+            <div>
+                <div class="rainbow-gradient-circle"></div>
+                <div class="rainbow-gradient-circle theme-pink"></div>
             </div>
-          </div>
+
+            <!-- Faq section Start-->
+            <section class="nbv2_faq  pt-150 pb-150 nb-malls nb__mobile-pt-100 nb__mobile-pb-100">
+                <div class="nbv2_faq_wrapper">
+                    <div class="container">
+                        <div class="nbv2_faq_wrapper_container">
+                            <div class="nbv2_faq_heding_area pb-40 text-center">
+                                <h4 class="mb_name nb-f18 nb-fw7 nb-mcl nb-ffh nb-ls has_text_reveal_anim">Frequently asked question</h4>
+                                <h4 class="mb_name nb-f48 nb-fw7 nb-wcl nb-ffh has_char_anim">Frequently asked question</h4>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-12 col-sm-12">
+                                    <div class='nb-accordion nb-accordion-1'>
+                                        <section class='nb-accordion-tab nb-accordion-tab-1 has_fade_anim'>
+                                            <h2 data-index='0' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">What role does consumer psychology play in the work of a creative agency?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-1 has_fade_anim'>
+                                            <h2 data-index='1' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">Is it better to work with a local creative agency or one from a different location?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-1 has_fade_anim'>
+                                            <h2 data-index='2' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">Do creative agencies offer web and digital design services?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab nb-accordion-tab-1 has_fade_anim'>
+                                            <h2 data-index='3' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">Can a creative agency assist with rebranding an existing business?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6 col-xxl-6 col-md-12 col-sm-12">
+                                    <div class='nb-accordion nb-accordion-2'>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-2 has_fade_anim'>
+                                            <h2 data-index='0' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">What services do creative agencies provide?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-2 has_fade_anim'>
+                                            <h2 data-index='1' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">Can a creative agency help with content creation and copywriting?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-2 has_fade_anim'>
+                                            <h2 data-index='2' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">How do creative agencies stay updated with design trends?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                        <section class='nb-accordion-tab  nb-accordion-tab-2 has_fade_anim'>
+                                            <h2 data-index='3' class="nb-wcl nb-f18 nb-fw7 nb-ffh ">What is the typical process of working with a creative agency?</h2>
+                                            <div class='nb-accordion-content'>
+                                                <p class="nb-bcl nb-f16 nb-fw4 nb-ffb">It is a long established fact that a reader will be distrol acted bioiiy desig the rea dablea content of a page when looking at its layout this is Thoiie point of the aa using.It is a long this established fact that a reader</p>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Faq section End-->
+            <!-- Footer Section Start  -->
+            <?php include 'components/footer.php' ?>
+            <!-- Footer Section End  -->
         </div>
-        <div class="row mt--35 row--20">
-          <div class="col-lg-10 offset-lg-1">
-            <div class="rainbow-accordion-style  accordion">
-              <div class="accordion" id="accordionExamplea">
-                <div class="accordion-item card">
-                  <h2 class="accordion-header card-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Can I apply if my credit isn&rsquo;t perfect?
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExamplea">
-                    <div class="accordion-body card-body">
-                      The difference between and premium product consist number of
-                      components, plugins, page in each. The Free versions contain only a
-                      few elements and pages that.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item card">
-                  <h2 class="accordion-header card-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      How do I know that I have been approved?
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExamplea">
-                    <div class="accordion-body card-body">
-                      The difference between and premium product consist number of
-                      components, plugins, page in each. The Free versions contain only
-                      a few elements and pages that.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item card">
-                  <h2 class="accordion-header card-header" id="headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Can I get update regularly and For how long do I get updates?
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExamplea">
-                    <div class="accordion-body card-body">
-                      The difference between and premium product consist number of
-                      components, plugins, page in each. The Free versions contain only
-                      a few elements and pages that.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item card">
-                  <h2 class="accordion-header card-header" id="headingFour">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                      How can I run doob html template?
-                    </button>
-                  </h2>
-                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExamplea">
-                    <div class="accordion-body card-body">
-                      You can run doob easily. First You'll need to have node and npm on your
-                      machine. So Please open your command prompt then check your node -v and
-                      npm -v Version. Goes To Your your command prompt: then First: npm
-                      install At Last: npm run start. By the following way you can be run your
-                      project easily.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
-  <?php include 'components/footer.php' ?>
-  <?php include 'components/footerBottom.php' ?>
-  </main>
-  <div class="rainbow-back-top">
-    <i class="feather-arrow-up"></i>
-  </div>
-  <script src="assets/js/vendor/modernizr.min.js"></script>
-  <script src="assets/js/vendor/jquery.min.js"></script>
-  <script src="assets/js/vendor/bootstrap.min.js"></script>
-  <script src="assets/js/vendor/popper.min.js"></script>
-  <script src="assets/js/vendor/waypoint.min.js"></script>
-  <script src="assets/js/vendor/wow.min.js"></script>
-  <script src="assets/js/vendor/counterup.min.js"></script>
-  <script src="assets/js/vendor/feather.min.js"></script>
-  <script src="assets/js/vendor/sal.min.js"></script>
-  <script src="assets/js/vendor/masonry.js"></script>
-  <script src="assets/js/vendor/imageloaded.js"></script>
-  <script src="assets/js/vendor/magnify.min.js"></script>
-  <script src="assets/js/vendor/lightbox.js"></script>
-  <script src="assets/js/vendor/slick.min.js"></script>
-  <script src="assets/js/vendor/easypie.js"></script>
-  <script src="assets/js/vendor/text-type.js"></script>
-  <script src="assets/js/vendor/jquery.style.swicher.js"></script>
-  <script src="assets/js/vendor/js.cookie.js"></script>
-  <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-  <script src="assets/js/main.js"></script>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/lity.min.js"></script>
+    <script src="assets/js/count.js"></script>
+
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/locomotive-scroll.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ThemeAnim.js"></script>
+
+
 </body>
 
 </html>

@@ -19,10 +19,13 @@ require_once 'db/dbCon.php';
 
 <style>
      body {
-     background: linear-gradient(120deg, #1e293b, #0f172a);
+     
      font-family: 'Poppins', sans-serif;
      color: white;
      margin: 0;
+     background-image: url('img/formbg.jpg');
+     background-size: cover;
+     background-position: right;
 
  }
 .stepsForm{
@@ -30,10 +33,11 @@ require_once 'db/dbCon.php';
      align-items: center;
      justify-content: center;
      height: 100vh;
+     background: #020202d6;
 }
 .progress{
     background: transparent !important;
-    height: 8px !important;
+    height: 3px !important;
     font-size: 8px !important;
     font-weight: 800 !important;
     border-radius: 0 !important;
@@ -66,7 +70,7 @@ require_once 'db/dbCon.php';
  }
 
  .service-box {
-     background: rgba(255, 255, 255, 0.1);
+     background: #336dad45;
      border: 1px solid #706e972e;
      padding: 20px;
      border-radius: 10px;
@@ -445,7 +449,6 @@ require_once 'db/dbCon.php';
     <div class="progress">
         <div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="30"
         aria-valuemin="0" aria-valuemax="100" style="width:30%">
-            Step 1
         </div>
     </div>
     <div class="stepsForm">
@@ -780,7 +783,7 @@ require_once 'db/dbCon.php';
         // Update the progress bar width
         progressBar.style.width = `${progressPercentage}%`;
         progressBar.setAttribute('aria-valuenow', progressPercentage);
-        progressBar.textContent = `Step ${step}`;
+        // progressBar.textContent = `Step ${step}`;
 
         $(document).ready(function(){
             document.querySelectorAll('.btn-select').forEach(button => {

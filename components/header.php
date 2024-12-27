@@ -1,47 +1,75 @@
-
-<!-- <header class="rainbow-header header-default header-left-align header-not-transparent header-sticky" style="background-color: white;"> -->
-<header class="rainbow-header header-default header-left-align header-not-transparent header-mobile" style="background:transparent !important;">
-    <div class="container position-relative">
-        <div class="row align-items-center">
-            <div class="col-lg-5 col-md-5 col-6 position-static">
-                <div class="header-left d-flex p-3">
-                    <div class="">
-                        <a href="./">
-                            <img class="responsive-logo" src="./img/Virsme.png" alt="Corporate Logo">
+<header>
+    <div class="nb__top-header d-none d-xl-block">
+        <div class="container">
+            <div class="d-flex justify-content-between">
+                <div class="nb__info-items d-flex align-items-center pera-content">
+                    <a href="mailto:info@example.com" class="d-flex align-items-center">
+                        <i class="nb_icon nb_icon-envelop mr-10"></i>
+                        <p>info@virsme.com</p>
+                    </a>
+                </div>
+                <div class="nb__info-items d-flex align-items-center pera-content justify-content-center">
+                    <i class="nb_icon nb_icon-location mr-10"></i>
+                    <p>East Grand Boulevard, Detroit, Michigan, United States</p>
+                </div>
+                <div class="nb__info-items d-flex align-items-center pera-content  justify-content-center">
+                    <a href="tel:6295550129" class="d-flex align-items-center">
+                        <i class="nb_icon nb_icon-call mr-10"></i>
+                        <p>+44 7441 441789</p>
+                    </a>
+                </div>
+                <div class="nb__info-items d-flex align-items-center justify-content-end after-content-none nb__top-social-icon">
+                    <a href="https://www.facebook.com/MavensAdvisor"><i class="nb_icon nb_icon-facebook"></i></a>
+                    <a href="https://twitter.com/AdvisorMavens"><i class="nb_icon nb_icon-twitter"></i></a>
+                    <a href="https://www.instagram.com/mavensadvisor/"><i class="nb_icon nb_icon-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/mavens-advisor"><i class="nb_icon nb_icon-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nb__main-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-lg-3">
+                    <div class="nb__logo">
+                        <a href="index.php">
+                            <img src="assets/images/Virsme-1.png" alt="logo" height="200px" width="200px">
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-6">
-                <div class="header-right">
-                    <nav class="mainmenu-nav d-none d-lg-block">
-                        <ul class="mainmenu">
-                            <li class="with-megamenu has-menu-child-item position-relative"><a href="./">Home</a>
-                            </li>
-                            <li><a href="./about">About</a></li>
-                            <li class="has-droupdown has-menu-child-item"><a href="./service">Our Services</a>
-                            </li>
-                            <li><a href="./contact">Contact Us</a></li>
-                            <li><a href="./faq">FAQ</a></li>
+                <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
+                    <nav class="nb__navmenu text-center ps-xl-5 ul-li d-none d-lg-block">
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="about.php">About</a></li>
+                            <li><a href="services.php">Services</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                            <li><a href="faq.php">FAQ</a></li>
+                            <!-- <li class="has-submenu">
+                                <a href="javascript:void(0)">Blog</a>
+                                <ul class="submenu-wrapper">
+                                    <li><a href="blog.html">Blog List</a></li>
+                                    <li><a href="blog-single.html">Blog Details</a></li>
+                                </ul>
+                            </li> -->
                         </ul>
                     </nav>
-                    <div class="header-btn">
-                        <?php
-                        if (isset($_SESSION['email_address'])) {
-                            echo '<a class="btn-default btn-small" href="http://localhost/mavens%20advisor/customer/">Dashboard</a>';
-
-                        } else {
-                            echo '<a href="./customer/login"><button class="gradient-button" style="font-size:15px;border-radius:10px ; padding: 15px 30px 15px;"><span>Login</span></button></a>';
-                        }
-                        ?>
-                    </div>
-                    <div class="mobile-menu-bar ml--5 d-block d-lg-none">
-                        <div class="hamberger">
-                            <button class="hamberger-button">
-                                <i class="feather-menu"></i>
+                    <div class="nb__header-search-form mr-45 ml-25 d-none d-sm-block">
+                        <form class="nd__search">
+                            <input type="text" id="search" class="search__input" placeholder="Search...." />
+                            <button type="button" class="search__button">
+                                <i class="nb_icon nb_icon-search"></i>
                             </button>
-                        </div>
+                        </form>
                     </div>
+                    <button type="button" class="header-toggle offcanvus-toggle d-lg-inline-flex d-none">
+                        <span style="color: white" class="offcanvas_border_one"></span>
+                        <span></span>
+                    </button>
+                    <button type="button" class="header-toggle mobile-menu-toggle d-lg-none">
+                        <span class="offcanvas_border_one"></span>
+                        <span></span>
+                    </button>
                 </div>
             </div>
         </div>

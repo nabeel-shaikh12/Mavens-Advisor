@@ -1,158 +1,176 @@
-<?php
-session_start();
-
-?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-style-mode" content="1">
-  <title>Contact - VirSME</title>
-  <link rel="shortcut icon" type="image/png" href="img/virstual-expert.png">
-  <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/css/plugins/animation.css">
-  <link rel="stylesheet" href="assets/css/plugins/feature.css">
-  <link rel="stylesheet" href="assets/css/plugins/magnify.min.css">
-  <link rel="stylesheet" href="assets/css/plugins/slick.css">
-  <link rel="stylesheet" href="assets/css/plugins/slick-theme.css">
-  <link rel="stylesheet" href="assets/css/plugins/lightbox.css">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/custom.css">
+    <title>VirSME - Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/tabanimation.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/iconsax-style.css">
+    <link rel="stylesheet" href="assets/css/iconly.css">
+    <link rel="stylesheet" href="assets/css/lity.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/images/virstual-expert.png">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
-<body>
-  <main class="page-wrapper">
-    <?php include 'components/topbar.php' ?>
-    <?php include 'components/header.php' ?>
-    <?php include 'components/sidebar.php' ?>
-    <div>
-      <div class="rainbow-gradient-circle"></div>
-      <div class="rainbow-gradient-circle theme-pink"></div>
-    </div>
-    <div class="main-content">
-      <div class="contact-bg d-flex justify-content-center align-items-center">
-        <div class="text-center">
-          <p class="text-white" style="font-size: 20px;"><a class="text-white" href="./index"> Home</a> / Contact</p>
+<body class="nba_demo_one">
+    <?php include './components/preloader.php' ?>
+    <!-- end preloder -->
+    <div class="smooth-scroll" data-scroll-container>
+        <div class="section-wrapper" data-scroll-section>
+            <!-- Header Start -->
+            <?php include 'components/header.php' ?>
+            <!-- Header End -->
+            <!--offcanvus start-->
+            <?php include 'components/offCanvas.php' ?>
+            <!--offcanvus end-->
+            <!--mobile menu start-->
+            <?php include 'components/mobileMenu.php' ?>
+            <!--mobile menu end-->
+            
+            <div>
+                <div class="rainbow-gradient-circle"></div>
+                <div class="rainbow-gradient-circle theme-pink"></div>
+            </div>
+
+            <!-- contact us start  -->
+            <section class="pt-150 pb-150 nb-bg1 nb__mobile-pt-100 nb__mobile-pb-100">
+                <div class="container">
+                    <div class="nb-contact">
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-sm-4 mb-md-0">
+                                <div class="nb-bg2 pt-60 pb-60 pr-60 pl-60 rounded-2" style="background-color: #ebf4ff;">
+                                    <div class="nb-contact-contain has_fade_anim">
+                                        <h6 class="has_text_reveal_anim">
+                                            Information
+                                        </h6>
+
+                                        <h4 class="mt-10 mb-20 has_char_anim">
+                                            Get in touch
+                                        </h4>
+
+                                        <p class="has_fade_anim">
+                                            It is a long established fact that a reader will be distrol acted bioiiy a desig the rea
+                                            dablea content of a page when looking at its layout this is Thoiie point of using.It is
+                                            a long this established
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <ul class="nb-contact-contain-ul has_fade_anim">
+                                            <li>
+                                                <div class="nb-contact-contain-ul-icon">
+                                                    <i class="nb_icon nb_icon-location"></i>
+                                                </div>
+                                                <div class="nb-contact-contain-ul-text">
+                                                    <h4>
+                                                        Address
+                                                    </h4>
+                                                    <p>
+                                                        East Grand Boulevard, Detroit, Michigan, United States
+                                                    </p>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="nb-contact-contain-ul-icon">
+                                                    <i class="nb_icon nb_icon-envelop"></i>
+                                                </div>
+                                                <div class="nb-contact-contain-ul-text">
+                                                    <h4>
+                                                        Email Address
+                                                    </h4>
+
+                                                    <a href="mailto:info@VirSME.com" class="nb_animation_text_link d-block"
+                                                        data-replace="info@VirSME.com">info@VirSME.com</a>
+
+                                                </div>
+                                            </li>
+
+
+                                            <li>
+                                                <div class="nb-contact-contain-ul-icon">
+                                                    <i class="nb_icon nb_icon-call"></i>
+                                                </div>
+                                                <div class="nb-contact-contain-ul-text">
+                                                    <h4>
+                                                        Phone number
+                                                    </h4>
+
+                                                    <a href="tel:+44 7441 441789" class="nb_animation_text_link"
+                                                        data-replace="+44 7441 441789">
+                                                        +44 7441 441789</a>
+
+                                                    <p class="lh-1">
+                                                        24 hour open
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="nb-bg2 pt-60 pb-60 pr-60 pl-60 rounded-2 has_fade_anim" style="background-color: #ebf4ff;">
+                                    <div class="nb-contact-contain mb-20">
+                                        <h6 class="has_text_reveal_anim">
+                                            Messege us
+                                        </h6>
+
+                                        <h4 class="mt-10 has_char_anim">
+                                            Send us messege
+                                        </h4>
+                                    </div>
+                                    <div class="has_fade_anim">
+                                        <form class="nb-contact-contain-form" action="#">
+                                            <input type="text" placeholder="Your name" required>
+                                            <input type="email" placeholder="Your email" required>
+                                            <input type="text" placeholder="Your phone" required>
+                                            <textarea name="textarea" id="textarea" cols="30" rows="10" placeholder="Messege"
+                                                required></textarea>
+                                            <button class="nb_btn_hover_all nb-contact-contain-button border-0 rounded-2">
+                                                <span style="color: white">
+                                                    Send a messege
+                                                </span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- contact us End  -->
+            <!-- Footer Section Start  -->
+            <?php include 'components/footer.php' ?>
+            <!-- Footer Section End  -->
         </div>
-      </div>
-      <div class="rainbow-contact-area rainbow-section-gap">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 mb--40">
-              <div class="section-title text-center" data-sal="slide-up" data-sal-duration="700" data-sal-delay="100">
-                <h4 class="subtitle "><span class="theme-gradient">Contact Form</span></h4>
-                <h2 class="title w-600 mb--20">Our Contact Address Here.</h2>
-              </div>
-            </div>
-          </div>
-          <div class="row row--15">
-            <div class="col-lg-12">
-              <div class="rainbow-contact-address mt_dec--30">
-                <div class="row">
-                  <div class="col-lg-4 col-md-6 col-12">
-                    <div class="rainbow-address">
-                      <div class="icon">
-                        <i class="feather-headphones"></i>
-                      </div>
-                      <div class="inner">
-                        <h4 class="title">Contact Phone Number</h4>
-                        <p><a href="#">+44 7441 441789</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-12">
-                    <div class="rainbow-address">
-                      <div class="icon">
-                        <i class="feather-mail"></i>
-                      </div>
-                      <div class="inner">
-                        <h4 class="title">Our Email Address</h4>
-                        <p><a href="mailto:admin@gmail.com">info@virSME.com</a></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-12">
-                    <div class="rainbow-address">
-                      <div class="icon">
-                        <i class="feather-map-pin"></i>
-                      </div>
-                      <div class="inner">
-                        <h4 class="title">Our Location</h4>
-                        <p>Detroit, Michigan, United States</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mt--40 row--15">
-            <div class="col-lg-7">
-              <form method="POST" action="contactFormProcess.php">
-                <div class="form-group">
-                  <input type="text" placeholder="Full Name" id="full_name" name="full_name">
-                </div>
-                <div class="form-group">
-                  <input type="email" placeholder="Email" id="email_address" name="email_address">
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" placeholder="Message" id="message" name="message"></textarea>
-                </div>
-                <div class="form-group">
-                  <div class="g-recaptcha" data-sitekey="6Lft5qMpAAAAAKRdw5GXssVzFGo8Nl_kDS0ild-B">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <input class="gradient-button mt-3" style="font-size:15px;border-radius:40px" type="submit">
-                </div>
-
-                <?php if (isset($_GET['error']) && !empty($_GET['error'])) : ?>
-                  <p style="color: red; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $_GET['error']; ?></p>
-                <?php endif; ?>
-                <?php if (isset($_GET['message']) && !empty($_GET['message'])) : ?>
-                  <p style="color: #0b7ffe; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"><?php echo $_GET['message']; ?></p>
-                <?php endif; ?>
-              </form>
-            </div>
-            <div class="col-lg-5 mt_md--30 mt_sm--30">
-              <div class="google-map-style-1">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14554259.179133086!2d-105.54385245388013!3d37.49334218664659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited%20States!5e0!3m2!1sen!2sbd!4v1630777307491!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
-    <?php include 'components/footer.php' ?>
-    <?php include 'components/footerBottom.php' ?>
-  </main>
-  <div class="rainbow-back-top">
-    <i class="feather-arrow-up"></i>
-  </div>
-  <script src="assets/js/vendor/modernizr.min.js"></script>
-  <script src="assets/js/vendor/jquery.min.js"></script>
-  <script src="assets/js/vendor/bootstrap.min.js"></script>
-  <script src="assets/js/vendor/popper.min.js"></script>
-  <script src="assets/js/vendor/waypoint.min.js"></script>
-  <script src="assets/js/vendor/wow.min.js"></script>
-  <script src="assets/js/vendor/counterup.min.js"></script>
-  <script src="assets/js/vendor/feather.min.js"></script>
-  <script src="assets/js/vendor/sal.min.js"></script>
-  <script src="assets/js/vendor/masonry.js"></script>
-  <script src="assets/js/vendor/imageloaded.js"></script>
-  <script src="assets/js/vendor/magnify.min.js"></script>
-  <script src="assets/js/vendor/lightbox.js"></script>
-  <script src="assets/js/vendor/slick.min.js"></script>
-  <script src="assets/js/vendor/easypie.js"></script>
-  <script src="assets/js/vendor/text-type.js"></script>
-  <script src="assets/js/vendor/jquery.style.swicher.js"></script>
-  <script src="assets/js/vendor/js.cookie.js"></script>
-  <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/lity.min.js"></script>
+    <script src="assets/js/count.js"></script>
+
+    <script src="assets/js/marquee.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/locomotive-scroll.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/SplitText.min.js"></script>
+
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ThemeAnim.js"></script>
+
+
 </body>
+
 </html>
