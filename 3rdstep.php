@@ -315,15 +315,15 @@ require_once 'db/dbCon.php';
         .totals-container {
             margin-top: 20px;
             padding: 10px;
-            background: #063A75;
-            border-radius: 10px;
+            border-bottom: 1px solid #063A75;
+            background: transparent;
             text-align: left;
             font-size: 18px;
+            color: #063A75;
         }
 
         .totals-container p {
             margin: 5px 0;
-            color: #ffffff;
         }
 
         .summary-hours-input {
