@@ -43,6 +43,33 @@ require_once 'db/dbCon.php';
             left: 35%;
             top: -15px;
         }
+        .description{
+            min-height: 60px;
+            max-height: 220px;
+            font-size: 18px;
+            text-align: justify;
+        }
+        @media screen and (max-width: 768px) {
+            .step-container h1{
+                font-size: 38px;
+            }
+            .step-container h1::after{
+                width: 40%;
+                left: 25%;
+                top: -10px;
+
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .step-container h1{
+                font-size: 30px;
+            }
+            .step-container h1::after {
+                width: 60%;
+                left: 20%;
+                top: -10px;
+            }
+        }
 
         .stepsForm .bg-cover{
             position: relative;
@@ -128,6 +155,11 @@ require_once 'db/dbCon.php';
             min-height: 300px;
 
         }
+        @media screen and (max-width: 992px) {
+            .business-card{
+                padding: 20px 2px;
+            }
+        }
 
 
         .business-card.active {
@@ -160,7 +192,7 @@ require_once 'db/dbCon.php';
         .swiper-slide-active .business-card {
             border-color: #0C7FFE;
             transform: scale(1.1);
-            background: #07458A;
+            background: #1d6bbf;
             box-shadow: 0 0 12px rgba(0, 123, 255, 0.5);
             background-image: url(img/plan-bg.png);
             background-size: cover;
@@ -179,26 +211,44 @@ require_once 'db/dbCon.php';
             width: 100%;
             margin: 0 0 10px 0;
             padding: 0;
-            text-align: center;
+            text-align: left;
         }
 
         .selected-services h5 {
             font-size: 15px;
+            margin-bottom: 8px;
         }
 
         .selected-services ul li {
             color: #eee;
             margin: 0 8px 15px 0;
-            display: block;
+            display: flex;
             font-size: 14px;
             color: #797979;
             position: relative;
             font-weight: 300;
+            line-height: 1.4;
+        }
+        .selected-services ul li::before{
+            content: "";
+            display: block;
+            width: 20px;
+            height: 16px;
+            background: url(img/list-check.svg) center center no-repeat;
+            background-size: contain;
+            position: relative;
+            left: 15px;
+            top: 0;
+        }
+        .swiper-slide-active .business-card .selected-services ul li::before{
+            background: url(img/list-check-w.svg) center center no-repeat;
+            background-size: contain;
         }
 
         .selected-services ul li i {
             font-size: 15px;
             margin-right: 10px;
+            opacity: 0;
         }
 
         .swiper-slide-active .business-card .selected-services ul li {
@@ -319,7 +369,6 @@ require_once 'db/dbCon.php';
             background: transparent;
             text-align: left;
             font-size: 18px;
-            color: #063A75;
         }
 
         .totals-container p {
@@ -329,10 +378,11 @@ require_once 'db/dbCon.php';
         .summary-hours-input {
             background-color: unset !important;
             border-color: #717070;
+            color: #717070;
         }
 
         .summary-hours-input:focus {
-            color: #fff;
+            color: #000;
         }
 
         .btn-step {
@@ -490,15 +540,23 @@ require_once 'db/dbCon.php';
             background-color: #084A94;
             color: #fff;
         }
+        .inactive ul li .btn{
+            background: #a0cdff;
+            color: #3f3f3f;
+            border-radius: 20px;
+            box-shadow: 0 0px 3px 0px #68adf98f
+        }
+        .inactive ul li .btn:hover{
+            box-shadow: 0 0px 5px 0px #2477d3a8;
+        }
     </style>
-
 </head>
 
 <body>
 <div>
     <div class="rainbow-gradient-circle"></div>
         <div class="rainbow-gradient-circle theme-pink"></div>
-    </div>
+</div>
 
     <div class="stepsForm">
         <div class="progress">
@@ -510,23 +568,10 @@ require_once 'db/dbCon.php';
             <div class="container">
                 <!-- Step 1 -->
                 <div id="step-1" class="step-container active">
-                    <h1 class="text-center mb-5 animate__animated animate__fadeInUp ">Select Services</h1>
-                    <div class="row py-5 g-5 w-100  animate__animated animate__fadeInUp ">
-                        <div class="col-md-4 mb-3">
-                            <button class="service-box hvr-underline-reveal" data-service="Accounting & Finance" data-price="500">Accounting & Finance</button>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="service-box hvr-underline-reveal" data-service="Software Development & Maintainence" data-price="700">Software Development & Maintainence</button>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="service-box hvr-underline-reveal" data-service=" Human Resource" data-price="300">Human Resource</button>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="service-box hvr-underline-reveal" data-service="Content creation & Branding" data-price="600">Content creation & Branding</button>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <button class="service-box hvr-underline-reveal" data-service="IT Support" data-price="400">IT Support</button>
-                        </div>
+                    <h1 class="text-center my-5 animate__animated animate__fadeInUp description">Select Services</h1>
+                    <p class="animate__animated animate__fadeInUp">At VirSME, we understand every business has unique needs. Select one or multiple services from our comprehensive offerings to get started. Whether it's Accounting & Finance, IT Support, or Content Creation, our services are designed to elevate your business to the next level. </p>
+
+                    <div class="row py-5 g-5 w-100  animate__animated animate__fadeInUp " id="renderServices">
                     </div>
                     <div id="services-bag" class="w-25  p-4 rounded">
                         <ul id="bag-items" class="list-unstyled"></ul>
@@ -537,7 +582,8 @@ require_once 'db/dbCon.php';
                 </div>
                 <!-- Step 2 -->
                 <div id="step-2" class="step-container py-3">
-                    <h1 class="text-center mb-5 animate__animated animate__fadeInUp">Select Business Size</h1>
+                    <h1 class="text-center my-5 animate__animated animate__fadeInUp">Select Business Size</h1>
+                    <p class=" animate__animated animate__fadeInUp description">Select your business size below, and we’ll recommend the ideal number of hours to assist you with the services you’ve chosen. You’ll also have the flexibility to fine-tune your hours in next step because at VirSME, your success is our priority. Let’s match your ambitions with the right level of support!</p>
                     <form class="py-3">
                         <div class="swiper mySwiper animate__animated animate__fadeInUp">
                             <div class="swiper-wrapper py-5">
@@ -597,7 +643,7 @@ require_once 'db/dbCon.php';
                                 Select Revenue
                             </button>
                             <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-                                <li><a class="dropdown-item" href="#">Startup</a></li>
+                                <li><a class="dropdown-item" href="#">100+</a></li>
                                 <li><a class="dropdown-item" href="#">1000+</a></li>
                                 <li><a class="dropdown-item" href="#">10,000+</a></li>
                                 <li><a class="dropdown-item" href="#">1M+</a></li>
@@ -612,7 +658,12 @@ require_once 'db/dbCon.php';
     
                 <!-- Step 3 -->
                 <div id="step-3" class="step-container">
-                    <h1 class="text-center mb-5 animate__animated animate__fadeInUp">Summary</h1>
+                    <h1 class="text-center my-5 animate__animated animate__fadeInUp">Summary</h1>
+                    <div class="inactive">
+                        <h5 class="mb-2">More Services: </h5>
+                        <ul class="list-inline" id="unselected-services">
+                        </ul>
+                    </div>
                     <div class="table-container  animate__animated animate__fadeInUp">
                         <table class="styled-table">
                             <thead>
@@ -654,73 +705,147 @@ require_once 'db/dbCon.php';
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/typewriter-effect/dist/core.js"></script>
     <script>
-        document.querySelectorAll('.service-box').forEach(serviceBox => {
-            serviceBox.addEventListener('click', function() {
-                const bag = document.getElementById('services-bag');
-                const bagList = document.getElementById('bag-items');
+        const services = [
+            { name: "Accounting & Finance", price: 500 },
+            { name: "Software Development & Maintenance", price: 700 },
+            { name: "Human Resource", price: 300 },
+            { name: "Content Creation & Branding", price: 600 },
+            { name: "IT Support", price: 400 },
+        ];
 
-                // Prevent duplicates
-                if ([...bagList.children].some(item => item.getAttribute('data-service') === this.getAttribute('data-service'))) {
-                    return;
-                }
+        let selectedServices = [];
 
-                // Clone the service box
-                const clone = this.cloneNode(true);
-                document.body.appendChild(clone);
+        function renderServices() {
+            const serviceContainer = document.getElementById("renderServices");
+            serviceContainer.innerHTML = ""; // Clear existing content
 
-                // Get position of the service box and the bag
-                const rect = this.getBoundingClientRect();
-                const bagRect = bag.getBoundingClientRect();
+            services.forEach((service) => {
+                // Create button element for each service
+                const serviceButton = document.createElement("button");
+                serviceButton.classList.add("service-box", "hvr-underline-reveal");
+                serviceButton.setAttribute("data-service", service.name);
+                serviceButton.setAttribute("data-price", service.price);
+                serviceButton.textContent = service.name;
 
-                // Hide the service item
-                this.style.visibility = "hidden";
+                // Create wrapper div for layout
+                const serviceWrapper = document.createElement("div");
+                serviceWrapper.classList.add("col-md-4", "mb-3");
+                serviceWrapper.appendChild(serviceButton);
 
-                // Set initial position for the clone
-                gsap.set(clone, {
-                    position: "absolute",
-                    left: rect.left,
-                    top: rect.top,
-                    zIndex: 999,
-                    width: rect.width, // Set the initial width to match the original element
-                    height: rect.height
-                });
+                // Append to container
+                serviceContainer.appendChild(serviceWrapper);
 
-                // Animate the clone into the bag
-                gsap.to(clone, {
-                    duration: 1,
-                    x: bagRect.left - rect.left + 20, // Slight padding for alignment
-                    y: bagRect.top - rect.top + 20,
-                    width: 350, // Final width of the clone
-                    height: 50,
-                    scale: 0.5,
-                    opacity: 0.8,
-                    onComplete: () => {
-                        clone.remove();
+                // Add click event to service button
+                serviceButton.addEventListener("click", function () {
+                    const serviceName = this.getAttribute("data-service");
+                    const servicePrice = parseInt(this.getAttribute("data-price"));
 
-                        // Add the item to the bag
-                        const listItem = document.createElement('li');
-                        listItem.className = 'bag-item';
-                        listItem.textContent = this.textContent;
-                        listItem.setAttribute('data-service', this.getAttribute('data-service')); // Add a data attribute for reference
-                        bagList.appendChild(listItem);
-
-                        // Animate the list item appearance
-                        gsap.fromTo(listItem, {
-                            opacity: 0
-                        }, {
-                            duration: 0.5,
-                            opacity: 1
+                    // Add or remove the service from selectedServices
+                    if (selectedServices.some((s) => s.service === serviceName)) {
+                        selectedServices = selectedServices.filter(
+                            (s) => s.service !== serviceName
+                        );
+                        this.classList.remove("selected");
+                    } else {
+                        selectedServices.push({
+                            service: serviceName,
+                            price: servicePrice,
+                            hours: 0,
                         });
+                        this.classList.add("selected");
                     }
+
+                    const bag = document.getElementById("services-bag");
+                    const bagList = document.getElementById("bag-items");
+
+                    // Prevent duplicates in the bag
+                    if (
+                        [...bagList.children].some(
+                            (item) =>
+                                item.getAttribute("data-service") ===
+                                this.getAttribute("data-service")
+                        )
+                    ) {
+                        return;
+                    }
+
+                    // Clone the service button and animate to the bag
+                    const clone = this.cloneNode(true);
+                    document.body.appendChild(clone);
+
+                    // Get positions for animation
+                    const rect = this.getBoundingClientRect();
+                    const bagRect = bag.getBoundingClientRect();
+
+                    // Hide the service button
+                    this.style.visibility = "hidden";
+
+                    // Set initial position for the clone
+                    gsap.set(clone, {
+                        position: "absolute",
+                        left: rect.left,
+                        top: rect.top,
+                        zIndex: 999,
+                        width: rect.width,
+                        height: rect.height,
+                    });
+
+                    // Animate the clone into the bag
+                    gsap.to(clone, {
+                        duration: 1,
+                        x: bagRect.left - rect.left + 20,
+                        y: bagRect.top - rect.top + 20,
+                        width: 350,
+                        height: 50,
+                        scale: 0.5,
+                        opacity: 0.8,
+                        onComplete: () => {
+                            clone.remove();
+
+                            // Add the item to the bag
+                            const listItem = document.createElement("li");
+                            listItem.className = "bag-item";
+                            listItem.textContent = service.name;
+                            listItem.setAttribute("data-service", service.name); // Add a data attribute for reference
+                            bagList.appendChild(listItem);
+
+                            // Animate the list item appearance
+                            gsap.fromTo(
+                                listItem,
+                                { opacity: 0 },
+                                { duration: 0.5, opacity: 1 }
+                            );
+                        },
+                    });
                 });
             });
-        });
+        }
 
-        // Remove item from bag with animation and restore to services
-        document.getElementById('bag-items').addEventListener('click', function(event) {
-            if (event.target.classList.contains('bag-item')) {
-                const serviceName = event.target.getAttribute('data-service');
+        function renderUnselectedServices() {
+            const unselectedServices = services.filter(service => 
+                !selectedServices.some(selected => selected.service === service.name)
+            );
+
+            const unselectedList = document.getElementById("unselected-services");
+            unselectedList.innerHTML = ""; // Clear existing content
+
+            unselectedServices.forEach(service => {
+                const listItem = document.createElement("li");
+                const inactiveButton = document.createElement("button");
+                inactiveButton.classList.add("btn");
+                listItem.classList.add("list-inline-item");
+                listItem.appendChild(inactiveButton);
+                inactiveButton.textContent = `${service.name}`;
+                unselectedList.appendChild(listItem);
+            });
+        }
+
+        // Remove item from bag with animation and restore service button
+        document.getElementById("bag-items").addEventListener("click", function (event) {
+            if (event.target.classList.contains("bag-item")) {
+                const serviceName = event.target.getAttribute("data-service");
 
                 gsap.to(event.target, {
                     duration: 0.5,
@@ -730,41 +855,26 @@ require_once 'db/dbCon.php';
                         // Remove the item from the bag
                         event.target.remove();
 
-                        // Find the corresponding service box and make it visible again
-                        document.querySelectorAll('.service-box').forEach(serviceBox => {
-                            if (serviceBox.getAttribute('data-service') === serviceName) {
+                        // Restore the visibility of the service button
+                        document.querySelectorAll(".service-box").forEach((serviceBox) => {
+                            if (serviceBox.getAttribute("data-service") === serviceName) {
                                 serviceBox.style.visibility = "visible";
-
-                                // Deselect the service box
-                                const index = selectedServices.findIndex(s => s.service === serviceName);
-                                if (index !== -1) {
-                                    selectedServices.splice(index, 1);
-                                    serviceBox.classList.remove('selected');
-                                }
+                                serviceBox.classList.remove("selected"); // Remove selected class
                             }
                         });
-                    }
+
+                        // Remove the service from selectedServices
+                        selectedServices = selectedServices.filter(
+                            (s) => s.service !== serviceName
+                        );
+                    },
                 });
             }
         });
 
-        let selectedServices = [];
-        document.querySelectorAll('.service-box').forEach(box => {
-            box.addEventListener('click', function() {
-                const service = this.getAttribute('data-service');
-                const price = parseInt(this.getAttribute('data-price'));
-                if (selectedServices.some(s => s.service === service)) {
-                    selectedServices = selectedServices.filter(s => s.service !== service);
-                    this.classList.remove('selected');
-                } else {
-                    selectedServices.push({
-                        service,
-                        price,
-                        hours: 0
-                    });
-                    this.classList.add('selected');
-                }
-            });
+        // Call renderServices on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            renderServices();
         });
 
         function goToStep(step) {
@@ -806,6 +916,7 @@ require_once 'db/dbCon.php';
                         });
                     return; // Stop execution, do not proceed to next step
                 }
+                renderUnselectedServices();
             }
 
             document.querySelectorAll('.step-container').forEach(container => {
@@ -1020,15 +1131,15 @@ require_once 'db/dbCon.php';
 
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 0,
             loop: true,
             centeredSlides: true,
             initialSlide: 1,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: true,
-            },
+            // autoplay: {
+            //     delay: 4000,
+            //     disableOnInteraction: true,
+            // },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -1039,7 +1150,7 @@ require_once 'db/dbCon.php';
                     slidesPerView: 1,
                     spaceBetween: 0,
                 },
-                450: {
+                545: {
                     slidesPerView: 2,
                     spaceBetween: 0,
                 },
@@ -1048,6 +1159,7 @@ require_once 'db/dbCon.php';
                     slidesPerView: 3,
                     spaceBetween: 0,
                 },
+
             },
         });
     </script>
