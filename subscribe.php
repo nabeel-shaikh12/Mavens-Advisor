@@ -399,7 +399,7 @@ require_once 'db/dbCon.php';
             max-height: 400px;
             overflow-y: auto;
             box-shadow: 0px 4px 10px rgb(0 0 0 / 20%);
-            background: rgba(175, 175, 175, 0.8);
+            background: rgb(255 255 255 / 47%);
             padding: 20px;
             border-radius: 10px;
             width: 200px;
