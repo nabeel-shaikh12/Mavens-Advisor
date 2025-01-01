@@ -90,16 +90,18 @@
                                 <p class="has_fade_anim">Let us transform your vision into an unforgettable brand experience. Explore creativity with us!</p>
                             </div>
                             <div class="nb__hero-button">
-                                <a href="./subscribe">
-                                    Subscribe Now
-                                    <span class="nb__hero-btn-icon">
-                                        <svg width="49" height="24" viewBox="0 0 49 24" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M48.0607 13.0607C48.6464 12.4749 48.6464 11.5251 48.0607 10.9393L38.5147 1.39339C37.9289 0.807608 36.9792 0.807608 36.3934 1.3934C35.8076 1.97918 35.8076 2.92893 36.3934 3.51472L44.8787 12L36.3934 20.4853C35.8076 21.0711 35.8076 22.0208 36.3934 22.6066C36.9792 23.1924 37.9289 23.1924 38.5147 22.6066L48.0607 13.0607ZM1.31134e-07 13.5L47 13.5L47 10.5L-1.31134e-07 10.5L1.31134e-07 13.5Z"
-                                                fill="#0E0E0E" />
-                                        </svg>
+                                <a class="nbv2_featured_right_link nb-ffh nb-fw7 nb-f16 nb-wcl d-inline-flex align-items-center position-relative gap-3"
+                                    href="./subscribe">
+                                    <span class="nbv2_featured_right_content_btn">
+                                        <span>SUBSCRIBE NOW</span>
                                     </span>
+                                    <svg width="50" height="24" viewBox="0 0 50 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M48.7872 13.0607C49.373 12.4749 49.373 11.5251 48.7872 10.9393L39.2413 1.39339C38.6555 0.807609 37.7057 0.807609 37.12 1.3934C36.5342 1.97918 36.5342 2.92893 37.12 3.51472L45.6052 12L37.12 20.4853C36.5342 21.0711 36.5342 22.0208 37.12 22.6066C37.7057 23.1924 38.6555 23.1924 39.2413 22.6066L48.7872 13.0607ZM0.726563 13.5L47.7266 13.5L47.7266 10.5L0.726562 10.5L0.726563 13.5Z"
+                                            fill="black" />
+                                    </svg>
+
+                                    <!--  <i class="isax icon-arrow-right1 nb-f68 nb-wcl"></i>-->
                                 </a>
                             </div>
                         </div>
@@ -273,7 +275,7 @@
                         </div>
                     </div>
 
-                                        <div class="row mt-30 g-30 justify-content-center">
+                    <div class="row mt-30 g-30 justify-content-center">
                         <div class="col-sm-1 col-md-6 col-lg-6 col-xl-4 nb__service-column" data-scroll data-scroll-speed="0.5">
                             <div class="nb__service-box">
                                 <div class="nb__service-content">
@@ -655,7 +657,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-xl-6 col-xxl-6 col-md-12 col-sm-12 align-items-center justify-content-end d-flex has_text_move_anim">
-                                    <a href="services.php"> <button class="btn btn=primary theme-btn" >See More <i class="fa fa-arrow-right ms-1"></i></button></a>
+                                    <a href="services.php"> <button class="btn btn=primary theme-btn">See More <i class="fa fa-arrow-right ms-1"></i></button></a>
                                 </div>
                             </div>
                         </div>
@@ -691,7 +693,7 @@
                             </div>
                             <div class="nbv2_project_slide_single nb-iefmain">
                                 <div class="nbv2_project_slide_content position-relative nb-ief ">
-                                    <img src="assets/images/financial-strategy.jpg" alt="" style="height: 260px; width: 100%"><img src="assets/images/financial-strategy.jpg" alt=""  style="height: 260px; width: 100%">
+                                    <img src="assets/images/financial-strategy.jpg" alt="" style="height: 260px; width: 100%"><img src="assets/images/financial-strategy.jpg" alt="" style="height: 260px; width: 100%">
                                     <div class="nbv2_project_slide_content_bottom_main position-absolute">
                                         <div class="nbv2_project_slide_content_bottom nb-bg2 position-relative m-auto">
                                             <div class="slider_icon">

@@ -40,11 +40,11 @@
                 <div class="col-6 col-lg-9 d-flex align-items-center justify-content-end">
                     <nav class="nb__navmenu text-center ps-xl-5 ul-li d-none d-lg-block">
                         <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="about.php">About</a></li>
-                            <li><a href="services.php">Services</a></li>
-                            <li><a href="contact.php">Contact</a></li>
-                            <li><a href="faq.php">FAQ</a></li>
+                            <li><a href="./">Home</a></li>
+                            <li><a href="./about">About</a></li>
+                            <li><a href="./services">Services</a></li>
+                            <li><a href="./contact">Contact</a></li>
+                            <li><a href="./faq">FAQ</a></li>
                             <!-- <li class="has-submenu">
                                 <a href="javascript:void(0)">Blog</a>
                                 <ul class="submenu-wrapper">
