@@ -205,12 +205,12 @@ document.addEventListener("DOMContentLoaded", () => {
     renderServices();
 });
 
-function goToStep(step) {
+function goToStep(step, previousStep = null) {
     const totalSteps = 4; // Total steps including Step 0 (future)
     const progressBar = document.getElementById('progress-bar');
     const minWidth = 30; // Initial width for Step 1
     // Validation logic for Step 1
-    if (step === 2) {
+    if (step === 2 && previousStep === 1) {
         if (selectedServices.length === 0) {
             Swal.fire({
                 title: "Required!",
@@ -221,12 +221,18 @@ function goToStep(step) {
             return; // Stop execution, do not proceed to next step
         }
     }
+    if (step === 2 && previousStep === 3) {
+        if (selectedServices.length === 0) {
+            goToStep(1);
+            return; 
+        }
+    }
+
 
     // Validation logic for Step 2
     if (step === 3) {
         const businessSize = document.querySelector('.business-card.active');
         const revenueSelected = document.getElementById('dropdownMenuButton').textContent.trim() !== 'Select Revenue';
-        let errorModal = new bootstrap.Modal(document.getElementById('errorMsg'));
         if (!businessSize) {
             Swal.fire({
                 title: "Required!",
@@ -322,26 +328,15 @@ function goToStep(step) {
         selectedServices.forEach(service => {
             service.hours = hours;
         });
-
         // Render summary
         renderSummary(hours);
     }
 }
-
+function validateInput(input) {
+    input.value = input.value.replace(/[-+]/g, "");
+}
 function renderSummary() {
     const summaryBody = document.getElementById('summary-body');
-
-    if (selectedServices.length === 0) {
-        Swal.fire({
-            title: "All services removed!",
-            text: "You will be redirected to Step 1 to select services again.",
-            icon: "info",
-            confirmButtonColor: "#3085d6"
-        }).then(() => {
-            goToStep(1); // Redirect to Step 1
-        });
-        return; // Stop further rendering
-    }
 
     summaryBody.innerHTML = selectedServices
         .map(service => `
@@ -349,7 +344,7 @@ function renderSummary() {
         <td>${service.service}</td>
         <td>$${service.price}</td>
         <td>
-            <input type="number" class="form-control summary-hours-input" data-service="${service.service}" value="${service.hours}" min="1">
+            <input type="number" class="form-control summary-hours-input" data-service="${service.service}" value="${service.hours}" min="1"  oninput="validateInput(this)">
         </td>
         <td class="service-total" data-service="${service.service}">$${(service.price * service.hours).toFixed(2)}</td>
         <td>
@@ -391,7 +386,7 @@ function renderSummary() {
 function deleteServiceRow(serviceName) {
     Swal.fire({
         title: "Are you sure?",
-        text: "You can add this service again from step 1!",
+        text: "You can add this service again!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

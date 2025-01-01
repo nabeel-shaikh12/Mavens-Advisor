@@ -48,7 +48,7 @@ require_once 'db/dbCon.php';
                         <ul id="bag-items" class="list-unstyled"></ul>
                     </div>
                     <div class="d-flex animate__animated animate__fadeInUp animate__delay-1s">
-                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal m-auto mt-4" onclick="goToStep(2)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal m-auto mt-4" onclick="goToStep(2, 1)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                     </div>
                 </div>
                 <!-- Step 2 -->
@@ -122,8 +122,8 @@ require_once 'db/dbCon.php';
                         </div>
                     </form>
                     <div class="d-flex my-5 justify-content-between mt-2 animate__animated animate__fadeInUp animate__delay-2s">
-                        <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
-                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                        <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1, 2)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
+                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3, 2)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                     </div>
                 </div>
 
@@ -154,8 +154,8 @@ require_once 'db/dbCon.php';
                         <p><strong>Total Cost:</strong> $<span id="total-cost"></span></p>
                     </div>
                     <div class="d-flex justify-content-between mt-5 animate__animated animate__fadeInUp animate__delay-1s">
-                        <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>
-                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(4)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                        <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2, 3)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>
+                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(4, 3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                     </div>
                 </div>
 
@@ -178,7 +178,7 @@ require_once 'db/dbCon.php';
                             </div>
                         </form>
                         <div class="d-flex justify-content-between mt-5 ">
-                            <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal" onclick="goToStep(3)">
+                            <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal" onclick="goToStep(3, 4)">
                                 <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back
                             </button>
                             <button class="btn btn-submit btn-step hvr-icon-push" onclick="submitForm()">
