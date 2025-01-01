@@ -469,11 +469,15 @@ require_once 'db/dbCon.php';
             /* Default for extra-small and small screens */
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (max-width: 768px) {
 
             /* Medium screens and up (md) */
             .mySwiper {
                 width: 75%;
+            }
+            #services-bag{
+                width: 100% !important;
+                margin-bottom: 70px !important;
             }
         }
 

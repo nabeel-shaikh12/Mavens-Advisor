@@ -25,17 +25,9 @@
     <!-- end preloder -->
     <div class="smooth-scroll" data-scroll-container>
         <div class="section-wrapper" data-scroll-section>
-            <!-- Header Start -->
             <?php include 'components/header.php' ?>
-            <!-- Header End -->
-
-            <!--offcanvus start-->
             <?php include 'components/offCanvas.php' ?>
-            <!--offcanvus end-->
-
-            <!--mobile menu start-->
             <?php include 'components/mobileMenu.php' ?>
-            
             <div>
                 <div class="rainbow-gradient-circle"></div>
                 <div class="rainbow-gradient-circle theme-pink"></div>
