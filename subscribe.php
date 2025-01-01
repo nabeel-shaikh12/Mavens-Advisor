@@ -425,6 +425,8 @@ require_once 'db/dbCon.php';
             background: rgba(255, 255, 255, 0.1);
             margin: 10px 0;
             padding: 10px;
+            box-shadow: 0px 4px 10px rgb(0 0 0 / 20%);
+
             border-radius: 5px;
             transition: background-color 0.3s;
         }
@@ -523,7 +525,6 @@ require_once 'db/dbCon.php';
             /* Adjust for the GIF */
         }
 
-        /* Pseudo-class to add the GIF animation */
         .active-button:before {
             content: "";
             position: absolute;
