@@ -18,7 +18,7 @@ require_once 'db/dbCon.php';
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
@@ -26,12 +26,14 @@ require_once 'db/dbCon.php';
             /* font-family: 'Poppins', sans-serif; */
             margin: 0;
         }
-        .step-container h1{
+
+        .step-container h1 {
             font-weight: 900;
             font-size: 45px;
             letter-spacing: 6px;
             font-family: cursive;
         }
+
         .step-container h1::after {
             content: "";
             display: block;
@@ -43,27 +45,32 @@ require_once 'db/dbCon.php';
             left: 35%;
             top: -15px;
         }
-        .description{
+
+        .description {
             min-height: 60px;
             max-height: 220px;
             font-size: 18px;
             text-align: justify;
         }
+
         @media screen and (max-width: 768px) {
-            .step-container h1{
+            .step-container h1 {
                 font-size: 38px;
             }
-            .step-container h1::after{
+
+            .step-container h1::after {
                 width: 40%;
                 left: 25%;
                 top: -10px;
 
             }
         }
+
         @media screen and (max-width: 450px) {
-            .step-container h1{
+            .step-container h1 {
                 font-size: 30px;
             }
+
             .step-container h1::after {
                 width: 60%;
                 left: 20%;
@@ -71,7 +78,7 @@ require_once 'db/dbCon.php';
             }
         }
 
-        .stepsForm .bg-cover{
+        .stepsForm .bg-cover {
             position: relative;
             /* background-position: 50%; */
             min-height: 100vh;
@@ -81,18 +88,20 @@ require_once 'db/dbCon.php';
         }
 
         .progress {
-            background:#000000db !important;
+            background: #000000db !important;
             height: 3px !important;
             width: 100%;
             position: relative;
             overflow: hidden;
         }
-        .progress-bar{
+
+        .progress-bar {
             display: unset !important;
             overflow: unset !important;
             background-color: #6DB2FE !important;
             height: 3px !important;
         }
+
         .step-container {
             display: none;
         }
@@ -136,9 +145,11 @@ require_once 'db/dbCon.php';
             color: #000;
             font-weight: 500;
         }
-        .service-box:hover{
+
+        .service-box:hover {
             box-shadow: 0 5px 10px 0px #0961c438;
         }
+
         .hvr-underline-reveal:before {
             background: #2077d1 !important;
         }
@@ -155,8 +166,9 @@ require_once 'db/dbCon.php';
             min-height: 300px;
 
         }
+
         @media screen and (max-width: 992px) {
-            .business-card{
+            .business-card {
                 padding: 20px 2px;
             }
         }
@@ -203,7 +215,9 @@ require_once 'db/dbCon.php';
             font-size: 23px;
             color: #fbfbfbad;
         }
-        .swiper-slide-active .business-card p, .swiper-slide-active .business-card h5 {
+
+        .swiper-slide-active .business-card p,
+        .swiper-slide-active .business-card h5 {
             color: #fff;
         }
 
@@ -229,7 +243,8 @@ require_once 'db/dbCon.php';
             font-weight: 300;
             line-height: 1.4;
         }
-        .selected-services ul li::before{
+
+        .selected-services ul li::before {
             content: "";
             display: block;
             width: 20px;
@@ -240,7 +255,8 @@ require_once 'db/dbCon.php';
             left: 15px;
             top: 0;
         }
-        .swiper-slide-active .business-card .selected-services ul li::before{
+
+        .swiper-slide-active .business-card .selected-services ul li::before {
             background: url(img/list-check-w.svg) center center no-repeat;
             background-size: contain;
         }
@@ -475,8 +491,13 @@ require_once 'db/dbCon.php';
             .mySwiper {
                 width: 75%;
             }
-            #services-bag{
+
+            #services-bag {
                 width: 100% !important;
+                position: relative;
+                right: 0px;
+
+                bottom: 20px;
                 margin-bottom: 70px !important;
             }
         }
@@ -528,39 +549,45 @@ require_once 'db/dbCon.php';
             background-color: #084A94;
             border-color: #084A94;
         }
-        .delete-row{
+
+        .delete-row {
             background-color: #0960C0;
             margin-left: 10px;
         }
-        .delete-row:hover{
+
+        .delete-row:hover {
             background-color: #064a92;
-            border-color:#064a92;
+            border-color: #064a92;
         }
-        .btn-submit{
+
+        .btn-submit {
             border-color: #084A94;
             color: #084A94;
         }
-        .btn-submit:hover{
+
+        .btn-submit:hover {
             background-color: #084A94;
             color: #fff;
         }
-        .inactive ul li .btn{
+
+        .inactive ul li .btn {
             background: #a0cdff;
             color: #3f3f3f;
             border-radius: 20px;
             box-shadow: 0 0px 3px 0px #68adf98f
         }
-        .inactive ul li .btn:hover{
+
+        .inactive ul li .btn:hover {
             box-shadow: 0 0px 5px 0px #2477d3a8;
         }
     </style>
 </head>
 
 <body>
-<div>
-    <div class="rainbow-gradient-circle"></div>
+    <div>
+        <div class="rainbow-gradient-circle"></div>
         <div class="rainbow-gradient-circle theme-pink"></div>
-</div>
+    </div>
 
     <div class="stepsForm">
         <div class="progress">
@@ -607,7 +634,7 @@ require_once 'db/dbCon.php';
                                         <div class="selected-services">
                                             <h5>Selected Services:</h5>
                                         </div>
-    
+
                                         <button type="button" class="btn-select">Select</button>
                                     </div>
                                 </div>
@@ -634,7 +661,7 @@ require_once 'db/dbCon.php';
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
-    
+
                         <h2 class="text-center mt-4 animate__animated animate__fadeInUp animate__delay-1s">Annual Revenue</h2>
                         <!-- Styled Dropdown -->
                         <div class="custom-dropdown mx-auto mb-5 text-center py-3 w-100 animate__animated animate__fadeInUp animate__delay-1s">
@@ -659,7 +686,7 @@ require_once 'db/dbCon.php';
                         <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                     </div>
                 </div>
-    
+
                 <!-- Step 3 -->
                 <div id="step-3" class="step-container">
                     <h1 class="text-center my-5 animate__animated animate__fadeInUp">Summary</h1>
@@ -691,13 +718,13 @@ require_once 'db/dbCon.php';
                         <button class="btn btn-submit btn-step hvr-icon-push  " id="submitForm">Submit</button>
                     </div>
                 </div>
-    
+
                 <!-- Modal -->
                 <div class="modal fade" id="errorMsg" tabindex="-1" aria-labelledby="errorLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-body" id="displayError">
-    
+
                             </div>
                         </div>
                     </div>
@@ -711,12 +738,26 @@ require_once 'db/dbCon.php';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://unpkg.com/typewriter-effect/dist/core.js"></script>
     <script>
-        const services = [
-            { name: "Accounting & Finance", price: 500 },
-            { name: "Software Development & Maintenance", price: 700 },
-            { name: "Human Resource", price: 300 },
-            { name: "Content Creation & Branding", price: 600 },
-            { name: "IT Support", price: 400 },
+        const services = [{
+                name: "Accounting & Finance",
+                price: 500
+            },
+            {
+                name: "Software Development & Maintenance",
+                price: 700
+            },
+            {
+                name: "Human Resource",
+                price: 300
+            },
+            {
+                name: "Content Creation & Branding",
+                price: 600
+            },
+            {
+                name: "IT Support",
+                price: 400
+            },
         ];
 
         let selectedServices = [];
@@ -742,7 +783,7 @@ require_once 'db/dbCon.php';
                 serviceContainer.appendChild(serviceWrapper);
 
                 // Add click event to service button
-                serviceButton.addEventListener("click", function () {
+                serviceButton.addEventListener("click", function() {
                     const serviceName = this.getAttribute("data-service");
                     const servicePrice = parseInt(this.getAttribute("data-price"));
 
@@ -768,8 +809,8 @@ require_once 'db/dbCon.php';
                     if (
                         [...bagList.children].some(
                             (item) =>
-                                item.getAttribute("data-service") ===
-                                this.getAttribute("data-service")
+                            item.getAttribute("data-service") ===
+                            this.getAttribute("data-service")
                         )
                     ) {
                         return;
@@ -817,9 +858,12 @@ require_once 'db/dbCon.php';
 
                             // Animate the list item appearance
                             gsap.fromTo(
-                                listItem,
-                                { opacity: 0 },
-                                { duration: 0.5, opacity: 1 }
+                                listItem, {
+                                    opacity: 0
+                                }, {
+                                    duration: 0.5,
+                                    opacity: 1
+                                }
                             );
                         },
                     });
@@ -828,7 +872,7 @@ require_once 'db/dbCon.php';
         }
 
         function renderUnselectedServices() {
-            const unselectedServices = services.filter(service => 
+            const unselectedServices = services.filter(service =>
                 !selectedServices.some(selected => selected.service === service.name)
             );
 
@@ -847,7 +891,7 @@ require_once 'db/dbCon.php';
         }
 
         // Remove item from bag with animation and restore service button
-        document.getElementById("bag-items").addEventListener("click", function (event) {
+        document.getElementById("bag-items").addEventListener("click", function(event) {
             if (event.target.classList.contains("bag-item")) {
                 const serviceName = event.target.getAttribute("data-service");
 
@@ -893,7 +937,7 @@ require_once 'db/dbCon.php';
                         text: "Select at least one service to move forward",
                         icon: "error",
                         confirmButtonColor: "#3085d6"
-                        });
+                    });
                     return; // Stop execution, do not proceed to next step
                 }
             }
@@ -909,7 +953,7 @@ require_once 'db/dbCon.php';
                         text: "Business Size is Required.",
                         icon: "error",
                         confirmButtonColor: "#3085d6"
-                        });
+                    });
                     return; // Stop execution, do not proceed to next step
                 } else if (!revenueSelected) {
                     Swal.fire({
@@ -917,7 +961,7 @@ require_once 'db/dbCon.php';
                         text: "Revenue is Required.",
                         icon: "error",
                         confirmButtonColor: "#3085d6"
-                        });
+                    });
                     return; // Stop execution, do not proceed to next step
                 }
                 renderUnselectedServices();
@@ -1055,12 +1099,13 @@ require_once 'db/dbCon.php';
                 });
             });
             document.querySelectorAll('.delete-row').forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const service = this.getAttribute('data-service');
                     deleteServiceRow(service);
                 });
             });
         }
+
         function deleteServiceRow(serviceName) {
             Swal.fire({
                 title: "Are you sure?",
@@ -1097,7 +1142,7 @@ require_once 'db/dbCon.php';
                             confirmButtonColor: "#3085d6"
                         });
                     }
-                    
+
                     renderSummary();
 
                 }
