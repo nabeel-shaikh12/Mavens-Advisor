@@ -89,7 +89,7 @@ require_once 'db/dbCon.php';
 
         .progress {
             background: #000000db !important;
-            height: 3px !important;
+            height: 5px !important;
             width: 100%;
             position: relative;
             overflow: hidden;
@@ -99,7 +99,7 @@ require_once 'db/dbCon.php';
             display: unset !important;
             overflow: unset !important;
             background-color: #6DB2FE !important;
-            height: 3px !important;
+            height: 5px !important;
         }
 
         .step-container {
@@ -143,6 +143,7 @@ require_once 'db/dbCon.php';
             width: 100%;
             padding: 35px;
             color: #000;
+            font-size: 15px;
             font-weight: 500;
         }
 
@@ -330,10 +331,6 @@ require_once 'db/dbCon.php';
             border-radius: 8px;
         }
 
-        .dropdown-menu {
-            /* background: #0e335b8f; */
-
-        }
 
         .dropdown-menu .dropdown-item {
             transition: all 0.3s ease;
@@ -351,12 +348,14 @@ require_once 'db/dbCon.php';
             background: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             overflow: hidden;
+            overflow-x: auto;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         /* Styled table */
         .styled-table {
             width: 100%;
+            min-width: 880px;
             border-collapse: collapse;
             font-size: 16px;
             font-family: 'Poppins', sans-serif;
@@ -404,8 +403,8 @@ require_once 'db/dbCon.php';
         .btn-step {
             display: flex;
             align-items: baseline;
-            padding: 15px 35px;
-            width: 135px;
+            padding: 10px 25px;
+            column-gap: 3px;
         }
 
         #services-bag {
@@ -575,11 +574,61 @@ require_once 'db/dbCon.php';
             background: #a0cdff;
             color: #3f3f3f;
             border-radius: 20px;
-            box-shadow: 0 0px 3px 0px #68adf98f
+            box-shadow: 0 0px 3px 0px #68adf98f;
+            font-size: 13px;
+        }
+
+        .inactive ul li .btn i {
+            font-size: 14px;
+            color: #0c7ffe;
         }
 
         .inactive ul li .btn:hover {
             box-shadow: 0 0px 5px 0px #2477d3a8;
+        }
+
+        .horizontal-scroll {
+            display: flex;
+            /* Ensures the items stay in a row */
+            overflow-x: auto;
+            /* Enables horizontal scrolling */
+            white-space: nowrap;
+            /* Prevents items from wrapping to the next line */
+            padding: 10px 0;
+            /* Optional: Add some padding for aesthetics */
+            -webkit-overflow-scrolling: touch;
+            /* Smooth scrolling on touch devices */
+        }
+
+
+
+        .list-inline-item {
+            flex-shrink: 0;
+            /* Prevent items from shrinking */
+            margin-right: 10px;
+            /* Add spacing between items */
+        }
+
+        .list-inline-item button {
+            white-space: nowrap;
+            /* Ensure the button text doesn't wrap */
+        }
+
+        .detailsForm {
+            width: 50%;
+            margin: auto;
+            margin-top: 28px;
+            padding: 55px;
+            border-radius: 22px;
+            box-shadow: 0px 8px 14px 0px #a8d1ff52;
+        }
+
+        .detailFormHead h2 {
+            color: #1F89FE;
+        }
+
+        .confirmation-form input {
+            color: unset !important;
         }
     </style>
 </head>
@@ -682,7 +731,7 @@ require_once 'db/dbCon.php';
                             </ul>
                         </div>
                     </form>
-                    <div class="d-flex justify-content-between mt-2 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="d-flex my-5 justify-content-between mt-2 animate__animated animate__fadeInUp animate__delay-2s">
                         <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
                         <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                     </div>
@@ -691,9 +740,9 @@ require_once 'db/dbCon.php';
                 <!-- Step 3 -->
                 <div id="step-3" class="step-container">
                     <h1 class="text-center my-5 animate__animated animate__fadeInUp">Summary</h1>
-                    <div class="inactive">
+                    <div class="inactive animate__animated animate__fadeInUp">
                         <h5 class="mb-2">More Services: </h5>
-                        <ul class="list-inline" id="unselected-services">
+                        <ul class="list-inline horizontal-scroll" id="unselected-services">
                         </ul>
                     </div>
                     <div class="table-container  animate__animated animate__fadeInUp">
@@ -716,7 +765,36 @@ require_once 'db/dbCon.php';
                     </div>
                     <div class="d-flex justify-content-between mt-5 animate__animated animate__fadeInUp animate__delay-1s">
                         <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>
-                        <button class="btn btn-submit btn-step hvr-icon-push  " id="submitForm">Submit</button>
+                        <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(4)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div id="step-4" class="step-container">
+                    <h1 class="text-center my-5 animate__animated animate__fadeInUp">Confirmation & Additional Info</h1>
+                    <p class="text-center animate__animated animate__fadeInUp">Review your details and provide any additional information to help us serve you better.</p>
+                    <div class="detailsForm animate__animated animate__fadeInUp">
+                        <div class="detailFormHead mb-4">
+                            <h2>Additional Information</h2>
+                        </div>
+                        <form class="confirmation-form ">
+                            <div class="form-group mb-3">
+                                <label for="business-name">Business Name</label>
+                                <input type="text" id="business-name" class="form-control" placeholder="Enter your business name">
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="email">Contact Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter your contact email">
+                            </div>
+                        </form>
+                        <div class="d-flex justify-content-between mt-5 ">
+                            <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal" onclick="goToStep(3)">
+                                <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back
+                            </button>
+                            <button class="btn btn-submit btn-step hvr-icon-push" onclick="submitForm()">
+                                Submit <i class="fa-solid fa-check ms-2 hvr-icon"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -882,11 +960,31 @@ require_once 'db/dbCon.php';
 
             unselectedServices.forEach(service => {
                 const listItem = document.createElement("li");
+                listItem.classList.add("list-inline-item");
                 const inactiveButton = document.createElement("button");
                 inactiveButton.classList.add("btn");
-                listItem.classList.add("list-inline-item");
+
+                const addIcon = document.createElement("i");
+                addIcon.classList.add("fa", "fa-plus");
+
+                inactiveButton.appendChild(addIcon);
+
+                inactiveButton.appendChild(document.createTextNode(` ${service.name}`));
+
+                inactiveButton.addEventListener("click", function() {
+                    // Add the service to selectedServices
+                    selectedServices.push({
+                        service: service.name,
+                        price: service.price,
+                        hours: 1 // Default hours for a newly added service
+                    });
+
+                    // Re-render the summary and unselected services
+                    renderSummary();
+                    renderUnselectedServices();
+                });
+
                 listItem.appendChild(inactiveButton);
-                inactiveButton.textContent = `${service.name}`;
                 unselectedList.appendChild(listItem);
             });
         }
@@ -927,7 +1025,7 @@ require_once 'db/dbCon.php';
         });
 
         function goToStep(step) {
-            const totalSteps = 3; // Total steps including Step 0 (future)
+            const totalSteps = 4; // Total steps including Step 0 (future)
             const progressBar = document.getElementById('progress-bar');
             const minWidth = 30; // Initial width for Step 1
             // Validation logic for Step 1
@@ -965,6 +1063,7 @@ require_once 'db/dbCon.php';
                     });
                     return; // Stop execution, do not proceed to next step
                 }
+                renderSummary();
                 renderUnselectedServices();
             }
 
@@ -979,7 +1078,6 @@ require_once 'db/dbCon.php';
             // Update the progress bar width
             progressBar.style.width = `${progressPercentage}%`;
             progressBar.setAttribute('aria-valuenow', progressPercentage);
-            // progressBar.textContent = `Step ${step}`;
 
             $(document).ready(function() {
                 document.querySelectorAll('.btn-select').forEach(button => {
@@ -1070,9 +1168,9 @@ require_once 'db/dbCon.php';
                 <td>${service.service}</td>
                 <td>$${service.price}</td>
                 <td>
-                    <input type="number" class="form-control summary-hours-input" data-service="${service.service}" value="${service.hours}" min="0">
+                    <input type="number" class="form-control summary-hours-input" data-service="${service.service}" value="${service.hours}" min="1">
                 </td>
-                <td>$${(service.price * service.hours).toFixed(2)}</td>
+                <td class="service-total" data-service="${service.service}">$${(service.price * service.hours).toFixed(2)}</td>
                 <td>
                     <button class="btn btn-sm delete-row" data-service="${service.service}">
                         <i class="fa fa-xmark text-light"></i>
@@ -1082,19 +1180,21 @@ require_once 'db/dbCon.php';
             </tr>
         `)
                 .join('');
-
-            // Update total hours and cost
             updateTotal();
 
             // Add event listeners for dynamic input changes
             document.querySelectorAll('.summary-hours-input').forEach(input => {
                 input.addEventListener('input', function() {
-                    const service = this.getAttribute('data-service');
+                    const serviceName = this.getAttribute('data-service');
                     const newHours = Math.max(0, parseInt(this.value) || 0); // Handle invalid input
-                    const index = selectedServices.findIndex(s => s.service === service);
+                    const index = selectedServices.findIndex(s => s.service === serviceName);
 
                     if (index !== -1) {
                         selectedServices[index].hours = newHours;
+
+                        const rowTotal = document.querySelector(`.service-total[data-service="${serviceName}"]`);
+                        rowTotal.textContent = `$${(selectedServices[index].price * newHours).toFixed(2)}`;
+
                         updateTotal();
                     }
                 });
@@ -1121,7 +1221,7 @@ require_once 'db/dbCon.php';
                     // Find the service in the selectedServices array
                     const index = selectedServices.findIndex(s => s.service === serviceName);
                     if (index !== -1) {
-                        selectedServices.splice(index, 1); // Remove the service
+                        selectedServices.splice(index, 1);
                         const bagItems = document.querySelectorAll('#bag-items .bag-item');
                         bagItems.forEach(item => {
                             if (item.getAttribute('data-service') === serviceName) {
@@ -1145,16 +1245,11 @@ require_once 'db/dbCon.php';
                     }
 
                     renderSummary();
+                    renderUnselectedServices();
 
                 }
             });
 
-            // const index = selectedServices.findIndex(s => s.service === serviceName);
-            // if (index !== -1) {
-            //     selectedServices.splice(index, 1); // Remove the service
-            // }
-
-            // renderSummary();
         }
 
         function updateTotal() {
@@ -1173,10 +1268,68 @@ require_once 'db/dbCon.php';
                 event.preventDefault(); // Prevent the default anchor behavior
                 const selectedText = this.textContent; // Get the text of the clicked item
                 dropdownButton.textContent = selectedText; // Update the button text
-                // dropdownButton.style.color = '#fff';
-                // dropdownButton.style.borderBottom = '1px solid #fff';
+
             });
         });
+
+        function submitForm() {
+            const businessName = document.getElementById('business-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for email validation
+
+
+
+            // Validate required fields
+            if (!businessName || !email) {
+                Swal.fire({
+                    title: "Required!",
+                    text: "Please fill out the required fields.",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+                });
+                return;
+            }
+                        // Validate email format
+            if (!emailPattern.test(email)) {
+                Swal.fire({
+                    title: "Invalid Email!",
+                    text: "Please enter a valid email address.",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+                });
+                return;
+            }
+
+            // Confirmation before submission
+            Swal.fire({
+                title: "Confirmation",
+                text: "Are you sure that all the information is correct? You can go back to previous steps to make changes if needed.",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                cancelButtonText: "Cancel",
+                confirmButtonText: "Yes, Submit",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If confirmed, display success message
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Your details have been submitted. We will contact you shortly!",
+                        icon: "success",
+                        confirmButtonColor: "#3085d6",
+                    });
+                } else {
+                    // If canceled, do nothing
+                    Swal.fire({
+                        title: "Cancelled",
+                        text: "Submission cancelled. You can make changes before submitting.",
+                        icon: "info",
+                        confirmButtonColor: "#3085d6",
+                    });
+                }
+            });
+        }
     </script>
 
     <script>
@@ -1186,10 +1339,10 @@ require_once 'db/dbCon.php';
             loop: true,
             centeredSlides: true,
             initialSlide: 1,
-            // autoplay: {
-            //     delay: 4000,
-            //     disableOnInteraction: true,
-            // },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: true,
+            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
