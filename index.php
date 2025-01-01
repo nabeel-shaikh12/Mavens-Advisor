@@ -90,8 +90,8 @@
                                 <p class="has_fade_anim">Let us transform your vision into an unforgettable brand experience. Explore creativity with us!</p>
                             </div>
                             <div class="nb__hero-button">
-                                <a href="index.html">
-                                    View Details
+                                <a href="./subscribe">
+                                    Subscribe Now
                                     <span class="nb__hero-btn-icon">
                                         <svg width="49" height="24" viewBox="0 0 49 24" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
