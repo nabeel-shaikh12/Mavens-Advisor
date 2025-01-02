@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "mavens_advisor";
+$dbname = "mavens advisor";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
