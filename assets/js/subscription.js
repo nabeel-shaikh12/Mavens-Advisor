@@ -19,7 +19,6 @@ const services = [{
         price: 400
     },
 ];
-
 let selectedServices = [];
 
 function renderServices() {
@@ -30,6 +29,7 @@ function renderServices() {
         // Create button element for each service
         const serviceButton = document.createElement("button");
         serviceButton.classList.add("service-box", "hvr-underline-reveal");
+        serviceButton.setAttribute("type", "button");
         serviceButton.setAttribute("data-service", service.name);
         serviceButton.setAttribute("data-price", service.price);
         serviceButton.textContent = service.name;
@@ -130,7 +130,6 @@ function renderServices() {
         });
     });
 }
-
 function renderUnselectedServices() {
     const unselectedServices = services.filter(service =>
         !selectedServices.some(selected => selected.service === service.name)
@@ -169,7 +168,6 @@ function renderUnselectedServices() {
         unselectedList.appendChild(listItem);
     });
 }
-
 // Remove item from bag with animation and restore service button
 document.getElementById("bag-items").addEventListener("click", function(event) {
     if (event.target.classList.contains("bag-item")) {
@@ -199,12 +197,10 @@ document.getElementById("bag-items").addEventListener("click", function(event) {
         });
     }
 });
-
 // Call renderServices on page load
 document.addEventListener("DOMContentLoaded", () => {
     renderServices();
 });
-
 function goToStep(step, previousStep = null) {
     const totalSteps = 4; // Total steps including Step 0 (future)
     const progressBar = document.getElementById('progress-bar');
@@ -239,8 +235,6 @@ function goToStep(step, previousStep = null) {
             return; 
         }
     }
-
-
     // Validation logic for Step 2
     if (step === 3) {
         const businessSize = document.querySelector('.business-card.active');
@@ -265,19 +259,15 @@ function goToStep(step, previousStep = null) {
         renderSummary();
         renderUnselectedServices();
     }
-
     document.querySelectorAll('.step-container').forEach(container => {
         container.classList.remove('active');
     });
     document.getElementById(`step-${step}`).classList.add('active');
-
     // Calculate the progress bar width
     let progressPercentage = minWidth + ((step - 1) / (totalSteps - 1)) * (100 - minWidth);
-
     // Update the progress bar width
     progressBar.style.width = `${progressPercentage}%`;
     progressBar.setAttribute('aria-valuenow', progressPercentage);
-
     $(document).ready(function() {
         document.querySelectorAll('.btn-select').forEach(button => {
             button.addEventListener('click', function() {
@@ -304,43 +294,26 @@ function goToStep(step, previousStep = null) {
         });
     });
 
-
-
     if (step == 2) {
-        // Get all the `selected-services` elements in all slides
         const servicesElements = document.querySelectorAll('.selected-services');
-
-        // Loop through each `selected-services` element
         servicesElements.forEach(servicesElement => {
-            // Clear any existing content to avoid duplication
             servicesElement.innerHTML = '<h5>Selected Services:</h5>';
-
-            // Create a new list element
             const servicesList = document.createElement('ul');
-
-            // Loop through the `selectedServices` array and populate the list
             selectedServices.forEach(service => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<i class="fa fa-check" aria-hidden="true"></i> ${service.service}`;
                 servicesList.appendChild(listItem);
             });
-
-            // Append the populated list to the current `selected-services` element
             servicesElement.appendChild(servicesList);
         });
     }
-
-
     if (step === 3) {
         // Get selected business size hours
         const businessSize = document.querySelector('.business-card.active');
         const hours = businessSize ? parseInt(businessSize.getAttribute('data-value')) : 0;
-
-        // Update hours for all selected services
         selectedServices.forEach(service => {
             service.hours = hours;
         });
-        // Render summary
         renderSummary(hours);
     }
 }
@@ -358,9 +331,9 @@ function renderSummary() {
         <td>
             <input type="number" class="form-control summary-hours-input" data-service="${service.service}" value="${service.hours}" min="1"  oninput="validateInput(this)">
         </td>
-        <td class="service-total" data-service="${service.service}">$${(service.price * service.hours).toFixed(2)}</td>
+        <td class="service-total" data-service="${service.service}">$${(service.price * service.hours).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</td>
         <td>
-            <button class="btn btn-sm delete-row" data-service="${service.service}">
+            <button type="button" class="btn btn-sm delete-row" data-service="${service.service}">
                 <i class="fa fa-xmark text-light"></i>
             </button>
         </td>
@@ -369,7 +342,6 @@ function renderSummary() {
 `)
         .join('');
     updateTotal();
-
     // Add event listeners for dynamic input changes
     document.querySelectorAll('.summary-hours-input').forEach(input => {
         input.addEventListener('input', function() {
@@ -381,7 +353,7 @@ function renderSummary() {
                 selectedServices[index].hours = newHours;
 
                 const rowTotal = document.querySelector(`.service-total[data-service="${serviceName}"]`);
-                rowTotal.textContent = `$${(selectedServices[index].price * newHours).toFixed(2)}`;
+                rowTotal.textContent = `$${(selectedServices[index].price * newHours).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
                 updateTotal();
             }
@@ -394,7 +366,6 @@ function renderSummary() {
         });
     });
 }
-
 function deleteServiceRow(serviceName) {
     Swal.fire({
         title: "Are you sure?",
@@ -444,7 +415,7 @@ function updateTotal() {
     const totalHours = selectedServices.reduce((sum, service) => sum + service.hours, 0);
     const totalCost = selectedServices.reduce((sum, service) => sum + service.price * service.hours, 0);
     document.getElementById('total-hours').innerText = totalHours;
-    document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+    document.getElementById('total-cost').innerText = totalCost.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 const dropdownButton = document.getElementById('dropdownMenuButton');
@@ -460,13 +431,11 @@ dropdownItems.forEach(item => {
     });
 });
 
-function submitForm() {
+function submitForm(event) {
+    event.preventDefault();
     const businessName = document.getElementById('business-name').value.trim();
     const email = document.getElementById('email').value.trim();
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Regex for email validation
-
-
-
     // Validate required fields
     if (!businessName || !email) {
         Swal.fire({

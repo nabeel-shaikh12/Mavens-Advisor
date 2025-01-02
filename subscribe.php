@@ -37,7 +37,7 @@ require_once 'db/dbCon.php';
         </div>
         <div class="bg-cover">
             <div class="container">
-                <form class="py-3">
+                <form class="py-3" onsubmit="submitForm(event)">
                     <div id="step-1" class="step-container active">
                         <h1 class="text-center my-5 animate__animated animate__fadeInUp description">Select Services</h1>
                         <!-- <p class="animate__animated animate__fadeInUp">At VirSME, we understand every business has unique needs. Select one or multiple services from our comprehensive offerings to get started. Whether it's Accounting & Finance, IT Support, or Content Creation, our services are designed to elevate your business to the next level. </p> -->
@@ -48,7 +48,7 @@ require_once 'db/dbCon.php';
                             <ul id="bag-items" class="list-unstyled"></ul>
                         </div>
                         <div class="d-flex animate__animated animate__fadeInUp animate__delay-1s">
-                            <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal m-auto mt-4" onclick="goToStep(2, 1)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                            <button type="button" class="btn btn-primary btn-step hvr-icon-wobble-horizontal m-auto mt-4" onclick="goToStep(2, 1)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                         </div>
                     </div>
                     <!-- Step 2 -->
@@ -120,8 +120,8 @@ require_once 'db/dbCon.php';
                             </ul>
                         </div>
                         <div class="d-flex my-5 justify-content-between mt-2 animate__animated animate__fadeInUp animate__delay-2s">
-                            <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1, 2)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
-                            <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3, 2)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                            <button type="button" class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(1, 2)"><i class="fa-solid fa-arrow-left-long  hvr-icon me-2"></i> Back</button>
+                            <button type="button" class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(3, 2)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                         </div>
                     </div>
 
@@ -153,8 +153,8 @@ require_once 'db/dbCon.php';
                             </ul>
                         </div>
                         <div class="d-flex justify-content-between mt-5 animate__animated animate__fadeInUp animate__delay-1s">
-                            <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2, 3)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>
-                            <button class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(4, 3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
+                            <button type="button" class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2, 3)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>
+                            <button type="button" class="btn btn-primary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(4, 3)">Next <i class="fa-solid fa-arrow-right-long ms-2 hvr-icon"></i></button>
                         </div>
                     </div>
 
@@ -175,17 +175,17 @@ require_once 'db/dbCon.php';
                                 <input type="email" id="email" class="form-control" placeholder="Enter your contact email">
                             </div>
                             <div class="d-flex justify-content-between mt-5 ">
-                                <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal" onclick="goToStep(3, 4)">
+                                <button type="button" class="btn btn-secondary btn-step hvr-icon-wobble-horizontal" onclick="goToStep(3, 4)">
                                     <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back
                                 </button>
-                                <button class="btn btn-submit btn-step hvr-icon-push" onclick="submitForm()">
+                                <button type="submit" class="btn btn-submit btn-step hvr-icon-push" >
                                     Submit <i class="fa-solid fa-check ms-2 hvr-icon"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
         </div>
 
     </div>

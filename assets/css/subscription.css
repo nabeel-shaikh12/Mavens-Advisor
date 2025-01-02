@@ -606,3 +606,7 @@ body {
         width: 95%;
     }
 }
+
+.detailsForm input{
+    color: unset !important;
+}
