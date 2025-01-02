@@ -657,7 +657,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-6 col-xl-6 col-xxl-6 col-md-12 col-sm-12 align-items-center justify-content-end d-flex has_text_move_anim">
-                                    <a href="services.php"> <button class="btn btn=primary theme-btn">See More <i class="fa fa-arrow-right ms-1"></i></button></a>
+                                    <a href="services.php"> <button style="padding: 20px;border-radius: 30px" class="btn btn=primary theme-btn">See More <i class="fa fa-arrow-right ms-1"></i></button></a>
                                 </div>
                             </div>
                         </div>
