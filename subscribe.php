@@ -130,11 +130,7 @@ require_once 'db/dbCon.php';
                 <!-- Step 3 -->
                 <div id="step-3" class="step-container">
                     <h1 class="text-center my-5 animate__animated animate__fadeInUp">Summary</h1>
-                    <div class="inactive animate__animated animate__fadeInUp">
-                        <h5 class="mb-2">More Services: </h5>
-                        <ul class="list-inline horizontal-scroll" id="unselected-services">
-                        </ul>
-                    </div>
+
                     <div class="table-container  animate__animated animate__fadeInUp">
                         <table class="styled-table">
                             <thead>
@@ -152,6 +148,11 @@ require_once 'db/dbCon.php';
                     <div class="totals-container animate__animated animate__fadeInUp animate__delay-1s">
                         <p><strong>Total Hours:</strong> <span id="total-hours"></span></p>
                         <p><strong>Total Cost:</strong> $<span id="total-cost"></span></p>
+                    </div>
+                    <div class="my-4 inactive animate__animated animate__fadeInUp animate__delay-1s">
+                        <h5 class="mb-2">More Services: </h5>
+                        <ul class="list-inline horizontal-scroll" id="unselected-services">
+                        </ul>
                     </div>
                     <div class="d-flex justify-content-between mt-5 animate__animated animate__fadeInUp animate__delay-1s">
                         <button class="btn btn-secondary btn-step hvr-icon-wobble-horizontal  " onclick="goToStep(2, 3)"> <i class="fa-solid fa-arrow-left-long me-2 hvr-icon"></i> Back</button>

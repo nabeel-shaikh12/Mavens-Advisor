@@ -221,6 +221,18 @@ function goToStep(step, previousStep = null) {
             return; // Stop execution, do not proceed to next step
         }
     }
+    if (step === 4 && previousStep === 3) {
+        if (selectedServices.length === 0) {
+            Swal.fire({
+                title: "Required!",
+                text: "Select at least one service to move forward",
+                icon: "error",
+                confirmButtonColor: "#3085d6"
+            });
+            return; // Stop execution, do not proceed to next step
+        }
+    }
+
     if (step === 2 && previousStep === 3) {
         if (selectedServices.length === 0) {
             goToStep(1);
